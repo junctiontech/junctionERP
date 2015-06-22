@@ -13,7 +13,7 @@
 					<!-- logo -->
 					<div class="logo">
 						<a href="javascript:;" class="logo-expanded">
-							<img src="<?php echo base_url(); ?>assets/images/logo@2x.png" width="80" alt="" />
+							<img src="<?php echo base_url(); ?>assets/images/logo@2x.png" width="200" alt="" />
 						</a>
 						
 						<a href="javascript:;" class="logo-collapsed">
@@ -105,7 +105,7 @@
 							</li>
 							
 							<li class="last">
-								<a href="extra-lockscreen.html">
+								<a href="<?php echo base_url(); ?>home/">
 									<i class="fa-lock"></i>
 									Logout
 								</a>
