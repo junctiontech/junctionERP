@@ -60,7 +60,30 @@ class Home extends CI_Controller {
 		$this->load->view('manage_departments',$this->data);//login page view
 		$this->parser->parse('include/footer',$this->data);
 	}
-
+	//manage Employee
+	public function manage_emp()
+	{
+		$this->parser->parse('include/header',$this->data);
+		$this->parser->parse('include/left_menu',$this->data);
+		$this->load->view('manage_departments',$this->data);//login page view
+		$this->parser->parse('include/footer',$this->data);
+	}
+	//Add employee
+	public function manage_emp()
+	{
+		$this->parser->parse('include/header',$this->data);
+		$this->parser->parse('include/left_menu',$this->data);
+		$this->load->view('add_departments',$this->data);//login page view
+		$this->parser->parse('include/footer',$this->data);
+	}
+	//Add employee
+	public function emp_award()
+	{
+		$this->parser->parse('include/header',$this->data);
+		$this->parser->parse('include/left_menu',$this->data);
+		$this->load->view('emp_award',$this->data);//login page view
+		$this->parser->parse('include/footer',$this->data);
+	}
 }
 
 /* End of file welcome.php */

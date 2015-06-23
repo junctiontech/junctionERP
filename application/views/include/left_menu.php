@@ -50,12 +50,18 @@
 					</li>
 					<li>
 						<a href="<?php echo base_url(); ?>home/manage_departments">
-							<i class="linecons-cog"></i>
+							<i class="linecons-database"></i>
 							<span class="title">Departments</span>
 						</a>
 				
 					</li>
-		
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_emp">
+							<i class="linecons-user"></i>
+							<span class="title">Employee</span>
+						</a>
+				
+					</li>
 				</ul>
 		</div>
 	</div>
