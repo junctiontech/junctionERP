@@ -4,8 +4,11 @@
  *
 */
 
-body {	
+
+* {
+  .border-radius(0) !important;
 }
 
-a {
+#field {
+    margin-bottom:20px;
 }

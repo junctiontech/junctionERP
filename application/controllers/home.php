@@ -18,6 +18,13 @@ class Home extends CI_Controller {
 	public function index()
 	{   
 		$this->parser->parse('include/header',$this->data);
+		$this->load->view('signup',$this->data);//login page view
+		$this->parser->parse('include/footer',$this->data);
+	}
+	//signup
+	public function login()
+	{
+		$this->parser->parse('include/header',$this->data);
 		$this->load->view('login',$this->data);//login page view
 		$this->parser->parse('include/footer',$this->data);
 	}

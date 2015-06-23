@@ -32,7 +32,10 @@
 	<![endif]-->
 		<!-- Imported styles for select2 -->
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/js/select2/select2.css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/js/select2/select2-bootstrap.css">
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/js/select2/select2-bootstrap.css">
+		
+		<!-- Imported styles on this page -->
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/js/datatables/dataTables.bootstrap.css">
 </head>
 <!-- head closed -->
 

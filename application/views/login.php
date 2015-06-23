@@ -122,7 +122,7 @@
 					
 					<div class="login-header">
 					
-							<img src="<?php echo base_url(); ?>assets/images/logo-white-bg@2x.png" alt="" width="80" />
+							<img src="<?php echo base_url(); ?>assets/images/logo-white-bg@2x.png" alt="" width="100" />
 				
 						
 						<p>Dear user, log in to access the admin area!</p>
@@ -148,7 +148,7 @@
 					
 					<div class="login-footer">
 						<a href="#">Forgot your password?</a>
-						
+						<br>New User ? <a href="<?php echo base_url(); ?>home"> Sign Up</a>
 					
 						
 					</div>

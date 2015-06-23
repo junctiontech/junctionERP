@@ -42,7 +42,7 @@
 								<form role="form" class="form-horizontal">
 									
 								<div class="form-group">
-									<label class="control-label">Select your organization</label>
+									<label class="control-label col-sm-2">Select your organization</label>
 									
 									<script type="text/javascript">
 										jQuery(document).ready(function($)
@@ -58,14 +58,15 @@
 											
 										});
 									</script>
-									
-									<select class="form-control" id="s2example-1">
+									<div class="col-sm-10">
+									<select class="form-control " id="s2example-1">
 										<option></option>
 										<optgroup label="Organizations">
 											<option>Junction</option>
 											<option>Tech</option>
 										</optgroup>
 									</select>
+									</div>
 								</div>
 									<div class="form-group">
 										<label class="col-sm-2 control-label" for="field-1">Department Name</label>
@@ -74,11 +75,16 @@
 											<input type="text" class="form-control" id="field-1" placeholder="Department Name">
 										</div>
 									</div>
-										<div class="form-group">
-										<label class="col-sm-2 control-label" for="field-1">Designation Name</label>
-										
-										<div class="col-sm-10">
-											<input type="text" class="form-control" id="field-1" placeholder="Designation Name">
+										<div class="form-group" id="fields">
+									          <label class="control-label col-sm-2" for="field1">Designation</label>
+									            <div class="col-sm-8" id="profs"> 
+									                <form class="input-append">
+									                    <div id="field" ><input autocomplete="off" class="input  form-control" id="field1" name="prof1" type="text" placeholder="Type Designtion" data-items="8"/><button id="b1" class="btn add-more" type="button">+</button></div>
+									                </form>
+									            <br>
+									            <small>Press + to add another Designation :)</small>
+									            </div>
+									        
 										</div>
 									</div>
 									<div class="form-group-separator"></div>

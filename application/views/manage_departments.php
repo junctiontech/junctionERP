@@ -50,37 +50,62 @@
 						});
 					});
 					</script>
-					
-					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
-						<thead>
-							<tr>
-								<th>Organization Name </th>
-								<th>Organization Name </th>
-								<th>Action</th>
-							</tr>
-						</thead>
-					
-						<tfoot>
-							<tr>
-								<th>Organization Name</th>
-								<th>Action</th>
-								
-							</tr>
-						</tfoot>
-					
-						<tbody>
-							<tr>
-								<td>Junction Tech</td>
-								<td>
-									<a href="<?php echo base_url(); ?>home/add_organization" class="btn btn-secondary btn-sm btn-icon icon-left">
+					<div class="row">
+								<div class="col-sm-12">
+									
+																
+									<ul class="list-unstyled line-height-default">
+										<li>
+											<b>Organization -</b>
+											<span >Junction </span>
+										</li>
+										<li>
+											<b>Department-</b>
+											<span >HR</span>
+										</li>
+									
+									</ul>
+									<td>
+									<a href="<?php echo base_url(); ?>home/add_departments" class="btn btn-secondary btn-sm btn-icon icon-left">
 											Edit
 									</a>
 									<a href="javascript:;" class="btn btn-danger btn-sm btn-icon icon-left">
 											Delete
 									</a>
 								</td>
-							</tr>
+								</div>
+							
+								
+							</div>
 					
+					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+						<thead>
+							<tr>
+								<th>S.no</th>
+								<th>Designation</th>
+								
+							</tr>
+						</thead>
+					
+						<tfoot>
+							<tr>
+								<th>S.no</th>
+								<th>Designation</th>
+								
+							</tr>
+						</tfoot>
+					
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>Human Resources</td>
+								
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Accounts</td>
+								
+							</tr>
 						
 					
 						</tbody>
