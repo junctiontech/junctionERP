@@ -165,7 +165,7 @@
 					</div>
 					<div class="login-footer">
 						<a href="#">Forgot your password?</a>
-						<br>Already User ? <a href="<?php echo base_url(); ?>home/login"> Login</a>
+						<br>Already User ? <a href="<?php echo base_url(); ?>login/login_view"> Login</a>
 					
 						
 					</div>
