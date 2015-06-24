@@ -113,12 +113,29 @@
 				
 				<!-- Errors container -->
 				<div class="errors-container">
-				
+				<?php  if($this->session->flashdata('category_error')) { ?>
+								<div class="row-fluid">
+									<div class="alert alert-danger">
+																
+									<strong><?=$this->session->flashdata('message')?></strong> 
+									
+								
+									
+									</div>
+									</div>
+<?php }?>
+				<?php  if($this->session->flashdata('category_success')) { ?>
+								<div class="row-fluid">
+									<div class="alert alert-success">
+										<strong><?=$this->session->flashdata('message')?></strong> 
+									</div>
+								</div>
+<?php } ?>
 									
 				</div>
 				
 				<!-- Add class "fade-in-effect" for login form effect -->
-				<form method="post" role="form" id="login" class="login-form fade-in-effect">
+				<form method="post" role="form"  class="login-form fade-in-effect" action="<?=base_url();?>login/login_user">
 					
 					<div class="login-header">
 					
@@ -130,13 +147,13 @@
 	
 					
 					<div class="form-group">
-						<label class="control-label" for="username">Username</label>
-						<input type="text" class="form-control" name="username" id="username" autocomplete="off" />
+						<label class="control-label" for="username">User mailid</label>
+						<input type="text" class="form-control" name="usermailid" id="username" autocomplete="off" />
 					</div>
 					
 					<div class="form-group">
 						<label class="control-label" for="passwd">Password</label>
-						<input type="password" class="form-control" name="passwd" id="passwd" autocomplete="off" />
+						<input type="password" class="form-control" name="password" id="passwd" autocomplete="off" />
 					</div>
 					
 					<div class="form-group">

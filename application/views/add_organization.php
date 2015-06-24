@@ -37,15 +37,22 @@
 							<h3 class="panel-title">Manage Organization</h3>
 								
 						</div>
-							<div class="panel-body">
-								
-								<form role="form" class="form-horizontal">
+						<?php if(empty($select_organization)){?>
+						<div class="panel-body">
+							<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>home/insert_organization">
 									
 									<div class="form-group">
 										<label class="col-sm-2 control-label" for="field-1">Organization Name</label>
 										
 										<div class="col-sm-10">
-											<input type="text" class="form-control" id="field-1" placeholder="Organization Name">
+											<input type="text" class="form-control" name="orgnization_name" id="field-1" placeholder="Organization Name"  >
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="field-1">Organization Description</label>
+										
+										<div class="col-sm-10">
+											<textarea class="form-control" name="orgnization_desc" /></textarea>
 										</div>
 									</div>
 									<div class="form-group-separator"></div>
@@ -56,6 +63,36 @@
 								</form>
 								
 							</div>
+						
+						<?php } if(!empty($select_organization)){?>
+							<div class="panel-body">
+							
+							<?php  foreach($select_organization as $list ){ ?>
+								<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>home/update_organization/<?=$list->orgnization_id?>">
+									
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="field-1">Organization Name</label>
+										
+										<div class="col-sm-10">
+											<input type="text" class="form-control" name="orgnization_name" id="field-1" placeholder="Organization Name" value="<?=(!empty($list->orgnization_name))?$list->orgnization_name:"";?>" >
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="field-1">Organization Description</label>
+										
+										<div class="col-sm-10">
+											<textarea class="form-control" name="orgnization_desc" /><?=(!empty($list->orgnization_desc))?$list->orgnization_desc:"";?></textarea>
+										</div>
+									</div>
+									<div class="form-group-separator"></div>
+									<div class="form-group">
+										<button type="submit" class="btn btn-success">Submit</button>
+										<button type="reset" class="btn btn-white" onClick="window.history.back();">Cancel</button>
+									</div>
+								</form>
+								<?php } ?>
+							</div>
+							<?php } ?>
 					</div>
 					
 				</div>

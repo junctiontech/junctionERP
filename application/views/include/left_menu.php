@@ -1,3 +1,4 @@
+<?php $userdata = $this->session->userdata('user_data');?>
 <body class="page-body ">	
 <div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
 			
@@ -90,7 +91,7 @@
 						<a href="javascript:;" data-toggle="dropdown">
 							<img src="<?php echo base_url(); ?>assets/images/user-4.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" />
 							<span>
-								Arlind Nushi
+								<?=$userdata['user_name']?>
 								<i class="fa-angle-down"></i>
 							</span>
 						</a>
@@ -111,7 +112,7 @@
 							</li>
 							
 							<li class="last">
-								<a href="<?php echo base_url(); ?>home/">
+								<a href="<?php echo base_url(); ?>login/login_view">
 									<i class="fa-lock"></i>
 									Logout
 								</a>

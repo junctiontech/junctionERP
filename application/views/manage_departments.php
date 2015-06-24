@@ -59,10 +59,7 @@
 											<b>Organization -</b>
 											<span >Junction </span>
 										</li>
-										<li>
-											<b>Department-</b>
-											<span >HR</span>
-										</li>
+										
 									
 									</ul>
 									<td>
@@ -82,7 +79,7 @@
 						<thead>
 							<tr>
 								<th>S.no</th>
-								<th>Designation</th>
+								<th>Departments</th>
 								
 							</tr>
 						</thead>
@@ -90,7 +87,7 @@
 						<tfoot>
 							<tr>
 								<th>S.no</th>
-								<th>Designation</th>
+								<th>Departments</th>
 								
 							</tr>
 						</tfoot>
@@ -98,7 +95,7 @@
 						<tbody>
 							<tr>
 								<td>1</td>
-								<td>Human Resources</td>
+								<td>WEB</td>
 								
 							</tr>
 							<tr>

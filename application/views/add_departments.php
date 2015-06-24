@@ -39,9 +39,8 @@
 						</div>
 							<div class="panel-body">
 								
-								<form role="form" class="form-horizontal">
-									
-								<div class="form-group">
+								<form role="form" class="form-horizontal" method="post" action="">
+									<div class="form-group">
 									<label class="control-label col-sm-2">Select your organization</label>
 									
 									<script type="text/javascript">
@@ -59,46 +58,39 @@
 										});
 									</script>
 									<div class="col-sm-10">
-									<select class="form-control " id="s2example-1">
+									<select class="form-control " id="" name="orgnization_name">
 										<option></option>
 										<optgroup label="Organizations">
-											<option>Junction</option>
-											<option>Tech</option>
+										<?php foreach($list_organization as $list){?>
+											<option value="<?php echo $list->orgnization_id?>"><?php echo $list->orgnization_name; ?></option>
+										<?php } ?>
 										</optgroup>
 									</select>
 									</div>
 								</div>
-									<div class="form-group">
-										<label class="col-sm-2 control-label" for="field-1">Department Name</label>
-										
-										<div class="col-sm-10">
-											<input type="text" class="form-control" id="field-1" placeholder="Department Name">
-										</div>
-									</div>
-										<div class="form-group" id="fields">
-									          <label class="control-label col-sm-2" for="field1">Designation</label>
+									<div class="form-group" id="fields">
+									          <label class="control-label col-sm-2" for="department">Department</label>
 									            <div class="col-sm-8" id="profs"> 
-									                <form class="input-append">
-									                    <div id="field" ><input autocomplete="off" class="input  form-control" id="field1" name="prof1" type="text" placeholder="Type Designtion" data-items="8"/><button id="b1" class="btn add-more" type="button">+</button></div>
-									                </form>
+									           <div id="department" ><input autocomplete="off" class="input  form-control" id="field1" name="department_name[]" type="text" placeholder="Type Department" data-items="8"/><button id="b1" class="btn add-more" type="button">+</button></div>
+									               
 									            <br>
-									            <small>Press + to add another Designation :)</small>
+									            <small>Press + to add another Department :)</small>
 									            </div>
 									        
-										</div>
 									</div>
-									<div class="form-group-separator"></div>
-									<div class="form-group">
+									<div class="form-group" >
 										<button type="submit" class="btn btn-success">Submit</button>
 										<button type="reset" class="btn btn-white" onClick="window.history.back();">Cancel</button>
 									</div>
+									
 								</form>
 								
-							</div>
+							</div>	<!--panel close -->	
+						</div>
 					</div>
 					
 				</div>
-			</div>
+			
 			<!-- body container ends starts -->
 		</div><!-- main content div end -->
 	</div><!-- page container div end -->

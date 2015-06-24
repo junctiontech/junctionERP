@@ -22,11 +22,17 @@
 								</ol>
 								
 				</div>
-					
+				
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
-					
+					<?php  if($this->session->flashdata('category_success')) { ?>
+								<div class="row-fluid">
+									<div class="alert alert-success">
+										<strong><?=$this->session->flashdata('message')?></strong> 
+									</div>
+								</div>
+<?php } ?>
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title">Manage Organization</h3>
@@ -38,6 +44,7 @@
 								
 								</div>	
 						</div>
+						
 							<div class="panel-body">
 								
 							<script type="text/javascript">
@@ -66,12 +73,12 @@
 								
 							</tr>
 						</tfoot>
-					
+					<?php foreach($list_organization as $list){ ?>
 						<tbody>
 							<tr>
-								<td>Junction Tech</td>
+								<td><?php echo $list->orgnization_name;?></td>
 								<td>
-									<a href="<?php echo base_url(); ?>home/add_organization" class="btn btn-secondary btn-sm btn-icon icon-left">
+									<a href="<?php echo base_url(); ?>home/add_organization/<?=$list->orgnization_id; ?>" class="btn btn-secondary btn-sm btn-icon icon-left">
 											Edit
 									</a>
 									<a href="javascript:;" class="btn btn-danger btn-sm btn-icon icon-left">
@@ -79,7 +86,7 @@
 									</a>
 								</td>
 							</tr>
-					
+					<?php } ?>
 						
 					
 						</tbody>
