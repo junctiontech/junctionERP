@@ -18,14 +18,14 @@ class Home extends CI_Controller {
 	public function index()
 	{   
 		$this->parser->parse('include/header',$this->data);
-		$this->load->view('signup',$this->data);//login page view
+		$this->load->view('signup',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 	}
 	//signup
 	public function login()
 	{
 		$this->parser->parse('include/header',$this->data);
-		$this->load->view('login',$this->data);//login page view
+		$this->load->view('login',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 	}
 	//add organization 
@@ -33,7 +33,7 @@ class Home extends CI_Controller {
 	{   
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
-		$this->load->view('add_organization',$this->data);//login page view
+		$this->load->view('add_organization',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 	}
 	//manage organization
@@ -41,7 +41,7 @@ class Home extends CI_Controller {
 	{   
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
-		$this->load->view('manage_organization',$this->data);//login page view
+		$this->load->view('manage_organization',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 	}
 		//add departments
@@ -49,7 +49,7 @@ class Home extends CI_Controller {
 	{   
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
-		$this->load->view('add_departments',$this->data);//login page view
+		$this->load->view('add_departments',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 	}
 	//manage departments
@@ -57,7 +57,7 @@ class Home extends CI_Controller {
 	{   
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
-		$this->load->view('manage_departments',$this->data);//login page view
+		$this->load->view('manage_departments',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 	}
 	//manage Employee
@@ -65,23 +65,23 @@ class Home extends CI_Controller {
 	{
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
-		$this->load->view('manage_departments',$this->data);//login page view
+		$this->load->view('manage_emp',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 	}
 	//Add employee
-	public function manage_emp()
+	public function add_emp()
 	{
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
-		$this->load->view('add_departments',$this->data);//login page view
+		$this->load->view('add_emp',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 	}
-	//Add employee
+	//employee award
 	public function emp_award()
 	{
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
-		$this->load->view('emp_award',$this->data);//login page view
+		$this->load->view('emp_award',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 	}
 }

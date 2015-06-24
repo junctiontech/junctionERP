@@ -118,7 +118,7 @@
 				</div>
 				
 				<!-- Add class "fade-in-effect" for login form effect -->
-				<form method="post" role="form" id="login" class="login-form fade-in-effect">
+				<form method="post" role="form"  class="login-form fade-in-effect">
 					
 					<div class="login-header">
 					
@@ -139,8 +139,8 @@
 						<input type="password" class="form-control" name="passwd" id="passwd" autocomplete="off" />
 					</div>
 						<div class="form-group">
-						<label class="control-label" for="passwd">Re-enter Password</label>
-						<input type="password" class="form-control" name="passwd1" id="passwd1" autocomplete="off" />
+						<label class="control-label" for="password-2">Re-enter Password</label>
+						<input type="password" class="form-control" name="password-2" id="password-2" autocomplete="off" />
 					</div>
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary  btn-block text-left">
