@@ -112,20 +112,13 @@
 				</script>
 				
 				<!-- Errors container -->
-		
 				<div class="errors-container">
-<?php  if($this->session->flashdata('category_error')) { ?>
-								<div class="row-fluid">
-									<div class="alert alert-danger">
-										<strong><?=$this->session->flashdata('message')?></strong> 
-									</div>
-								</div>
-<?php } ?>
+				
 									
 				</div>
 				
 				<!-- Add class "fade-in-effect" for login form effect -->
-				<form method="post" role="form" id="" class="login-form fade-in-effect" action="<?=base_url();?>login/sign_up">
+				<form method="post" role="form"  class="login-form fade-in-effect">
 					
 					<div class="login-header">
 					
@@ -137,21 +130,17 @@
 	
 					
 					<div class="form-group">
-						<label class="control-label" for="username">User mail id</label>
-						<input type="text" class="form-control" name="usermailid" id="username" autocomplete="off" />
+						<label class="control-label" for="username">Username</label>
+						<input type="text" class="form-control" name="username" id="username" autocomplete="off" />
 					</div>
 					
 					<div class="form-group">
 						<label class="control-label" for="passwd">Password</label>
-						<input type="password" class="form-control" name="password" id="passwd" autocomplete="off" />
+						<input type="password" class="form-control" name="passwd" id="passwd" autocomplete="off" />
 					</div>
-					<div class="form-group">
+						<div class="form-group">
 						<label class="control-label" for="password-2">Re-enter Password</label>
 						<input type="password" class="form-control" name="password-2" id="password-2" autocomplete="off" />
-					</div>
-					<div class="form-group">
-						<label class="control-label" for="username">User name</label>
-						<input type="text" class="form-control" name="username" id="username" autocomplete="off" />
 					</div>
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary  btn-block text-left">
@@ -159,6 +148,7 @@
 							Sign up
 						</button>
 					</div>
+					
 					<div class="login-footer">
 						<a href="#">Forgot your password?</a>
 						<br>Already User ? <a href="<?php echo base_url(); ?>home/login"> Login</a>
