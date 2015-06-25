@@ -454,6 +454,35 @@
 									</div>
 								</div>
 						</div>
+						<div class="row">
+											
+							<div class="col-md-6">						
+						<div class="form-group">
+							<label class="control-label">Username</label>
+							
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="linecons-user"></i>
+								</div>
+								
+								<input type="text" class="form-control" name="username" id="username" data-validate="required,minlength[5]" data-message-minlength="User Name must have minimum of 5 chars." placeholder="Could be email id" />
+							</div>
+						</div>
+						</div>
+						<div class="col-md-6">						
+							<div class="form-group">
+									<label class="control-label">Choose Password</label>
+									
+									<div class="input-group">
+										<div class="input-group-addon">
+											<i class="linecons-lock"></i>
+										</div>
+										
+										<input type="password" class="form-control" name="password" id="password" data-validate="required" placeholder="Enter strong password" />
+									</div>
+								</div>
+							</div>
+							</div>
 							<div class="form-group">
 							<button type="submit" class="btn btn-primary">Add Employee</button>
 						</div>
