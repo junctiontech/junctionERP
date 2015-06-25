@@ -435,9 +435,9 @@
 						</div>
 						<div class="col-md-6">	
 							<div class="form-group">
-									<label class="col-sm-3 control-label">Joining Date</label>
+									<label class=" control-label">Joining Date</label>
 									
-									<div class="col-sm-9">
+									<div class="">
 										<input type="text" class="form-control datepicker" data-start-view="1">
 									</div>
 								</div>
