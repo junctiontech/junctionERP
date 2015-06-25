@@ -433,6 +433,28 @@
 							</div>
 						</div>
 						</div>
+						<div class="col-md-6">	
+							<div class="form-group">
+									<label class="col-sm-3 control-label">Joining Date</label>
+									
+									<div class="col-sm-9">
+										<input type="text" class="form-control datepicker" data-start-view="1">
+									</div>
+								</div>
+								</div>
+							</div>
+						<div class="row">
+						<div class="col-md-6">						
+								<div class="form-group">
+									<label class="control-label" for="city">Department</label>
+									<select name="test" class="selectboxit">
+										<optgroup label="Designations">
+											<option value="1">PHP</option>
+											<option value="2">Design</option>
+										</optgroup>
+									</select>
+							</div>
+							</div>
 						<div class="col-md-6">						
 								<div class="form-group">
 									<label class="control-label" for="city">Designations</label>
@@ -444,15 +466,6 @@
 									</select>
 							</div>
 							</div>
-							</div>
-						<div class="row">
-							<div class="form-group">
-									<label class="col-sm-3 control-label">Joining Date</label>
-									
-									<div class="col-sm-9">
-										<input type="text" class="form-control datepicker" data-start-view="1">
-									</div>
-								</div>
 						</div>
 						<div class="row">
 											
@@ -481,6 +494,22 @@
 										<input type="password" class="form-control" name="password" id="password" data-validate="required" placeholder="Enter strong password" />
 									</div>
 								</div>
+							</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+							   <div class="form-group">
+									<label class="control-label">Frquency</label>
+									<br>
+										<label class="cbr-inline">
+												<input type="radio" name="radio-2" class="cbr" checked>
+												Weekly
+											</label>
+											<label class="cbr-inline">
+												<input type="radio" name="radio-2" class="cbr">
+												Monthly
+											</label>
+								</div>	
 							</div>
 							</div>
 							<div class="form-group">
