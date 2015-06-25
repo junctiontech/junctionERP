@@ -22,8 +22,8 @@
 					<!-- data-toggle="mobile-menu" will show sidebar menu links only -->
 					<!-- data-toggle="mobile-menu-both" will show sidebar and horizontal menu links -->
 					<a href="javascript:;" data-toggle="mobile-menu-both">
-						<i class="fa-bars"></i>
-					</a>
+							<i class="fa-bars"></i>
+						</a>
 				</div>
 				
 			</div>

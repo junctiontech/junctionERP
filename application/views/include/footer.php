@@ -66,12 +66,20 @@
 	<script src="<?php echo base_url(); ?>assets/js/toastr/toastr.min.js"></script>
 <!-- Bottom Scripts -->
 
+	<!-- JavaScripts initializations and stuff -->
+	<script src="<?php echo base_url(); ?>assets/js/xenon-custom.js"></script>
+			<!-- Imported scripts on this page -->
+	<script src="<?php echo base_url(); ?>assets/js/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="<?php echo base_url(); ?>assets/js/datatables/dataTables.bootstrap.js"></script>
+	<script src="<?php echo base_url(); ?>assets/js/datatables/yadcf/jquery.dataTables.yadcf.js"></script>
+	<script src="<?php echo base_url(); ?>assets/js/datatables/tabletools/dataTables.tableTools.min.js"></script>
 	
 	<!-- select 2 Scripts -->
 	<script src="<?php echo base_url(); ?>assets/js/select2/select2.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/jquery-ui/jquery-ui.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/selectboxit/jquery.selectBoxIt.min.js"></script>
 	<!-- select 2 Scripts -->
+	
 	<!-- Imported scripts on this page -->
 	<script src="<?php echo base_url(); ?>assets/js/jquery-validate/jquery.validate.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/inputmask/jquery.inputmask.bundle.js"></script>
@@ -80,8 +88,7 @@
 	<script src="<?php echo base_url(); ?>assets/js/multiselect/js/jquery.multi-select.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/selectboxit/jquery.selectBoxIt.min.js"></script>
 	<!-- form wizardScripts -->
-	<!-- JavaScripts initializations and stuff -->
-	<script src="<?php echo base_url(); ?>assets/js/xenon-custom.js"></script>
+
 
 </body>
 </html>
