@@ -57,12 +57,20 @@
 				
 					</li>
 					<li>
+						<a href="<?php echo base_url(); ?>home/manage_designation">
+							<i class="linecons-doc"></i>
+							<span class="title">Designations</span>
+						</a>
+				
+					</li>
+					<li>
 						<a href="<?php echo base_url(); ?>home/manage_emp">
 							<i class="linecons-user"></i>
 							<span class="title">Employee</span>
 						</a>
 				
 					</li>
+						
 				</ul>
 		</div>
 	</div>

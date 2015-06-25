@@ -1,11 +1,11 @@
-<!-- manage departments page added by palak on 21st june -->
-<!-- manage departments body starts -->
+<!-- manage Designation page added by palak on 25th june -->
+<!-- manage Designation body starts -->
 
 		<div class="page-title">
 				
 				<div class="title-env">
-					<h1 class="title">Manage Departments</h1>
-					<p class="description">Manage Your Departments</p>
+					<h1 class="title">Manage Designation</h1>
+					<p class="description">Manage Your Designation</p>
 				</div>
 				
 					<div class="breadcrumb-env">
@@ -16,7 +16,7 @@
 						</li>
 							<li class="active">
 						
-										<strong>Manage Departments</strong>
+										<strong>Manage Designation</strong>
 								</li>
 							
 								</ol>
@@ -29,11 +29,11 @@
 					
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">Manage Departments</h3>
+							<h3 class="panel-title">Manage Designation</h3>
 							<div class="panel-options">
-									<a href="<?php echo base_url(); ?>home/add_departments"><button class="btn btn-info btn-icon btn-sm">
+									<a href="<?php echo base_url(); ?>home/add_designation"><button class="btn btn-info btn-icon btn-sm">
 									<i class="fa-plus"></i>
-									<span>Add Departments</span>
+									<span>Add Designation</span>
 								</button></a>
 								
 								</div>	
@@ -50,36 +50,14 @@
 						});
 					});
 					</script>
-					<div class="row">
-								<div class="col-sm-12">
 									
-																
-									<ul class="list-unstyled line-height-default">
-										<li>
-											<b>Organization -</b>
-											<span >Junction </span>
-										</li>
-										
-									
-									</ul>
-									<td>
-									<a href="<?php echo base_url(); ?>home/add_departments" class="btn btn-secondary btn-sm btn-icon icon-left">
-											Edit
-									</a>
-									<a href="javascript:;" class="btn btn-danger btn-sm btn-icon icon-left">
-											Delete
-									</a>
-								</td>
-								</div>
-							
-								
-							</div>
-					
 					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
 								<th>S.no</th>
+								<th>Organization</th>
 								<th>Departments</th>
+								<th>Designation</th>
 								<th>Action</th>
 								
 							</tr>
@@ -88,7 +66,9 @@
 						<tfoot>
 							<tr>
 								<th>S.no</th>
+								<th>Organization</th>
 								<th>Departments</th>
+								<th>Designation</th>
 								<th>Action</th>
 							</tr>
 						</tfoot>
@@ -96,7 +76,9 @@
 						<tbody>
 							<tr>
 								<td>1</td>
+								<td>Junction WEB</td>
 								<td>WEB</td>
+								<td>HR</td>
 								<td>
 								<a href="<?php echo base_url(); ?>home/add_departments" class="btn btn-secondary btn-sm btn-icon icon-left">
 											Edit
@@ -108,19 +90,7 @@
 								</td>
 								
 							</tr>
-							<tr>
-								<td>2</td>
-								<td>Accounts</td>
-								<td>
-								<a href="<?php echo base_url(); ?>home/add_departments" class="btn btn-secondary btn-sm btn-icon icon-left">
-											Edit
-									</a>
-									<a href="javascript:;" class="btn btn-danger btn-sm btn-icon icon-left">
-											Delete
-									</a>
-								
-								</td>
-							</tr>
+							
 						
 					
 						</tbody>
