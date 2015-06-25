@@ -418,115 +418,47 @@
 				</div>
 					
 					<div class="tab-pane with-bg" id="fwv-5">
-									
+					<div class="row">
+											
+							<div class="col-md-6">						
 						<div class="form-group">
-							<label class="control-label">Choose Username</label>
+							<label class="control-label">Employee ID</label>
 							
 							<div class="input-group">
 								<div class="input-group-addon">
 									<i class="linecons-user"></i>
 								</div>
 								
-								<input type="text" class="form-control" name="username" id="username" data-validate="required,minlength[5]" data-message-minlength="Username must have minimum of 5 chars." placeholder="Could also be your email" />
+								<input type="text" class="form-control" name="empid" id="empid" data-validate="required,minlength[5]" data-message-minlength="Emp id must have minimum of 5 chars." placeholder="Enter Emp id" />
 							</div>
 						</div>
-						
-						<div class="row">
-							
-							<div class="col-md-6">
-								<div class="form-group">
-									<label class="control-label">Choose Password</label>
-									
-									<div class="input-group">
-										<div class="input-group-addon">
-											<i class="linecons-lock"></i>
-										</div>
-										
-										<input type="password" class="form-control" name="password" id="password" data-validate="required" placeholder="Enter strong password" />
-									</div>
-								</div>
-							</div>
-							
-							<div class="col-md-6">						
-								<div class="form-group">
-									<label class="control-label">Repeat Password</label>
-									
-									<div class="input-group">
-										<div class="input-group-addon">
-											<i class="linecons-lock"></i>
-										</div>
-										
-										<input type="password" class="form-control" name="password" id="password" data-validate="required,equalTo[#password]" data-message-equal-to="Passwords doesn't match." placeholder="Confirm password" />
-									</div>
-								</div>
-							</div>
-							
 						</div>
-						
-						<div class="row">
-							
-							<div class="col-md-6">	
+						<div class="col-md-6">						
 								<div class="form-group">
-									<label class="control-label">Include Services</label>
-									
-									<select multiple="multiple" name="my-select[]" class="form-control multi-select">
-										<option value="1">Web Builder</option>
-										<option value="2" selected>Server Side Scripting</option>
-										<option value="3">Secure Connection</option>
-										<option value="4" selected>Database Access</option>
-										<option value="5" selected>Email</option>
-										<option value="6">eCommerce</option>
-										<option value="7">Royalty Free Photos</option>
-										<option value="8">WordPress Installation</option>
-										<option value="9">Magento Installation</option>
-										<option value="10">Reseller Account</option>
-										<option value="11">WHM Client</option>
-										<option value="12">Nginx</option>
+									<label class="control-label" for="city">Designations</label>
+									<select name="test" class="selectboxit">
+										<optgroup label="Designations">
+											<option value="1">Developer</option>
+											<option value="2">Designer</option>
+										</optgroup>
 									</select>
-								</div>
 							</div>
-							
-							<div class="col-md-6">
-								<div class="form-group">
-									<label class="control-label">Gender</label>
-									
-									<br />
-									
-								    <input type="checkbox" class="iswitch iswitch-red" checked>
-								</div>	
-								
-								<div class="form-group">
-									<label class="control-label">Subscribe for Newsletter</label>
-									
-									<br />
-									
-								    <input type="checkbox" class="iswitch iswitch-purple" checked>
-								</div>
-								
-								<div class="form-group">
-									<label class="control-label">
-										Auto-renew Subscription 
-										<span class="label label-warning">Yearly</span>
-									</label>
-									
-									<br />
-									
-								    <input type="checkbox" class="iswitch iswitch-secondary" checked>
-								</div>
 							</div>
-							
-						</div>
+							</div>
+						<div class="row">
+							<div class="form-group">
+									<label class="col-sm-3 control-label">Joining Date</label>
 									
-						<div class="form-group">
-							<input type="checkbox" class="cbr" name="chk-rules" id="chk-rules" data-validate="required" data-message-message="You must accept rules in order to complete this registration.">
-							<label for="chk-rules">By registering I accept terms and conditions.</label>
+									<div class="col-sm-9">
+										<input type="text" class="form-control datepicker" data-start-view="1">
+									</div>
+								</div>
 						</div>
-						
-						<div class="form-group">
-							<button type="submit" class="btn btn-primary">Finish Registration</button>
+							<div class="form-group">
+							<button type="submit" class="btn btn-primary">Add Employee</button>
 						</div>
-						
-					</div>
+					
+			</div>
 					
 					
 					<!-- Tabs Pager -->
