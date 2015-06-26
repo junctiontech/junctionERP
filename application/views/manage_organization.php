@@ -61,7 +61,7 @@
 					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
-								<th>Organization Name </th>
+								<th>Organization Name</th>
 								<th>Action</th>
 							</tr>
 						</thead>
