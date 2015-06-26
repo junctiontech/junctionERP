@@ -144,7 +144,16 @@
 						
 						<p>Dear user, log in to access the admin area!</p>
 					</div>
-	
+					<div class="form-group">
+									<select class="form-control " id="" name="orgnization_name">
+										<option></option>
+										<optgroup label="Organizations">
+										<?php foreach($list_organization as $list){?>
+											<option value="<?php echo $list->orgnization_id?>"><?php echo $list->orgnization_name; ?></option>
+										<?php } ?>
+										</optgroup>
+									</select>
+					</div> 
 					
 					<div class="form-group">
 						<label class="control-label" for="username">User mailid</label>
@@ -165,7 +174,7 @@
 					
 					<div class="login-footer">
 						<a href="#">Forgot your password?</a>
-						<br>New User ? <a href="<?php echo base_url(); ?>home"> Sign Up</a>
+						<br>New User ? <a href="<?php echo base_url(); ?>login"> Sign Up</a>
 					
 						
 					</div>

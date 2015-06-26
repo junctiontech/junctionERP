@@ -20,11 +20,10 @@ class Login_model extends CI_Model
     /* function for login check email id ragisterd or not   */
  function login_check($table=false,$data=false)
    {
-	      
 		  $query = $this->db->get_where($table,$data);
 		  if($query->num_rows()>0)
 		  {
-			   return $query->row();   
+		  	  return $query->row();   
 		  }
 		  else
 		  {
@@ -32,6 +31,19 @@ class Login_model extends CI_Model
 		  }
    }
    
+   	/* function for create session for orgnization */
+   function list_organization($table=false,$data=false)
+   {
+   	$query = $this->db->get_where($table,$data);
+   	if($query->num_rows()>0)
+   	{
+   	return $query->row();
+   	}
+   	else
+   	{
+   		return false;
+   	}
+   }
    
    	/* function for insert user data and if not already exist */
  function insert_sign()

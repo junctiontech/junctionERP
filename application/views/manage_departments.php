@@ -1,3 +1,4 @@
+<?php $userdata= $this->session->userdata('user_data');?>
 <!-- manage departments page added by palak on 21st june -->
 <!-- manage departments body starts -->
 
@@ -26,7 +27,13 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
-					
+					<?php  if($this->session->flashdata('category_success')) { ?>
+								<div class="row-fluid">
+									<div class="alert alert-success">
+										<strong><?=$this->session->flashdata('message')?></strong> 
+									</div>
+								</div>
+<?php } ?>
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title">Manage Departments</h3>
@@ -35,7 +42,14 @@
 									<i class="fa-plus"></i>
 									<span>Add Departments</span>
 								</button></a>
-								
+								<a href="<?php echo base_url(); ?>home/add_departments"><button class="btn btn-info btn-icon btn-sm">
+									<i class="fa-pencil"></i>
+									<span>Edit Departments</span>
+								</button></a>
+								<a href="<?php echo base_url(); ?>home/add_departments"><button class="btn btn-danger btn-icon btn-sm">
+									<i class="fa-close"></i>
+									<span>Delete Departments</span>
+								</button></a>
 								</div>	
 						</div>
 							<div class="panel-body">
@@ -57,19 +71,12 @@
 									<ul class="list-unstyled line-height-default">
 										<li>
 											<b>Organization -</b>
-											<span > junction </span>
+											<span > <?php echo $userdata['orgnization_name'];?> </span>
 										</li>
 										
 									
 									</ul>
-									<span>
-									<a href="<?php echo base_url(); ?>home/add_departments" class="btn btn-secondary btn-sm btn-icon icon-left">
-											Edit
-									</a>
-									<a href="javascript:;" class="btn btn-danger btn-sm btn-icon icon-left">
-											Delete
-									</a>
-								</span>
+									
 								</div>
 							
 								
@@ -80,7 +87,6 @@
 							<tr>
 								<th>S.no</th>
 								<th>Departments</th>
-								<th>Action</th>
 								
 							</tr>
 						</thead>
@@ -89,41 +95,19 @@
 							<tr>
 								<th>S.no</th>
 								<th>Departments</th>
-								<th>Action</th>
+								
 							</tr>
 						</tfoot>
 					
 						<tbody>
-						<?php // $data=explode(",",$list_department->department_name); foreach($data as $list){  ?>
+						<?php   foreach($list_department as $list){  $data=explode(",",$list->department_name); for($i=0;$i<count($data);$i++){?>
 							<tr>
-								<td>1</td>
-								<td>WEB</td>
-								<td>
-								<a href="<?php echo base_url(); ?>home/add_departments" class="btn btn-secondary btn-sm btn-icon icon-left">
-											Edit
-									</a>
-									<a href="javascript:;" class="btn btn-danger btn-sm btn-icon icon-left">
-											Delete
-									</a>
+								<td><?php echo $i;?></td>
+								<td><?php echo $data[$i];?></td>
 								
-								</td>
-								
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>Accounts</td>
-								<td>
-								<a href="<?php echo base_url(); ?>home/add_departments" class="btn btn-secondary btn-sm btn-icon icon-left">
-											Edit
-									</a>
-									<a href="javascript:;" class="btn btn-danger btn-sm btn-icon icon-left">
-											Delete
-									</a>
-								
-								</td>
-							</tr>
+							
 						
-					<?php// } ?>
+					<?php } } ?>
 						</tbody>
 					</table>
 					</div>			

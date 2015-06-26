@@ -68,6 +68,7 @@ class Home extends CI_Controller {
 		//add departments
 	public function add_departments()
 	{   
+		//$select_department = $this->data['select_department'] = $this->department_model->select_department($info);
 		$list_organization = $this->data['list_organization'] = $this->mhome->list_organization();
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
@@ -80,23 +81,25 @@ class Home extends CI_Controller {
 	{
 		$org_name=$this->input->post('orgnization_name');
 		$dep=$this->input->post('department_name');
+		$implode = (implode(",",$dep));
 		if($dep_name!=='')
 		{
 			$data=array(
-					'orgnization_name'=>$this->input->post('orgnization_name'),
-					'orgnization_desc'=>$this->input->post('orgnization_desc')
+					'orgnization_id'=>$this->input->post('orgnization_name'),
+					'department_name'=>$implode
 			);
-			$this->mhome->insert_organization('orgnization',$data);
+			$this->department_model->insert_department('department',$data);
 			$this->session->set_flashdata('category_success', 'success message	');
 			$this->session->set_flashdata('message', $this->config->item("user").' Department Inserted successfully');
-			redirect('home/manage_organization');
+			redirect('home/manage_departments');
 		}
 	
 	}
 	
 	//manage departments
 	public function manage_departments()
-	{   
+	{ 
+		$list_department= $this->data['list_department'] = $this->department_model->list_department();
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('manage_departments',$this->data);

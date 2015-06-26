@@ -1,4 +1,5 @@
-<?php $userdata = $this->session->userdata('user_data');?>
+<?php $userdata = $this->session->userdata('user_data');
+?>
 <body class="page-body ">
 <nav class="navbar horizontal-menu navbar-fixed-top"><!-- set fixed position by adding class "navbar-fixed-top" -->
 		
@@ -33,42 +34,42 @@
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 					<li>
-						<a href="javascript:;">
+						<a href="javascript:;" onclick="show_hr()">
 							<i class="linecons-graduation-cap"></i>
-							<span class="title">Human Resource</span>
+							<span id="hr" class="title">Human Resource</span>
 						</a>
 					
 					</li>
 					<li>
-						<a href="javascript:;">
+						<a href="javascript:;" onclick="show_sales()">
 							<i class="linecons-shop"></i>
-							<span class="title">Sales</span>
+							<span id="sales" class="title">Sales</span>
 						</a>
 				
 					</li>
 					<li>
-						<a href="javascript:;">
+						<a href="javascript:;" onclick="show_crm()">
 							<i class="linecons-comment"></i>
-							<span class="title">CRM</span>
+							<span id="crm" class="title">CRM</span>
 						</a>
 				
 					</li>
 					<li>
-						<a href="javascript:;">
+						<a href="javascript:;" onclick="show_marketing()">
 							<i class="linecons-user"></i>
-							<span class="title">Marketing</span>
+							<span id="marketing" class="title">Marketing</span>
 						</a>
 				
 					</li>
 						<li>
-						<a href="javascript:;">
+						<a href="javascript:;" onclick="show_payable()">
 							<i class="linecons-money"></i>
-							<span class="title">Payable</span>
+							<span id="payable" class="title">Payable</span>
 						</a>
 				
 					</li>
 					<li>
-						<a href="javascript:;">
+						<a href="javascript:;" onclick="show_inventory()">
 							<i class="linecons-pencil"></i>
 							<span class="title">Inventory</span>
 						</a>
@@ -123,7 +124,7 @@
 			<div class="sidebar-menu-inner">	
 			
 							
-				<ul id="main-menu" class="main-menu">
+				<ul id="main-menu" class="main-menu hr">
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 					<li>
@@ -157,10 +158,266 @@
 						
 				</ul>
 				
+				<!--  ul start for sales -->
 				
+				<ul id="main-menu" class="main-menu sales">
+					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
+					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_organization">
+							<i class="linecons-cog"></i>
+							<span class="title">Sales</span>
+						</a>
+					
+					</li>
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_departments">
+							<i class="linecons-database"></i>
+							<span class="title">Sales</span>
+						</a>
+				
+					</li>
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_designation">
+							<i class="linecons-doc"></i>
+							<span class="title">Sales</span>
+						</a>
+				
+					</li>
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_emp">
+							<i class="linecons-user"></i>
+							<span class="title">Employee</span>
+						</a>
+				
+					</li>
+						
+				</ul>
+				
+				<!--  ul End for sales -->
+				
+				<!--  ul End for crm -->
+				<ul id="main-menu" class="main-menu crm">
+					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
+					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_organization">
+							<i class="linecons-cog"></i>
+							<span class="title">CRM</span>
+						</a>
+					
+					</li>
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_departments">
+							<i class="linecons-database"></i>
+							<span class="title">Sales</span>
+						</a>
+				
+					</li>
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_designation">
+							<i class="linecons-doc"></i>
+							<span class="title">Sales</span>
+						</a>
+				
+					</li>
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_emp">
+							<i class="linecons-user"></i>
+							<span class="title">Employee</span>
+						</a>
+				
+					</li>
+						
+				</ul>
+				<!--  ul End for crm -->
+				
+				<!--  ul End for marketing -->
+				<ul id="main-menu" class="main-menu marketing">
+					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
+					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_organization">
+							<i class="linecons-cog"></i>
+							<span class="title">Marketing</span>
+						</a>
+					
+					</li>
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_departments">
+							<i class="linecons-database"></i>
+							<span class="title">Sales</span>
+						</a>
+				
+					</li>
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_designation">
+							<i class="linecons-doc"></i>
+							<span class="title">Sales</span>
+						</a>
+				
+					</li>
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_emp">
+							<i class="linecons-user"></i>
+							<span class="title">Employee</span>
+						</a>
+				
+					</li>
+						
+				</ul>
+				<!--  ul End for marketing -->
+				
+				<!--  ul End for payable -->
+				<ul id="main-menu" class="main-menu payable">
+					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
+					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_organization">
+							<i class="linecons-cog"></i>
+							<span class="title">Payable</span>
+						</a>
+					
+					</li>
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_departments">
+							<i class="linecons-database"></i>
+							<span class="title">Sales</span>
+						</a>
+				
+					</li>
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_designation">
+							<i class="linecons-doc"></i>
+							<span class="title">Sales</span>
+						</a>
+				
+					</li>
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_emp">
+							<i class="linecons-user"></i>
+							<span class="title">Employee</span>
+						</a>
+				
+					</li>
+						
+				</ul>
+				<!--  ul End for payable -->
+				
+				<!--  ul End for inventory -->
+				<ul id="main-menu" class="main-menu inventory">
+					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
+					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_organization">
+							<i class="linecons-cog"></i>
+							<span class="title">Inventory</span>
+						</a>
+					
+					</li>
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_departments">
+							<i class="linecons-database"></i>
+							<span class="title">Sales</span>
+						</a>
+				
+					</li>
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_designation">
+							<i class="linecons-doc"></i>
+							<span class="title">Sales</span>
+						</a>
+				
+					</li>
+					<li>
+						<a href="<?php echo base_url(); ?>home/manage_emp">
+							<i class="linecons-user"></i>
+							<span class="title">Employee</span>
+						</a>
+				
+					</li>
+						
+				</ul>
+				<!--  ul End for inventory -->
 			</div>
 		
 		</div>
 <div class="main-content">
-					
+ <script>
+        $(document).ready(function(){
 			
+            if($('.hr').on(':clicked'))
+            {   
+                 show_hr()  
+            }
+            else
+           {
+                  show_sales()
+           }
+           
+        });
+        
+		
+    </script>
+<script type="text/javascript">
+            function show_hr()
+            {
+              $(".sales").hide();
+              $(".hr").show();
+              $(".crm").hide();
+              $(".marketing").hide();
+              $(".payable").hide();
+              $(".inventory").hide();
+            }
+            function show_sales()
+            {
+              $(".hr").hide();
+              $(".sales").show();
+              $(".crm").hide();
+              $(".marketing").hide();
+              $(".payable").hide();
+              $(".inventory").hide();
+            }
+            function show_inventory()
+            {
+              $(".hr").hide();
+              $(".sales").hide();
+              $(".crm").hide();
+              $(".marketing").hide();
+              $(".payable").hide();
+              $(".inventory").show();
+            }
+            function show_crm()
+            {
+              $(".hr").hide();
+              $(".sales").hide();
+              $(".crm").show();
+              $(".marketing").hide();
+              $(".payable").hide();
+              $(".inventory").hide();
+            }
+            function show_marketing()
+            {
+              $(".hr").hide();
+              $(".sales").hide();
+              $(".crm").hide();
+              $(".marketing").show();
+              $(".payable").hide();
+              $(".inventory").hide();
+            }
+            function show_payable()
+            {
+              $(".hr").hide();
+              $(".sales").hide();
+              $(".crm").hide();
+              $(".marketing").hide();
+              $(".payable").show();
+              $(".inventory").hide();
+            }
+    </script>				
+			
+			
+			
+			
+			
+	

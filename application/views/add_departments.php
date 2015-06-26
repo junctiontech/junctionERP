@@ -39,7 +39,7 @@
 						</div>
 							<div class="panel-body">
 								
-								<form role="form" class="form-horizontal" method="post" action="">
+								<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>home/insert_department">
 									<div class="form-group">
 									<label class="control-label col-sm-2">Select your organization</label>
 									
