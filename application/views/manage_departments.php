@@ -57,7 +57,7 @@
 									<ul class="list-unstyled line-height-default">
 										<li>
 											<b>Organization -</b>
-											<span >Junction </span>
+											<span > junction </span>
 										</li>
 										
 									
@@ -94,6 +94,7 @@
 						</tfoot>
 					
 						<tbody>
+						<?php // $data=explode(",",$list_department->department_name); foreach($data as $list){  ?>
 							<tr>
 								<td>1</td>
 								<td>WEB</td>
@@ -122,7 +123,7 @@
 								</td>
 							</tr>
 						
-					
+					<?php// } ?>
 						</tbody>
 					</table>
 					</div>			
