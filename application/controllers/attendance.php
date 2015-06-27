@@ -8,7 +8,7 @@ class Attendance extends CI_Controller {
 		$this->data[]="";
 		$this->data['url'] = base_url();
 		
-		$this->load->model('mhome');
+		//$this->load->model('mhome');
 		$this->load->library('parser');
 		$this->load->library('session');
 		$this->data['base_url']=base_url();

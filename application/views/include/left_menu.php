@@ -155,7 +155,8 @@
 						</a>
 				
 					</li>
-						
+					<li><a href="<?=base_url()?>role/user_role"> <i class="linecons-user"></i><span class="title">User Management</span></a></li>
+					<li><a href="<?=base_url()?>role/role_management"> <i class="linecons-user"></i><span class="title">Role Management</span></a></li>
 				</ul>
 				
 				<!--  ul start for sales -->
