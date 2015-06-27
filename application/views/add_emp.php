@@ -127,11 +127,11 @@
 									<label class="control-label">Gender</label>
 									<br>
 										<label class="cbr-inline">
-												<input type="radio" name="radio-2" class="cbr" checked>
+												<input type="radio" name="gender" class="cbr" checked>
 												Male
 											</label>
 											<label class="cbr-inline">
-												<input type="radio" name="radio-2" class="cbr">
+												<input type="radio" name="gender" class="cbr">
 												Female
 											</label>
 								</div>	
@@ -141,7 +141,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 									<label class=" control-label" for="photo">Photo</label>
-										<input type="file" class="form-control" id="photo">
+										<input type="file" class="form-control" name="photo" id="photo">
 									</div>
 								</div>
 						</div>
@@ -165,7 +165,7 @@
 										});
 									</script>
 									
-									<select class="form-control " id="s2example-1">
+									<select class="form-control" name="" id="s2example-1">
 										<option></option>
 										<optgroup label="Maratial Status">
 											<option>Married</option>
@@ -179,7 +179,7 @@
 										<div class="form-group">
 									<label class="control-label">Nationality</label>
 														
-									<select class="form-control " id="s2example-1">
+									<select class="form-control " name="nationality" id="s2example-1">
 										<option></option>
 										<optgroup label="Nationality">
 											<option>Indian</option>
@@ -213,7 +213,7 @@
 						<div class="col-md-12">
 								<div class="form-group">
 									<label class="control-label" for="address_line_2">Present Address</label>
-									<input class="form-control" name="address_line_2" data-validate="required" id="address_line_2" placeholder="Enter Present Address" />
+									<input class="form-control" name="present_address" data-validate="required" id="address_line_2" placeholder="Enter Present Address" />
 								</div>
 							</div>
 							
@@ -227,7 +227,7 @@
 										<span class="input-group-addon">
 											<i class="linecons-mobile"></i>
 										</span>
-										<input type="text" class="form-control" data-mask="phone">
+										<input type="text" name="mobile" class="form-control" data-mask="phone">
 									</div>
 								</div>
 							</div>
@@ -239,7 +239,7 @@
 										<span class="input-group-addon">
 											<i class="linecons-mail"></i>
 										</span>
-										<input type="text" class="form-control" data-mask="email">
+										<input type="text" name="email" class="form-control" data-mask="email">
 									</div>
 								</div>
 							</div>
@@ -247,7 +247,7 @@
 							<div class="form-group">
 									<label class="control-label">Country</label>
 												
-									<select class="form-control" id="s2example-1">
+									<select class="form-control" name="country" id="s2example-1">
 										<option></option>
 																
 										<optgroup label="Asia">
@@ -309,7 +309,7 @@
 								<div class="form-group">
 									<label class="control-label" for="state">State</label>
 									
-									<select name="test" class="selectboxit">
+									<select name="state" class="selectboxit">
 										<optgroup label="United States">
 											<option value="1">Alabama</option>
 											<option value="2">Boston</option>
@@ -323,7 +323,7 @@
 								<div class="col-md-4">
 								<div class="form-group">
 									<label class="control-label" for="city">City</label>
-									<select name="test" class="selectboxit">
+									<select name="city" class="selectboxit">
 										<optgroup label="City">
 											<option value="1">Bhopal</option>
 											<option value="2">Indore</option>
@@ -347,7 +347,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 									<label class=" control-label" for="resume">Resume</label>
-										<input type="file" class="form-control" id="resume">
+										<input type="file" name="resume" class="form-control" id="resume">
 									</div>
 								</div>
 						</div>
@@ -355,7 +355,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 									<label class=" control-label" for="offerletter">Offer Letter</label>
-										<input type="file" class="form-control" id="offerletter">
+										<input type="file" name="offerletter" class="form-control" id="offerletter">
 									</div>
 								</div>
 						</div>
@@ -363,7 +363,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 									<label class=" control-label" for="joiningletter">Joining Letter</label>
-										<input type="file" class="form-control" id="joiningletter">
+										<input type="file" name="joiningletter" class="form-control" id="joiningletter">
 									</div>
 								</div>
 						</div>
@@ -371,7 +371,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 									<label class=" control-label" for="idproof">ID Proof</label>
-										<input type="file" class="form-control" id="idproof">
+										<input type="file" name="idproof" class="form-control" id="idproof">
 									</div>
 								</div>
 							</div>
@@ -379,7 +379,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 									<label class=" control-label" for="otherdoc">Other Documents</label>
-										<input type="file" class="form-control" id="otherdoc">
+										<input type="file" name="otherdoc" class="form-control" id="otherdoc">
 									</div>
 								</div>
 							</div>
@@ -438,7 +438,7 @@
 									<label class=" control-label">Joining Date</label>
 									
 									<div class="">
-										<input type="text" class="form-control datepicker" data-start-view="1">
+										<input type="text" name="joining_date" class="form-control datepicker" data-start-view="1">
 									</div>
 								</div>
 								</div>
@@ -502,11 +502,11 @@
 									<label class="control-label">Frquency</label>
 									<br>
 										<label class="cbr-inline">
-												<input type="radio" name="radio-2" class="cbr" checked>
+												<input type="radio" name="frquency" class="cbr" checked>
 												Weekly
 											</label>
 											<label class="cbr-inline">
-												<input type="radio" name="radio-2" class="cbr">
+												<input type="radio" name="frquency" class="cbr">
 												Monthly
 											</label>
 								</div>	

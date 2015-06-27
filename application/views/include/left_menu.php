@@ -128,28 +128,28 @@
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 					<li>
-						<a href="<?php echo base_url(); ?>home/manage_organization">
+						<a href="<?php echo base_url(); ?>master/manage_organization">
 							<i class="linecons-cog"></i>
 							<span class="title">Organization</span>
 						</a>
 					
 					</li>
 					<li>
-						<a href="<?php echo base_url(); ?>home/manage_departments">
+						<a href="<?php echo base_url(); ?>master/manage_departments">
 							<i class="linecons-database"></i>
 							<span class="title">Departments</span>
 						</a>
 				
 					</li>
 					<li>
-						<a href="<?php echo base_url(); ?>home/manage_designation">
+						<a href="<?php echo base_url(); ?>master/manage_designation">
 							<i class="linecons-doc"></i>
 							<span class="title">Designations</span>
 						</a>
 				
 					</li>
 					<li>
-						<a href="<?php echo base_url(); ?>home/manage_emp">
+						<a href="<?php echo base_url(); ?>employee/manage_emp">
 							<i class="linecons-user"></i>
 							<span class="title">Employee</span>
 						</a>
@@ -237,28 +237,28 @@
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 					<li>
-						<a href="<?php echo base_url(); ?>home/manage_organization">
+						<a href="<?php echo base_url(); ?>master/manage_organization">
 							<i class="linecons-cog"></i>
 							<span class="title">Marketing</span>
 						</a>
 					
 					</li>
 					<li>
-						<a href="<?php echo base_url(); ?>home/manage_departments">
+						<a href="<?php echo base_url(); ?>master/manage_departments">
 							<i class="linecons-database"></i>
 							<span class="title">Sales</span>
 						</a>
 				
 					</li>
 					<li>
-						<a href="<?php echo base_url(); ?>home/manage_designation">
+						<a href="<?php echo base_url(); ?>master/manage_designation">
 							<i class="linecons-doc"></i>
 							<span class="title">Sales</span>
 						</a>
 				
 					</li>
 					<li>
-						<a href="<?php echo base_url(); ?>home/manage_emp">
+						<a href="<?php echo base_url(); ?>master/manage_emp">
 							<i class="linecons-user"></i>
 							<span class="title">Employee</span>
 						</a>

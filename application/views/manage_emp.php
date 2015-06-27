@@ -31,7 +31,7 @@
 						<div class="panel-heading">
 							<h3 class="panel-title">Manage Employees</h3>
 							<div class="panel-options">
-									<a href="<?php echo base_url(); ?>home/add_emp"><button class="btn btn-info btn-icon btn-sm">
+									<a href="<?php echo base_url(); ?>employee/add_emp"><button class="btn btn-info btn-icon btn-sm">
 									<i class="fa-plus"></i>
 									<span>Add Employees</span>
 								</button></a>
@@ -81,9 +81,9 @@
 								<td>Paul Ho</td>
 								<td>PHP > Senior Developer</td>
 								<td>07031964411</td>
-								<td><a href="<?php echo base_url(); ?>home/view_emp" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"><span class="fa fa-list-alt"></span></a></td>
+								<td><a href="<?php echo base_url(); ?>employee/view_emp" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"><span class="fa fa-list-alt"></span></a></td>
 								<td>
-									<a href="<?php echo base_url(); ?>home/add_emp" class="btn btn-secondary btn-sm btn-icon icon-left">
+									<a href="<?php echo base_url(); ?>employee/add_emp" class="btn btn-secondary btn-sm btn-icon icon-left">
 											Edit
 									</a>
 									<a href="javascript:;" class="btn btn-danger btn-sm btn-icon icon-left">

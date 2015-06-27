@@ -39,7 +39,7 @@
 						</div>
 						<?php if(empty($select_organization)){?>
 						<div class="panel-body">
-							<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>home/insert_organization">
+							<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>master/insert_organization">
 									
 									<div class="form-group">
 										<label class="col-sm-2 control-label" for="field-1">Organization Name</label>
@@ -68,20 +68,20 @@
 							<div class="panel-body">
 							
 							<?php  foreach($select_organization as $list ){ ?>
-								<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>home/update_organization/<?=$list->orgnization_id?>">
+								<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>master/update_organization/<?=$list->organization_id?>">
 									
 									<div class="form-group">
 										<label class="col-sm-2 control-label" for="field-1">Organization Name</label>
 										
 										<div class="col-sm-10">
-											<input type="text" class="form-control" name="orgnization_name" id="field-1" placeholder="Organization Name" value="<?=(!empty($list->orgnization_name))?$list->orgnization_name:"";?>" >
+											<input type="text" class="form-control" name="orgnization_name" id="field-1" placeholder="Organization Name" value="<?=(!empty($list->organization_name))?$list->organization_name:"";?>" >
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-2 control-label" for="field-1">Organization Description</label>
 										
 										<div class="col-sm-10">
-											<textarea class="form-control" name="orgnization_desc" /><?=(!empty($list->orgnization_desc))?$list->orgnization_desc:"";?></textarea>
+											<textarea class="form-control" name="orgnization_desc" /><?=(!empty($list->organization_desc))?$list->organization_desc:"";?></textarea>
 										</div>
 									</div>
 									<div class="form-group-separator"></div>

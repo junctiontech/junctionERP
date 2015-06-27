@@ -37,7 +37,7 @@
 						<div class="panel-heading">
 							<h3 class="panel-title">Manage Organization</h3>
 							<div class="panel-options">
-									<a href="<?php echo base_url(); ?>home/add_organization"><button class="btn btn-info btn-icon btn-sm">
+									<a href="<?php echo base_url(); ?>master/add_organization"><button class="btn btn-info btn-icon btn-sm">
 									<i class="fa-plus"></i>
 									<span>Add Organization</span>
 								</button></a>
@@ -76,9 +76,9 @@
 					<?php foreach($list_organization as $list){ ?>
 						<tbody>
 							<tr>
-								<td><?php echo $list->orgnization_name;?></td>
+								<td><?php echo $list->organization_name;?></td>
 								<td>
-									<a href="<?php echo base_url(); ?>home/add_organization/<?=$list->orgnization_id; ?>" class="btn btn-secondary btn-sm btn-icon icon-left">
+									<a href="<?php echo base_url(); ?>master/add_organization/<?=$list->organization_id; ?>" class="btn btn-secondary btn-sm btn-icon icon-left">
 											Edit
 									</a>
 									<a href="javascript:;" class="btn btn-danger btn-sm btn-icon icon-left">

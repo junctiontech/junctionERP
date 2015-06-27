@@ -38,15 +38,15 @@
 						<div class="panel-heading">
 							<h3 class="panel-title">Manage Departments</h3>
 							<div class="panel-options">
-									<a href="<?php echo base_url(); ?>home/add_departments"><button class="btn btn-info btn-icon btn-sm">
+									<a href="<?php echo base_url(); ?>master/add_departments"><button class="btn btn-info btn-icon btn-sm">
 									<i class="fa-plus"></i>
 									<span>Add Departments</span>
 								</button></a>
-								<a href="<?php echo base_url(); ?>home/add_departments"><button class="btn btn-info btn-icon btn-sm">
+								<a href="<?php echo base_url(); ?>master/add_departments"><button class="btn btn-info btn-icon btn-sm">
 									<i class="fa-pencil"></i>
 									<span>Edit Departments</span>
 								</button></a>
-								<a href="<?php echo base_url(); ?>home/add_departments"><button class="btn btn-danger btn-icon btn-sm">
+								<a href="<?php echo base_url(); ?>master/add_departments"><button class="btn btn-danger btn-icon btn-sm">
 									<i class="fa-close"></i>
 									<span>Delete Departments</span>
 								</button></a>

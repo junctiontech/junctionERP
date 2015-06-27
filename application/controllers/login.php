@@ -9,7 +9,7 @@ class Login extends CI_Controller {
 		$this->data['user_data']="";
 		$this->data['url'] = base_url();
 		$this->load->model('login_model');
-		$this->load->model('mhome');
+		$this->load->model('organization_model');
 		$this->load->library('parser');
 		$this->load->helper('url');
 		$this->load->library('form_validation');
@@ -28,7 +28,7 @@ class Login extends CI_Controller {
 					/*login view*/
 	public function login_view()
 	{
-		$list_organization = $this->data['list_organization'] = $this->mhome->list_organization();
+		$list_organization = $this->data['list_organization'] = $this->organization_model->list_organization();
 		$this->parser->parse('include/header',$this->data);
 		$this->load->view('login',$this->data);//login page view
 		$this->parser->parse('include/footer',$this->data);
@@ -41,25 +41,25 @@ class Login extends CI_Controller {
 			if($email)
 			{
 			$orgnization=array(
-							'orgnization_id'=>$this->input->post('orgnization_name')
+							'organization_id'=>$this->input->post('orgnization_name')
 							  );
 			$data=array(
 						'usermailid'=>$this->input->post('usermailid'),
 						'password'=>$this->input->post('password'),
 						);		
-			$list_organization =$this->login_model->list_organization('orgnization',$orgnization);
+			$list_organization =$this->login_model->list_organization('organization',$orgnization);
 			$row=$this->login_model->login_check('users',$data);
 			if($row){ 
 						$user_data = array(
 											 'usermailid' => $row->usermailid,
 											 'user_id' => $row->user_id,
 											 'user_name'=>$row->user_name,
-											'orgnization_id'=>$list_organization->orgnization_id,
-											'orgnization_name'=>$list_organization->orgnization_name
+											'organization_id'=>$list_organization->organization_id,
+											'organization_name'=>$list_organization->organization_name
 										  );
 						$this->session->set_userdata('user_data',$user_data);
 						$user_session_data = $this->session->userdata('user_data');
-						redirect('home/manage_organization');
+						redirect('master/manage_organization');
 					}
 			}
 			

@@ -145,11 +145,11 @@
 						<p>Dear user, log in to access the admin area!</p>
 					</div>
 					<div class="form-group">
-									<select class="form-control " id="" name="orgnization_name">
+									<select class="form-control " id="" name="organization_name">
 										<option></option>
 										<optgroup label="Organizations">
 										<?php foreach($list_organization as $list){?>
-											<option value="<?php echo $list->orgnization_id?>"><?php echo $list->orgnization_name; ?></option>
+											<option value="<?php echo $list->organization_id?>"><?php echo $list->organization_name; ?></option>
 										<?php } ?>
 										</optgroup>
 									</select>

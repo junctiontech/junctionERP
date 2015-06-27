@@ -39,7 +39,7 @@
 						</div>
 							<div class="panel-body">
 								
-								<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>home/insert_department">
+								<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>master/insert_department">
 									<div class="form-group">
 									<label class="control-label col-sm-2">Select your organization</label>
 									
@@ -62,7 +62,7 @@
 										<option></option>
 										<optgroup label="Organizations">
 										<?php foreach($list_organization as $list){?>
-											<option value="<?php echo $list->orgnization_id?>"><?php echo $list->orgnization_name; ?></option>
+											<option value="<?php echo $list->organization_id?>"><?php echo $list->organization_name; ?></option>
 										<?php } ?>
 										</optgroup>
 									</select>
