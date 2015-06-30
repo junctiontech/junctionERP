@@ -1,11 +1,11 @@
-<!-- manage attendance page added by palak on 21 st june -->
-<!-- manage attendance body starts -->
+<!-- attendance report added by palak on 29th june -->
+<!-- attendance report body starts -->
 
 		<div class="page-title">
 				
 				<div class="title-env">
-					<h1 class="title">Manage Attendance</h1>
-					<p class="description">Manage Your Attendance</p>
+					<h1 class="title">Attendance Report</h1>
+					<p class="description">Get Attendance Report</p>
 				</div>
 				<!-- breadcrumbs starts -->
 					<div class="breadcrumb-env">
@@ -17,7 +17,7 @@
 						
 							<li class="active">
 						
-										<strong>Manage Attendance</strong>
+										<strong>Attendance Report</strong>
 								</li>
 								</ol>
 								
@@ -31,23 +31,17 @@
 					
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">Manage Attendance</h3>
+							<h3 class="panel-title">Attendance Report</h3>
 								
 						</div>
 							<div class="panel-body">
 								
 								<form role="form" class="form-horizontal" method="post" action="javascript:;">
-									<div class="form-group">
-									<label class="col-sm-3 control-label">Enter Day</label>
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Month & Year</label>
 									
 									<div class="col-sm-9">
-										<div class="input-group">
-											<input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
-											
-											<div class="input-group-addon">
-												<a href="#"><i class="linecons-calendar"></i></a>
-											</div>
-										</div>
+										<input type="text" class="form-control datepicker" data-start-view="2">
 									</div>
 								</div>
 										<div class="form-group">
@@ -62,7 +56,7 @@
 								</div>
 								</div>
 									<div class="form-group" >
-										<button type="submit" class="btn btn-success">GO</button>
+										<button type="submit" class="btn btn-success">Search</button>
 									</div>
 									
 								</form>

@@ -1,5 +1,4 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
 class Home extends CI_Controller {
 
 	
@@ -12,7 +11,13 @@ class Home extends CI_Controller {
 		$this->data['base_url']=base_url();
 	 }
 	
-
+	 public function index()
+	 {
+	 	$this->parser->parse('include/header',$this->data);
+	 	$this->parser->parse('include/left_menu',$this->data);
+	 	$this->load->view('dashbord',$this->data);
+	 	$this->parser->parse('include/footer',$this->data);
+	 }
 	
 }
 

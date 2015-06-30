@@ -23,7 +23,7 @@ class Login_model extends CI_Model
 		  $query = $this->db->get_where($table,$data);
 		  if($query->num_rows()>0)
 		  {
-		  	  return $query->row();   
+		  	  return $query->row();  
 		  }
 		  else
 		  {

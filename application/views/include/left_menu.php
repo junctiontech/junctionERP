@@ -55,16 +55,9 @@
 				
 					</li>
 					<li>
-						<a href="javascript:;" onclick="show_marketing()">
+						<a href="javascript:;" onclick="show_purchasing()">
 							<i class="linecons-user"></i>
-							<span id="marketing" class="title">Marketing</span>
-						</a>
-				
-					</li>
-						<li>
-						<a href="javascript:;" onclick="show_payable()">
-							<i class="linecons-money"></i>
-							<span id="payable" class="title">Payable</span>
+							<span id="marketing" class="title">Purchasing</span>
 						</a>
 				
 					</li>
@@ -75,6 +68,13 @@
 						</a>
 				
 					</li>
+					<li>
+						<a href="javascript:;" onclick="show_reporting()">
+							<i class="linecons-money"></i>
+							<span id="payable" class="title">Reporting</span>
+						</a>
+				
+					</li>
 				</ul>
 				<ul class="nav nav-userinfo navbar-right">
 				
@@ -82,7 +82,7 @@
 					<a href="#" data-toggle="dropdown">
 						<img src="<?php echo base_url(); ?>assets/images/user-1.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" />
 						<span>
-							<?=$userdata['user_name']?>
+							<?=$userdata['role_id']?>
 							<i class="fa-angle-down"></i>
 						</span>
 					</a>
@@ -155,8 +155,27 @@
 						</a>
 				
 					</li>
-					<li><a href="<?=base_url()?>role/user_role"> <i class="linecons-user"></i><span class="title">User Management</span></a></li>
-					<li><a href="<?=base_url()?>role/role_management"> <i class="linecons-user"></i><span class="title">Role Management</span></a></li>
+					<li>
+						<a href="javascript:;">
+							<i class="linecons-calendar"></i>
+							<span class="title">Attendance</span>
+						</a>
+						<ul>
+							<li class="active">
+								<a href="<?php echo base_url(); ?>attendance/manage_attendance">
+									<span class="title">Attendance Management</span>
+								</a>
+							</li>
+							<li class="active">
+								<a href="<?php echo base_url(); ?>attendance/attendance_report">
+									<span class="title">Attendance Report</span>
+								</a>
+							</li>
+						
+						</ul>
+					</li>
+					<li><a href="<?=base_url()?>role/user_role"> <i class="linecons-t-shirt"></i><span class="title">User Management</span></a></li>
+					<li><a href="<?=base_url()?>role/role_management"> <i class="linecons-comment"></i><span class="title">Role Management</span></a></li>
 				</ul>
 				
 				<!--  ul start for sales -->
@@ -165,34 +184,53 @@
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 					<li>
-						<a href="<?php echo base_url(); ?>home/manage_organization">
-							<i class="linecons-cog"></i>
+						<a href="javascript:;">
+							<i class="linecons-money"></i>
 							<span class="title">Sales</span>
 						</a>
-					
+						<ul>
+							<li class="javascript:;">
+								<a href="javascript:;">
+									<span class="title">Customers</span>
+								</a>
+							</li>
+							<li class="">
+								<a href="javascript:;">
+									<span class="title">Products</span>
+								</a>
+							</li>
+							<li class="">
+								<a href="javascript:;">
+									<span class="title">Inquiry</span>
+								</a>
+							</li>
+							<li class="">
+								<a href="javascript:;">
+									<span class="title">Quotation</span>
+								</a>
+							</li>
+							<li class="">
+								<a href="javascript:;">
+									<span class="title">Sales Order</span>
+								</a>
+							</li>
+								<li class="">
+								<a href="javascript:;">
+									<span class="title">Delivery</span>
+								</a>
+							</li>
+							<li class="">
+								<a href="javascript:;">
+									<span class="title">Invoice</span>
+								</a>
+							</li>
+							<li class="">
+								<a href="javascript:;">
+									<span class="title">Contract Order</span>
+								</a>
+							</li>
+						</ul>
 					</li>
-					<li>
-						<a href="<?php echo base_url(); ?>home/manage_departments">
-							<i class="linecons-database"></i>
-							<span class="title">Sales</span>
-						</a>
-				
-					</li>
-					<li>
-						<a href="<?php echo base_url(); ?>home/manage_designation">
-							<i class="linecons-doc"></i>
-							<span class="title">Sales</span>
-						</a>
-				
-					</li>
-					<li>
-						<a href="<?php echo base_url(); ?>home/manage_emp">
-							<i class="linecons-user"></i>
-							<span class="title">Employee</span>
-						</a>
-				
-					</li>
-						
 				</ul>
 				
 				<!--  ul End for sales -->
@@ -202,144 +240,139 @@
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 					<li>
-						<a href="<?php echo base_url(); ?>home/manage_organization">
-							<i class="linecons-cog"></i>
+						<a href="javascript:;">
+							<i class="linecons-money"></i>
 							<span class="title">CRM</span>
 						</a>
+						<ul>
+							<li class="javascript:;">
+								<a href="javascript:;">
+									<span class="title">Leads</span>
+								</a>
+							</li>
+							<li class="">
+								<a href="javascript:;">
+									<span class="title">Opportunity</span>
+								</a>
+							</li>
+							<li class="">
+								<a href="javascript:;">
+									<span class="title">Campaign</span>
+								</a>
+							</li>
+							<li class="">
+								<a href="javascript:;">
+									<span class="title">Help Desk</span>
+								</a>
+							</li>
+							<li class="">
+								<a href="javascript:;">
+									<span class="title">Reporting</span>
+								</a>
+							</li>
+						</ul>
+					</li>
 					
-					</li>
-					<li>
-						<a href="<?php echo base_url(); ?>home/manage_departments">
-							<i class="linecons-database"></i>
-							<span class="title">Sales</span>
-						</a>
-				
-					</li>
-					<li>
-						<a href="<?php echo base_url(); ?>home/manage_designation">
-							<i class="linecons-doc"></i>
-							<span class="title">Sales</span>
-						</a>
-				
-					</li>
-					<li>
-						<a href="<?php echo base_url(); ?>home/manage_emp">
-							<i class="linecons-user"></i>
-							<span class="title">Employee</span>
-						</a>
-				
-					</li>
-						
 				</ul>
 				<!--  ul End for crm -->
 				
 				<!--  ul End for marketing -->
-				<ul id="main-menu" class="main-menu marketing">
+				<ul id="main-menu" class="main-menu purchasing">
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 					<li>
-						<a href="<?php echo base_url(); ?>master/manage_organization">
-							<i class="linecons-cog"></i>
-							<span class="title">Marketing</span>
+						<a href="javascript:;">
+							<i class="linecons-params"></i>
+							<span class="title">Purchasing</span>
 						</a>
-					
+							<ul>
+							<li class="javascript:;">
+								<a href="javascript:;">
+									<span class="title">RFQ</span>
+								</a>
+							</li>
+							<li class="">
+								<a href="javascript:;">
+									<span class="title">Purchase Order</span>
+								</a>
+							</li>
+							<li class="">
+								<a href="javascript:;">
+									<span class="title">Receipt</span>
+								</a>
+							</li>
+							<li class="">
+								<a href="javascript:;">
+									<span class="title">Payment Invoice</span>
+								</a>
+							</li>
+								<li class="">
+								<a href="javascript:;">
+									<span class="title">Vendor Supplier</span>
+								</a>
+							</li>
+								<li class="">
+								<a href="javascript:;">
+									<span class="title">Material</span>
+								</a>
+							</li>
+						</ul>
 					</li>
-					<li>
-						<a href="<?php echo base_url(); ?>master/manage_departments">
-							<i class="linecons-database"></i>
-							<span class="title">Sales</span>
-						</a>
-				
-					</li>
-					<li>
-						<a href="<?php echo base_url(); ?>master/manage_designation">
-							<i class="linecons-doc"></i>
-							<span class="title">Sales</span>
-						</a>
-				
-					</li>
-					<li>
-						<a href="<?php echo base_url(); ?>master/manage_emp">
-							<i class="linecons-user"></i>
-							<span class="title">Employee</span>
-						</a>
-				
-					</li>
-						
 				</ul>
 				<!--  ul End for marketing -->
 				
-				<!--  ul End for payable -->
-				<ul id="main-menu" class="main-menu payable">
-					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
-					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
-					<li>
-						<a href="<?php echo base_url(); ?>home/manage_organization">
-							<i class="linecons-cog"></i>
-							<span class="title">Payable</span>
-						</a>
-					
-					</li>
-					<li>
-						<a href="<?php echo base_url(); ?>home/manage_departments">
-							<i class="linecons-database"></i>
-							<span class="title">Sales</span>
-						</a>
-				
-					</li>
-					<li>
-						<a href="<?php echo base_url(); ?>home/manage_designation">
-							<i class="linecons-doc"></i>
-							<span class="title">Sales</span>
-						</a>
-				
-					</li>
-					<li>
-						<a href="<?php echo base_url(); ?>home/manage_emp">
-							<i class="linecons-user"></i>
-							<span class="title">Employee</span>
-						</a>
-				
-					</li>
-						
-				</ul>
-				<!--  ul End for payable -->
+		
 				
 				<!--  ul End for inventory -->
 				<ul id="main-menu" class="main-menu inventory">
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 					<li>
-						<a href="<?php echo base_url(); ?>home/manage_organization">
+						<a href="javascript:;">
 							<i class="linecons-cog"></i>
-							<span class="title">Inventory</span>
+							<span class="title">Inventory </span>
 						</a>
+						<ul>
+							<li class="javascript:;">
+								<a href="javascript:;">
+									<span class="title">Stock Status </span>
+								</a>
+							</li>
+							<li class="javascript:;">
+								<a href="javascript:;">
+									<span class="title">Item Movements</span>
+								</a>
+							</li>
+							<li class="javascript:;">
+								<a href="javascript:;">
+									<span class="title">Stock Transfer</span>
+								</a>
+							</li>
+							<li class="javascript:;">
+								<a href="javascript:;">
+									<span class="title">Reporting</span>
+								</a>
+							</li>
+						</ul>
+					</li>
 					
-					</li>
-					<li>
-						<a href="<?php echo base_url(); ?>home/manage_departments">
-							<i class="linecons-database"></i>
-							<span class="title">Sales</span>
-						</a>
-				
-					</li>
-					<li>
-						<a href="<?php echo base_url(); ?>home/manage_designation">
-							<i class="linecons-doc"></i>
-							<span class="title">Sales</span>
-						</a>
-				
-					</li>
-					<li>
-						<a href="<?php echo base_url(); ?>home/manage_emp">
-							<i class="linecons-user"></i>
-							<span class="title">Employee</span>
-						</a>
-				
-					</li>
 						
 				</ul>
 				<!--  ul End for inventory -->
+						<!--  ul End for payable -->
+				<ul id="main-menu" class="main-menu payable">
+					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
+					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+								<li>
+						<a href="javascript:;">
+							<i class="linecons-diamond"></i>
+							<span class="title">Reporting</span>
+						</a>
+						
+					</li>
+						
+				</ul>
+				<!--  ul End for payable -->
 			</div>
 		
 		</div>
@@ -366,7 +399,7 @@
               $(".sales").hide();
               $(".hr").show();
               $(".crm").hide();
-              $(".marketing").hide();
+              $(".purchasing").hide();
               $(".payable").hide();
               $(".inventory").hide();
             }
@@ -375,7 +408,7 @@
               $(".hr").hide();
               $(".sales").show();
               $(".crm").hide();
-              $(".marketing").hide();
+              $(".purchasing").hide();
               $(".payable").hide();
               $(".inventory").hide();
             }
@@ -384,7 +417,7 @@
               $(".hr").hide();
               $(".sales").hide();
               $(".crm").hide();
-              $(".marketing").hide();
+              $(".purchasing").hide();
               $(".payable").hide();
               $(".inventory").show();
             }
@@ -393,25 +426,25 @@
               $(".hr").hide();
               $(".sales").hide();
               $(".crm").show();
-              $(".marketing").hide();
+              $(".purchasing").hide();
               $(".payable").hide();
               $(".inventory").hide();
             }
-            function show_marketing()
+            function show_purchasing()
             {
               $(".hr").hide();
               $(".sales").hide();
               $(".crm").hide();
-              $(".marketing").show();
+              $(".purchasing").show();
               $(".payable").hide();
               $(".inventory").hide();
             }
-            function show_payable()
+            function show_reporting()
             {
               $(".hr").hide();
               $(".sales").hide();
               $(".crm").hide();
-              $(".marketing").hide();
+              $(".purchasing").hide();
               $(".payable").show();
               $(".inventory").hide();
             }
