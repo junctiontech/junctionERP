@@ -115,6 +115,85 @@ class Login extends CI_Controller {
 						}
 			
 		
+	{		
+		$email = $this->input->post('usermailid');
+		if($email)
+		{	
+			$orgnization = $this->input->post('organization_name');
+				if($orgnization=='')
+				{
+					$orgnization=array(
+									'organization_id'=>$this->input->post('organization_name')
+									  );
+					$data=array(
+								'usermailid'=>$this->input->post('usermailid'),
+								'password'=>$this->input->post('password')
+								);		
+					$list_organization =$this->login_model->list_organization('organization',$orgnization);
+					$row=$this->login_model->login_check('users',$data);
+						if($row->role_id=='Administrator')
+						{
+							if($row){ 
+										$user_data = array(
+															 'usermailid' => $row->usermailid,
+															 'user_id' => $row->user_id,
+															 'role_id'=>$row->role_id,
+															'organization_id'=>$list_organization->organization_id,
+															'organization_name'=>$list_organization->organization_name
+														  );
+										$this->session->set_userdata('user_data',$user_data);
+										$user_session_data = $this->session->userdata('user_data');
+										redirect('home');
+									}
+							
+						}
+						else
+						{
+							$this->session->set_flashdata('category_error', 'Error message');
+							$this->session->set_flashdata('message',$this->config->item("user").'your user mailid and password wrong');
+							redirect('login/login_view');
+						}
+						
+				}
+				elseif($orgnization!=='')
+				{
+							$orgnization=array(
+									'organization_id'=>$this->input->post('organization_name')
+							);
+							$data=array(
+									'usermailid'=>$this->input->post('usermailid'),
+									'password'=>$this->input->post('password')
+							);
+							$list_organization =$this->login_model->list_organization('organization',$orgnization);
+							$row=$this->login_model->login_check('users',$data);
+							if($row){
+								$user_data = array(
+										'usermailid' => $row->usermailid,
+										'user_id' => $row->user_id,
+										'role_id'=>$row->role_id,
+										'organization_id'=>$list_organization->organization_id,
+										'organization_name'=>$list_organization->organization_name
+								);
+								$this->session->set_userdata('user_data',$user_data);
+								$user_session_data = $this->session->userdata('user_data');
+								redirect('home');
+							}
+							else
+							 {
+							 	$this->session->set_flashdata('category_error', 'Error message');
+							 	$this->session->set_flashdata('message',$this->config->item("user").'your user mailid and password wrong');
+							 	redirect('login/login_view');
+							 }
+						}
+		}
+				else
+						{	
+							$this->session->set_flashdata('category_error', 'Error message');
+							$this->session->set_flashdata('message',$this->config->item("user").'Please select your organization');
+							  redirect('login/login_view');
+						}
+			
+		
 			
 		
 	}
