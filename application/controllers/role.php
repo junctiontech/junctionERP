@@ -10,6 +10,7 @@ class Role extends CI_Controller {
 		$this->data['user_data']="";
 		$this->data['url'] = base_url();
 		$this->load->model('login_model');
+		$this->load->model('organization_model');
 		$this->load->model('authority_model');
 		$this->load->library('parser');
 		$this->load->helper('url');
@@ -51,7 +52,7 @@ class Role extends CI_Controller {
 		$this->data['user_data']=$this->session->userdata('user_data');
 		$userdata=$this->session->userdata('user_data');
 		$this->parser->parse('include/header',$this->data);
-		$this->parser->parse('include/leftmenu',$this->data);
+		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('acc_setting',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 		}
@@ -73,7 +74,7 @@ class Role extends CI_Controller {
 				$filter=array(
 				'user_id' => $user_data['user_id']
 				);
-				$this->login_model->change($filter,$data,'ssr_t_users');
+				$this->login_model->change($filter,$data,'users');
 				$this->session->set_flashdata('message_type', 'success');        
 				$this->session->set_flashdata('message', $this->config->item("user").'Password updated successfully');
 				redirect('home');
@@ -83,12 +84,13 @@ class Role extends CI_Controller {
 			/* function for user role view */
 	function user_role()
 	{	
-				Authority::is_logged_in();
-				Authority::checkAuthority('user_role');
+				//Authority::is_logged_in();
+				//Authority::checkAuthority('user_role');
+		$users_list=$this->data['users_list']=$this->authority_model->users_list();
 		$role_list=$this->data['role_list']=$this->authority_model->role_list();
 		$verify_list=$this->data['verify_list']=$this->authority_model->verify_list();
 		$this->parser->parse('include/header',$this->data);
-		$this->parser->parse('include/leftmenu',$this->data);
+		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('user_role',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 	}
@@ -114,7 +116,7 @@ class Role extends CI_Controller {
 		if($user){
 					  
 						$filter = array('user_id'=>$user);
-						$this->authority_model->delete_user($filter,'ssr_t_users');
+						$this->authority_model->delete_user($filter,'users');
 						$this->session->set_flashdata('message_type', 'success');        
                         $this->session->set_flashdata('message', $this->config->item("user").' Delete Successfully');
 						redirect('role/user_role');		
@@ -141,7 +143,7 @@ class Role extends CI_Controller {
 				Authority::checkAuthority('role_management');
 		$list_permsn =$this->data['list_permsn']=$this->authority_model->list_permsn();
 		$this->parser->parse('include/header',$this->data);
-		$this->parser->parse('include/leftmenu',$this->data);
+		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('role_management',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 		
@@ -154,7 +156,7 @@ class Role extends CI_Controller {
 			$functions_list=$this->data['functions_list']=$this->authority_model->functions_list();
 			$permissions=$this->data['permissions']=$this->authority_model->permissions($info);
 			$this->parser->parse('include/header',$this->data);
-			$this->parser->parse('include/leftmenu',$this->data);
+			$this->parser->parse('include/left_menu',$this->data);
 			$this->load->view('role_permission',$this->data);
 			$this->parser->parse('include/footer',$this->data);
 		
@@ -192,9 +194,10 @@ class Role extends CI_Controller {
 	function manage_users($info=false)
 	{
 		Authority::is_logged_in();
+		$list_organization = $this->data['list_organization'] = $this->organization_model->list_organization();
 		$role_list=$this->data['role_list']=$this->authority_model->role_list();	
 	    $this->parser->parse('include/header',$this->data);
-		$this->parser->parse('include/leftmenu',$this->data);
+		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('manage_users',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 		
@@ -202,12 +205,19 @@ class Role extends CI_Controller {
 	
 			/* Function for new user add in user management view  */
 		function user_add()
+		{	
+			
+			$org_name=$this->input->post('organization_name');
+		if($org_name!=='')
 		{
-			Authority::is_logged_in();
 			$email = $this->input->post('usermailid');
-			$password=$this->input->post('password');
-			$role= $this->input->post('role');
-			$qry =   $this->authority_model->user_add('ssr_t_users',$email,$role,$password);
+			$data=array(
+							'organization_id'=>$this->input->post('organization_name'),
+							'usermailid'=>$this->input->post('usermailid'),
+							'role_id'=>$this->input->post('role'),
+							'password'=>$this->input->post('password')
+						);
+			$qry =   $this->authority_model->user_add('users',$data,$email);
 			if($qry)
 			   {
 					$this->session->set_flashdata('category_error', 'Error message');  
@@ -224,14 +234,14 @@ class Role extends CI_Controller {
 				
 		}
 		
-		
+		}
 			/* Function for add role view */
 		function add_role($info=false)
 	{
 		Authority::is_logged_in();
 		$list_function=	$this->data['list_function']=$this->authority_model->list_function();
 		$this->parser->parse('include/header',$this->data);
-		$this->parser->parse('include/leftmenu',$this->data);
+		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('add_role',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 			

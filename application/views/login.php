@@ -116,13 +116,9 @@
 				<?php  if($this->session->flashdata('category_error')) { ?>
 								<div class="row-fluid">
 									<div class="alert alert-danger">
-																
-									<strong><?=$this->session->flashdata('message')?></strong> 
-									
-								
-									
+										<strong><?=$this->session->flashdata('message')?></strong> 
 									</div>
-									</div>
+								</div>
 <?php }?>
 				<?php  if($this->session->flashdata('category_success')) { ?>
 								<div class="row-fluid">

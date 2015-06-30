@@ -50,7 +50,7 @@
 						});
 					});
 					</script>
-			
+				
 					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
@@ -74,13 +74,13 @@
 								
 							</tr>
 						</tfoot>
-					
+					<?php foreach ($list_employee as $list){ ?>
 						<tbody>
 							<tr>
-								<td>M00001</td>
-								<td>Paul Ho</td>
-								<td>PHP > Senior Developer</td>
-								<td>07031964411</td>
+								<td><?=$list->employee_id;?></td>
+								<td><?=$list->first_name;?></td>
+								<td><?=$list->department_name?> > <?=$list->designations_name;?></td>
+								<td><?=$list->mobile;?></td>
 								<td><a href="<?php echo base_url(); ?>employee/view_emp" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"><span class="fa fa-list-alt"></span></a></td>
 								<td>
 									<a href="<?php echo base_url(); ?>employee/add_emp" class="btn btn-secondary btn-sm btn-icon icon-left">
@@ -95,8 +95,9 @@
 						
 					
 						</tbody>
+						<?php } ?>	
 					</table>
-								
+							
 							</div>
 					</div>
 					

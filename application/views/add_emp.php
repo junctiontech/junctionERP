@@ -55,7 +55,7 @@
 				});
 			</script>
 			
-			<form role="forl" id="rootwizard" class="form-wizard validate">
+			<form role="forl" id="rootwizard" class="form-wizard validate" method="POST" action="<?=base_url();?>employee/insert_employee">
 				
 				<ul class="tabs">
 					<li class="active">
@@ -127,11 +127,11 @@
 									<label class="control-label">Gender</label>
 									<br>
 										<label class="cbr-inline">
-												<input type="radio" name="gender" class="cbr" checked>
+												<input type="radio" name="gender" class="cbr" value="male" checked>
 												Male
 											</label>
 											<label class="cbr-inline">
-												<input type="radio" name="gender" class="cbr">
+												<input type="radio" name="gender" class="cbr" value="female">
 												Female
 											</label>
 								</div>	
@@ -153,7 +153,7 @@
 							                    <div class="btn btn-default image-preview-input">
 							                        <span class="glyphicon glyphicon-folder-open"></span>
 							                        <span class="image-preview-input-title">Browse</span>
-							                        <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
+							                        <input type="file" accept="image/png, image/jpeg, image/gif" name="photo"/> <!-- rename it -->
 							                    </div>
 							                </span>
 							            </div><!-- /input-group image-preview [TO HERE]--> 
@@ -180,11 +180,11 @@
 										});
 									</script>
 									
-									<select class="form-control" name="" id="s2example-1">
+									<select class="form-control" name="maratial_status" id="s2example-1">
 										<option></option>
 										<optgroup label="Maratial Status">
-											<option>Married</option>
-											<option>Unmarried</option>
+											<option value="married">Married</option>
+											<option value="unmarried">Unmarried</option>
 										</optgroup>
 									</select>
 									
@@ -197,8 +197,8 @@
 									<select class="form-control " name="nationality" id="s2example-1">
 										<option></option>
 										<optgroup label="Nationality">
-											<option>Indian</option>
-											<option>United States</option>
+											<option value="indian">Indian</option>
+											<option value="united_state">United States</option>
 										</optgroup>
 									</select>
 									
@@ -274,7 +274,7 @@
 											<option>Cambodia</option>
 											<option>China</option>
 											<option>East Timor</option>
-											<option>India</option>
+											<option value="india">India</option>
 											<option>Indonesia</option>
 											<option>Iran</option>
 											<option>Iraq</option>
@@ -326,11 +326,11 @@
 									
 									<select name="state" class="selectboxit">
 										<optgroup label="United States">
-											<option value="1">Alabama</option>
-											<option value="2">Boston</option>
-											<option value="3">Ohaio</option>
-											<option value="4">New York</option>
-											<option value="5">Washington</option>
+											<option value="Delhi">Delhi</option>
+											<option value="mp">Madhya pradesh</option>
+											<option value="odisa">odisa</option>
+											<option value="jharkhand">jharkhand</option>
+											<option value="goa">goa</option>
 										</optgroup>
 									</select>
 								</div>
@@ -444,7 +444,7 @@
 									<i class="linecons-user"></i>
 								</div>
 								
-								<input type="text" class="form-control" name="empid" id="empid" data-validate="required,minlength[5]" data-message-minlength="Emp id must have minimum of 5 chars." placeholder="Enter Emp id" />
+								<input type="text" class="form-control" name="employee_id" id="empid" data-validate="required,minlength[5]" data-message-minlength="Emp id must have minimum of 5 chars." placeholder="Enter Emp id" />
 							</div>
 						</div>
 						</div>
@@ -462,7 +462,7 @@
 						<div class="col-md-6">						
 								<div class="form-group">
 									<label class="control-label" for="city">Department</label>
-									<select name="test" class="selectboxit">
+									<select name="department_name" class="selectboxit">
 										<optgroup label="Designations">
 											<option value="1">PHP</option>
 											<option value="2">Design</option>
@@ -474,7 +474,7 @@
 								<div class="form-group">
 									<label class="control-label" for="city">Designations</label>
 									<select name="test" class="selectboxit">
-										<optgroup label="Designations">
+										<optgroup label="designations_name">
 											<option value="1">Developer</option>
 											<option value="2">Designer</option>
 										</optgroup>
@@ -517,11 +517,11 @@
 									<label class="control-label">Frquency</label>
 									<br>
 										<label class="cbr-inline">
-												<input type="radio" name="frquency" class="cbr" checked>
+												<input type="radio" name="frquency" class="cbr" value="weekly" checked>
 												Weekly
 											</label>
 											<label class="cbr-inline">
-												<input type="radio" name="frquency" class="cbr">
+												<input type="radio" name="frquency" value="monthly" class="cbr">
 												Monthly
 											</label>
 								</div>	

@@ -11,6 +11,8 @@ class Master extends CI_Controller {
 		$this->load->model('organization_model');
 		$this->load->model('department_model');
 		$this->load->library('parser');
+		$this->load->library('authority');
+		$this->load->model('authority_model');
 		$this->load->library('session');
 		$this->data['base_url']=base_url();
 	 }
@@ -29,12 +31,12 @@ class Master extends CI_Controller {
 				/*	function for Insert new organization */
 	public function insert_organization()
 	{
-		$org_name=$this->input->post('orgnization_name');
+		$org_name=$this->input->post('organization_name');
 		if($org_name!=='')
 		{
 			$data=array(
-							'orgnization_name'=>$this->input->post('orgnization_name'),
-							'orgnization_desc'=>$this->input->post('orgnization_desc')
+							'organization_name'=>$this->input->post('organization_name'),
+							'organization_desc'=>$this->input->post('organization_desc')
 						);
 			$this->organization_model->insert_organization('organization',$data);
 			$this->session->set_flashdata('category_success', 'success message	');        
@@ -61,6 +63,7 @@ class Master extends CI_Controller {
 							/* manage organization */
 	public function manage_organization()
 	{   
+		Authority::checkAuthority('manage_organization');
 		$list_organization = $this->data['list_organization'] = $this->organization_model->list_organization();
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);

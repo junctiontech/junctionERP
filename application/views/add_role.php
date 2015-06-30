@@ -1,87 +1,96 @@
- <div id="main-content" >
-	<div class="page-title">
-	<div>
-	<h1><i class="fa fa-keyboard-o"></i> Add Role</h1>
-	</div>
-	</div>
+<!-- User role added by palak on 27th june -->
+<!-- manage User role body starts -->
 
-
-	<div id="breadcrumbs">
-	<ul class="breadcrumb">
-	<li class="active"> <i class="fa fa-home"></i><?php echo($this->breadcrumb->output());?> </li>
-
-	</ul>
-	</div>
-	    <!-- BEGIN Main Content -->
-                <div class="row-fluid">
-                    <div class="span12">
-                        <div class="box">
-                            <div class="box-title">
-                                <h3><i class="icon-table"></i> Add Role</h3>
-                               
-                            </div>
-                            <div class="box-content">
-						<form action="<?php echo base_url(); ?>index.php/role/insert_role" method="POST">
-								   <div class="control-group">
-                                       <!-- <label class="control-label">User Name</label>-->
-                                        <div class="controls">
-                                         	<input type="text" placeholder="Role Name" name="role" class="form-control" />
-                                        </div>
-                                    </div>
-									</br>
-									</br>
-								    <table class="table table-striped table-bordered ">
-										<thead>
-											<tr>
-												<th>Functions</th>
-												<th>Read</th>
-												<th>Execute</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-											<?php foreach($list_function as $list){
-												?>
-												<input type="hidden" readonly name="edit_costing" id="edit_costing" value="1" />
-												<td>
-													<input type="checkbox" id="<?=$list->function_id?>" value="<?php echo $list->function_id; ?>" checked name="function[]" /><?php echo $list->function_id; ?>
-												</td>
+		<div class="page-title">
+				
+				<div class="title-env">
+					<h1 class="title">Manage  Role</h1>
+					<p class="description">Add Your  Role</p>
+				</div>
+				
+					<div class="breadcrumb-env">
+					
+								<ol class="breadcrumb bc-1">
+									<li>
+							<a href="javascript:;"><i class="fa-home"></i>Home</a>
+						</li>
+							<li class="active">
+						
+										<strong>Add  Role</strong>
+								</li>
+							
+								</ol>
+								
+				</div>
+					
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Add  Role</h3>
+						
+						</div>
+							<div class="panel-body">
+								
+							<script type="text/javascript">
+					jQuery(document).ready(function($)
+					{
+						$("#example-1").dataTable({
+							aLengthMenu: [
+								[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]
+							]
+						});
+					});
+					</script>
+					<div class="" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">					
+					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+						<thead>
+							<tr>
+								<th>S.no</th>
+								 <th>Function</th>
+								 <th>Read</th>
+								<th>Execute</th>	
+							</tr>
+						</thead>
+					
+						<tfoot>
+							<tr>
+								  <th>S.no</th>
+								 <th>Function</th>
+								 <th>Read</th>
+								<th>Execute</th>
+							</tr>
+						</tfoot>
+					
+						<tbody>
+							<tr>
+							
+								<td>1</td>
+								<td>add_chapter</td>
+								<td>
+									<label class="cbr-inline">
+												<input type="checkbox" class="cbr">
 												
-												<td>
-												 <div class="controls">
-													 <label class="checkbox">
-													 <input type="hidden" name="read[]" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
+											</label>
+							</td>
+							<td><label class="cbr-inline">
+												<input type="checkbox" class="cbr">
 											
-													 </label>
-												 </div>
-												</td>
-												<td>
-												 <div class="controls">
-													 <label class="checkbox">
-													 <input type="hidden" name="execute[]" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
-														<!--<input type="hidden" id="<?=$list->function_id?>_execute" value="0" name="execute[]" />-->
-														<!--<input type="checkbox" id="<?=$list->function_id?>_execute" value="1" name="execute[]" />--> 
-													 </label>
-												 </div>
-												</td>
-											</tr>
-											<?php } ?>
-											
-										</tbody>
-									</table>
-								</br>
-								   <div class="form-actions">
-                                      <button type="submit" class="btn btn-primary">Submit</button>
-                                      <button type="button" class="btn">Cancel</button>
-                                   </div>
-							</form>
-                               
-                            </div>
-                        </div>
-                    </div>
+											</label>
+											</td>	
+							</tr>
+							
+						
+					
+						</tbody>
+					</table>
+					</div>			
+							</div>
 					</div>
-		
-
-
-
-
+					
+				</div>
+			</div>
+		</div>
+	</div>
