@@ -15,7 +15,7 @@ class Home extends CI_Controller {
 	 {
 	 	$this->parser->parse('include/header',$this->data);
 	 	$this->parser->parse('include/left_menu',$this->data);
-	 	$this->load->view('dashbord',$this->data);
+	 	$this->load->view('dashboard',$this->data);
 	 	$this->parser->parse('include/footer',$this->data);
 	 }
 	
