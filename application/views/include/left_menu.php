@@ -1,6 +1,6 @@
 <?php $userdata = $this->session->userdata('user_data');
 ?>
-<body class="page-body ">
+<body class="page-body skin-purple">
 <nav class="navbar horizontal-menu navbar-fixed-top"><!-- set fixed position by adding class "navbar-fixed-top" -->
 		
 		<div class="navbar-inner">
@@ -260,39 +260,43 @@
 						</a>
 					
 					</li>
-					<li>
-						<a href="javascript:;">
-							<i class="linecons-money"></i>
-							<span class="title">CRM</span>
-						</a>
-						<ul>
+						<li class="javascript:;">
+								<a href="<?php echo base_url(); ?>crm/crm/customers">
+								<i class="linecons-user"></i>
+									<span class="title">Customers</span>
+								</a>
+							</li>
 							<li class="javascript:;">
 								<a href="javascript:;">
+								<i class="linecons-lightbulb"></i>
 									<span class="title">Leads</span>
 								</a>
 							</li>
 							<li class="">
 								<a href="javascript:;">
+								<i class="linecons-lightbulb"></i>
 									<span class="title">Opportunity</span>
 								</a>
 							</li>
 							<li class="">
 								<a href="javascript:;">
+								<i class="linecons-lightbulb"></i>
 									<span class="title">Campaign</span>
 								</a>
 							</li>
 							<li class="">
 								<a href="javascript:;">
+								<i class="linecons-lightbulb"></i>
 									<span class="title">Help Desk</span>
 								</a>
 							</li>
 							<li class="">
 								<a href="javascript:;">
+								<i class="linecons-lightbulb"></i>
 									<span class="title">Reporting</span>
 								</a>
 							</li>
-						</ul>
-					</li>
+						
 					
 				</ul>
 				<!--  ul End for crm -->
