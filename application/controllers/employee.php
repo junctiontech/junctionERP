@@ -127,7 +127,7 @@ public function insert_employee($info=false)
 			$_FILES['image']['name'];
 					move_uploaded_file($_FILES['image']['tmp_name'],"img/".$employee_id.$_FILES['image']['name']);
 					$image = $employee_id.$_FILES['image']['name'];
-				$images=array('resume'=>$resume);
+				
 					//print_r($data);
 		}
 		if($_FILES['resume']['name']!=='')
@@ -163,7 +163,7 @@ public function insert_employee($info=false)
 		}
 		if($_FILES['idproof']['name']!=='')
 		{
-			print_r( $_FILES['idproof']['name']);
+			//print_r( $_FILES['idproof']['name']);
 	    $_FILES['idproof']['name'];
 					move_uploaded_file($_FILES['idproof']['tmp_name'],"img/".$employee_id.$_FILES['idproof']['name']);
 						
@@ -172,9 +172,9 @@ public function insert_employee($info=false)
 				$images=array('idproof'=>$idproof);
 				
 		}
-		echo '<pre>';
-		print_r($images);
-		echo '</pre>';die;
+		//echo '<pre>';
+		//print_r($images);
+		//echo '</pre>';die;
 		}
 			if($first_name!=='')
 		{
