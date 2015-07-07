@@ -27,10 +27,22 @@ class organization_model extends CI_Model {
 		$this->db->insert($table,$data);
 	}
 	
+	
+		/* function for delete organization*/
+	public function delete_organization($info=false)
+	{
+		$this->db->query("DELETE FROM `employee` WHERE `organization_id`='".$info."' ");
+		$this->db->query("DELETE FROM `designation` WHERE `organization_id`='".$info."' ");
+		$this->db->query("DELETE FROM `department` WHERE `organization_id`='".$info."' ");
+		$this->db->query("DELETE FROM `organization` WHERE `organization_id`='".$info."' ");
+	}
+		
+		
 	/*function for organization list */
-	public function list_organization()
+	public function list_organization($info=false)
 	{
 		$this->db->select('*');
+		//$this->db->where('organization_id',$info);
 		$qry=$this->db->get('organization');
 		return $qry->result();
 	}
@@ -51,6 +63,7 @@ class organization_model extends CI_Model {
 		$this->db->update('organization',$data);
 		return true;
 	}
+	
 }
 //Model Class for Organization end
 ?>

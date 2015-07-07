@@ -59,8 +59,8 @@ class Login extends CI_Controller {
 															 'usermailid' => $row->usermailid,
 															 'user_id' => $row->user_id,
 															 'role_id'=>$row->role_id,
-															'organization_id'=>$row->organization_id,
-															'organization_name'=>$row->organization_name
+															'organization_id'=>$list_organization->organization_id,
+															'organization_name'=>$list_organization->organization_name
 														  );
 										$this->session->set_userdata('user_data',$user_data);
 										$user_session_data = $this->session->userdata('user_data');
@@ -93,8 +93,8 @@ class Login extends CI_Controller {
 										'usermailid' => $row->usermailid,
 										'user_id' => $row->user_id,
 										'role_id'=>$row->role_id,
-										'organization_id'=>$row->organization_id,
-										'organization_name'=>$row->organization_name
+										'organization_id'=>$list_organization->organization_id,
+										'organization_name'=>$list_organization->organization_name
 								);
 								$this->session->set_userdata('user_data',$user_data);
 								$user_session_data = $this->session->userdata('user_data');

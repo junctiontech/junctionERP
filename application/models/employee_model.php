@@ -28,27 +28,48 @@ class Employee_model extends CI_Model {
 	}
 	
 	/*function for employee list*/
-	public function list_employee()
+	public function list_employee($info)
 	{
 		$this->db->select('*');
+		$this->db->where('organization_id',$info);
 		$qry=$this->db->get('employee');
 		return $qry->result();
 	}
 	
 	/* Function For fetch select employee*/
-	public function select_employee($info)
+	public function select_emp($info)
 	{
 		$this->db->select('*');
-		$this->db->where('designation_id',$info);
+		$this->db->where('employee_id',$info);
 		$qry = $this->db->get('employee');
 		return $qry->result();
+		return true;
 	}
 	
-	/* function for update employee*/
-	public function update_employee($info,$data)
+	/* Function For fetch select image employee*/
+	public function select_emp_img($info)
 	{
-		$this->db->where('designation_id',$info);
-		$this->db->update('employee',$data);
+		$this->db->select('image,resume,offerletter,joiningletter,idproof');
+		$this->db->where('employee_id',$info);
+		$qry = $this->db->get('employee');
+		return $qry->row();
+		return true;
+	}
+	
+	
+	/* function for update employee*/
+	public function update_employee($table,$data,$id)
+	{
+		$this->db->where('employee_id',$id);
+		$this->db->update($table,$data);
+		return true;
+	}
+	
+	/* function for image update */
+	public function update_image_employee($table,$images,$id)
+	{
+		$this->db->where('employee_id',$id);
+		$qry=$this->db->update($table,$images);
 		return true;
 	}
 }

@@ -1,3 +1,4 @@
+<?php $userdata= $this->session->userdata('user_data');?>
 <!-- manage Designation page added by palak on 25th june -->
 <!-- manage Designation body starts -->
 
@@ -35,7 +36,7 @@
 <?php } ?>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">Manage Designation</h3>
+							<h3 class="panel-title"><?php echo $userdata['organization_name'];?></h3>
 							<div class="panel-options">
 									<a href="<?php echo base_url(); ?>master/add_designation"><button class="btn btn-info btn-icon btn-sm">
 									<i class="fa-plus"></i>
@@ -56,12 +57,12 @@
 						});
 					});
 					</script>
+					
 					<div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">					
 					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
 								<th>S.no</th>
-								<th>Organization</th>
 								<th>Designation</th>
 								<th>Action</th>
 								
@@ -71,7 +72,6 @@
 						<tfoot>
 							<tr>
 								<th>S.no</th>
-								<th>Organization</th>
 								<th>Designation</th>
 								<th>Action</th>
 							</tr>
@@ -79,22 +79,21 @@
 					
 						<tbody>
 							<tr>
-							<?php foreach( $list_designation as $list){ ?>
-								<td>1</td>
-								<td><?php echo $list->organization_id?></td>
+							<?php $i=1; foreach( $list_designation as $list){ ?>
+								<td><?=$i;?></td>
 								<td><?php echo $list->designation_name; ?></td>
 								<td>
 								<a href="<?php echo base_url(); ?>master/add_designation/<?=$list->designation_id;?>" class="btn btn-secondary btn-sm btn-icon icon-left">
 											Edit
 									</a>
-									<a href="javascript:;" class="btn btn-danger btn-sm btn-icon icon-left">
+									<a href="<?php echo base_url(); ?>master/delete_designation/<?=$list->designation_id; ?>" class="btn btn-danger btn-sm btn-icon icon-left">
 											Delete
 									</a>
 								
 								</td>
 								
 							</tr>
-							<?php } ?>
+							<?php $i++;} ?>
 						
 					
 						</tbody>

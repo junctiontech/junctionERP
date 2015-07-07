@@ -36,20 +36,13 @@
 <?php } ?>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">Manage Departments</h3>
+							<h3 class="panel-title"><?php echo $userdata['organization_name'];?></h3>
 							<div class="panel-options">
 									<a href="<?php echo base_url(); ?>master/add_departments"><button class="btn btn-info btn-icon btn-sm">
 									<i class="fa-plus"></i>
 									<span>Add Departments</span>
 								</button></a>
-								<a href="<?php echo base_url(); ?>master/add_departments"><button class="btn btn-info btn-icon btn-sm">
-									<i class="fa-pencil"></i>
-									<span>Edit Departments</span>
-								</button></a>
-								<a href="<?php echo base_url(); ?>master/add_departments"><button class="btn btn-danger btn-icon btn-sm">
-									<i class="fa-close"></i>
-									<span>Delete Departments</span>
-								</button></a>
+								
 								</div>	
 						</div>
 							<div class="panel-body">
@@ -64,50 +57,39 @@
 						});
 					});
 					</script>
-					<div class="row">
-								<div class="col-sm-12">
-									
-																
-									<ul class="list-unstyled line-height-default">
-										<li>
-											<b>Organization -</b>
-											<span > <?php echo $userdata['orgnization_name'];?> </span>
-										</li>
-										
-									
-									</ul>
-									
-								</div>
-							
-								
-							</div>
+					
 						<div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
 					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
-								<th>S.no</th>
+								<th>S. no</th>
 								<th>Departments</th>
-								
+								<th>Action</th>
 							</tr>
 						</thead>
 					
 						<tfoot>
 							<tr>
-								<th>S.no</th>
+								<th>S. no</th>
 								<th>Departments</th>
-								
+								<th>Action</th>
 							</tr>
 						</tfoot>
 					
 						<tbody>
-						<?php   foreach($list_department as $list){  $data=explode(",",$list->department_name); for($i=0;$i<count($data);$i++){?>
+						<?php $i=1; foreach($list_department as $list){ ?>
 							<tr>
-								<td><?php echo $i;?></td>
-								<td><?php echo $data[$i];?></td>
-								
-							
-						
-					<?php } } ?>
+								<td><?=$i;?></td>
+								<td><?php echo $list->department_name?></td>
+								<td>
+									<a href="<?php echo base_url(); ?>master/add_departments/<?=$list->department_id; ?>" class="btn btn-secondary btn-sm btn-icon icon-left">
+											Edit
+									</a>
+									<a href="<?php echo base_url(); ?>master/delete_departments/<?=$list->department_id; ?>" class="btn btn-danger btn-sm btn-icon icon-left">
+											Delete
+									</a>
+								</td>
+					<?php $i++; }  ?>
 						</tbody>
 					</table>
 					</div>			

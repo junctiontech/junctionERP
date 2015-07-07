@@ -7,9 +7,17 @@ $userdata = $this->session->userdata('user_data');
 									</div>
 								</div>
 <?php }
-echo "Junction Erp ";
-?> <h2>
+ if($this->session->flashdata('category_success')) { ?>
+								<div class="row-fluid">
+									<div class="alert alert-success">
+										<strong><?=$this->session->flashdata('message')?></strong> 
+									</div>
+								</div>
+<?php } 
+			echo "Junction Erp ";
+?> 
+<h2>
 <?php 
-echo  "welcome   " .$userdata['role_id'] ;
+				echo  "welcome   " .$userdata['role_id'] ;
 ?>
 </h2>

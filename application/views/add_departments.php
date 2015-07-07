@@ -1,3 +1,6 @@
+<?php $userdata= $this->session->userdata('user_data');
+$id = $userdata['organization_id'];
+?>
 <!-- add departments page added by palak on 21 st june -->
 <!-- add departments body starts -->
 
@@ -34,40 +37,13 @@
 					
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">Add Department</h3>
+							<h3 class="panel-title"> <?php echo $userdata['organization_name'];?></h3>
 								
 						</div>
+							<?php if(empty($select_department)){ ?>
 							<div class="panel-body">
 								
-								<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>master/insert_department">
-									<div class="form-group">
-									<label class="control-label col-sm-2">Select your organization</label>
-									
-									<script type="text/javascript">
-										jQuery(document).ready(function($)
-										{
-											$("#s2example-1").select2({
-												placeholder: 'Select your organization...',
-												allowClear: true
-											}).on('select2-open', function()
-											{
-												// Adding Custom Scrollbar
-												$(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
-											});
-											
-										});
-									</script>
-									<div class="col-sm-10">
-									<select class="form-control " id="" name="orgnization_name">
-										<option></option>
-										<optgroup label="Organizations">
-										<?php foreach($list_organization as $list){?>
-											<option value="<?php echo $list->organization_id?>"><?php echo $list->organization_name; ?></option>
-										<?php } ?>
-										</optgroup>
-									</select>
-									</div>
-								</div>
+								<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>master/insert_department/<?=$id?>">
 									<div class="form-group" id="fields">
 									          <label class="control-label col-sm-2" for="department">Department</label>
 									            <div class="col-sm-8" id="profs"> 
@@ -82,10 +58,28 @@
 										<button type="submit" class="btn btn-success">Submit</button>
 										<button type="reset" class="btn btn-white" onClick="window.history.back();">Cancel</button>
 									</div>
-									
 								</form>
 								
 							</div>	<!--panel close -->	
+							<?php } if(!empty($select_department)){ ?>
+							<div class="panel-body">
+							<?php foreach($select_department as $list){?>
+								<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>master/update_department/<?=$list->department_id?>">
+									<div class="form-group" id="fields">
+									          <label class="control-label col-sm-2" for="department">Department</label>
+									            <div class="col-sm-8" id="profs"> 
+													<input type="text" class="input  form-control" id="field1" name="department_name" value="<?=(!empty($list->department_name))?$list->department_name:"";?>"  placeholder="Type Department" data-items="8"/>
+									            </div>
+									        
+									</div>
+									<div class="form-group" >
+										<button type="submit" class="btn btn-success">Submit</button>
+										<button type="reset" class="btn btn-white" onClick="window.history.back();">Cancel</button>
+									</div>
+								</form>
+							<?php } ?>
+							</div>	<!--panel close -->	
+							<?php } ?>
 						</div>
 					</div>
 					

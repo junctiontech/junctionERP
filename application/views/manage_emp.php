@@ -26,7 +26,13 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
-					
+					<?php  if($this->session->flashdata('category_success')) { ?>
+								<div class="row-fluid">
+									<div class="alert alert-success">
+										<strong><?=$this->session->flashdata('message')?></strong> 
+									</div>
+								</div>
+<?php } ?>
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title">Manage Employees</h3>
@@ -79,11 +85,11 @@
 							<tr>
 								<td><?=$list->employee_id;?></td>
 								<td><?=$list->first_name;?></td>
-								<td><?=$list->department_name?> > <?=$list->designations_name;?></td>
+								<td><?=$list->department_id?> > <?=$list->designation_id;?></td>
 								<td><?=$list->mobile;?></td>
 								<td><a href="<?php echo base_url(); ?>employee/view_emp" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"><span class="fa fa-list-alt"></span></a></td>
 								<td>
-									<a href="<?php echo base_url(); ?>employee/add_emp" class="btn btn-secondary btn-sm btn-icon icon-left">
+									<a href="<?php echo base_url(); ?>employee/add_emp/<?=$list->employee_id;?>" class="btn btn-secondary btn-sm btn-icon icon-left">
 											Edit
 									</a>
 									<a href="javascript:;" class="btn btn-danger btn-sm btn-icon icon-left">
