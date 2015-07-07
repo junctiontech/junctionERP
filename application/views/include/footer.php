@@ -114,6 +114,20 @@
 				    });  
 				});
 				</script>
+				<script type="text/javascript">
+	
+						function showHide(){
+							var chkBox = document.getElementById("chkBox");
+							var txtBox = document.getElementById("txtBox");
+			 
+							if (chkBox.checked){
+								txtBox.style.display = "none";
+							} else {
+								txtBox.style.display = "block";
+							}
+						}
+		
+		</script>
 <!-- Bottom Scripts -->
 	<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/TweenMax.min.js"></script>
@@ -124,6 +138,7 @@
 	<script src="<?php echo base_url(); ?>assets/js/jquery-validate/jquery.validate.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/toastr/toastr.min.js"></script>
 <!-- Bottom Scripts -->
+	
 
 	<!-- JavaScripts initializations and stuff -->
 	<script src="<?php echo base_url(); ?>assets/js/xenon-custom.js"></script>
@@ -132,7 +147,8 @@
 	<script src="<?php echo base_url(); ?>assets/js/datatables/dataTables.bootstrap.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/datatables/yadcf/jquery.dataTables.yadcf.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/datatables/tabletools/dataTables.tableTools.min.js"></script>
-	
+	<!--tags input css-->
+		<script src="<?php echo base_url(); ?>assets/js/tagsinput/bootstrap-tagsinput.min.js"></script>
 	<!-- select 2 Scripts -->
 	<script src="<?php echo base_url(); ?>assets/js/select2/select2.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/jquery-ui/jquery-ui.min.js"></script>
@@ -147,7 +163,9 @@
 	<script src="<?php echo base_url(); ?>assets/js/multiselect/js/jquery.multi-select.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/selectboxit/jquery.selectBoxIt.min.js"></script>
 	<!-- form wizardScripts -->
-
-
+		<!-- file upload -->
+	 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap-fileupload/bootstrap-fileupload.css" />
+   <script type="text/javascript" src="<?php echo base_url(); ?>assets/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
+	<!--file upload -->
 </body>
 </html>
