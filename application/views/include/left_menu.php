@@ -1,6 +1,6 @@
 <?php $userdata = $this->session->userdata('user_data');
 ?>
-<body class="page-body ">
+<body class="page-body skin-purple">
 <nav class="navbar horizontal-menu navbar-fixed-top"><!-- set fixed position by adding class "navbar-fixed-top" -->
 		
 		<div class="navbar-inner">
@@ -128,6 +128,13 @@
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 					<li>
+						<a href="<?php echo base_url(); ?>home">
+							<i class="linecons-lightbulb"></i>
+							<span class="title">Dashboard</span>
+						</a>
+					
+					</li>
+					<li>
 						<a href="<?php echo base_url(); ?>master/manage_organization">
 							<i class="linecons-cog"></i>
 							<span class="title">Organization</span>
@@ -183,6 +190,13 @@
 				<ul id="main-menu" class="main-menu sales">
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+						<li>
+						<a href="<?php echo base_url(); ?>home">
+							<i class="linecons-lightbulb"></i>
+							<span class="title">Dashboard</span>
+						</a>
+					
+					</li>
 					<li>
 						<a href="javascript:;">
 							<i class="linecons-money"></i>
@@ -239,39 +253,50 @@
 				<ul id="main-menu" class="main-menu crm">
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
-					<li>
-						<a href="javascript:;">
-							<i class="linecons-money"></i>
-							<span class="title">CRM</span>
+						<li>
+						<a href="<?php echo base_url(); ?>home">
+							<i class="linecons-lightbulb"></i>
+							<span class="title">Dashboard</span>
 						</a>
-						<ul>
+					
+					</li>
+						<li class="javascript:;">
+								<a href="<?php echo base_url(); ?>crm/crm/customers">
+								<i class="linecons-user"></i>
+									<span class="title">Customers</span>
+								</a>
+							</li>
 							<li class="javascript:;">
 								<a href="javascript:;">
+								<i class="linecons-lightbulb"></i>
 									<span class="title">Leads</span>
 								</a>
 							</li>
 							<li class="">
 								<a href="javascript:;">
+								<i class="linecons-lightbulb"></i>
 									<span class="title">Opportunity</span>
 								</a>
 							</li>
 							<li class="">
 								<a href="javascript:;">
+								<i class="linecons-lightbulb"></i>
 									<span class="title">Campaign</span>
 								</a>
 							</li>
 							<li class="">
 								<a href="javascript:;">
+								<i class="linecons-lightbulb"></i>
 									<span class="title">Help Desk</span>
 								</a>
 							</li>
 							<li class="">
 								<a href="javascript:;">
+								<i class="linecons-lightbulb"></i>
 									<span class="title">Reporting</span>
 								</a>
 							</li>
-						</ul>
-					</li>
+						
 					
 				</ul>
 				<!--  ul End for crm -->
@@ -280,6 +305,13 @@
 				<ul id="main-menu" class="main-menu purchasing">
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+						<li>
+						<a href="<?php echo base_url(); ?>home">
+							<i class="linecons-lightbulb"></i>
+							<span class="title">Dashboard</span>
+						</a>
+					
+					</li>
 					<li>
 						<a href="javascript:;">
 							<i class="linecons-params"></i>
@@ -328,6 +360,13 @@
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 					<li>
+						<a href="<?php echo base_url(); ?>home">
+							<i class="linecons-lightbulb"></i>
+							<span class="title">Dashboard</span>
+						</a>
+					
+					</li>
+					<li>
 						<a href="javascript:;">
 							<i class="linecons-cog"></i>
 							<span class="title">Inventory </span>
@@ -360,10 +399,17 @@
 				</ul>
 				<!--  ul End for inventory -->
 						<!--  ul End for payable -->
-				<ul id="main-menu" class="main-menu payable">
+				<ul id="main-menu" class="main-menu reporting">
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
-								<li>
+						<li>
+						<a href="<?php echo base_url(); ?>home">
+							<i class="linecons-lightbulb"></i>
+							<span class="title">Dashboard</span>
+						</a>
+					
+					</li>
+					<li>
 						<a href="javascript:;">
 							<i class="linecons-diamond"></i>
 							<span class="title">Reporting</span>
@@ -400,7 +446,7 @@
               $(".hr").show();
               $(".crm").hide();
               $(".purchasing").hide();
-              $(".payable").hide();
+              $(".reporting").hide();
               $(".inventory").hide();
             }
             function show_sales()
@@ -409,7 +455,7 @@
               $(".sales").show();
               $(".crm").hide();
               $(".purchasing").hide();
-              $(".payable").hide();
+              $(".reporting").hide();
               $(".inventory").hide();
             }
             function show_inventory()
@@ -418,7 +464,7 @@
               $(".sales").hide();
               $(".crm").hide();
               $(".purchasing").hide();
-              $(".payable").hide();
+              $(".reporting").hide();
               $(".inventory").show();
             }
             function show_crm()
@@ -427,7 +473,7 @@
               $(".sales").hide();
               $(".crm").show();
               $(".purchasing").hide();
-              $(".payable").hide();
+              $(".reporting").hide();
               $(".inventory").hide();
             }
             function show_purchasing()
@@ -436,7 +482,7 @@
               $(".sales").hide();
               $(".crm").hide();
               $(".purchasing").show();
-              $(".payable").hide();
+              $(".reporting").hide();
               $(".inventory").hide();
             }
             function show_reporting()
@@ -445,7 +491,7 @@
               $(".sales").hide();
               $(".crm").hide();
               $(".purchasing").hide();
-              $(".payable").show();
+              $(".reporting").show();
               $(".inventory").hide();
             }
     </script>				

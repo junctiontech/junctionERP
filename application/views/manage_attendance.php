@@ -89,8 +89,8 @@
 					
 						<tbody>
 							<tr>
-								<td>1</td>
-								<td>Junction WEB</td>
+								<td>Rohit</td>
+								<td>Web Designer</td>
 								<td>WEB</td>
 								<td>HR</td>
 								<td>
