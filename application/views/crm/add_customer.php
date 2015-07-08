@@ -52,6 +52,7 @@
 		                                         </div>
 										</div>
 								<!-- image upload -->
+								
 											<div class="col-md-4">
 												<div class="form-block">
 													<label for="chkBox">
