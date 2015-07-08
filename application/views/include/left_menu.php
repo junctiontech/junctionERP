@@ -1,6 +1,6 @@
 <?php $userdata = $this->session->userdata('user_data');
 ?>
-<body class="page-body skin-purple">
+<body class="page-body  skin-concrete">
 <nav class="navbar horizontal-menu navbar-fixed-top"><!-- set fixed position by adding class "navbar-fixed-top" -->
 		
 		<div class="navbar-inner">
@@ -273,7 +273,7 @@
 								</a>
 							</li>
 							<li class="">
-								<a href="javascript:;">
+								<a href="<?php echo base_url(); ?>crm/crm/manage_opportunities">
 								<i class="linecons-lightbulb"></i>
 									<span class="title">Opportunity</span>
 								</a>

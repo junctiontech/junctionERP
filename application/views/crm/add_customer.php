@@ -69,31 +69,18 @@
 													<input type="text" class="form-control" id="tagsinput-1" data-role="tagsinput" value="Business, Erp, Crm" />	
 												</div>
 											</div>
-											<div class="col-md-6">
-													<div class="col-sm-6">
-														<div class="xe-widget xe-counter">
-															<div class="xe-icon">
-																<i class="linecons-cloud"></i>
-															</div>
-															<div class="xe-label">
-																<strong class="num">0</strong>
-																<span>Meetings</span>
-															</div>
-														</div>
-														
-													</div>
-													<div class="col-sm-6">
-														<div class="xe-widget xe-counter">
-															<div class="xe-icon">
-																<i class="linecons-cloud"></i>
-															</div>
-															<div class="xe-label">
-																<strong class="num">0</strong>
-																<span>Calls</span>
-															</div>
-														</div>
-														
-													</div>
+											<div class="col-md-4 col-md-offset-2">
+												
+														<button class="btn btn-white btn-icon ">
+														<i class="fa-phone"></i>
+															<span>0  Calls</span>
+															
+														</button>
+												<button class="btn btn-white  btn-icon ">
+														<i class="fa-calendar"></i>
+															 <span>0 Meetings</span>
+															
+														</button>
 											</div>
 										</div>
 										<div class="row">
