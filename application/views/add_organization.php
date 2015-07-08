@@ -74,14 +74,14 @@
 										<label class="col-sm-2 control-label" for="field-1">Organization Name</label>
 										
 										<div class="col-sm-10">
-											<input type="text" class="form-control" name="orgnization_name" id="field-1" placeholder="Organization Name" value="<?=(!empty($list->organization_name))?$list->organization_name:"";?>" >
+											<input type="text" class="form-control" name="organization_name" id="field-1" placeholder="Organization Name" value="<?=(!empty($list->organization_name))?$list->organization_name:"";?>" >
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-2 control-label" for="field-1">Organization Description</label>
 										
 										<div class="col-sm-10">
-											<textarea class="form-control" name="orgnization_desc" /><?=(!empty($list->organization_desc))?$list->organization_desc:"";?></textarea>
+											<textarea class="form-control" name="organization_desc" /><?=(!empty($list->organization_desc))?$list->organization_desc:"";?></textarea>
 										</div>
 									</div>
 									<div class="form-group-separator"></div>

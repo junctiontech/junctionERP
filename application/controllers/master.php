@@ -50,8 +50,8 @@ class Master extends CI_Controller {
 	public function update_organization($info)
 	{
 		$data=array(
-						'orgnization_name'=>$this->input->post('orgnization_name'),
-						'orgnization_desc'=>$this->input->post('orgnization_desc')
+						'organization_name'=>$this->input->post('organization_name'),
+						'organization_desc'=>$this->input->post('organization_desc')
 					);
 		$update_organization = $this->data['update_organization'] = $this->organization_model->update_organization($info,$data);
 		$this->session->set_flashdata('category_success','success mesage');
@@ -60,7 +60,17 @@ class Master extends CI_Controller {
 	}
 	
 	
-							/* manage organization */
+			/* function for delete organization */
+	public function delete_organization($info)
+	{
+		$this->organization_model->delete_organization($info);
+		$this->session->set_flashdata('category_success','success mesage');
+		$this->session->set_flashdata('message', $this->config->item("user").' Organization delete successfully');
+		redirect('home');
+	}
+	
+	
+			/* manage organization */
 	public function manage_organization()
 	{   
 		Authority::checkAuthority('manage_organization');
@@ -73,40 +83,74 @@ class Master extends CI_Controller {
 	
 	
 							/* add departments */
-	public function add_departments()
+	public function add_departments($info=false)
 	{   
-		//$select_department = $this->data['select_department'] = $this->department_model->select_department($info);
-		$list_organization = $this->data['list_organization'] = $this->master_model->list_organization();
+		$select_department = $this->data['select_department'] = $this->department_model->select_department($info);
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('add_departments',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 	}
 	
-						/* function for insert department */
-	public function insert_department()
+		/* function for edit department */
+	public function update_department($info=false)
+	{;
+		$data=array(
+						'department_name'=>$this->input->post('department_name')
+					);
+		$update_department = $this->data['update_department'] = $this->department_model->update_department($info,$data);
+		$this->session->set_flashdata('category_success','success mesage');
+		$this->session->set_flashdata('message', $this->config->item("user").' Department update successfully');
+		redirect('master/manage_departments');
+	}
+	
+			/* function for delete department */
+	public function delete_departments($info=false)
 	{
-		$org_name=$this->input->post('orgnization_name');
+		if($info)
+			{
+				$data=array(
+								'department_id'=>0
+							);
+			}
+			//print_r($data);die;
+		$this->department_model->edit_emp($info,$data);
+			
+		$this->department_model->delete_department($info);
+		$this->session->set_flashdata('category_success','success mesage');
+		$this->session->set_flashdata('message', $this->config->item("user").' Department delete successfully');
+		redirect('home');
+	}
+	
+	
+						/* function for insert department */
+	public function insert_department($info=false)
+	{
 		$dep=$this->input->post('department_name');
-		$implode = (implode(",",$dep));
-		if($dep_name!=='')
+		for($i=0;$i<count($dep);$i++)
 		{
 			$data=array(
-					'orgnization_id'=>$this->input->post('orgnization_name'),
-					'department_name'=>$implode
-			);
-			$this->department_model->insert_department('department',$data);
-			$this->session->set_flashdata('category_success', 'success message	');
-			$this->session->set_flashdata('message', $this->config->item("user").' Department Inserted successfully');
-			redirect('master/manage_departments');
+								'organization_id'=>$info,
+								'department_name'=>$dep[$i]
+							);
+		
+				$this->department_model->insert_department('department',$data);
 		}
+		
+				$this->session->set_flashdata('category_success', 'success message	');
+				$this->session->set_flashdata('message', $this->config->item("user").' Department Inserted successfully');
+				redirect('master/manage_departments');
+			
+		
 	
 	}
 	
 						/*  manage departments */
 	public function manage_departments()
 	{ 
-		$list_department= $this->data['list_department'] = $this->department_model->list_department();
+		$userdata = $this->session->userdata('user_data');
+		$organization=$userdata['organization_id'];
+		$list_department= $this->data['list_department'] = $this->department_model->list_department($organization);
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('manage_departments',$this->data);
@@ -118,7 +162,6 @@ class Master extends CI_Controller {
 	public function add_designation($info=false)
 	{
 		$select_designation = $this->data['select_designation'] = $this->designation_model->select_designation($info);
-		$list_organization = $this->data['list_organization'] = $this->mhome->list_organization();
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('add_designation',$this->data);
@@ -127,28 +170,47 @@ class Master extends CI_Controller {
 	
 	
 							/*	insert new designation	*/
-	public function insert_designation()
+	public function insert_designation($info=false)
 	{
-		$org_name=$this->input->post('orgnization_name');
-		if($org_name!=='')
+		$designation=$this->input->post('designation_name');
+		for($i=0;$i<count($designation);$i++)
 		{
 			$data=array(
-							'orgnization_id'=>$this->input->post('orgnization_name'),
-							'designation_name'=>$this->input->post('designation_name')
+								'organization_id'=>$info,
+								'designation_name'=>$designation[$i]
 						);
-			$this->designation_model->insert_designation('designation',$data);
-			$this->session->set_flashdata('category_success', 'success message	');        
-			$this->session->set_flashdata('message', $this->config->item("user").' designation Inserted successfully');
-			redirect('master/manage_designation');
+		
+				$this->designation_model->insert_designation('designation',$data);
 		}
+			$this->session->set_flashdata('category_success', 'success message	');        
+			$this->session->set_flashdata('message', $this->config->item("user").' designation add successfully');
+			redirect('master/manage_designation');
+		
 		
 	}
+	
+	/* function for delete department */
+	public function delete_designation($info=false)
+	{
+		if($info)
+			{
+				$data=array(
+								'designation_id'=>0
+							);
+			}
+			//print_r($data);die;
+		$this->designation_model->edit_emp($info,$data);
+		$this->designation_model->delete_designation($info);
+		$this->session->set_flashdata('category_success','success mesage');
+		$this->session->set_flashdata('message', $this->config->item("user").' Department delete successfully');
+		redirect('home');
+	}
+	
 							
 							/* function for edit designation */
 	public function update_designation($info)
 	{
 		$data=array(
-						'orgnization_name'=>$this->input->post('orgnization_name'),
 						'designation_name'=>$this->input->post('designation_name')
 					);
 		$update_designation = $this->data['update_designation'] = $this->designation_model->update_designation($info,$data);
@@ -160,7 +222,9 @@ class Master extends CI_Controller {
 								/* Function for Manage designation  */
 	public function manage_designation()
 	{
-		$list_designation = $this->data['list_designation'] = $this->designation_model->list_designation();
+		$userdata = $this->session->userdata('user_data');
+		$organization=$userdata['organization_id'];
+		$list_designation = $this->data['list_designation'] = $this->designation_model->list_designation($organization);
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('manage_designation',$this->data);

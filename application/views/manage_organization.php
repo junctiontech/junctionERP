@@ -1,3 +1,5 @@
+<?php $userdata = $this->session->userdata('user_data');
+?>
 <!-- manage organization page added by palak on 20 th june -->
 <!-- manage organization body starts -->
 
@@ -61,6 +63,7 @@
 					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
+								<th>S. no</th>
 								<th>Organization Name</th>
 								<th>Action</th>
 							</tr>
@@ -68,25 +71,27 @@
 					
 						<tfoot>
 							<tr>
+								<th>S. no.</th>
 								<th>Organization Name</th>
 								<th>Action</th>
 								
 							</tr>
 						</tfoot>
-					<?php foreach($list_organization as $list){ ?>
+					<?php $i=1; foreach($list_organization as $list){ ?>
 						<tbody>
 							<tr>
+								<td><?=$i;?></td>
 								<td><?php echo $list->organization_name;?></td>
 								<td>
 									<a href="<?php echo base_url(); ?>master/add_organization/<?=$list->organization_id; ?>" class="btn btn-secondary btn-sm btn-icon icon-left">
 											Edit
 									</a>
-									<a href="javascript:;" class="btn btn-danger btn-sm btn-icon icon-left">
+									<a href="<?php echo base_url(); ?>master/delete_organization/<?=$list->organization_id; ?>" class="btn btn-danger btn-sm btn-icon icon-left">
 											Delete
 									</a>
 								</td>
 							</tr>
-					<?php } ?>
+					<?php $i++; } ?>
 						
 					
 						</tbody>
