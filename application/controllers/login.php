@@ -52,15 +52,15 @@ class Login extends CI_Controller {
 								);		
 					$list_organization =$this->login_model->list_organization('organization',$orgnization);
 					$row=$this->login_model->login_check('users',$data);
-						if($row->role_id=='Super user')
+						if($row->role_id=='superuser')
 						{
 							if($row){ 
 										$user_data = array(
 															 'usermailid' => $row->usermailid,
 															 'user_id' => $row->user_id,
 															 'role_id'=>$row->role_id,
-															'organization_id'=>$row->organization_id,
-															'organization_name'=>$row->organization_name
+															'organization_id'=>$list_organization->organization_id,
+															'organization_name'=>$list_organization->organization_name
 														  );
 										$this->session->set_userdata('user_data',$user_data);
 										$user_session_data = $this->session->userdata('user_data');
@@ -93,8 +93,8 @@ class Login extends CI_Controller {
 										'usermailid' => $row->usermailid,
 										'user_id' => $row->user_id,
 										'role_id'=>$row->role_id,
-										'organization_id'=>$row->organization_id,
-										'organization_name'=>$row->organization_name
+										'organization_id'=>$list_organization->organization_id,
+										'organization_name'=>$list_organization->organization_name
 								);
 								$this->session->set_userdata('user_data',$user_data);
 								$user_session_data = $this->session->userdata('user_data');

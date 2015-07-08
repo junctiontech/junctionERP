@@ -1,6 +1,6 @@
 <?php $userdata = $this->session->userdata('user_data');
 ?>
-<body class="page-body skin-purple">
+<body class="page-body ">
 <nav class="navbar horizontal-menu navbar-fixed-top"><!-- set fixed position by adding class "navbar-fixed-top" -->
 		
 		<div class="navbar-inner">

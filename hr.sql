@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 07, 2015 at 10:49 AM
+-- Generation Time: Jul 08, 2015 at 02:57 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -30,14 +30,17 @@ CREATE TABLE IF NOT EXISTS `department` (
 `department_id` int(11) NOT NULL COMMENT 'department id is a auto increment and primary key for department table',
   `organization_id` int(11) NOT NULL COMMENT 'organization id is a auto increment and primary key for department table',
   `department_name` varchar(250) DEFAULT NULL COMMENT 'department name for  organizations'
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COMMENT='Table department for organization`s employee';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COMMENT='Table department for organization`s employee';
 
 --
 -- Dumping data for table `department`
 --
 
 INSERT INTO `department` (`department_id`, `organization_id`, `department_name`) VALUES
-(4, 3, 'Human Resorce');
+(4, 3, 'Human Resorce'),
+(5, 3, 'technical'),
+(6, 3, 'developer'),
+(7, 3, 'testing');
 
 -- --------------------------------------------------------
 
@@ -69,19 +72,19 @@ INSERT INTO `designation` (`designation_id`, `organization_id`, `designation_nam
 CREATE TABLE IF NOT EXISTS `employee` (
   `employee_id` varchar(15) NOT NULL COMMENT 'Employee id is a auto increment and primary key for employee table',
   `organization_id` int(11) NOT NULL COMMENT ' Organization id is a auto increment and primary key for employee table',
-  `department_id` int(11) NOT NULL COMMENT 'Department name for a employee for his organization',
-  `designation_id` int(11) NOT NULL COMMENT 'Designations name for employee',
+  `department_id` int(11) DEFAULT NULL COMMENT 'Department name for a employee for his organization',
+  `designation_id` int(11) DEFAULT NULL COMMENT 'Designations name for employee',
   `user_id` int(11) DEFAULT NULL COMMENT 'user_id is for login',
   `username` varchar(20) DEFAULT NULL COMMENT 'user name for employee to access his account',
   `password` varchar(15) DEFAULT NULL COMMENT 'password  for employee to access his account',
-  `frquency` varchar(10) DEFAULT NULL COMMENT 'frequency for employee payroll',
+  `salary_frquency` varchar(10) DEFAULT NULL COMMENT 'frequency for employee payroll',
   `joining_date` varchar(300) DEFAULT NULL COMMENT 'joining date for employee',
   `first_name` varchar(15) DEFAULT NULL COMMENT 'first name for employee',
   `last_name` varchar(15) DEFAULT NULL COMMENT 'last name for employee',
   `birthdate` varchar(255) DEFAULT NULL COMMENT 'birth date for employee',
   `gender` varchar(10) DEFAULT NULL COMMENT 'gender for employee',
   `image` varchar(250) DEFAULT NULL COMMENT 'employee pic',
-  `maratial_status` varchar(15) DEFAULT NULL COMMENT 'employee martial status',
+  `martial_status` varchar(15) DEFAULT NULL COMMENT 'employee martial status',
   `nationality` varchar(15) DEFAULT NULL COMMENT 'employee nationalty',
   `father_name` varchar(15) DEFAULT NULL COMMENT 'employee father name',
   `passport` varchar(30) DEFAULT NULL COMMENT 'employee passport',
@@ -106,8 +109,15 @@ CREATE TABLE IF NOT EXISTS `employee` (
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`employee_id`, `organization_id`, `department_id`, `designation_id`, `user_id`, `username`, `password`, `frquency`, `joining_date`, `first_name`, `last_name`, `birthdate`, `gender`, `image`, `maratial_status`, `nationality`, `father_name`, `passport`, `present_address`, `mobile`, `email`, `country`, `state`, `city`, `zip`, `resume`, `offerletter`, `joiningletter`, `idproof`, `bank_name`, `branch_name`, `acc_name`, `acc_no`) VALUES
-('testing123', 3, 4, 5, NULL, 'username', '', 'weekly', '03/14/2015', 'testing tata', 'testing', '27/07/1991', 'male', NULL, 'unmarried', 'indian', 'testing', 'testing1212', 'testing', '(011) 111-11', 'testing', 'india', 'Delhi', '1', '01 23 45', NULL, NULL, NULL, 'testing123', 'testing', 'testing', 'testing1231', 'testing123');
+INSERT INTO `employee` (`employee_id`, `organization_id`, `department_id`, `designation_id`, `user_id`, `username`, `password`, `salary_frquency`, `joining_date`, `first_name`, `last_name`, `birthdate`, `gender`, `image`, `martial_status`, `nationality`, `father_name`, `passport`, `present_address`, `mobile`, `email`, `country`, `state`, `city`, `zip`, `resume`, `offerletter`, `joiningletter`, `idproof`, `bank_name`, `branch_name`, `acc_name`, `acc_no`) VALUES
+('dfdsfgdsgsdg', 3, 4, 3, NULL, 'dgsdgsdgsdgsd', '', 'weekly', '', 'kkkkkkkkkkkk', '', '', 'male', 'dfdsfgdsgsdg', '', '', '', '', '', '', '', '', 'Delhi', '1', '', 'dfdsfgdsgsdg', 'dfdsfgdsgsdg', 'dfdsfgdsgsdg', 'dfdsfgdsgsdg', '', '', '', ''),
+('dfsdgsdgsdg', 2, NULL, NULL, NULL, 'sdgsdggsdgsdg', '', 'monthly', '', 'sgsdgsdgsd', '', '', 'male', 'dfsdgsdgsdg', '', '', '', '', '', '', '', '', 'Delhi', '1', '', 'dfsdgsdgsdg', 'dfsdgsdgsdg', 'dfsdgsdgsdg', 'dfsdgsdgsdg', '', '', '', ''),
+('dsfddsfsdfd', 2, NULL, NULL, NULL, 'dsggsdgsdgs', '', 'monthly', '', '111111111111111', '', '', 'male', 'dsfddsfsdfd', '', '', '', '', '', '', '', '', 'Delhi', '1', '', 'dsfddsfsdfd', 'dsfddsfsdfd', 'dsfddsfsdfd', 'dsfddsfsdfd', '', '', '', ''),
+('ggggggghhhhhhhh', 2, NULL, NULL, NULL, 'hulk112', '', 'weekly', '07/25/2015', 'hello', '', '', 'male', 'ggggggghhhhhhhhimages (1).jpg', '', '', '', '', '', '', '', '', 'Delhi', '1', '', 'ggggggghhhhhhhhh', 'ggggggghhhhhhhhh', 'ggggggghhhhhhhhh', 'ggggggghhhhhhhhh', '', '', '', 'ggggggghhhhhhhh'),
+('gsdgsdg', 2, NULL, NULL, NULL, 'gsdgsdgsd', '', 'weekly', '', 'jklkjhlhjlhj', '', '', 'male', 'gsdgsdg', '', '', '', '', '', '', '', '', 'Delhi', '1', '', 'gsdgsdg', 'gsdgsdg', 'gsdgsdg', 'gsdgsdg', '', '', '', ''),
+('hdfhdfh', 2, NULL, NULL, NULL, 'hdfhdfhdfh', '', 'weekly', '', 'jjfgjfgjfgj', '', '', 'male', 'hdfhdfh', '', '', '', '', '', '', '', '', 'Delhi', '1', '', 'hdfhdfh', 'hdfhdfh', 'hdfhdfh', 'hdfhdfh', '', '', '', ''),
+('tataadsfgsdg', 3, 4, 5, NULL, 'username', '', 'monthly', '07/16/2015', ' ratan', ' tata', '11/11/2011', 'male', 'tataadsfgsdgimages.jpg', '', 'indian', ' tata', ' tataffff', ' tata', '(111) 111-11', 'tata', 'india', 'Delhi', '1', '23 24 23', ' tataadsfgsdgChrysanthemum.jpg', ' tataadsfgsdgDesert.jpg', ' tataadsfgsdgHydrangeas.jpg', ' tataadsfgsdgPenguins.jpg', ' tata', ' tata', ' tata', 'tataadsfgsdg'),
+('testing123123', 3, NULL, NULL, NULL, 'testing123123', 'testing123123', 'monthly', '06/24/2015', 'testing123123', 'testing123123', '12/03/2035', 'male', 'testing123123images (1).jpg', 'unmarried', 'indian', 'testing123123', 'testing123123', 'testing123123', '(146) 541-56', 'testing123123', 'Bhutan', 'Delhi', '1', '65 46 51', 'testing123123Lighthouse.jpg', 'testing123123Penguins.jpg', 'testing123123Chrysanthemum.jpg', 'testing123123Jellyfish.jpg', 'testing123123', 'testing123123', 'testing123123', 'testing123123');
 
 -- --------------------------------------------------------
 
@@ -318,7 +328,7 @@ INSERT INTO `role_permission` (`role_id`, `function_id`, `auth_read`, `auth_exec
 ('employee', 'pdf_file', 0, 0, '', '2015-06-29 07:45:06', '', '0000-00-00 00:00:00'),
 ('employee', 'role_management', 0, 0, '', '2015-06-29 07:45:10', '', '0000-00-00 00:00:00'),
 ('employee', 'user_role', 0, 0, '', '2015-06-29 07:45:14', '', '0000-00-00 00:00:00'),
-('Super user', 'pdf_file', 1, 1, '', '2015-06-30 11:26:31', '', '0000-00-00 00:00:00');
+('superuser', 'pdf_file', 1, 1, '', '2015-07-07 14:14:39', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -363,8 +373,8 @@ CREATE TABLE IF NOT EXISTS `tracking` (
 
 CREATE TABLE IF NOT EXISTS `users` (
 `user_id` int(10) NOT NULL COMMENT 'user id is auto increment  and primary key for users',
-  `role_id` varchar(20) DEFAULT NULL COMMENT 'role id  is foriegn key for users',
   `organization_id` int(11) NOT NULL COMMENT 'org id is foreign key',
+  `role_id` varchar(20) DEFAULT NULL COMMENT 'role id  is foriegn key for users',
   `name` varchar(30) DEFAULT NULL COMMENT 'name for users ',
   `usermailid` varchar(30) DEFAULT NULL COMMENT 'mail id for users',
   `password` varchar(50) DEFAULT NULL COMMENT 'password for users',
@@ -381,10 +391,10 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `role_id`, `organization_id`, `name`, `usermailid`, `password`, `phone_number`, `mobile`, `address`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
-(1, 'Super user', 1, NULL, 'admin', 'initial', NULL, '', '', NULL, NULL, NULL, '2015-06-30 11:10:51'),
-(3, 'admin', 1, NULL, 'user@gmail.com', 'initial', NULL, '', '', NULL, NULL, NULL, '2015-07-01 05:21:57'),
-(6, 'hr', 3, NULL, 'ankit@gmail.com', '123', NULL, NULL, NULL, NULL, NULL, NULL, '2015-07-04 07:30:15');
+INSERT INTO `users` (`user_id`, `organization_id`, `role_id`, `name`, `usermailid`, `password`, `phone_number`, `mobile`, `address`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
+(1, 1, 'superuser', NULL, 'admin', 'initial', NULL, '', '', NULL, NULL, NULL, '2015-07-07 14:12:15'),
+(3, 2, 'admin', NULL, 'user@gmail.com', 'initial', NULL, '', '', NULL, NULL, NULL, '2015-07-08 07:26:04'),
+(6, 3, 'hr', NULL, 'ankit@gmail.com', '123', NULL, NULL, NULL, NULL, NULL, NULL, '2015-07-04 07:30:15');
 
 --
 -- Indexes for dumped tables
@@ -406,7 +416,7 @@ ALTER TABLE `designation`
 -- Indexes for table `employee`
 --
 ALTER TABLE `employee`
- ADD PRIMARY KEY (`employee_id`,`organization_id`,`department_id`,`designation_id`), ADD KEY `organization_id` (`organization_id`), ADD KEY `designation_id` (`designation_id`), ADD KEY `employee_ibfk_2` (`department_id`);
+ ADD PRIMARY KEY (`employee_id`,`organization_id`), ADD KEY `organization_id` (`organization_id`), ADD KEY `FK_dept` (`department_id`), ADD KEY `designation` (`designation_id`) COMMENT 'designation';
 
 --
 -- Indexes for table `function`
@@ -458,7 +468,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
-MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'department id is a auto increment and primary key for department table',AUTO_INCREMENT=5;
+MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'department id is a auto increment and primary key for department table',AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `designation`
 --
@@ -499,6 +509,8 @@ ADD CONSTRAINT `designation_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `
 -- Constraints for table `employee`
 --
 ALTER TABLE `employee`
+ADD CONSTRAINT `FK_dept` FOREIGN KEY (`department_id`) REFERENCES `department` (`department_id`) ON DELETE CASCADE,
+ADD CONSTRAINT `FK_designation` FOREIGN KEY (`designation_id`) REFERENCES `designation` (`designation_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

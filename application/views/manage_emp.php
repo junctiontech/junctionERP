@@ -1,3 +1,6 @@
+<?php $userdata= $this->session->userdata('user_data');
+$su= $userdata['role_id'];
+?>
 <!-- manage Employee page added by palak on 22nd june -->
 <!-- manage Employee body starts -->
 
@@ -56,7 +59,53 @@
 						});
 					});
 					</script>
-				
+					<?php if(!empty($su) && $su=='superuser'){ ?>
+					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+						<thead>
+							<tr>
+								<th>Organization</th>
+								<th>Emp id </th>
+								<th>Employee</th>
+								<th>Dept > Designation</th>
+								<th>Mobile</th>
+								<th>View</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+					
+						<tfoot>
+							<tr>
+								<th>Organization</th>
+								<th>Emp id </th>
+								<th>Employee</th>
+								<th>Dept > Designation</th>
+								<th>Mobile</th>
+								<th>View</th>
+								<th>Action</th>
+							</tr>
+						</tfoot>
+					<?php foreach ($su_list_employee as $list){ ?>
+						<tbody>
+							<tr>
+								<td><?=$list->organization_id;?></td>
+								<td><?=$list->employee_id;?></td>
+								<td><?=$list->first_name;?></td>
+								<td><?=$list->department_id?> > <?=$list->designation_id;?></td>
+								<td><?=$list->mobile;?></td>
+								<td><a href="<?php echo base_url(); ?>employee/view_emp" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"><span class="fa fa-list-alt"></span></a></td>
+								<td>
+									<a href="<?php echo base_url(); ?>employee/add_emp/<?=$list->employee_id;?>" class="btn btn-secondary btn-sm btn-icon icon-left">
+											Edit
+									</a>
+									<a href="javascript:;" class="btn btn-danger btn-sm btn-icon icon-left">
+											Delete
+									</a>
+								</td>
+							</tr>
+					</tbody>
+						<?php } ?>	
+					</table>
+					<?php } if(!empty($su) && $su!=='superuser'){ ?>
 					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
@@ -103,7 +152,7 @@
 						</tbody>
 						<?php } ?>	
 					</table>
-							
+					<?php } ?>	
 							</div>
 					</div>
 					

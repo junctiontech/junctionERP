@@ -85,6 +85,7 @@ class Master extends CI_Controller {
 							/* add departments */
 	public function add_departments($info=false)
 	{   
+		$list_organization = $this->data['list_organization'] = $this->organization_model->list_organization();
 		$select_department = $this->data['select_department'] = $this->department_model->select_department($info);
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
@@ -119,7 +120,7 @@ class Master extends CI_Controller {
 		$this->department_model->delete_department($info);
 		$this->session->set_flashdata('category_success','success mesage');
 		$this->session->set_flashdata('message', $this->config->item("user").' Department delete successfully');
-		redirect('home');
+		redirect('master/manage_departments');
 	}
 	
 	
@@ -161,6 +162,7 @@ class Master extends CI_Controller {
 							/* Add Designation */
 	public function add_designation($info=false)
 	{
+		$list_organization = $this->data['list_organization'] = $this->organization_model->list_organization();
 		$select_designation = $this->data['select_designation'] = $this->designation_model->select_designation($info);
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
@@ -203,7 +205,7 @@ class Master extends CI_Controller {
 		$this->designation_model->delete_designation($info);
 		$this->session->set_flashdata('category_success','success mesage');
 		$this->session->set_flashdata('message', $this->config->item("user").' Department delete successfully');
-		redirect('home');
+		redirect('master/manage_designation');
 	}
 	
 							

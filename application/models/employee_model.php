@@ -36,6 +36,14 @@ class Employee_model extends CI_Model {
 		return $qry->result();
 	}
 	
+	/* function for superuser employee list */
+	public function su_list_employee()
+	{
+		$this->db->select('*');
+		$qry=$this->db->get('employee');
+		return $qry->result();
+	}
+	
 	/* Function For fetch select employee*/
 	public function select_emp($info)
 	{

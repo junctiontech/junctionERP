@@ -1,5 +1,5 @@
 <?php $userdata = $this->session->userdata('user_data');
-$id = $userdata['organization_id'];
+$id = $userdata['organization_name'];
 ?>
 <!-- add designations page added by palak on 25ht june -->
 <!-- add designations body starts -->
@@ -20,7 +20,7 @@ $id = $userdata['organization_id'];
 							<li class="active">
 						
 										<strong>Manage Designation</strong>
-								</li>
+							</li>
 							<li class="active">
 						
 										<strong>Add Designation</strong>
@@ -43,6 +43,19 @@ $id = $userdata['organization_id'];
 						<?php  if(empty($select_designation)) { ?>
 							<div class="panel-body">
 								<form  class="form-horizontal" method="post" action="<?=base_url();?>master/insert_designation/<?=$id?>">
+									<?php if(!empty($su) && $su=='superuser'){ ?>
+									<div class="form-group" id="fields">
+									<label class="col-sm-2 control-label" for="email">Organizations</label>
+									<select class="selectboxit " id="" name="organization_name">
+										<option></option>
+										<optgroup label="Organizations">
+										<?php foreach($list_organization as $list){?>
+											<option value="<?php echo $list->organization_id?>"><?php echo $list->organization_name; ?></option>
+										<?php } ?>
+										</optgroup>
+									</select>
+									</div> 
+									<?php } ?>
 									<div class="form-group" id="fields">
 									          <label class="control-label col-sm-2" for="field-1">Designation Name</label>
 									            <div class="col-sm-8" id="profs"> 
