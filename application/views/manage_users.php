@@ -1,3 +1,7 @@
+<?php $userdata= $this->session->userdata('user_data');
+$id = $userdata['organization_id'];
+$su = $userdata['role_id'];
+?>
 <!-- manage users added by palak on 20 th june -->
 <!-- manage users body starts -->
 
@@ -59,21 +63,28 @@
 					
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">Manage User</h3>
+							<h3 class="panel-title"><?php echo $userdata['organization_name']; ?></h3>
 								
 						</div>
 						
 						<div class="panel-body">
-							<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>role/user_add">
-									<div class="form-group">
-									<select class="selectboxit " id="" name="organization_name">
-										<option></option>
-										<optgroup label="Organizations">
-										<?php foreach($list_organization as $list){?>
-											<option value="<?php echo $list->organization_id?>"><?php echo $list->organization_name; ?></option>
-										<?php } ?>
-										</optgroup>
-									</select>
+							<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>role/user_add/<?=$id?>">
+									<div class="row">
+												<?php if(!empty($su) && $su=='superuser'){ ?>
+														<div class="col-md-12">
+														<div class="form-group">
+															<label class="col-sm-2 control-label" for="organization" >Organization</label>
+															<select class="col-sm-10 form-control selectboxit " id="" name="organization_name">
+																<option></option>
+																<optgroup label="Organizations">
+																<?php foreach($list_organization as $list){?>
+																	<option value="<?php echo $list->organization_id?>"><?php echo $list->organization_name; ?></option>
+																<?php } ?>
+																</optgroup>
+															</select>
+														</div> 
+														</div>
+											<?php } ?>
 									</div> 
 									<div class="form-group">
 										<label class="col-sm-2 control-label" for="email">Email</label>

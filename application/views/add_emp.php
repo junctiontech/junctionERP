@@ -1045,7 +1045,7 @@ $su = $userdata['role_id'];
 														<i class="linecons-user"></i>
 													</div>
 													
-													<input type="text" class="form-control" name="employee_id" id="empid" data-validate="required,minlength[5]" data-message-minlength="Emp id must have minimum of 5 chars." placeholder="Enter Emp id" />
+													<input type="text" class="form-control" value="<?php echo $list->employee_id?>" name="employee_id" id="empid" data-validate="minlength[1]" data-message-minlength="Emp id must have minimum of 5 chars." placeholder="Enter Emp id" readonly />
 												</div>
 											</div>
 											</div>
@@ -1054,7 +1054,7 @@ $su = $userdata['role_id'];
 														<label class=" control-label">Joining Date</label>
 														
 														<div class="">
-															<input type="text" name="joining_date" class="form-control datepicker" data-start-view="1">
+															<input type="text" value="<?=$list->joining_date?>" name="joining_date" class="form-control datepicker" data-start-view="1">
 														</div>
 													</div>
 													</div>
@@ -1099,7 +1099,7 @@ $su = $userdata['role_id'];
 													<div class="input-group-addon">
 														<i class="linecons-user"></i>
 													</div>
-													<input type="text" class="form-control" name="username" id="username" data-validate="required,minlength[5]" data-message-minlength="User Name must have minimum of 5 chars." placeholder="Could be email id" />
+													<input type="text" class="form-control" name="username" id="username" value="" data-validate="minlength[2]" data-message-minlength="User Name must have minimum of 5 chars." placeholder="Could be email id" />
 												</div>
 											</div>
 											</div>

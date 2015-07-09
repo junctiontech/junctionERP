@@ -29,6 +29,15 @@ $su= $userdata['role_id'];
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
+				<?php
+								$userdata = $this->session->userdata('user_data');
+								 if($this->session->flashdata('category_error')) { ?>
+								<div class="row-fluid">
+									<div class="alert alert-danger">
+										<strong><?=$this->session->flashdata('message')?></strong> 
+									</div>
+								</div>
+								<?php } ?>
 					<?php  if($this->session->flashdata('category_success')) { ?>
 								<div class="row-fluid">
 									<div class="alert alert-success">
@@ -97,7 +106,7 @@ $su= $userdata['role_id'];
 									<a href="<?php echo base_url(); ?>employee/add_emp/<?=$list->employee_id;?>" class="btn btn-secondary btn-sm btn-icon icon-left">
 											Edit
 									</a>
-									<a href="javascript:;" class="btn btn-danger btn-sm btn-icon icon-left">
+									<a href="<?php echo base_url(); ?>employee/delete_emp/<?=$list->employee_id;?>" class="btn btn-danger btn-sm btn-icon icon-left">
 											Delete
 									</a>
 								</td>

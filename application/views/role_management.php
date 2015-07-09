@@ -24,6 +24,13 @@
 				</div>
 					
 			</div>
+<?php  if($this->session->flashdata('message')) { ?>
+								<div class="row-fluid">
+									<div class="alert alert-success">
+										<strong><?=$this->session->flashdata('message')?></strong> 
+									</div>
+								</div>
+	<?php } ?>
 			<div class="row">
 				<div class="col-sm-12">
 					
@@ -51,40 +58,31 @@
 					});
 					</script>
 					<div class="" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">					
-					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
-						<thead>
-							<tr>
-								<th>S.no</th>
-								 <th>Users</th>
-								 <th>Action</th>
-								
-							</tr>
-						</thead>
-					
-						<tfoot>
-							<tr>
-								<th>S.no</th>
-								 <th>Users</th>
-								 <th>Action</th>
-							</tr>
-						</tfoot>
-					
-						<tbody>
-							<tr>
-							
-								<td>1</td>
-								<td>dev@gmail.com</td>
-								<td>
-								<a class="btn btn-small btn-primary show-tooltip" title="Permissions" href="<?php echo base_url(); ?>role/add_role"><i class="fa fa-foursquare"></i> Permissions</a>
-								
-								</td>
-								
-							</tr>
-							
-						
-					
-						</tbody>
-					</table>
+					 <br>
+								 	 <br>
+                                <table class="table table-striped table-hover fill-head">
+                                    <thead>
+                                        <tr>
+                                            <th>Users</th>
+										    <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+									<?php foreach($list_permsn as $role){ ?>
+                                        <tr>
+                                            
+                                            <td><?=$role->role_id;?></td>
+											<td>
+                                               <div class="btn-group">
+														<a class="btn btn-small btn-primary show-tooltip" title="Permissions" href="<?php echo base_url(); ?>role/role_permission/<?=$role->role_id;?>"><i class="fa fa-foursquare"></i> Permissions</a>
+												</div>
+                                               
+                                            </td>
+                                        </tr>
+									<?php } ?>
+                                        
+                                    </tbody>
+                                </table>
 					</div>			
 							</div>
 					</div>

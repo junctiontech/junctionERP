@@ -80,6 +80,14 @@ class Employee_model extends CI_Model {
 		$qry=$this->db->update($table,$images);
 		return true;
 	}
+	
+	
+	/*function for delete employee*/
+			public function delete_emp($info=false)
+	{
+		$this->db->query("DELETE FROM `employee` WHERE `employee_id`='".$info."' ");
+	}
+	
 }
 //Model Class for Employee end
 ?>

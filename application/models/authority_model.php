@@ -58,7 +58,7 @@ class Authority_model extends CI_Model
 		//print_r($a);die;
 		$this->db->distinct();
 		$this->db->select('role_id');
-		$this->db->where('role_id !=' ,'Administrator');
+		$this->db->where('role_id !=' ,'superuser');
 		$qry=$this->db->get('role_permission');
 		 return $qry->result(); 
 	}

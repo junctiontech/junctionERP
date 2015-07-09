@@ -25,6 +25,15 @@
 				</div>
 					
 			</div>
+								<?php
+								$userdata = $this->session->userdata('user_data');
+								 if($this->session->flashdata('category_error')) { ?>
+								<div class="row-fluid">
+									<div class="alert alert-danger">
+										<strong><?=$this->session->flashdata('message')?></strong> 
+									</div>
+								</div>
+								<?php } ?>
 			<div class="row">
 				<div class="col-sm-12">
 					<?php  if($this->session->flashdata('category_success')) { ?>

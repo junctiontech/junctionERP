@@ -1,3 +1,5 @@
+<?php $userdata= $this->session->userdata('user_data');
+?>
 <!-- User role added by palak on 27th june -->
 <!-- manage User role body starts -->
 
@@ -29,14 +31,14 @@
 					
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">Manage User Role</h3>
+							<h3 class="panel-title"><?=$userdata['organization_name']?></h3>
 							<div class="panel-options">
 									<a href="<?php echo base_url(); ?>role/manage_users"><button class="btn btn-info btn-icon btn-sm">
 									<i class="fa-plus"></i>
 									<span>Add Users</span>
 								</button></a>
 								
-								</div>	
+							</div>	
 						</div>
 							<div class="panel-body">
 								<?php  if($this->session->flashdata('message')) { ?>
@@ -76,27 +78,25 @@
 								<th>Action</th>
 							</tr>
 						</tfoot>
-						<?php foreach ($users_list as $list){ ?>
+						<?php foreach ($verify_list as $list){ ?>
 						<tbody>
 							<tr>
-								<form method="POST" action="<?=base_url();?>index.php/role/role_assign/<?=$list->user_id?>" >
+								<form method="POST" action="<?=base_url();?>role/role_assign/<?=$list->user_id?>" >
 								<td><?php echo $list->user_id;?></td>
 								<td><?=$list->usermailid;?></td>
 								<td>
 								<select name="role" class="selectboxit">
-										<optgroup label="Role">
-											<?php  foreach($role_list as $lists){ ?>
+										<?php  foreach($role_list as $lists){ ?>
 																<option value="<?=$lists->role_id?>"<?=(!empty($list->role_id) && $list->role_id==$lists->role_id)?'selected':'' ?> ><?=$lists->role_id; ?></option>
 																<?php } ?>
-										</optgroup>
 									</select>
 								
 								</td>
 								<td>
 									
 															<button class="btn btn-small show-tooltip" type="submit"  title="edit" ><i class="fa fa-check"></i>   Assign</button>
-															<a class="btn btn-small btn-danger show-tooltip" title="Delete" onClick="return confirm('Are you sure to delete this user? This will delete all the related records on this user as well.')" href="javascript:;"><i class="fa fa-times"></i> Delete</a>
-															<a class="btn btn-small btn-primary show-tooltip"  title="Block/Unblock" href="javascript:;"><i class="fa fa-ban"></i> Block</a>
+															<a class="btn btn-small btn-danger show-tooltip" title="Delete" onClick="return confirm('Are you sure to delete this user? This will delete all the related records on this user as well.')" href="<?=base_url()?>role/delete_user/<?=$list->user_id?>"><i class="fa fa-times"></i> Delete</a>
+															<a class="btn btn-small btn-primary show-tooltip"  title="Block/Unblock" href="<?=base_url()?>role/blocked_user/<?=$list->user_id?>"><i class="fa fa-ban"></i> Block</a>
 								</td>
 								</form>
 							</tr>

@@ -21,6 +21,7 @@ class Master extends CI_Controller {
 					/* add organization */
 	public function add_organization($info=false)
 	{   
+		Authority::is_logged_in();
 		$select_organization = $this->data['select_organization'] = $this->organization_model->select_organization($info);
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
@@ -30,7 +31,8 @@ class Master extends CI_Controller {
 	
 				/*	function for Insert new organization */
 	public function insert_organization()
-	{
+	{	
+		Authority::is_logged_in();
 		$org_name=$this->input->post('organization_name');
 		if($org_name!=='')
 		{
@@ -48,7 +50,8 @@ class Master extends CI_Controller {
 	
 				/* function for edit organization */
 	public function update_organization($info)
-	{
+	{	
+		Authority::is_logged_in();
 		$data=array(
 						'organization_name'=>$this->input->post('organization_name'),
 						'organization_desc'=>$this->input->post('organization_desc')
@@ -63,16 +66,18 @@ class Master extends CI_Controller {
 			/* function for delete organization */
 	public function delete_organization($info)
 	{
+		Authority::is_logged_in();
 		$this->organization_model->delete_organization($info);
 		$this->session->set_flashdata('category_success','success mesage');
 		$this->session->set_flashdata('message', $this->config->item("user").' Organization delete successfully');
-		redirect('home');
+		redirect('master/manage_organization');
 	}
 	
 	
 			/* manage organization */
 	public function manage_organization()
 	{   
+		Authority::is_logged_in();
 		Authority::checkAuthority('manage_organization');
 		$list_organization = $this->data['list_organization'] = $this->organization_model->list_organization();
 		$this->parser->parse('include/header',$this->data);
@@ -85,6 +90,11 @@ class Master extends CI_Controller {
 							/* add departments */
 	public function add_departments($info=false)
 	{   
+		Authority::is_logged_in();
+		if(Authority::checkAuthority('add_departments')==true)
+	 	{
+	 		redirect('master/manage_departments');
+	 	}
 		$list_organization = $this->data['list_organization'] = $this->organization_model->list_organization();
 		$select_department = $this->data['select_department'] = $this->department_model->select_department($info);
 		$this->parser->parse('include/header',$this->data);
@@ -95,7 +105,12 @@ class Master extends CI_Controller {
 	
 		/* function for edit department */
 	public function update_department($info=false)
-	{;
+	{	
+		Authority::is_logged_in();
+		if(Authority::checkAuthority('update_department')==true)
+	 	{
+	 		redirect('master/manage_departments');
+	 	}
 		$data=array(
 						'department_name'=>$this->input->post('department_name')
 					);
@@ -107,7 +122,12 @@ class Master extends CI_Controller {
 	
 			/* function for delete department */
 	public function delete_departments($info=false)
-	{
+	{	
+		Authority::is_logged_in();
+		if(Authority::checkAuthority('delete_departments')==true)
+	 	{
+	 		redirect('master/manage_departments');
+	 	}
 		if($info)
 			{
 				$data=array(
@@ -127,6 +147,11 @@ class Master extends CI_Controller {
 						/* function for insert department */
 	public function insert_department($info=false)
 	{
+		Authority::is_logged_in();
+		if(Authority::checkAuthority('insert_department')==true)
+	 	{
+	 		redirect('master/manage_departments');
+	 	}
 		$dep=$this->input->post('department_name');
 		for($i=0;$i<count($dep);$i++)
 		{
@@ -149,6 +174,8 @@ class Master extends CI_Controller {
 						/*  manage departments */
 	public function manage_departments()
 	{ 
+		Authority::is_logged_in();
+		Authority::checkAuthority('manage_departments');
 		$userdata = $this->session->userdata('user_data');
 		$organization=$userdata['organization_id'];
 		$list_department= $this->data['list_department'] = $this->department_model->list_department($organization);
@@ -161,7 +188,12 @@ class Master extends CI_Controller {
 	
 							/* Add Designation */
 	public function add_designation($info=false)
-	{
+	{	
+		Authority::is_logged_in();
+		if(Authority::checkAuthority('add_designation')==true)
+	 	{
+	 		redirect('master/manage_designation');
+	 	}
 		$list_organization = $this->data['list_organization'] = $this->organization_model->list_organization();
 		$select_designation = $this->data['select_designation'] = $this->designation_model->select_designation($info);
 		$this->parser->parse('include/header',$this->data);
@@ -173,7 +205,12 @@ class Master extends CI_Controller {
 	
 							/*	insert new designation	*/
 	public function insert_designation($info=false)
-	{
+	{	
+		Authority::is_logged_in();
+		if(Authority::checkAuthority('insert_designation')==true)
+	 	{
+	 		redirect('master/manage_designation');
+	 	}
 		$designation=$this->input->post('designation_name');
 		for($i=0;$i<count($designation);$i++)
 		{
@@ -193,7 +230,12 @@ class Master extends CI_Controller {
 	
 	/* function for delete department */
 	public function delete_designation($info=false)
-	{
+	{	
+		Authority::is_logged_in();
+		if(Authority::checkAuthority('delete_designation')==true)
+	 	{
+	 		redirect('master/manage_designation');
+	 	}
 		if($info)
 			{
 				$data=array(
@@ -208,10 +250,28 @@ class Master extends CI_Controller {
 		redirect('master/manage_designation');
 	}
 	
-							
+				/* Function for Manage designation  */
+	public function manage_designation()
+	{	
+		Authority::is_logged_in();
+		Authority::checkAuthority('manage_designation');
+		$userdata = $this->session->userdata('user_data');
+		$organization=$userdata['organization_id'];
+		$list_designation = $this->data['list_designation'] = $this->designation_model->list_designation($organization);
+		$this->parser->parse('include/header',$this->data);
+		$this->parser->parse('include/left_menu',$this->data);
+		$this->load->view('manage_designation',$this->data);
+		$this->parser->parse('include/footer',$this->data);
+	}
+				
 							/* function for edit designation */
 	public function update_designation($info)
-	{
+	{	
+		Authority::is_logged_in();
+		if(Authority::checkAuthority('update_designation')==true)
+	 	{
+	 		redirect('master/manage_designation');
+	 	}
 		$data=array(
 						'designation_name'=>$this->input->post('designation_name')
 					);
@@ -221,17 +281,7 @@ class Master extends CI_Controller {
 		redirect('master/manage_designation');
 	}
 	
-								/* Function for Manage designation  */
-	public function manage_designation()
-	{
-		$userdata = $this->session->userdata('user_data');
-		$organization=$userdata['organization_id'];
-		$list_designation = $this->data['list_designation'] = $this->designation_model->list_designation($organization);
-		$this->parser->parse('include/header',$this->data);
-		$this->parser->parse('include/left_menu',$this->data);
-		$this->load->view('manage_designation',$this->data);
-		$this->parser->parse('include/footer',$this->data);
-	}
+								
 }
 
 /* End of file welcome.php */

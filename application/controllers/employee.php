@@ -11,6 +11,8 @@ class Employee extends CI_Controller {
 		$this->load->model('department_model');
 		$this->load->model('designation_model');
 		$this->load->model('employee_model');
+		$this->load->library('authority');
+		$this->load->model('authority_model');
 		$this->load->library('parser');
 		$this->load->library('session');
 		$this->data['base_url']=base_url();
@@ -20,6 +22,8 @@ class Employee extends CI_Controller {
 				/* manage Employee */
 	public function manage_emp()
 	{
+		Authority::is_logged_in();
+		Authority::checkAuthority('manage_emp');
 		$userdata = $this->session->userdata('user_data');
 		$organization=$userdata['organization_id'];
 		$list_employee = $this->data['list_employee'] = $this->employee_model->list_employee($organization);
@@ -33,6 +37,11 @@ class Employee extends CI_Controller {
 			/* function for create new employee */
 public function insert_employee($info=false)
 	{	
+		Authority::is_logged_in();
+		if(Authority::checkAuthority('insert_employee')==true)
+			{
+				redirect('employee/manage_emp');
+			}
 		$userdata = $this->session->userdata('user_data');
 		$role=$userdata['role_id'];
 		if($role=='superuser')
@@ -131,10 +140,13 @@ public function insert_employee($info=false)
 		
 	}
 	
-	public function update_employee($id=false,$info=false)
-	{
-	//	print_r($id);
-		//print_r($info);die;
+	public function update_employee($id=false,$info=false,$img=false)
+	{	
+		Authority::is_logged_in();
+		if(Authority::checkAuthority('update_employee')==true)
+			{
+				redirect('employee/manage_emp');
+			}
 		$userdata = $this->session->userdata('user_data');
 		$role=$userdata['role_id'];
 		$employee_id=$id;
@@ -198,6 +210,10 @@ public function insert_employee($info=false)
 								$idproof = $employee_id.$_FILES['idproof']['name'];
 								$img['idproof']=$idproof;
 					}
+					if($_FILES['image']['name']!=='' || $_FILES['resume']['name']!=='' || $_FILES['offerletter']['name']!=='' || $_FILES['joiningletter']['name']!=='' || $_FILES['idproof']['name']!=='')
+					{
+						$this->employee_model->update_image_employee('employee',$img,$id);
+					}
 			
 			$data=array(
 							'employee_id'=>$id,
@@ -241,15 +257,31 @@ public function insert_employee($info=false)
 						////echo '</pre>';die;
 						
 			$this->employee_model->update_employee('employee',$data,$id);
-			$this->employee_model->update_image_employee('employee',$img,$id);
 			$this->session->set_flashdata('category_success', 'success message');        
 			$this->session->set_flashdata('message', $this->config->item("user").' Employee update successfully');
 			redirect('employee/manage_emp');
 		}
 	}
+	
+	/* function for delete department */
+	public function delete_emp($info)
+	{
+		Authority::is_logged_in();
+		$this->employee_model->delete_emp($info);
+		$this->session->set_flashdata('category_success','success message');
+		$this->session->set_flashdata('message', $this->config->item("user").' Employee delete successfully');
+		redirect('employee/manage_emp');
+	}
+	
+	
 						//Add employee
 	public function add_emp($info=false)
-	{
+	{	
+		Authority::is_logged_in();
+		if(Authority::checkAuthority('add_emp')==true)
+			{
+				redirect('employee/manage_emp');
+			}
 		$userdata = $this->session->userdata('user_data');
 		$organization=$userdata['organization_id'];
 		if($info){

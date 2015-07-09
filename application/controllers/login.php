@@ -52,6 +52,7 @@ class Login extends CI_Controller {
 								);		
 					$list_organization =$this->login_model->list_organization('organization',$orgnization);
 					$row=$this->login_model->login_check('users',$data);
+					
 						if($row->role_id=='superuser')
 						{
 							if($row){ 
@@ -88,6 +89,12 @@ class Login extends CI_Controller {
 							);
 							$list_organization =$this->login_model->list_organization('organization',$orgnization);
 							$row=$this->login_model->login_check('users',$data);
+							if($row->role_id=='blocked')
+						{
+							$this->session->set_flashdata('category_error','error');
+							$this->session->set_flashdata('message',$this->config->item("user").'Your id have a blocked please contact administrator');
+							redirect('login/login_view');
+						}
 							if($row){
 								$user_data = array(
 										'usermailid' => $row->usermailid,

@@ -1,8 +1,6 @@
 <?php foreach($permissions as $per ){
 $a=$per->role_id;
 }
-
-?>
 ?>
 <div id="main-content" >
 	<div class="page-title">
@@ -14,7 +12,7 @@ $a=$per->role_id;
 
 	<div id="breadcrumbs">
 	<ul class="breadcrumb">
-	<li class="active"> <i class="fa fa-home"></i><?php echo($this->breadcrumb->output());?> </li>
+	<li class="active"> <i class="fa fa-home"></i><?php //echo($this->breadcrumb->output());?> </li>
 
 	</ul>
 	</div>
@@ -23,7 +21,7 @@ $a=$per->role_id;
                     <div class="span12">
                         <div class="box">
                             <div class="box-title">
-                                <h3><i class="icon-table"></i> Role Permissions</h3>
+                                <h3><i class="icon-table"></i>Role:-  <?=$a?></h3>
                                
                             </div>
                             <div class="box-content">

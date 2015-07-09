@@ -45,47 +45,60 @@
 					});
 					</script>
 					<div class="" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">					
-					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
-						<thead>
-							<tr>
-								<th>S.no</th>
-								 <th>Function</th>
-								 <th>Read</th>
-								<th>Execute</th>	
-							</tr>
-						</thead>
-					
-						<tfoot>
-							<tr>
-								  <th>S.no</th>
-								 <th>Function</th>
-								 <th>Read</th>
-								<th>Execute</th>
-							</tr>
-						</tfoot>
-					
-						<tbody>
-							<tr>
-							
-								<td>1</td>
-								<td>add_chapter</td>
-								<td>
-									<label class="cbr-inline">
-												<input type="checkbox" class="cbr">
+					<form action="<?php echo base_url(); ?>role/insert_role" method="POST">
+								   <div class="control-group">
+                                       <!-- <label class="control-label">User Name</label>-->
+                                        <div class="controls">
+                                         	<input type="text" placeholder="Role Name" name="role" class="form-control" />
+                                        </div>
+                                    </div>
+									</br>
+									</br>
+								    <table class="table table-striped table-bordered ">
+										<thead>
+											<tr>
+												<th>Functions</th>
+												<th>Read</th>
+												<th>Execute</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+											<?php foreach($list_function as $list){
+												?>
+												<input type="hidden" readonly name="edit_costing" id="edit_costing" value="1" />
+												<td>
+													<input type="checkbox" id="<?=$list->function_id?>" value="<?php echo $list->function_id; ?>" checked name="function[]" /><?php echo $list->function_id; ?>
+												</td>
 												
-											</label>
-							</td>
-							<td><label class="cbr-inline">
-												<input type="checkbox" class="cbr">
+												<td>
+												 <div class="controls">
+													 <label class="checkbox">
+													 <input type="hidden" name="read[]" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
 											
-											</label>
-											</td>	
-							</tr>
-							
-						
-					
-						</tbody>
-					</table>
+													 </label>
+												 </div>
+												</td>
+												<td>
+												 <div class="controls">
+													 <label class="checkbox">
+													 <input type="hidden" name="execute[]" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
+														<!--<input type="hidden" id="<?=$list->function_id?>_execute" value="0" name="execute[]" />-->
+														<!--<input type="checkbox" id="<?=$list->function_id?>_execute" value="1" name="execute[]" />--> 
+													 </label>
+												 </div>
+												</td>
+											</tr>
+											<?php } ?>
+											
+										</tbody>
+									</table>
+								</br>
+								   <div class="form-actions">
+                                      <button type="submit" class="btn btn-primary">Submit</button>
+                                      <button type="button" class="btn">Cancel</button>
+                                   </div>
+					</form>
 					</div>			
 							</div>
 					</div>

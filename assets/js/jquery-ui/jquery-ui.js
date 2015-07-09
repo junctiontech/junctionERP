@@ -5325,9 +5325,9 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 		if ("top" in obj) {
 			this.offset.click.top = obj.top + this.margins.top;
 		}
-		if ("bottom" in obj) {
-			this.offset.click.top = this.helperProportions.height - obj.bottom + this.margins.top;
-		}
+		//if ("bottom" in obj) {
+		//	this.offset.click.top = this.helperProportions.height - obj.bottom + this.margins.top;
+		//}
 	},
 
 	_getParentOffset: function() {
@@ -6212,7 +6212,7 @@ var slider = $.widget( "ui.slider", $.ui.mouse, {
 		if ( this.options.values && this.options.values.length ) {
 			this.handles.each(function( i ) {
 				valPercent = ( that.values(i) - that._valueMin() ) / ( that._valueMax() - that._valueMin() ) * 100;
-				_set[ that.orientation === "horizontal" ? "left" : "bottom" ] = valPercent + "%";
+				_set[ that.orientation === "horizontal" ? "left" : "right" ] = valPercent + "%";
 				$( this ).stop( 1, 1 )[ animate ? "animate" : "css" ]( _set, o.animate );
 				if ( that.options.range === true ) {
 					if ( that.orientation === "horizontal" ) {
@@ -6224,7 +6224,7 @@ var slider = $.widget( "ui.slider", $.ui.mouse, {
 						}
 					} else {
 						if ( i === 0 ) {
-							that.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( { bottom: ( valPercent ) + "%" }, o.animate );
+							that.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( { right: ( valPercent ) + "%" }, o.animate );
 						}
 						if ( i === 1 ) {
 							that.range[ animate ? "animate" : "css" ]( { height: ( valPercent - lastValPercent ) + "%" }, { queue: false, duration: o.animate } );
@@ -6240,7 +6240,7 @@ var slider = $.widget( "ui.slider", $.ui.mouse, {
 			valPercent = ( valueMax !== valueMin ) ?
 					( value - valueMin ) / ( valueMax - valueMin ) * 100 :
 					0;
-			_set[ this.orientation === "horizontal" ? "left" : "bottom" ] = valPercent + "%";
+			_set[ this.orientation === "horizontal" ? "left" : "right" ] = valPercent + "%";
 			this.handle.stop( 1, 1 )[ animate ? "animate" : "css" ]( _set, o.animate );
 
 			if ( oRange === "min" && this.orientation === "horizontal" ) {

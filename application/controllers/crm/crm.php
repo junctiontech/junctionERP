@@ -32,6 +32,21 @@ class Crm extends CI_Controller {
 		$this->load->view('crm/add_customer',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 	}
+	//add opportunities
+	public function add_opportunities($info=false)
+	{
+		$this->parser->parse('include/header',$this->data);
+		$this->parser->parse('include/left_menu',$this->data);
+		$this->load->view('crm/add_opportunities',$this->data);
+		$this->parser->parse('include/footer',$this->data);
+	}
+	public function manage_opportunities($info=false)
+	{
+		$this->parser->parse('include/header',$this->data);
+		$this->parser->parse('include/left_menu',$this->data);
+		$this->load->view('crm/manage_opportunities',$this->data);
+		$this->parser->parse('include/footer',$this->data);
+	}
 }
 
 /* End of file attendance.php */

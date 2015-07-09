@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2015 at 02:57 PM
+-- Generation Time: Jul 09, 2015 at 02:13 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `department` (
 `department_id` int(11) NOT NULL COMMENT 'department id is a auto increment and primary key for department table',
   `organization_id` int(11) NOT NULL COMMENT 'organization id is a auto increment and primary key for department table',
   `department_name` varchar(250) DEFAULT NULL COMMENT 'department name for  organizations'
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COMMENT='Table department for organization`s employee';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COMMENT='Table department for organization`s employee';
 
 --
 -- Dumping data for table `department`
@@ -70,7 +70,7 @@ INSERT INTO `designation` (`designation_id`, `organization_id`, `designation_nam
 --
 
 CREATE TABLE IF NOT EXISTS `employee` (
-  `employee_id` varchar(15) NOT NULL COMMENT 'Employee id is a auto increment and primary key for employee table',
+  `employee_id` int(11) NOT NULL COMMENT 'Employee id is a auto increment and primary key for employee table',
   `organization_id` int(11) NOT NULL COMMENT ' Organization id is a auto increment and primary key for employee table',
   `department_id` int(11) DEFAULT NULL COMMENT 'Department name for a employee for his organization',
   `designation_id` int(11) DEFAULT NULL COMMENT 'Designations name for employee',
@@ -110,14 +110,8 @@ CREATE TABLE IF NOT EXISTS `employee` (
 --
 
 INSERT INTO `employee` (`employee_id`, `organization_id`, `department_id`, `designation_id`, `user_id`, `username`, `password`, `salary_frquency`, `joining_date`, `first_name`, `last_name`, `birthdate`, `gender`, `image`, `martial_status`, `nationality`, `father_name`, `passport`, `present_address`, `mobile`, `email`, `country`, `state`, `city`, `zip`, `resume`, `offerletter`, `joiningletter`, `idproof`, `bank_name`, `branch_name`, `acc_name`, `acc_no`) VALUES
-('dfdsfgdsgsdg', 3, 4, 3, NULL, 'dgsdgsdgsdgsd', '', 'weekly', '', 'kkkkkkkkkkkk', '', '', 'male', 'dfdsfgdsgsdg', '', '', '', '', '', '', '', '', 'Delhi', '1', '', 'dfdsfgdsgsdg', 'dfdsfgdsgsdg', 'dfdsfgdsgsdg', 'dfdsfgdsgsdg', '', '', '', ''),
-('dfsdgsdgsdg', 2, NULL, NULL, NULL, 'sdgsdggsdgsdg', '', 'monthly', '', 'sgsdgsdgsd', '', '', 'male', 'dfsdgsdgsdg', '', '', '', '', '', '', '', '', 'Delhi', '1', '', 'dfsdgsdgsdg', 'dfsdgsdgsdg', 'dfsdgsdgsdg', 'dfsdgsdgsdg', '', '', '', ''),
-('dsfddsfsdfd', 2, NULL, NULL, NULL, 'dsggsdgsdgs', '', 'monthly', '', '111111111111111', '', '', 'male', 'dsfddsfsdfd', '', '', '', '', '', '', '', '', 'Delhi', '1', '', 'dsfddsfsdfd', 'dsfddsfsdfd', 'dsfddsfsdfd', 'dsfddsfsdfd', '', '', '', ''),
-('ggggggghhhhhhhh', 2, NULL, NULL, NULL, 'hulk112', '', 'weekly', '07/25/2015', 'hello', '', '', 'male', 'ggggggghhhhhhhhimages (1).jpg', '', '', '', '', '', '', '', '', 'Delhi', '1', '', 'ggggggghhhhhhhhh', 'ggggggghhhhhhhhh', 'ggggggghhhhhhhhh', 'ggggggghhhhhhhhh', '', '', '', 'ggggggghhhhhhhh'),
-('gsdgsdg', 2, NULL, NULL, NULL, 'gsdgsdgsd', '', 'weekly', '', 'jklkjhlhjlhj', '', '', 'male', 'gsdgsdg', '', '', '', '', '', '', '', '', 'Delhi', '1', '', 'gsdgsdg', 'gsdgsdg', 'gsdgsdg', 'gsdgsdg', '', '', '', ''),
-('hdfhdfh', 2, NULL, NULL, NULL, 'hdfhdfhdfh', '', 'weekly', '', 'jjfgjfgjfgj', '', '', 'male', 'hdfhdfh', '', '', '', '', '', '', '', '', 'Delhi', '1', '', 'hdfhdfh', 'hdfhdfh', 'hdfhdfh', 'hdfhdfh', '', '', '', ''),
-('tataadsfgsdg', 3, 4, 5, NULL, 'username', '', 'monthly', '07/16/2015', ' ratan', ' tata', '11/11/2011', 'male', 'tataadsfgsdgimages.jpg', '', 'indian', ' tata', ' tataffff', ' tata', '(111) 111-11', 'tata', 'india', 'Delhi', '1', '23 24 23', ' tataadsfgsdgChrysanthemum.jpg', ' tataadsfgsdgDesert.jpg', ' tataadsfgsdgHydrangeas.jpg', ' tataadsfgsdgPenguins.jpg', ' tata', ' tata', ' tata', 'tataadsfgsdg'),
-('testing123123', 3, NULL, NULL, NULL, 'testing123123', 'testing123123', 'monthly', '06/24/2015', 'testing123123', 'testing123123', '12/03/2035', 'male', 'testing123123images (1).jpg', 'unmarried', 'indian', 'testing123123', 'testing123123', 'testing123123', '(146) 541-56', 'testing123123', 'Bhutan', 'Delhi', '1', '65 46 51', 'testing123123Lighthouse.jpg', 'testing123123Penguins.jpg', 'testing123123Chrysanthemum.jpg', 'testing123123Jellyfish.jpg', 'testing123123', 'testing123123', 'testing123123', 'testing123123');
+(8, 3, 5, 4, NULL, '12334455', '', 'weekly', '', 'testing123123', 'testing123123', '12/03/2035', 'male', 'testing123123images (1).jpg', '', 'indian', 'testing123123', 'testing123123', 'testing123123', '(146) 541-56', 'testing123123', '', 'Delhi', '1', '65 46 51', 'testing123123Lighthouse.jpg', 'testing123123Penguins.jpg', 'testing123123Chrysanthemum.jpg', 'testing123123Jellyfish.jpg', 'testing123123', 'testing123123', 'testing123123', '8'),
+(76, 3, 5, 4, NULL, '', '', 'weekly', '07/16/2015', ' ratan', ' tata', '11/11/2011', 'male', '76images (1).jpg', '', 'indian', ' tata', ' tataffff', ' tata', '(111) 111-11', 'tata', 'india', 'Delhi', '1', '23 24 23', ' tataadsfgsdgChrysanthemum.jpg', ' tataadsfgsdgDesert.jpg', ' tataadsfgsdgHydrangeas.jpg', ' tataadsfgsdgPenguins.jpg', ' tata', ' tata', ' tata', '76');
 
 -- --------------------------------------------------------
 
@@ -135,45 +129,45 @@ CREATE TABLE IF NOT EXISTS `function` (
 --
 
 INSERT INTO `function` (`function_id`, `function_name`) VALUES
-('add_chapter', 'add chapter'),
-('add_department', 'Department Add in sor'),
-('add_estsubitem', 'add estsubitem'),
-('add_est_submit', 'add est submit'),
-('carriage', 'carriage list'),
-('chapter', 'chapter'),
-('create_item', 'create item'),
-('create_ref_cal', 'create ref cal'),
-('create_sub_item', 'create sub item'),
-('delete_estimate', 'delete estimate'),
-('delete_material', 'delete material'),
-('delete_subitem', 'delete subitem'),
-('del_sitem_est', 'del sitem est'),
-('edit_estimation', 'edit for estimation'),
-('estimate_pdf', 'estimate pdf'),
-('estimation_list', 'estimation list'),
-('estimation_val', 'estimation val'),
-('get_subitem_list', 'get subitem list'),
-('importcsv', 'importcsv'),
-('index', 'index csv controller'),
-('item_class', 'item class list'),
-('labour', 'labour list'),
-('manage_carriage', 'manage carriage'),
-('manage_item_class', 'manage item class'),
-('manage_labour', 'manage labour'),
-('manage_material', 'manage material'),
-('manage_overhead', 'manage overhead'),
-('manage_plant', 'manage plant'),
-('manage_refrence', 'manage refrence'),
-('manage_subitem', 'manage subitem'),
-('manage_unit', 'manage  unit'),
-('material', 'material list'),
-('overhead', 'overhead list'),
-('pdf_file', 'pdf file'),
-('plant', 'plant list'),
+('acc_setting', 'acc_setting'),
+('add_departments', 'add departments'),
+('add_designation', 'add designation'),
+('add_emp', 'add emp'),
+('add_organization', 'add organization'),
+('add_role', 'add role'),
+('attendance_report', 'attendance_report'),
+('blocked_user', 'blocked user'),
+('change_pass', 'change pass'),
+('delete_departments', 'delete departments'),
+('delete_designation', 'delete designation'),
+('delete_organization', 'delete organization'),
+('delete_user', 'delete user'),
+('emp_award', 'emp award'),
+('index', 'index'),
+('insert_department', 'insert department'),
+('insert_designation', 'insert designation'),
+('insert_employee', 'insert employee'),
+('insert_organization', 'insert organization'),
+('insert_role', 'insert role'),
+('login_user', 'login user'),
+('login_view', 'login_view'),
+('manage_attendance', 'manage_attendance'),
+('manage_departments', 'manage departments'),
+('manage_designation', 'manage designation'),
+('manage_emp', 'manage emp'),
+('manage_organization', 'manage organization'),
+('manage_users', 'manage users'),
 ('refrence', 'refrence list'),
+('role_assign', 'role assign'),
 ('role_management', 'role management'),
-('search_keyword', 'search with keyword'),
-('unit', 'unit list'),
+('role_permission', 'role permission'),
+('sign_up', 'sign_up'),
+('update_department', 'update department'),
+('update_designation', 'update designation'),
+('update_employee', 'update employee'),
+('update_organization', 'update organization'),
+('update_role_permissi', 'manage  unit'),
+('user_add', 'user add'),
 ('user_role', 'user role');
 
 -- --------------------------------------------------------
@@ -216,9 +210,10 @@ CREATE TABLE IF NOT EXISTS `role` (
 --
 
 INSERT INTO `role` (`role_id`, `description`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
-('admin', NULL, NULL, '2015-06-13 11:37:51', NULL, '0000-00-00 00:00:00'),
-('block', 'block', NULL, '2015-06-29 07:42:07', NULL, '0000-00-00 00:00:00'),
-('hr', 'hr', NULL, '2015-07-01 05:03:12', NULL, '0000-00-00 00:00:00');
+('admin', 'admin', NULL, '2015-07-09 06:17:45', NULL, '0000-00-00 00:00:00'),
+('blocked', 'blocked', NULL, '2015-07-09 07:03:02', NULL, '0000-00-00 00:00:00'),
+('hr', 'hr', NULL, '2015-07-01 05:03:12', NULL, '0000-00-00 00:00:00'),
+('vendor', NULL, NULL, '2015-07-09 07:30:32', NULL, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -242,93 +237,87 @@ CREATE TABLE IF NOT EXISTS `role_permission` (
 --
 
 INSERT INTO `role_permission` (`role_id`, `function_id`, `auth_read`, `auth_execute`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
-('admin', 'add_department', 0, 1, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'add_estsubitem', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'add_est_submit', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'carriage', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'chapter', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'create_item', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'create_ref_cal', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'create_sub_item', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'delete_estimate', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'delete_material', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'delete_subitem', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'del_sitem_est', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'edit_estimation', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'estimate_pdf', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'estimation_list', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'estimation_val', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'get_subitem_list', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'importcsv', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'index', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'item_class', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'labour', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'manage_carriage', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'manage_item_class', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'manage_labour', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'manage_material', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'manage_overhead', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'manage_plant', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'manage_refrence', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'manage_subitem', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'manage_unit', 0, 1, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'material', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'overhead', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'pdf_file', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'plant', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'refrence', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'role_management', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'search_keyword', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'unit', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('admin', 'user_role', 0, 0, '', '2015-06-15 12:30:11', '', '0000-00-00 00:00:00'),
-('adminstrator', 'manage_organization', 0, 0, '', '2015-06-30 12:13:52', '', '0000-00-00 00:00:00'),
-('block', 'add_department', 0, 0, '', '2015-06-11 06:04:54', '', '0000-00-00 00:00:00'),
-('block', 'carriage', 0, 0, '', '2015-06-10 13:07:26', '', '0000-00-00 00:00:00'),
-('block', 'chapter', 0, 0, '', '2015-06-10 13:07:30', '', '0000-00-00 00:00:00'),
-('block', 'estimation_list', 0, 0, '', '2015-06-10 13:07:35', '', '0000-00-00 00:00:00'),
-('block', 'get_subitem_list', 0, 0, '', '2015-06-10 13:07:39', '', '0000-00-00 00:00:00'),
-('block', 'index', 0, 0, '', '2015-06-10 13:07:43', '', '0000-00-00 00:00:00'),
-('block', 'item', 0, 0, '', '2015-06-10 13:07:48', '', '0000-00-00 00:00:00'),
-('block', 'item_class', 0, 0, '', '2015-06-10 13:07:52', '', '0000-00-00 00:00:00'),
-('block', 'labour', 0, 0, '', '2015-06-10 13:07:56', '', '0000-00-00 00:00:00'),
-('block', 'material', 0, 0, '', '2015-06-10 13:07:59', '', '0000-00-00 00:00:00'),
-('block', 'overhead', 0, 0, '', '2015-06-10 13:08:04', '', '0000-00-00 00:00:00'),
-('block', 'plant', 0, 0, '', '2015-06-10 13:08:08', '', '0000-00-00 00:00:00'),
-('block', 'refrence', 0, 0, '', '2015-06-10 13:08:12', '', '0000-00-00 00:00:00'),
-('block', 'role_management', 0, 0, '', '2015-06-10 13:08:16', '', '0000-00-00 00:00:00'),
-('block', 'unit', 0, 0, '', '2015-06-10 13:08:20', '', '0000-00-00 00:00:00'),
-('block', 'user_role', 0, 0, '', '2015-06-10 13:08:24', '', '0000-00-00 00:00:00'),
-('employee', 'add_department', 1, 0, '', '2015-06-29 07:43:25', '', '0000-00-00 00:00:00'),
-('employee', 'add_estsubitem', 1, 0, '', '2015-06-29 07:43:29', '', '0000-00-00 00:00:00'),
-('employee', 'add_est_submit', 1, 0, '', '2015-06-29 07:43:33', '', '0000-00-00 00:00:00'),
-('employee', 'create_item', 1, 0, '', '2015-06-29 07:43:38', '', '0000-00-00 00:00:00'),
-('employee', 'create_ref_cal', 1, 0, '', '2015-06-29 07:43:41', '', '0000-00-00 00:00:00'),
-('employee', 'create_sub_item', 1, 0, '', '2015-06-29 07:43:45', '', '0000-00-00 00:00:00'),
-('employee', 'delete_estimate', 1, 0, '', '2015-06-29 07:43:49', '', '0000-00-00 00:00:00'),
-('employee', 'delete_item', 1, 0, '', '2015-06-29 07:43:55', '', '0000-00-00 00:00:00'),
-('employee', 'delete_material', 1, 0, '', '2015-06-29 07:43:59', '', '0000-00-00 00:00:00'),
-('employee', 'delete_subitem', 1, 0, '', '2015-06-29 07:44:03', '', '0000-00-00 00:00:00'),
-('employee', 'del_sitem_est', 1, 0, '', '2015-06-29 07:44:07', '', '0000-00-00 00:00:00'),
-('employee', 'edit_estimation', 1, 0, '', '2015-06-29 07:44:10', '', '0000-00-00 00:00:00'),
-('employee', 'estimate_pdf', 1, 0, '', '2015-06-29 07:44:14', '', '0000-00-00 00:00:00'),
-('employee', 'estimation_val', 1, 0, '', '2015-06-29 07:44:17', '', '0000-00-00 00:00:00'),
-('employee', 'get_subitem_list', 1, 0, '', '2015-06-29 07:44:21', '', '0000-00-00 00:00:00'),
-('employee', 'importcsv', 0, 0, '', '2015-06-29 07:44:25', '', '0000-00-00 00:00:00'),
-('employee', 'index', 1, 0, '', '2015-06-29 07:44:30', '', '0000-00-00 00:00:00'),
-('employee', 'manage_carriage', 1, 0, '', '2015-06-29 07:44:33', '', '0000-00-00 00:00:00'),
-('employee', 'manage_item_class', 1, 0, '', '2015-06-29 07:44:37', '', '0000-00-00 00:00:00'),
-('employee', 'manage_labour', 1, 0, '', '2015-06-29 07:44:41', '', '0000-00-00 00:00:00'),
-('employee', 'manage_material', 1, 0, '', '2015-06-29 07:44:45', '', '0000-00-00 00:00:00'),
-('employee', 'manage_organization', 0, 0, '', '2015-06-29 10:17:02', '', '0000-00-00 00:00:00'),
-('employee', 'manage_overhead', 1, 0, '', '2015-06-29 07:44:48', '', '0000-00-00 00:00:00'),
-('employee', 'manage_plant', 1, 0, '', '2015-06-29 07:44:51', '', '0000-00-00 00:00:00'),
-('employee', 'manage_refrence', 1, 0, '', '2015-06-29 07:44:55', '', '0000-00-00 00:00:00'),
-('employee', 'manage_subitem', 1, 0, '', '2015-06-29 07:44:59', '', '0000-00-00 00:00:00'),
-('employee', 'manage_unit', 1, 0, '', '2015-06-29 07:45:03', '', '0000-00-00 00:00:00'),
-('employee', 'pdf_file', 0, 0, '', '2015-06-29 07:45:06', '', '0000-00-00 00:00:00'),
-('employee', 'role_management', 0, 0, '', '2015-06-29 07:45:10', '', '0000-00-00 00:00:00'),
-('employee', 'user_role', 0, 0, '', '2015-06-29 07:45:14', '', '0000-00-00 00:00:00'),
-('superuser', 'pdf_file', 1, 1, '', '2015-07-07 14:14:39', '', '0000-00-00 00:00:00');
+('hr', 'acc_setting', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'add_departments', 1, 0, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'add_designation', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'add_emp', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'add_organization', 0, 0, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'add_role', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'attendance_report', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'blocked_user', 0, 0, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'change_pass', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'delete_departments', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'delete_designation', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'delete_organization', 0, 0, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'delete_user', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'emp_award', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'index', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'insert_department', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'insert_designation', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'insert_employee', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'insert_organization', 0, 0, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'insert_role', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'login_user', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'login_view', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'manage_attendance', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'manage_departments', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'manage_designation', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'manage_emp', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'manage_organization', 0, 0, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'manage_users', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'refrence', 0, 0, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'role_assign', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'role_management', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'role_permission', 0, 0, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'sign_up', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'update_department', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'update_designation', 0, 0, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'update_employee', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'update_organization', 0, 0, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'update_role_permissi', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'user_add', 0, 0, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('hr', 'user_role', 1, 1, '', '2015-07-09 10:02:25', '', '0000-00-00 00:00:00'),
+('superuser', 'index', 1, 1, '', '2015-07-09 07:14:35', '', '0000-00-00 00:00:00'),
+('vendor', 'acc_setting', 1, 1, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'add_departments', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'add_designation', 1, 1, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'add_emp', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'add_organization', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'add_role', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'attendance_report', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'blocked_user', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'change_pass', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'delete_departments', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'delete_designation', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'delete_organization', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'delete_user', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'emp_award', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'index', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'insert_department', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'insert_designation', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'insert_employee', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'insert_organization', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'insert_role', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'login_user', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'login_view', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'manage_attendance', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'manage_departments', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'manage_designation', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'manage_emp', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'manage_organization', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'manage_users', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'refrence', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'role_assign', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'role_management', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'role_permission', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'sign_up', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'update_department', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'update_designation', 1, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'update_employee', 1, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'update_organization', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'update_role_permissi', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'user_add', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00'),
+('vendor', 'user_role', 0, 0, '', '2015-07-09 07:57:29', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -372,29 +361,25 @@ CREATE TABLE IF NOT EXISTS `tracking` (
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-`user_id` int(10) NOT NULL COMMENT 'user id is auto increment  and primary key for users',
+  `user_id` varchar(30) NOT NULL COMMENT 'user id is auto increment  and primary key for users',
   `organization_id` int(11) NOT NULL COMMENT 'org id is foreign key',
   `role_id` varchar(20) DEFAULT NULL COMMENT 'role id  is foriegn key for users',
-  `name` varchar(30) DEFAULT NULL COMMENT 'name for users ',
   `usermailid` varchar(30) DEFAULT NULL COMMENT 'mail id for users',
   `password` varchar(50) DEFAULT NULL COMMENT 'password for users',
-  `phone_number` varchar(12) DEFAULT NULL COMMENT 'phone number for users',
-  `mobile` varchar(12) DEFAULT NULL COMMENT 'mobile for users',
-  `address` varchar(250) DEFAULT NULL COMMENT 'address for users',
   `created_by` varchar(20) CHARACTER SET utf8 DEFAULT NULL COMMENT 'crated person name',
   `created_on` timestamp NULL DEFAULT NULL COMMENT 'created date',
   `updated_by` varchar(20) CHARACTER SET utf8 DEFAULT NULL COMMENT 'update by person name',
   `updated_on` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT 'update date'
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT COMMENT='users table';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT COMMENT='users table';
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `organization_id`, `role_id`, `name`, `usermailid`, `password`, `phone_number`, `mobile`, `address`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
-(1, 1, 'superuser', NULL, 'admin', 'initial', NULL, '', '', NULL, NULL, NULL, '2015-07-07 14:12:15'),
-(3, 2, 'admin', NULL, 'user@gmail.com', 'initial', NULL, '', '', NULL, NULL, NULL, '2015-07-08 07:26:04'),
-(6, 3, 'hr', NULL, 'ankit@gmail.com', '123', NULL, NULL, NULL, NULL, NULL, NULL, '2015-07-04 07:30:15');
+INSERT INTO `users` (`user_id`, `organization_id`, `role_id`, `usermailid`, `password`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
+('1', 1, 'superuser', 'admin', 'initial', NULL, NULL, NULL, '2015-07-07 14:12:15'),
+('3', 2, 'admin', 'user@gmail.com', 'initial', NULL, NULL, NULL, '2015-07-09 07:03:47'),
+('6', 3, 'hr', 'ankit@gmail.com', '123', NULL, NULL, NULL, '2015-07-09 06:49:40');
 
 --
 -- Indexes for dumped tables
@@ -468,7 +453,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
-MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'department id is a auto increment and primary key for department table',AUTO_INCREMENT=11;
+MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'department id is a auto increment and primary key for department table',AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `designation`
 --
@@ -484,11 +469,6 @@ MODIFY `organization_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'organization i
 --
 ALTER TABLE `sign_up`
 MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'user id is priamary key and auto increment for signup',AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'user id is auto increment  and primary key for users',AUTO_INCREMENT=7;
 --
 -- Constraints for dumped tables
 --
