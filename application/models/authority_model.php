@@ -56,10 +56,10 @@ class Authority_model extends CI_Model
 	function list_permsn($a=false)
 	{
 		//print_r($a);die;
-		$this->db->distinct();
+		//$this->db->distinct();
 		$this->db->select('role_id');
-		$this->db->where('role_id !=' ,'superuser');
-		$qry=$this->db->get('role_permission');
+		//$this->db->where('role_id !=' ,'superuser');
+		$qry=$this->db->get('role');
 		 return $qry->result(); 
 	}
 

@@ -1,4 +1,6 @@
-<?php $userdata= $this->session->userdata('user_data');?>
+<?php $userdata= $this->session->userdata('user_data');
+$su = $userdata['role_id'];
+?>
 <!-- manage Designation page added by palak on 25th june -->
 <!-- manage Designation body starts -->
 
@@ -45,7 +47,7 @@
 <?php } ?>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title"><?php echo $userdata['organization_name'];?></h3>
+							<h3 class="panel-title"><?php if($su!=='superuser'){ echo $userdata['organization_name']; } else{}?></h3>
 							<div class="panel-options">
 									<a href="<?php echo base_url(); ?>master/add_designation"><button class="btn btn-info btn-icon btn-sm">
 									<i class="fa-plus"></i>
@@ -95,7 +97,7 @@
 								<a href="<?php echo base_url(); ?>master/add_designation/<?=$list->designation_id;?>" class="btn btn-secondary btn-sm btn-icon icon-left">
 											Edit
 									</a>
-									<a href="<?php echo base_url(); ?>master/delete_designation/<?=$list->designation_id; ?>" class="btn btn-danger btn-sm btn-icon icon-left">
+									<a href="<?php echo base_url(); ?>master/delete_designation/<?=$list->designation_id; ?>" onClick="return confirm('Are you sure to delete this designation ? This will delete all the related records on this designation as well.')" class="btn btn-danger btn-sm btn-icon icon-left">
 											Delete
 									</a>
 								

@@ -31,6 +31,7 @@ $su = $userdata['role_id'];
 				</div>
 					
 			</div>
+			<h4><?php if($su!=='superuser'){ echo $userdata['organization_name']; } else{}?></h4>
 			<!-- Form starts -->
 			<script type="text/javascript">
 				jQuery(document).ready(function($)
@@ -550,7 +551,7 @@ $su = $userdata['role_id'];
 												</div>
 											</div>
 											</div>
-											<div class="col-md-6">						
+											<!--<div class="col-md-6">						
 												<div class="form-group">
 														<label class="control-label">Choose Password</label>
 														
@@ -562,13 +563,10 @@ $su = $userdata['role_id'];
 															<input type="password" class="form-control" name="password" id="password"  placeholder="Enter strong password" />
 														</div>
 													</div>
-												</div>
-										</div>
-										<div class="row">					
-											
-												
-												
-													<div class="col-md-12">
+											</div>-->
+										
+															
+											<div class="col-md-6">
 												   <div class="form-group">
 														<label class="control-label">Frequency</label>
 														<br>
@@ -1045,7 +1043,7 @@ $su = $userdata['role_id'];
 														<i class="linecons-user"></i>
 													</div>
 													
-													<input type="text" class="form-control" value="<?php echo $list->employee_id?>" name="employee_id" id="empid" data-validate="minlength[1]" data-message-minlength="Emp id must have minimum of 5 chars." placeholder="Enter Emp id" readonly />
+													<input type="text" class="form-control" value="<?php //echo $list->employee_id ?>" name="employee_id" id="empid" data-validate="minlength[1]" data-message-minlength="Emp id must have minimum of 5 chars." placeholder="Enter Emp id" readonly />
 												</div>
 											</div>
 											</div>
@@ -1054,7 +1052,7 @@ $su = $userdata['role_id'];
 														<label class=" control-label">Joining Date</label>
 														
 														<div class="">
-															<input type="text" value="<?=$list->joining_date?>" name="joining_date" class="form-control datepicker" data-start-view="1">
+															<input type="text" value="<?//=$list->joining_date?>" name="joining_date" class="form-control datepicker" data-start-view="1">
 														</div>
 													</div>
 													</div>
@@ -1103,25 +1101,10 @@ $su = $userdata['role_id'];
 												</div>
 											</div>
 											</div>
-											<div class="col-md-6">						
-												<div class="form-group">
-														<label class="control-label">Choose Password</label>
-														
-														<div class="input-group">
-															<div class="input-group-addon">
-																<i class="linecons-lock"></i>
-															</div>
-															
-															<input type="password" class="form-control" name="password" id="password"  placeholder="Enter strong password" />
-														</div>
-													</div>
-												</div>
-										</div>
-										<div class="row">					
 											
-												
-												
-													<div class="col-md-12">
+										
+														
+											<div class="col-md-6">
 												   <div class="form-group">
 														<label class="control-label">Frequency</label>
 														<br>
@@ -1137,7 +1120,7 @@ $su = $userdata['role_id'];
 												</div>
 												</div>
 												<div class="form-group">
-												<button type="submit" class="btn btn-primary">Add Employee</button>
+												<button type="submit" class="btn btn-primary">Save Employee</button>
 											</div>
 										
 								</div>

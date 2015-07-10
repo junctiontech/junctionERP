@@ -1,5 +1,6 @@
 <?php $userdata = $this->session->userdata('user_data');
 $id = $userdata['organization_name'];
+$su= $userdata['role_id'];
 ?>
 <!-- add designations page added by palak on 25ht june -->
 <!-- add designations body starts -->
@@ -37,7 +38,7 @@ $id = $userdata['organization_name'];
 					
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title"><?php echo $userdata['organization_name'];?></h3>
+							<h3 class="panel-title"><?php if($su!=='superuser'){ echo $userdata['organization_name']; } else{}?></h3>
 								
 						</div>
 						<?php  if(empty($select_designation)) { ?>

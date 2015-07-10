@@ -47,9 +47,9 @@ class Role extends CI_Controller {
 	 	{
 	 		redirect('home');
 	 	}
-		$user_data=$user_session_data = $this->session->userdata('user_data');
-		$this->data['user_data']=$this->session->userdata('user_data');
-		$userdata=$this->session->userdata('user_data');
+		//$user_data=$user_session_data = $this->session->userdata('user_data');
+		//$this->data['user_data']=$this->session->userdata('user_data');
+		//$userdata=$this->session->userdata('user_data');
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('acc_setting',$this->data);

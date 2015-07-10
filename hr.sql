@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2015 at 02:13 PM
+-- Generation Time: Jul 10, 2015 at 03:03 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -60,8 +60,7 @@ CREATE TABLE IF NOT EXISTS `designation` (
 
 INSERT INTO `designation` (`designation_id`, `organization_id`, `designation_name`) VALUES
 (3, 3, 'hr manager'),
-(4, 3, 'php developer'),
-(5, 3, 'web developer');
+(4, 3, 'php developer');
 
 -- --------------------------------------------------------
 
@@ -111,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
 
 INSERT INTO `employee` (`employee_id`, `organization_id`, `department_id`, `designation_id`, `user_id`, `username`, `password`, `salary_frquency`, `joining_date`, `first_name`, `last_name`, `birthdate`, `gender`, `image`, `martial_status`, `nationality`, `father_name`, `passport`, `present_address`, `mobile`, `email`, `country`, `state`, `city`, `zip`, `resume`, `offerletter`, `joiningletter`, `idproof`, `bank_name`, `branch_name`, `acc_name`, `acc_no`) VALUES
 (8, 3, 5, 4, NULL, '12334455', '', 'weekly', '', 'testing123123', 'testing123123', '12/03/2035', 'male', 'testing123123images (1).jpg', '', 'indian', 'testing123123', 'testing123123', 'testing123123', '(146) 541-56', 'testing123123', '', 'Delhi', '1', '65 46 51', 'testing123123Lighthouse.jpg', 'testing123123Penguins.jpg', 'testing123123Chrysanthemum.jpg', 'testing123123Jellyfish.jpg', 'testing123123', 'testing123123', 'testing123123', '8'),
-(76, 3, 5, 4, NULL, '', '', 'weekly', '07/16/2015', ' ratan', ' tata', '11/11/2011', 'male', '76images (1).jpg', '', 'indian', ' tata', ' tataffff', ' tata', '(111) 111-11', 'tata', 'india', 'Delhi', '1', '23 24 23', ' tataadsfgsdgChrysanthemum.jpg', ' tataadsfgsdgDesert.jpg', ' tataadsfgsdgHydrangeas.jpg', ' tataadsfgsdgPenguins.jpg', ' tata', ' tata', ' tata', '76');
+(76, 2, 6, 4, NULL, '', '', 'weekly', '07/16/2015', ' ratan', ' tata', '11/11/2011', 'male', '76images (1).jpg', '', 'indian', ' tata', ' tataffff', ' tata', '(111) 111-11', 'tata', 'india', 'Delhi', '1', '23 24 23', ' tataadsfgsdgChrysanthemum.jpg', ' tataadsfgsdgDesert.jpg', ' tataadsfgsdgHydrangeas.jpg', ' tataadsfgsdgPenguins.jpg', ' tata', ' tata', ' tata', '76');
 
 -- --------------------------------------------------------
 
@@ -210,10 +209,9 @@ CREATE TABLE IF NOT EXISTS `role` (
 --
 
 INSERT INTO `role` (`role_id`, `description`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
-('admin', 'admin', NULL, '2015-07-09 06:17:45', NULL, '0000-00-00 00:00:00'),
 ('blocked', 'blocked', NULL, '2015-07-09 07:03:02', NULL, '0000-00-00 00:00:00'),
 ('hr', 'hr', NULL, '2015-07-01 05:03:12', NULL, '0000-00-00 00:00:00'),
-('vendor', NULL, NULL, '2015-07-09 07:30:32', NULL, '0000-00-00 00:00:00');
+('vendor', 'vendor', NULL, '2015-07-10 12:35:23', NULL, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -377,8 +375,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`user_id`, `organization_id`, `role_id`, `usermailid`, `password`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
-('1', 1, 'superuser', 'admin', 'initial', NULL, NULL, NULL, '2015-07-07 14:12:15'),
-('3', 2, 'admin', 'user@gmail.com', 'initial', NULL, NULL, NULL, '2015-07-09 07:03:47'),
+('3', 2, 'employee', 'user@gmail.com', 'initial', NULL, NULL, NULL, '2015-07-10 07:06:42'),
 ('6', 3, 'hr', 'ankit@gmail.com', '123', NULL, NULL, NULL, '2015-07-09 06:49:40');
 
 --
@@ -443,7 +440,7 @@ ALTER TABLE `tracking`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
- ADD PRIMARY KEY (`user_id`,`organization_id`);
+ ADD PRIMARY KEY (`user_id`,`organization_id`), ADD KEY `organization_id` (`organization_id`), ADD KEY `role` (`role_id`) COMMENT 'role';
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -492,6 +489,12 @@ ALTER TABLE `employee`
 ADD CONSTRAINT `FK_dept` FOREIGN KEY (`department_id`) REFERENCES `department` (`department_id`) ON DELETE CASCADE,
 ADD CONSTRAINT `FK_designation` FOREIGN KEY (`designation_id`) REFERENCES `designation` (`designation_id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`);
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

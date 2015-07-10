@@ -87,6 +87,13 @@ $su = $userdata['role_id'];
 											<?php } ?>
 									</div> 
 									<div class="form-group">
+										<label class="col-sm-2 control-label" for="user id">User id</label>
+										
+										<div class="col-sm-10">
+											<input type="text" class="form-control" name="user_id" id="userid" placeholder="User id"  >
+										</div>
+									</div>
+									<div class="form-group">
 										<label class="col-sm-2 control-label" for="email">Email</label>
 										
 										<div class="col-sm-10">
@@ -110,7 +117,7 @@ $su = $userdata['role_id'];
 										<label class="col-sm-2 control-label" for="password">Password</label>
 										
 										<div class="col-sm-10">
-											<input type="text" class="form-control" name="password" id="password" placeholder="password"  >
+											<input type="password" class="form-control" name="password" id="password" placeholder="password"  >
 										</div>
 									</div>
 									<div class="form-group-separator"></div>

@@ -1,4 +1,6 @@
-<?php $userdata= $this->session->userdata('user_data');?>
+<?php $userdata= $this->session->userdata('user_data');
+$su = $userdata['role_id'];
+?>
 <!-- manage departments page added by palak on 21st june -->
 <!-- manage departments body starts -->
 
@@ -25,6 +27,7 @@
 				</div>
 					
 			</div>
+			
 								<?php
 								$userdata = $this->session->userdata('user_data');
 								 if($this->session->flashdata('category_error')) { ?>
@@ -45,7 +48,7 @@
 <?php } ?>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title"><?php echo $userdata['organization_name'];?></h3>
+							<h3 class="panel-title"><?php if($su!=='superuser'){ echo $userdata['organization_name']; } else{}?></h3>
 							<div class="panel-options">
 									<a href="<?php echo base_url(); ?>master/add_departments"><button class="btn btn-info btn-icon btn-sm">
 									<i class="fa-plus"></i>
@@ -67,7 +70,7 @@
 					});
 					</script>
 					
-						<div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+						<div class="" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
 					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
@@ -94,7 +97,7 @@
 									<a href="<?php echo base_url(); ?>master/add_departments/<?=$list->department_id; ?>" class="btn btn-secondary btn-sm btn-icon icon-left">
 											Edit
 									</a>
-									<a href="<?php echo base_url(); ?>master/delete_departments/<?=$list->department_id; ?>" class="btn btn-danger btn-sm btn-icon icon-left">
+									<a href="<?php echo base_url(); ?>master/delete_departments/<?=$list->department_id; ?>" onClick="return confirm('Are you sure to delete this department ? This will delete all the related records on this department as well.')" class="btn btn-danger btn-sm btn-icon icon-left">
 											Delete
 									</a>
 								</td>

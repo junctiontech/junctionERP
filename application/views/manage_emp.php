@@ -96,17 +96,17 @@ $su= $userdata['role_id'];
 					<?php foreach ($su_list_employee as $list){ ?>
 						<tbody>
 							<tr>
-								<td><?=$list->organization_id;?></td>
+								<td><?php foreach ($fetch_org as $lists){ echo $lists->organization_name; }?></td>
 								<td><?=$list->employee_id;?></td>
 								<td><?=$list->first_name;?></td>
-								<td><?=$list->department_id?> > <?=$list->designation_id;?></td>
+								<td><?php foreach ($fetch_dep as $lists){ echo $lists->department_name; }?> > <?=$list->designation_id;?></td>
 								<td><?=$list->mobile;?></td>
 								<td><a href="<?php echo base_url(); ?>employee/view_emp" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"><span class="fa fa-list-alt"></span></a></td>
 								<td>
 									<a href="<?php echo base_url(); ?>employee/add_emp/<?=$list->employee_id;?>" class="btn btn-secondary btn-sm btn-icon icon-left">
 											Edit
 									</a>
-									<a href="<?php echo base_url(); ?>employee/delete_emp/<?=$list->employee_id;?>" class="btn btn-danger btn-sm btn-icon icon-left">
+									<a href="<?php echo base_url(); ?>employee/delete_emp/<?=$list->employee_id;?>" onClick="return confirm('Are you sure to delete this Employee ? This will delete all the related records on this Employee as well.')" class="btn btn-danger btn-sm btn-icon icon-left">
 											Delete
 									</a>
 								</td>

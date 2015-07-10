@@ -1,6 +1,5 @@
 <!-- add organization page added by palak on 20 th june -->
 <!-- add organization body starts -->
-
 		<div class="page-title">
 				
 				<div class="title-env">
@@ -19,7 +18,7 @@
 										<strong>Manage Organization</strong>
 								</li>
 							<li class="active">
-						
+											
 										<strong>Add Organization</strong>
 								</li>
 								</ol>

@@ -43,30 +43,21 @@ class Login extends CI_Controller {
 			$orgnization = $this->input->post('organization_name');
 				if($orgnization=='')
 				{
-					$orgnization=array(
-									'organization_id'=>$this->input->post('organization_name')
-									  );
-					$data=array(
-								'usermailid'=>$this->input->post('usermailid'),
-								'password'=>$this->input->post('password')
-								);		
-					$list_organization =$this->login_model->list_organization('organization',$orgnization);
-					$row=$this->login_model->login_check('users',$data);
 					
-						if($row->role_id=='superuser')
+						'superuser'==$email;
+						'initial'==$this->input->post('password');
+					if($email)
 						{
-							if($row){ 
+							
 										$user_data = array(
-															 'usermailid' => $row->usermailid,
-															 'user_id' => $row->user_id,
-															 'role_id'=>$row->role_id,
-															'organization_id'=>$list_organization->organization_id,
-															'organization_name'=>$list_organization->organization_name
+															 'role_id' => $email,
+															 'organization_id' =>'',
+															 'organization_name'=>''
 														  );
 										$this->session->set_userdata('user_data',$user_data);
 										$user_session_data = $this->session->userdata('user_data');
 										redirect('home');
-									}
+									
 							
 						}
 						else

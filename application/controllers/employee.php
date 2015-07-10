@@ -26,13 +26,19 @@ class Employee extends CI_Controller {
 		Authority::checkAuthority('manage_emp');
 		$userdata = $this->session->userdata('user_data');
 		$organization=$userdata['organization_id'];
-		$list_employee = $this->data['list_employee'] = $this->employee_model->list_employee($organization);
+		$fetch_org = $this->data['fetch_org'] = $this->employee_model->fetch_org();
+		$fetch_dep = $this->data['fetch_dep'] = $this->employee_model->fetch_dep();
+	//	print_r($fetch_dep);die; 
+		//$list_employee = $this->data['list_employee'] = $this->employee_model->list_employee($organization);
+		//$list_designation = $this->data['list_designation'] = $this->designation_model->list_designation();
+		//$list_department= $this->data['list_department'] = $this->department_model->list_department();
 		$su_list_employee = $this->data['su_list_employee'] = $this->employee_model->su_list_employee();
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('manage_emp',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 	}
+	
 	
 			/* function for create new employee */
 public function insert_employee($info=false)

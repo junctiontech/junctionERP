@@ -88,6 +88,20 @@ class Employee_model extends CI_Model {
 		$this->db->query("DELETE FROM `employee` WHERE `employee_id`='".$info."' ");
 	}
 	
+	/* function for retrieve data organization */
+	public function fetch_org()
+	{
+		$qry= $this->db->query("SELECT employee.organization_id , organization.organization_name , organization.organization_id FROM   employee , organization WHERE  employee.organization_id=organization.organization_id ");
+		return $qry->result(); 
+    }
+	
+	/* function for retrieve data department */
+	public function fetch_dep()
+	{
+		$qry= $this->db->query("SELECT employee.department_id , department.department_name , department.department_id FROM   employee , department WHERE  employee.department_id=department.department_id AND employee.organization_id=department.organization_id");
+		return $qry->result(); 
+    }
+	
 }
 //Model Class for Employee end
 ?>

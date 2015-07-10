@@ -89,13 +89,13 @@
 					
 					<ul class="dropdown-menu user-profile-menu list-unstyled">
 						<li>
-								<a href="#settings">
+								<a href="<?=base_url();?>role/acc_setting">
 									<i class="fa-wrench"></i>
 									Settings
 								</a>
 							</li>
 							<li>
-								<a href="#profile">
+								<a href="javascript:;">
 									<i class="fa-user"></i>
 									Profile
 								</a>
