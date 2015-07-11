@@ -151,9 +151,7 @@ class Authority_model extends CI_Model
 		/*		function for insert role in role table		*/
 	function insert_role_table($role)
 	{
-		//print_r($role);die;
-		$data=array('role_id'=>$role);
-		$this->db->insert('role',$data);
+		$this->db->insert('role',$role);
 		return true;
 	}	
 		

@@ -78,11 +78,11 @@
 								<th>Action</th>
 							</tr>
 						</tfoot>
-						<?php foreach ($verify_list as $list){ ?>
+						<?php $i=0; foreach ($verify_list as $list){ $i++ ?>
 						<tbody>
 							<tr>
 								<form method="POST" action="<?=base_url();?>role/role_assign/<?=$list->user_id?>" >
-								<td><?php echo $list->user_id;?></td>
+								<td><?php echo $i; ?></td>
 								<td><?=$list->usermailid;?></td>
 								<td>
 								<select name="role" class="selectboxit">
@@ -104,7 +104,7 @@
 						
 					
 						</tbody>
-						<?php } ?>
+						<?php  } ?>
 					</table>
 					
 					</div>			

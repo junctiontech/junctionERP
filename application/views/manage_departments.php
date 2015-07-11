@@ -101,6 +101,7 @@ $su = $userdata['role_id'];
 											Delete
 									</a>
 								</td>
+							</tr>	
 					<?php $i++; }  ?>
 						</tbody>
 					</table>

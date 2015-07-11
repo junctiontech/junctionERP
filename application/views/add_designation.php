@@ -1,5 +1,5 @@
 <?php $userdata = $this->session->userdata('user_data');
-$id = $userdata['organization_name'];
+$id = $userdata['organization_id'];
 $su= $userdata['role_id'];
 ?>
 <!-- add designations page added by palak on 25ht june -->
@@ -47,6 +47,8 @@ $su= $userdata['role_id'];
 									<?php if(!empty($su) && $su=='superuser'){ ?>
 									<div class="form-group" id="fields">
 									<label class="col-sm-2 control-label" for="email">Organizations</label>
+									<div class="col-sm-8">
+
 									<select class="selectboxit " id="" name="organization_name">
 										<option></option>
 										<optgroup label="Organizations">
@@ -56,6 +58,7 @@ $su= $userdata['role_id'];
 										</optgroup>
 									</select>
 									</div> 
+										</div> 
 									<?php } ?>
 									<div class="form-group" id="fields">
 									          <label class="control-label col-sm-2" for="field-1">Designation Name</label>

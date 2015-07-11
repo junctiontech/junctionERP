@@ -29,7 +29,7 @@ class Employee_model extends CI_Model {
 	
 	/*function for employee list*/
 	public function list_employee($info)
-	{
+	{	
 		$this->db->select('*');
 		$this->db->where('organization_id',$info);
 		$qry=$this->db->get('employee');
@@ -39,9 +39,13 @@ class Employee_model extends CI_Model {
 	/* function for superuser employee list */
 	public function su_list_employee()
 	{
-		$this->db->select('*');
-		$qry=$this->db->get('employee');
-		return $qry->result();
+		
+		$qry= $this->db->query("SELECT employee.* , department.* , designation.* ,organization.* FROM   employee , department ,designation , organization WHERE employee.organization_id=organization.organization_id AND employee.department_id=department.department_id AND employee.designation_id=designation.designation_id");
+		$qry= $this->db->query("SELECT employee.*  , designation.* , organization.* FROM   employee , designation, organization WHERE employee.organization_id=organization.organization_id AND employee.designation_id=designation.designation_id ");
+		$qry= $this->db->query("SELECT employee.*  , department.* , organization.* FROM   employee , department, organization WHERE employee.organization_id=organization.organization_id AND employee.department_id=department.department_id ");
+		$qry= $this->db->query("SELECT employee.*  , organization.* FROM   employee , organization WHERE employee.organization_id=organization.organization_id ");
+		//print_r($qry);die;
+		return $qry->result(); 
 	}
 	
 	/* Function For fetch select employee*/
@@ -88,19 +92,7 @@ class Employee_model extends CI_Model {
 		$this->db->query("DELETE FROM `employee` WHERE `employee_id`='".$info."' ");
 	}
 	
-	/* function for retrieve data organization */
-	public function fetch_org()
-	{
-		$qry= $this->db->query("SELECT employee.organization_id , organization.organization_name , organization.organization_id FROM   employee , organization WHERE  employee.organization_id=organization.organization_id ");
-		return $qry->result(); 
-    }
 	
-	/* function for retrieve data department */
-	public function fetch_dep()
-	{
-		$qry= $this->db->query("SELECT employee.department_id , department.department_name , department.department_id FROM   employee , department WHERE  employee.department_id=department.department_id AND employee.organization_id=department.organization_id");
-		return $qry->result(); 
-    }
 	
 }
 //Model Class for Employee end

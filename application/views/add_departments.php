@@ -45,6 +45,21 @@ $su= $userdata['role_id'];
 							<div class="panel-body">
 								
 								<form role="form" class="form-horizontal" method="post" action="<?=base_url();?>master/insert_department/<?=$id?>">
+									<?php if(!empty($su) && $su=='superuser'){ ?>
+									<div class="form-group" id="fields">
+									<label class="col-sm-2 control-label" for="email">Organizations</label>
+									<div class="col-sm-8">
+									<select class="selectboxit  " id="" name="organization_name">
+										<option></option>
+										<optgroup label="Organizations">
+										<?php foreach($list_organization as $list){?>
+											<option value="<?php echo $list->organization_id?>"><?php echo $list->organization_name; ?></option>
+										<?php } ?>
+										</optgroup>
+									</select>
+									</div> 
+										</div> 
+									<?php } ?>
 									<div class="form-group" id="fields">
 									          <label class="control-label col-sm-2" for="department">Department</label>
 									            <div class="col-sm-8" id="profs"> 

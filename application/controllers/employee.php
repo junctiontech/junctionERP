@@ -26,13 +26,9 @@ class Employee extends CI_Controller {
 		Authority::checkAuthority('manage_emp');
 		$userdata = $this->session->userdata('user_data');
 		$organization=$userdata['organization_id'];
-		$fetch_org = $this->data['fetch_org'] = $this->employee_model->fetch_org();
-		$fetch_dep = $this->data['fetch_dep'] = $this->employee_model->fetch_dep();
-	//	print_r($fetch_dep);die; 
-		//$list_employee = $this->data['list_employee'] = $this->employee_model->list_employee($organization);
-		//$list_designation = $this->data['list_designation'] = $this->designation_model->list_designation();
-		//$list_department= $this->data['list_department'] = $this->department_model->list_department();
+		$list_employee = $this->data['list_employee'] = $this->employee_model->list_employee($organization);
 		$su_list_employee = $this->data['su_list_employee'] = $this->employee_model->su_list_employee();
+		//print_r($su_list_employee);die;
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('manage_emp',$this->data);
@@ -104,8 +100,8 @@ public function insert_employee($info=false)
 							'organization_id'=>$info,
 							'department_id'=>$dep,
 							'designation_id'=>$des,
-							'username'=>$this->input->post('username'),
-							'password'=>$this->input->post('password'),
+							//'username'=>$this->input->post('username'),
+							//'password'=>$this->input->post('password'),
 							'salary_frquency'=>$this->input->post('frquency'),
 							'joining_date'=>$this->input->post('joining_date'),
 							'first_name'=>$this->input->post('first_name'),
@@ -226,7 +222,7 @@ public function insert_employee($info=false)
 							'organization_id'=>$info,
 							'department_id'=>$dep,
 							'designation_id'=>$des,
-							'username'=>$this->input->post('username'),
+							'user_id'=>$this->input->post('user_id'),
 							'password'=>$this->input->post('password'),
 							'salary_frquency'=>$this->input->post('frquency'),
 							'joining_date'=>$this->input->post('joining_date'),

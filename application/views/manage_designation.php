@@ -58,10 +58,11 @@ $su = $userdata['role_id'];
 						</div>
 							<div class="panel-body">
 								
+							
 							<script type="text/javascript">
 					jQuery(document).ready(function($)
 					{
-						$("#example-1").dataTable({
+						$("#example-3").dataTable({
 							aLengthMenu: [
 								[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]
 							]
@@ -69,8 +70,8 @@ $su = $userdata['role_id'];
 					});
 					</script>
 					
-					<div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">					
-					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+					<div class="" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">					
+					<table id="example-3" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
 								<th>S.no</th>
@@ -89,22 +90,20 @@ $su = $userdata['role_id'];
 						</tfoot>
 					
 						<tbody>
-							<tr>
 							<?php $i=1; foreach( $list_designation as $list){ ?>
+							<tr>
 								<td><?=$i;?></td>
 								<td><?php echo $list->designation_name; ?></td>
 								<td>
-								<a href="<?php echo base_url(); ?>master/add_designation/<?=$list->designation_id;?>" class="btn btn-secondary btn-sm btn-icon icon-left">
+									<a href="<?php echo base_url(); ?>master/add_designation/<?=$list->designation_id;?>" class="btn btn-secondary btn-sm btn-icon icon-left">
 											Edit
 									</a>
 									<a href="<?php echo base_url(); ?>master/delete_designation/<?=$list->designation_id; ?>" onClick="return confirm('Are you sure to delete this designation ? This will delete all the related records on this designation as well.')" class="btn btn-danger btn-sm btn-icon icon-left">
 											Delete
 									</a>
-								
 								</td>
-								
-							</tr>
-							<?php $i++;} ?>
+								</tr>
+							<?php $i++; } ?>
 						
 					
 						</tbody>

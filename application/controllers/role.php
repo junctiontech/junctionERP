@@ -248,6 +248,7 @@ class Role extends CI_Controller {
 			{
 				$data=array(
 								'organization_id'=>$info,
+								'user_id'=>$this->input->post('user_id'),
 								'usermailid'=>$this->input->post('usermailid'),
 								'role_id'=>$this->input->post('role'),
 								'password'=>$this->input->post('password')
@@ -295,7 +296,10 @@ class Role extends CI_Controller {
 				{
 					redirect('role/role_management');
 				}
-		$role= $this->input->post('role');	
+				$role=array(
+								'role_id'=>$this->input->post('role'),
+								'role_description'=>$this->input->post('role_description'),
+							);
 		$data = $this->input->post();
 		$value = "";
 		  if($this->input->post('edit_costing')==1)

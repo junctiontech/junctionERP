@@ -540,7 +540,7 @@ $su = $userdata['role_id'];
 												</div>	
 											</div>
 										<div class="row">
-											<div class="col-md-6">						
+											<!--<div class="col-md-6">						
 											<div class="form-group">
 												<label class="control-label">Username</label>
 												<div class="input-group">
@@ -550,7 +550,7 @@ $su = $userdata['role_id'];
 													<input type="text" class="form-control" name="username" id="username" data-validate="required,minlength[5]" data-message-minlength="User Name must have minimum of 5 chars." placeholder="Could be email id" />
 												</div>
 											</div>
-											</div>
+											</div>-->
 											<!--<div class="col-md-6">						
 												<div class="form-group">
 														<label class="control-label">Choose Password</label>
@@ -1092,18 +1092,15 @@ $su = $userdata['role_id'];
 										<div class="row">
 											<div class="col-md-6">						
 											<div class="form-group">
-												<label class="control-label">Username</label>
+												<label class="control-label">User id</label>
 												<div class="input-group">
 													<div class="input-group-addon">
 														<i class="linecons-user"></i>
 													</div>
-													<input type="text" class="form-control" name="username" id="username" value="" data-validate="minlength[2]" data-message-minlength="User Name must have minimum of 5 chars." placeholder="Could be email id" />
+													<input type="text" class="form-control" name="user_id" id="user_id" value="" data-validate="minlength[1]" data-message-minlength="" placeholder="" />
 												</div>
 											</div>
 											</div>
-											
-										
-														
 											<div class="col-md-6">
 												   <div class="form-group">
 														<label class="control-label">Frequency</label>

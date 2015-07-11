@@ -44,21 +44,23 @@ class Login extends CI_Controller {
 				if($orgnization=='')
 				{
 					
-						'superuser'==$email;
-						'initial'==$this->input->post('password');
-					if($email)
+						if('superuser'==$email && 'initial'==$this->input->post('password'))
 						{
-							
-										$user_data = array(
-															 'role_id' => $email,
-															 'organization_id' =>'',
-															 'organization_name'=>''
-														  );
-										$this->session->set_userdata('user_data',$user_data);
-										$user_session_data = $this->session->userdata('user_data');
-										redirect('home');
+						
+							if($email)
+								{
 									
-							
+												$user_data = array(
+																	 'role_id' => $email,
+																	 'organization_id' =>'',
+																	 'organization_name'=>''
+																  );
+												$this->session->set_userdata('user_data',$user_data);
+												$user_session_data = $this->session->userdata('user_data');
+												redirect('home');
+											
+									
+								}
 						}
 						else
 						{

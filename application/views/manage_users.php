@@ -74,7 +74,8 @@ $su = $userdata['role_id'];
 														<div class="col-md-12">
 														<div class="form-group">
 															<label class="col-sm-2 control-label" for="organization" >Organization</label>
-															<select class="col-sm-10 form-control selectboxit " id="" name="organization_name">
+															<div class="col-sm-8">
+															<select class=" form-control selectboxit " id="" name="organization_name">
 																<option></option>
 																<optgroup label="Organizations">
 																<?php foreach($list_organization as $list){?>
@@ -82,7 +83,8 @@ $su = $userdata['role_id'];
 																<?php } ?>
 																</optgroup>
 															</select>
-														</div> 
+															</div> 
+															</div> 
 														</div>
 											<?php } ?>
 									</div> 

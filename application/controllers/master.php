@@ -153,14 +153,17 @@ class Master extends CI_Controller {
 	 		redirect('master/manage_departments');
 	 	}
 		$dep=$this->input->post('department_name');
-		for($i=0;$i<count($dep);$i++)
+		if($dep)
 		{
-			$data=array(
-								'organization_id'=>$info,
-								'department_name'=>$dep[$i]
-							);
-		
-				$this->department_model->insert_department('department',$data);
+			for($i=0;$i<count($dep);$i++)
+			{
+				$data=array(
+									'organization_id'=>$info,
+									'department_name'=>$dep[$i]
+								);
+			
+					$this->department_model->insert_department('department',$data);
+			}
 		}
 		
 				$this->session->set_flashdata('category_success', 'success message	');
@@ -212,14 +215,17 @@ class Master extends CI_Controller {
 	 		redirect('master/manage_designation');
 	 	}
 		$designation=$this->input->post('designation_name');
-		for($i=0;$i<count($designation);$i++)
+		if($designation)
 		{
-			$data=array(
-								'organization_id'=>$info,
-								'designation_name'=>$designation[$i]
-						);
-		
-				$this->designation_model->insert_designation('designation',$data);
+				for($i=0;$i<count($designation);$i++)
+				{
+					$data=array(
+										'organization_id'=>$info,
+										'designation_name'=>$designation[$i]
+								);
+				
+						$this->designation_model->insert_designation('designation',$data);
+				}
 		}
 			$this->session->set_flashdata('category_success', 'success message	');        
 			$this->session->set_flashdata('message', $this->config->item("user").' designation add successfully');
