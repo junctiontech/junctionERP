@@ -82,7 +82,7 @@
 					<a href="#" data-toggle="dropdown">
 						<img src="<?php echo base_url(); ?>assets/images/user-1.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" />
 						<span>
-							<?=$userdata['role_id']?>
+							<?=$userdata['user_id']?>
 							<i class="fa-angle-down"></i>
 						</span>
 					</a>
@@ -102,7 +102,7 @@
 							</li>
 							
 							<li class="last">
-								<a href="<?php echo base_url(); ?>login/login_view">
+								<a href="<?php echo base_url(); ?>role/logout">
 									<i class="fa-lock"></i>
 									Logout
 								</a>

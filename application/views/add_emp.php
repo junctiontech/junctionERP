@@ -484,7 +484,7 @@ $su = $userdata['role_id'];
 											<?php } ?>
 										</div>	
 										<div class="row">
-												<div class="col-md-6">						
+												<!--<div class="col-md-6">						
 											<div class="form-group">
 												<label class="control-label">Employee ID</label>
 												
@@ -496,7 +496,7 @@ $su = $userdata['role_id'];
 													<input type="text" class="form-control" name="employee_id" id="empid" data-validate="required,minlength[5]" data-message-minlength="Emp id must have minimum of 5 chars." placeholder="Enter Emp id" />
 												</div>
 											</div>
-											</div>
+											</div>-->
 											<div class="col-md-6">	
 												<div class="form-group">
 														<label class=" control-label">Joining Date</label>
@@ -506,13 +506,12 @@ $su = $userdata['role_id'];
 														</div>
 													</div>
 													</div>
-												</div>
-											<div class="row">
+												
 											<div class="col-md-6">						
 													<div class="form-group">
 														<label class="control-label" for="city">Department</label>
 														<select name="department_name" class="selectboxit">
-														<optgroup label="Designations">
+														<optgroup label="Department">
 															<option value="0"></option>
 															<?php  foreach( $list_department as $list){ ?>
 															<option value="<?php echo $list->department_id; ?>"><?php echo $list->department_name; ?></option>
@@ -523,12 +522,14 @@ $su = $userdata['role_id'];
 														
 												</div>
 											</div>
+											</div>
+											<div class="row">
 												<div class="col-md-6">						
 													<div class="form-group">
 														<label class="control-label" for="city">Designations</label>
 													
 														<select name="designation_name" class="selectboxit">
-															<optgroup label="designations">
+															<optgroup label="Designations">
 															<option value="0"></option>
 																<?php  foreach( $list_designation as $list){ ?>
 															<option value="<?php echo $list->designation_id; ?>"><?php echo $list->designation_name; ?></option>	
@@ -538,8 +539,8 @@ $su = $userdata['role_id'];
 													
 												</div>
 												</div>	
-											</div>
-										<div class="row">
+											
+										
 											<!--<div class="col-md-6">						
 											<div class="form-group">
 												<label class="control-label">Username</label>
@@ -571,11 +572,11 @@ $su = $userdata['role_id'];
 														<label class="control-label">Frequency</label>
 														<br>
 															<label class="cbr-inline">
-																	<input type="radio" name="frquency" class="cbr" value="weekly" checked>
+																	<input type="radio" name="salary_frquency" class="cbr" value="weekly" checked>
 																	Weekly
 																</label>
 																<label class="cbr-inline">
-																	<input type="radio" name="frquency" value="monthly" class="cbr">
+																	<input type="radio" name="salary_frquency" value="monthly" class="cbr">
 																	Monthly
 																</label>
 													</div>	
@@ -1024,11 +1025,12 @@ $su = $userdata['role_id'];
 															<select class="selectboxit " id="" name="organization_name">
 																<option></option>
 																<optgroup label="Organizations">
-																<?php foreach($list_organization as $list){?>
-																	<option value="<?php echo $list->organization_id?>"><?php echo $list->organization_name; ?></option>
+																<?php foreach($list_organization as $lists){?>
+																	<option value="<?=$lists->organization_id?>"<?=(!empty($list->organization_id) && $list->organization_id==$lists->organization_id)?'selected':'' ?> > <?php echo $lists->organization_name; ?> </option>
 																<?php } ?>
 																</optgroup>
 															</select>
+															
 														</div> 
 														</div>
 											<?php } ?>
@@ -1043,7 +1045,7 @@ $su = $userdata['role_id'];
 														<i class="linecons-user"></i>
 													</div>
 													
-													<input type="text" class="form-control" value="<?php //echo $list->employee_id ?>" name="employee_id" id="empid" data-validate="minlength[1]" data-message-minlength="Emp id must have minimum of 5 chars." placeholder="Enter Emp id" readonly />
+													<input type="text" class="form-control" value="<?php  echo $list->employee_id ?>" name="employee_id" id="empid" data-validate="" data-message-minlength="" placeholder="Enter Emp id" readonly />
 												</div>
 											</div>
 											</div>
@@ -1052,7 +1054,7 @@ $su = $userdata['role_id'];
 														<label class=" control-label">Joining Date</label>
 														
 														<div class="">
-															<input type="text" value="<?//=$list->joining_date?>" name="joining_date" class="form-control datepicker" data-start-view="1">
+															<input type="text" value="<?=$list->joining_date; ?>" name="joining_date" class="form-control datepicker" data-start-view="1">
 														</div>
 													</div>
 													</div>
@@ -1062,10 +1064,10 @@ $su = $userdata['role_id'];
 													<div class="form-group">
 														<label class="control-label" for="city">Department</label>
 														<select name="department_name" class="selectboxit">
-														<optgroup label="Designations">
+														<optgroup label="Department">
 															<option value="0"></option>
-															<?php  foreach( $list_department as $list){ ?>
-															<option value="<?php echo $list->department_id; ?>"><?php echo $list->department_name; ?></option>
+															<?php  foreach( $list_department as $lists){ ?>
+															<option value="<?=$lists->department_id?>"<?=(!empty($list->department_id) && $list->department_id==$lists->department_id)?'selected':'' ?> > <?php echo $lists->department_name; ?></option>
 															<?php } ?>
 														</optgroup>
 															
@@ -1078,10 +1080,10 @@ $su = $userdata['role_id'];
 														<label class="control-label" for="city">Designations</label>
 													
 														<select name="designation_name" class="selectboxit">
-															<optgroup label="designations">
+															<optgroup label="Designations">
 															<option value="0"></option>
-																<?php  foreach( $list_designation as $list){ ?>
-															<option value="<?php echo $list->designation_id; ?>"><?php echo $list->designation_name; ?></option>	
+																<?php  foreach( $list_designation as $lists){ ?>
+															<option value="<?=$lists->designation_id?>"<?=(!empty($list->designation_id) && $list->designation_id==$lists->designation_id)?'selected':'' ?> > <?php echo $lists->designation_name; ?></option>
 																<?php } ?>
 															</optgroup>
 														</select>
@@ -1097,7 +1099,7 @@ $su = $userdata['role_id'];
 													<div class="input-group-addon">
 														<i class="linecons-user"></i>
 													</div>
-													<input type="text" class="form-control" name="user_id" id="user_id" value="" data-validate="minlength[1]" data-message-minlength="" placeholder="" />
+													<input type="text" class="form-control" name="user_id" id="user_id" value="<?php if(!empty($list->user_id)){ echo $list->user_id; } ?>" data-validate="minlength[1]" data-message-minlength="" placeholder="" />
 												</div>
 											</div>
 											</div>
@@ -1106,11 +1108,11 @@ $su = $userdata['role_id'];
 														<label class="control-label">Frequency</label>
 														<br>
 															<label class="cbr-inline">
-																	<input type="radio" name="frquency" class="cbr" value="weekly" checked>
+																	<input type="radio" name="salary_frquency" class="cbr" value="weekly" <?=(!empty($list->salary_frquency) && $list->salary_frquency=='weekly')?'checked':''?> >
 																	Weekly
 																</label>
 																<label class="cbr-inline">
-																	<input type="radio" name="frquency" value="monthly" class="cbr">
+																	<input type="radio" name="salary_frquency" value="monthly" <?=(!empty($list->salary_frquency) && $list->salary_frquency=='monthly')?'checked':''?> class="cbr"> <?=(!empty($list->gender) && $list->gender=='male')?'checked':'' ?>
 																	Monthly
 																</label>
 													</div>	

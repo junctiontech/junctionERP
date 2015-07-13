@@ -152,8 +152,8 @@
 					</div> 
 					
 					<div class="form-group">
-						<label class="control-label" for="username">User mailid</label>
-						<input type="text" class="form-control" name="usermailid" id="username" autocomplete="off" />
+						<label class="control-label" for="username">User id</label>
+						<input type="text" class="form-control" name="user_id" id="username" autocomplete="off" />
 					</div>
 					
 					<div class="form-group">

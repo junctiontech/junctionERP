@@ -37,7 +37,7 @@ class Login extends CI_Controller {
 				/* Function for login and create session */	
 	function login_user($info=false)
 	{		
-		$email = $this->input->post('usermailid');
+		$email = $this->input->post('user_id');
 		if($email)
 		{	
 			$orgnization = $this->input->post('organization_name');
@@ -52,6 +52,7 @@ class Login extends CI_Controller {
 									
 												$user_data = array(
 																	 'role_id' => $email,
+																	 'user_id' => $email,
 																	 'organization_id' =>'',
 																	 'organization_name'=>''
 																  );
@@ -74,9 +75,9 @@ class Login extends CI_Controller {
 				{
 							$orgnization=array(
 									'organization_id'=>$this->input->post('organization_name')
-							);
+											  );
 							$data=array(
-									'usermailid'=>$this->input->post('usermailid'),
+									'user_id'=>$this->input->post('user_id'),
 									'password'=>$this->input->post('password'),
 									'organization_id'=>$this->input->post('organization_name')
 							);
@@ -95,7 +96,7 @@ class Login extends CI_Controller {
 										'role_id'=>$row->role_id,
 										'organization_id'=>$list_organization->organization_id,
 										'organization_name'=>$list_organization->organization_name
-								);
+												   );
 								$this->session->set_userdata('user_data',$user_data);
 								$user_session_data = $this->session->userdata('user_data');
 								redirect('home');

@@ -36,7 +36,7 @@ class Role extends CI_Controller {
 		$userdata=$this->session->userdata('user_data');
 		$unset_userdata=$this->session->unset_userdata($userdata);
 		$this->session->sess_destroy();
-		redirect('login');
+		redirect('login/login_view');
 	}
 	
 			/* Function for account settings view */

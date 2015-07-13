@@ -25,10 +25,14 @@ class Employee extends CI_Controller {
 		Authority::is_logged_in();
 		Authority::checkAuthority('manage_emp');
 		$userdata = $this->session->userdata('user_data');
+		$role=$userdata['user_id']!=='superuser';
 		$organization=$userdata['organization_id'];
-		$list_employee = $this->data['list_employee'] = $this->employee_model->list_employee($organization);
+		if($role)
+		{
+			$list_employee = $this->data['list_employee'] = $this->employee_model->list_employee($organization);
+		}
 		$su_list_employee = $this->data['su_list_employee'] = $this->employee_model->su_list_employee();
-		//print_r($su_list_employee);die;
+		
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('manage_emp',$this->data);
@@ -46,6 +50,7 @@ public function insert_employee($info=false)
 			}
 		$userdata = $this->session->userdata('user_data');
 		$role=$userdata['role_id'];
+		$user_id=$userdata['user_id'];
 		if($role=='superuser')
 		{
 			$info=$this->input->post('organization_name');
@@ -96,13 +101,13 @@ public function insert_employee($info=false)
 			if($first_name!=='')
 		{
 			$data=array(
-							'employee_id'=>$this->input->post('employee_id'),
+							//'employee_id'=>$this->input->post('employee_id'),
 							'organization_id'=>$info,
 							'department_id'=>$dep,
 							'designation_id'=>$des,
 							//'username'=>$this->input->post('username'),
 							//'password'=>$this->input->post('password'),
-							'salary_frquency'=>$this->input->post('frquency'),
+							'salary_frquency'=>$this->input->post('salary_frquency'),
 							'joining_date'=>$this->input->post('joining_date'),
 							'first_name'=>$this->input->post('first_name'),
 							'last_name'=>$this->input->post('last_name'),
@@ -127,7 +132,8 @@ public function insert_employee($info=false)
 							'bank_name'=>$this->input->post('bank_name'),
 							'branch_name'=>$this->input->post('branch_name'),
 							'acc_name'=>$this->input->post('acc_name'),
-							'acc_no'=>$this->input->post('acc_no')
+							'acc_no'=>$this->input->post('acc_no'),
+							'created_by'=>$user_id
 						);
 						//echo '<pre>';
 						//print_r($data);
@@ -151,6 +157,7 @@ public function insert_employee($info=false)
 			}
 		$userdata = $this->session->userdata('user_data');
 		$role=$userdata['role_id'];
+		$user_id=$userdata['user_id'];
 		$employee_id=$id;
 		$first_name=$this->input->post('first_name');
 			if($role=='superuser')
@@ -223,8 +230,7 @@ public function insert_employee($info=false)
 							'department_id'=>$dep,
 							'designation_id'=>$des,
 							'user_id'=>$this->input->post('user_id'),
-							'password'=>$this->input->post('password'),
-							'salary_frquency'=>$this->input->post('frquency'),
+							'salary_frquency'=>$this->input->post('salary_frquency'),
 							'joining_date'=>$this->input->post('joining_date'),
 							'first_name'=>$this->input->post('first_name'),
 							'last_name'=>$this->input->post('last_name'),
@@ -249,7 +255,8 @@ public function insert_employee($info=false)
 							'bank_name'=>$this->input->post('bank_name'),
 							'branch_name'=>$this->input->post('branch_name'),
 							'acc_name'=>$this->input->post('acc_name'),
-							'acc_no'=>$this->input->post('acc_no')
+							'acc_no'=>$this->input->post('acc_no'),
+							'updated_by'=>$user_id
 						);
 						//echo '<pre>';
 						//print_r($data);
@@ -287,8 +294,9 @@ public function insert_employee($info=false)
 		$userdata = $this->session->userdata('user_data');
 		$organization=$userdata['organization_id'];
 		if($info){
-			$select_emp = $this->data['select_emp'] = $this->employee_model->select_emp($info);
 			
+			$select_emp = $this->data['select_emp'] = $this->employee_model->select_emp($info);
+			//print_r($select_emp);die;
 				 }
 		$list_organization = $this->data['list_organization'] = $this->organization_model->list_organization();
 		$list_department= $this->data['list_department'] = $this->department_model->list_department($organization);

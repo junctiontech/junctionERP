@@ -73,7 +73,7 @@
 						<tfoot>
 							<tr>
 								<th>S.no</th>
-								<th>User Name</th>
+								<th>User Id</th>
 								<th>Role</th>
 								<th>Action</th>
 							</tr>
@@ -83,7 +83,7 @@
 							<tr>
 								<form method="POST" action="<?=base_url();?>role/role_assign/<?=$list->user_id?>" >
 								<td><?php echo $i; ?></td>
-								<td><?=$list->usermailid;?></td>
+								<td><?=$list->user_id;?></td>
 								<td>
 								<select name="role" class="selectboxit">
 										<?php  foreach($role_list as $lists){ ?>

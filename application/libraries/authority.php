@@ -40,7 +40,7 @@ class Authority
 		{
 			 $object->session->set_flashdata('message_type', 'error');
 			 $object->session->set_flashdata('message',$object->config->item("user").'First Login with Your account');
-				redirect('login');
+				redirect('login/login_view');
 				return true;
 		}									
 	

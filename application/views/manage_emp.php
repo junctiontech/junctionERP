@@ -138,7 +138,7 @@ $su= $userdata['role_id'];
 								
 							</tr>
 						</tfoot>
-					<?php foreach ($list_employee as $list){ ?>
+<?php foreach ($list_employee as $list){ ?>
 						<tbody>
 							<tr>
 								<td><?=$list->employee_id;?></td>
@@ -155,9 +155,6 @@ $su= $userdata['role_id'];
 									</a>
 								</td>
 							</tr>
-					
-						
-					
 						</tbody>
 						<?php } ?>	
 					</table>

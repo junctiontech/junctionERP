@@ -76,6 +76,9 @@
                                                <div class="btn-group">
 														<a class="btn btn-small btn-primary show-tooltip" title="Permissions" href="<?php echo base_url(); ?>role/role_permission/<?=$role->role_id;?>"><i class="fa fa-foursquare"></i> Permissions</a>
 												</div>
+												 <div class="btn-group">
+														<a class="btn btn-small btn-primary show-tooltip" title="Delete" href="<?php echo base_url(); ?>role/delete_permission/<?=$role->role_id;?>"><i class="fa fa-foursquare"></i> Delete</a>
+												</div>
                                                
                                             </td>
                                         </tr>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2015 at 01:10 PM
+-- Generation Time: Jul 13, 2015 at 01:27 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -41,8 +41,7 @@ CREATE TABLE IF NOT EXISTS `department` (
 --
 
 INSERT INTO `department` (`department_id`, `organization_id`, `department_name`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
-(9, 4, 'civil', '', '2015-07-11 10:42:16', '', '0000-00-00 00:00:00'),
-(10, 4, 'cad', '', '2015-07-11 10:42:16', '', '0000-00-00 00:00:00');
+(13, 7, 'computer science', '', '2015-07-13 11:21:46', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -58,15 +57,14 @@ CREATE TABLE IF NOT EXISTS `designation` (
   `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'create of time',
   `updated_by` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT 'name of update person',
   `updated_on` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'update of time'
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 COMMENT='Table  designations for organization`s employee';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1 COMMENT='Table  designations for organization`s employee';
 
 --
 -- Dumping data for table `designation`
 --
 
 INSERT INTO `designation` (`designation_id`, `organization_id`, `designation_name`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
-(7, 4, 'senior civil', '', '2015-07-11 10:50:30', '', '0000-00-00 00:00:00'),
-(8, 4, 'material test', '', '2015-07-11 10:50:30', '', '0000-00-00 00:00:00');
+(11, 7, 'ANDROID APPLICATION DEVELOPER', '', '2015-07-13 11:22:24', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -75,11 +73,11 @@ INSERT INTO `designation` (`designation_id`, `organization_id`, `designation_nam
 --
 
 CREATE TABLE IF NOT EXISTS `employee` (
-  `employee_id` int(11) NOT NULL COMMENT 'Employee id is a auto increment and primary key for employee table',
+`employee_id` int(11) NOT NULL COMMENT 'Employee id is a auto increment and primary key for employee table',
   `organization_id` int(11) NOT NULL COMMENT ' Organization id is a auto increment and primary key for employee table',
   `department_id` int(11) DEFAULT NULL COMMENT 'Department name for a employee for his organization',
   `designation_id` int(11) DEFAULT NULL COMMENT 'Designations name for employee',
-  `user_id` int(11) DEFAULT NULL COMMENT 'user_id is for login',
+  `user_id` varchar(30) DEFAULT NULL COMMENT 'user_id is for login',
   `salary_frquency` varchar(10) DEFAULT NULL COMMENT 'frequency for employee payroll',
   `joining_date` varchar(300) DEFAULT NULL COMMENT 'joining date for employee',
   `first_name` varchar(15) DEFAULT NULL COMMENT 'first name for employee',
@@ -109,16 +107,15 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `created_by` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT 'name of create person',
   `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'create of time',
   `updated_by` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT 'name of update person',
-  `updated_on` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'update of time'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Table employee for a organizations';
+  `updated_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'update of time'
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COMMENT='Table employee for a organizations';
 
 --
 -- Dumping data for table `employee`
 --
 
 INSERT INTO `employee` (`employee_id`, `organization_id`, `department_id`, `designation_id`, `user_id`, `salary_frquency`, `joining_date`, `first_name`, `last_name`, `birthdate`, `gender`, `image`, `martial_status`, `nationality`, `father_name`, `passport`, `present_address`, `mobile`, `email`, `country`, `state`, `city`, `zip`, `resume`, `offerletter`, `joiningletter`, `idproof`, `bank_name`, `branch_name`, `acc_name`, `acc_no`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
-(1111, 4, NULL, NULL, 112, 'weekly', '<?//=$list->joining_date?>', 'Bill', 'gates', '19/08/1958', 'male', 'ratan001images.jpg', '', 'indian', 'Mr. ratan', '14565654558', 'bhopal', '(786) 786-45', 'ratan@gmail.com', '', 'Delhi', '2', '15 54 55', 'ratan001Koala.jpg', 'ratan001Desert.jpg', 'ratan001Tulips.jpg', 'ratan001Hydrangeas.jpg', 'sbi', 'sbi', 'sbi', '1111', '', '2015-07-11 10:36:47', '', '0000-00-00 00:00:00'),
-(11412, 4, 9, 7, NULL, 'monthly', '06/18/2015', 'vishal', 'vishal', '12/12/2012', 'female', '11412images (1).jpg', 'married', 'united_state', 'mr vishaal', '1212111', 'bombay', '(555) 555-55', 'test', 'india', 'Delhi', '1', '12 12 12', '11412Koala.jpg', '11412Lighthouse.jpg', '11412Penguins.jpg', '11412Tulips.jpg', 'ubi', 'ubi', 'ubi', 'ubi', '', '2015-07-11 10:53:14', '', '0000-00-00 00:00:00');
+(7, 7, NULL, NULL, 'VISHAL', 'monthly', '05/15/2015', 'VISHAL', 'YADAV', '20/12/1988', 'male', 'Penguins.jpg', '', 'indian', 'MR. RAJENDRA YA', 'NIL', 'H. NO. 4 JANAK PURI COLONY AYODHYA BYPASS ROAD BHOPAL', '(888) 955-26', 'engineervishalyadav@', 'india', 'mp', '1', '46 20 41', 'Koala.jpg', 'Desert.jpg', 'Koala.jpg', 'Tulips.jpg', 'BOI', 'BANK OF INDIA', 'VISHAL YADAV', '7', 'superuser', '2015-07-13 11:19:50', 'superuser', '2015-07-13 11:16:29');
 
 -- --------------------------------------------------------
 
@@ -168,7 +165,6 @@ INSERT INTO `function` (`function_id`, `function_name`, `created_by`, `created_o
 ('manage_emp', 'manage emp', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('manage_organization', 'manage organization', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('manage_users', 'manage users', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
-('refrence', 'refrence list', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('role_assign', 'role assign', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('role_management', 'role management', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('role_permission', 'role permission', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
@@ -195,15 +191,15 @@ CREATE TABLE IF NOT EXISTS `organization` (
   `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'create of time',
   `updated_by` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT 'name of update person',
   `updated_on` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'update of time'
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COMMENT='Table organizations for organization`s employee';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 COMMENT='Table organizations for organization`s employee';
 
 --
 -- Dumping data for table `organization`
 --
 
 INSERT INTO `organization` (`organization_id`, `organization_name`, `organization_desc`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
-(4, 'JP cement factory', 'reewa', '', '2015-07-11 08:12:14', '', '0000-00-00 00:00:00'),
-(5, 'JP software company', 'Banglor', '', '2015-07-11 08:12:53', '', '0000-00-00 00:00:00');
+(7, 'abc construction group', 'Satna company', '', '2015-07-13 06:29:19', '', '0000-00-00 00:00:00'),
+(8, 'software copany', 'sarbhanga', '', '2015-07-13 06:29:59', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -225,8 +221,8 @@ CREATE TABLE IF NOT EXISTS `role` (
 --
 
 INSERT INTO `role` (`role_id`, `role_description`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
-('blocked', 'blocked user ', NULL, '2015-07-11 11:01:38', NULL, '0000-00-00 00:00:00'),
-('user', 'by default role', NULL, '2015-07-11 10:15:27', NULL, '0000-00-00 00:00:00');
+('admin', 'admin', NULL, '2015-07-13 06:42:17', NULL, '0000-00-00 00:00:00'),
+('user', 'user', NULL, '2015-07-13 07:43:15', NULL, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -250,86 +246,84 @@ CREATE TABLE IF NOT EXISTS `role_permission` (
 --
 
 INSERT INTO `role_permission` (`role_id`, `function_id`, `auth_read`, `auth_execute`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
-('blocked', 'acc_setting', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'add_departments', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'add_designation', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'add_emp', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'add_organization', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'add_role', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'attendance_report', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'blocked_user', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'change_pass', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'delete_departments', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'delete_designation', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'delete_organization', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'delete_user', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'emp_award', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'index', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'insert_department', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'insert_designation', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'insert_employee', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'insert_organization', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'insert_role', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'login_user', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'login_view', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'manage_attendance', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'manage_departments', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'manage_designation', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'manage_emp', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'manage_organization', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'manage_users', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'refrence', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'role_assign', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'role_management', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'role_permission', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'sign_up', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'update_department', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'update_designation', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'update_employee', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'update_organization', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'update_role_permissi', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'user_add', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('blocked', 'user_role', 0, 0, '', '2015-07-11 11:01:38', '', '0000-00-00 00:00:00'),
-('user', 'acc_setting', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'add_departments', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'add_designation', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'add_emp', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'add_organization', 0, 0, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'add_role', 0, 0, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'attendance_report', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'blocked_user', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'change_pass', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'delete_departments', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'delete_designation', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'delete_organization', 0, 0, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'delete_user', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'emp_award', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'index', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'insert_department', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'insert_designation', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'insert_employee', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'insert_organization', 0, 0, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'insert_role', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'login_user', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'login_view', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'manage_attendance', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'manage_departments', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'manage_designation', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'manage_emp', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'manage_organization', 0, 0, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'manage_users', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'refrence', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'role_assign', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'role_management', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'role_permission', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'sign_up', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'update_department', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'update_designation', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'update_employee', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'update_organization', 0, 0, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'update_role_permissi', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'user_add', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00'),
-('user', 'user_role', 1, 1, '', '2015-07-11 10:15:27', '', '0000-00-00 00:00:00');
+('admin', 'acc_setting', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'add_departments', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'add_designation', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'add_emp', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'add_organization', 0, 0, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'add_role', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'attendance_report', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'blocked_user', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'change_pass', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'delete_departments', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'delete_designation', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'delete_organization', 0, 0, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'delete_user', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'emp_award', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'index', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'insert_department', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'insert_designation', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'insert_employee', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'insert_organization', 0, 0, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'insert_role', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'login_user', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'login_view', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'manage_attendance', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'manage_departments', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'manage_designation', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'manage_emp', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'manage_organization', 0, 0, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'manage_users', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'role_assign', 0, 0, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'role_management', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'role_permission', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'sign_up', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'update_department', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'update_designation', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'update_employee', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'update_organization', 0, 0, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'update_role_permissi', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'user_add', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('admin', 'user_role', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
+('user', 'acc_setting', 0, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'add_departments', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'add_designation', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'add_emp', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'add_organization', 0, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'add_role', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'attendance_report', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'blocked_user', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'change_pass', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'delete_departments', 0, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'delete_designation', 0, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'delete_organization', 0, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'delete_user', 0, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'emp_award', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'index', 1, 1, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'insert_department', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'insert_designation', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'insert_employee', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'insert_organization', 0, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'insert_role', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'login_user', 1, 1, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'login_view', 1, 1, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'manage_attendance', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'manage_departments', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'manage_designation', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'manage_emp', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'manage_organization', 0, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'manage_users', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'role_assign', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'role_management', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'role_permission', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'sign_up', 1, 1, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'update_department', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'update_designation', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'update_employee', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'update_organization', 0, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'update_role_permissi', 0, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'user_add', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
+('user', 'user_role', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -381,7 +375,7 @@ CREATE TABLE IF NOT EXISTS `tracking` (
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `user_id` int(11) NOT NULL COMMENT 'user id is auto increment  and primary key for users',
+  `user_id` varchar(30) NOT NULL COMMENT 'user id is auto increment  and primary key for users',
   `organization_id` int(11) NOT NULL COMMENT 'org id is foreign key',
   `role_id` varchar(20) DEFAULT NULL COMMENT 'role id  is foriegn key for users',
   `usermailid` varchar(30) DEFAULT NULL COMMENT 'mail id for users',
@@ -397,7 +391,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`user_id`, `organization_id`, `role_id`, `usermailid`, `password`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
-(112, 4, 'user', 'jp@gmail.com', '123123', '', '2015-07-11 11:01:53', '', '0000-00-00 00:00:00');
+('VISHAL', 7, 'admin', 'engineervishalyadav@gmail.com', '123', '', '2015-07-13 11:19:19', '', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -476,12 +470,17 @@ MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'department id is
 -- AUTO_INCREMENT for table `designation`
 --
 ALTER TABLE `designation`
-MODIFY `designation_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Designation id is a auto increment and primary key for designations table',AUTO_INCREMENT=9;
+MODIFY `designation_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Designation id is a auto increment and primary key for designations table',AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Employee id is a auto increment and primary key for employee table',AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `organization`
 --
 ALTER TABLE `organization`
-MODIFY `organization_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'organization id is a auto increment and primary key for organization table',AUTO_INCREMENT=6;
+MODIFY `organization_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'organization id is a auto increment and primary key for organization table',AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `sign_up`
 --
@@ -509,8 +508,8 @@ ADD CONSTRAINT `designation_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `
 ALTER TABLE `employee`
 ADD CONSTRAINT `FK_dept` FOREIGN KEY (`department_id`) REFERENCES `department` (`department_id`) ON DELETE CASCADE,
 ADD CONSTRAINT `FK_designation` FOREIGN KEY (`designation_id`) REFERENCES `designation` (`designation_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`),
-ADD CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `FK_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`);
 
 --
 -- Constraints for table `role_permission`
