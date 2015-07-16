@@ -1,3 +1,5 @@
+<?php //print_r($this->data['select_customer']);
+?>
 	<footer class="main-footer sticky footer-type-1">
 				
 				<div class="footer-inner">
@@ -22,7 +24,19 @@
 				</div>
 				
 			</footer>
+			</div>
+			</div>
 			
+	<div class="modal fade" id="modal-7" data-backdrop="static" >
+	
+		<div class="modal-dialog">
+			<div class="modal-content">
+				
+				
+				</div>
+		</div>
+	</div>	
+
 				<script type="text/javascript">
 			
 				$(document).ready(function(){
@@ -105,7 +119,7 @@
 
 	<!-- JavaScripts initializations and stuff -->
 	<script src="<?php echo base_url(); ?>assets/js/xenon-custom.js"></script>
-	
+
 			<!-- Imported scripts on this page -->
 	<script src="<?php echo base_url(); ?>assets/js/datatables/js/jquery.dataTables.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/datatables/dataTables.bootstrap.js"></script>

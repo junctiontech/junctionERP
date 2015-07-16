@@ -36,6 +36,9 @@
 		
 		<!-- Imported styles on this page -->
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/js/datatables/dataTables.bootstrap.css">
+		<style>
+	.datepicker{z-index:1151 !important;}
+	</style>
 </head>
 <!-- head closed -->
 
