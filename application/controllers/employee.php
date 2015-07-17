@@ -314,7 +314,13 @@ public function insert_employee($info=false)
 		$this->load->view('emp_award',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 	}
-	
+	public function view_emp()
+	{
+		$this->parser->parse('include/header',$this->data);
+		$this->parser->parse('include/left_menu',$this->data);
+		$this->load->view('view_emp',$this->data);
+		$this->parser->parse('include/footer',$this->data);
+	}
 }
 
 /* End of file welcome.php */
