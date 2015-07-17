@@ -1,4 +1,7 @@
-
+<?php $userdata= $this->session->userdata('user_data');
+$id = $userdata['organization_id'];
+$su= $userdata['role_id'];
+?>
 <!-- Add Customer added by palak on 2nd July-->
 <!-- Add Customer  body starts -->
 
@@ -30,47 +33,41 @@
 					
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">Customers</h3>
+							<h3 class="panel-title"><?php if($su!=='superuser'){ echo $userdata['organization_name']; } else{}?></h3>
 						</div>
 						<?php if(empty($select_customer)){?>
 						<div class="panel-body">
 							
-						<form role="form" method="POST" class="validate"  action="<?=base_url();?>crm/crm/insert_customer"  >
+						<form role="form" method="POST" class="validate"  action="<?=base_url();?>crm/crm/insert_customer/<?=$id?>"  >
 					<div class="row">
-						<div class="col-md-6">
-								<div class="form-group">
-									<label class="control-label" for="company">Company</label>
-									
-										<input type="text" class="form-control" data-validate="required" data-message-required="Enter Company Name" name="company_name" id="company" placeholder="Company">
-								
-								</div>
-						
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label" for="field-5">User Id</label>
+								<input type="text" class="form-control" id="reference" data-validate="required" data-message-required="Enter Reference" placeholder="please enter user id" name="user_id">
+							</div>
 						</div>
-						<div class="col-md-6">
-							
-							
-								<div class="form-group">
-									<label class="control-label" for="customer">Customer Name</label>
-									
-									
-										<input type="text" class="form-control" name="name" id="customer" data-validate="required" data-message-required="Enter Customer Name"  placeholder="Customer">
-									
-								</div>
-						
-						</div>
-						
-					
 					</div>
 				
 					<div class="row">
 						<div class="col-md-6">
-							
 								<div class="form-group">
-									<label class="control-label" for="email">Email</label>
-								
-										<input type="text" class="form-control"  name="email" data-validate="required,email" data-message-required="Enter Email id"  id="email" placeholder="Email">
-									
+									<label class="control-label" for="company">Company</label>
+									<input type="text" class="form-control" data-validate="required" data-message-required="Enter Company Name" name="company_name" id="company" placeholder="Company">
 								</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="control-label" for="customer">Customer Name</label>
+									<input type="text" class="form-control" name="name" id="customer" data-validate="required" data-message-required="Enter Customer Name"  placeholder="Customer">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+									<label class="control-label" for="email">Email</label>
+									<input type="text" class="form-control"  name="email" data-validate="required,email" data-message-required="Enter Email id"  id="email" placeholder="Email">
+							</div>
 							
 						</div>
 							<div class="col-md-6">
@@ -161,7 +158,15 @@
 			<?php foreach($select_customer as $list){ ?>
 			
 				<div class="panel-body">
-				<form role="form" method="POST"  action="<?=base_url ();?>crm/crm/update_customer/<?=$list->customer_id?>"/>
+				<form role="form" method="POST"  action="<?=base_url ();?>crm/crm/update_customer/<?=$list->customer_id?>/<?=$id?>"/>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label" for="field-5">User Id</label>
+								<input type="text" class="form-control" id="reference" data-validate="required" data-message-required="Enter Reference" placeholder="please enter user id" value="<?=$list->user_id; ?>" name="user_id">
+							</div>
+						</div>
+					</div>
 					<div class="row">
 						<div class="col-md-6">
 								<div class="form-group">

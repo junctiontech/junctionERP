@@ -1,3 +1,7 @@
+<?php 
+$userdata= $this->session->userdata('user_data');
+$su = $userdata['role_id'];
+?>
 <div class="page-title">
 				
 				<div class="title-env">
@@ -40,7 +44,7 @@
 <?php } ?>
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title">Customers</h3>
+					<h3 class="panel-title"><?php if($su!=='superuser'){ echo $userdata['organization_name']; } else{}?></h3>
 				
 				</div>
 				<div class="panel-body">

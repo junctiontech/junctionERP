@@ -44,7 +44,7 @@
 										<label class="col-sm-2 control-label" for="field-1">Organization Name</label>
 										
 										<div class="col-sm-10">
-											<input type="text" class="form-control" name="organization_name" id="field-1" placeholder="Organization Name"  >
+											<input type="text" class="form-control"  name="organization_name" id="field-1" placeholder="Organization Name"  >
 										</div>
 									</div>
 									<div class="form-group">

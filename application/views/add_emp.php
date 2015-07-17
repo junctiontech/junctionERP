@@ -708,7 +708,7 @@ $su = $userdata['role_id'];
 		                                            <div>
 													   <span class="btn btn-file"><span class="fileupload-new">Select image</span>
 		                                               <span class="fileupload-exists ">Change</span>
-													    <input type="file" class="default" name="image" </span>
+													    <input type="file" class="default" name="image"/> </span>
 		                                               <a href="#" class="btn fileupload-exists btn-primary" data-dismiss="fileupload">Remove</a>
 		                                            </div>
 		                                         </div>
@@ -1088,7 +1088,7 @@ $su = $userdata['role_id'];
 															</optgroup>
 														</select>
 													
-												</div>
+													</div>
 												</div>	
 											</div>
 										<div class="row">

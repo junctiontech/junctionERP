@@ -288,6 +288,22 @@ class Role extends CI_Controller {
 			
 	}
 	
+	/*function for delete role from role manager view*/
+	function delete_role($role=false)
+	{
+		Authority::is_logged_in();
+		if(Authority::checkAuthority('delete_user')==true)
+		{
+			redirect('role/user_role');
+		}
+		if($role){
+			$this->authority_model->delete_role($role);
+			$this->session->set_flashdata('message_type', 'success');
+			$this->session->set_flashdata('message', $this->config->item("user").' Delete Successfully');
+			redirect('role/role_management');
+		}
+	}
+	
 		/* Function for insert_role and his permission */
   function insert_role()
 	{	

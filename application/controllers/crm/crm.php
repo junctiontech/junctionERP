@@ -7,7 +7,8 @@ class Crm extends CI_Controller {
 		parent::__construct();
 		$this->data[]="";
 		$this->data['url'] = base_url();
-		
+		$this->load->library('authority');
+		$this->load->model('authority_model');
 		$this->load->model('customer_model');
 		$this->load->library('parser');
 		$this->load->library('session');
@@ -18,6 +19,8 @@ class Crm extends CI_Controller {
 	//customers
 	public function customers($info=false)
 	{
+		Authority::is_logged_in();
+		Authority::checkAuthority('customers');
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('crm/customers',$this->data);
@@ -28,6 +31,11 @@ class Crm extends CI_Controller {
 	public function add_customer($info=false)
 	{
 		//print_r($info);die;
+		Authority::is_logged_in();
+		if(Authority::checkAuthority('add_customer')==true)
+		{
+			redirect('crm/customequick');
+		}
 		if($info){
 					$select_customer = $this->data['select_customer'] = $this->customer_model->select_customer($info);
 					//print_r($select_emp);die;
@@ -41,6 +49,7 @@ class Crm extends CI_Controller {
 	//add opportunities
 	public function add_opportunities($info=false)
 	{
+		Authority::is_logged_in();
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('crm/add_opportunities',$this->data);
@@ -48,6 +57,8 @@ class Crm extends CI_Controller {
 	}
 	public function manage_opportunities($info=false)
 	{
+		Authority::is_logged_in();
+		Authority::checkAuthority('manage_opportunities');
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('crm/manage_opportunities',$this->data);
@@ -55,7 +66,8 @@ class Crm extends CI_Controller {
 	}
 	public function customequick($info=false)
 	{	 	
-			
+		Authority::is_logged_in();
+		Authority::checkAuthority('customequick');
 		$this->data['customer_info'] = $this->customer_model->get_customer_list();
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
@@ -66,15 +78,46 @@ class Crm extends CI_Controller {
 	/*insert customer function*/
 	public function insert_customer($info=false)
 	{
-		
+		//print_r($info);die;
+		Authority::is_logged_in();
+		if(Authority::checkAuthority('insert_customer')==true)
+		{
+			redirect('crm/customequick');
+		}
+		$info=$info;
 		$customer_name=$this->input->post('name');
 		if($customer_name!=='')
 		{
 			$email=array(
 					'email'=>$this->input->post('email'),
 						);
-			//print_r($email);die;
+		//	$user_id=$this->input->post('user_id');
+			//'organization_id'=>$info;
+		//	$company_name=$this->input->post('company_name');
+		//	$name=$this->input->post('name');
+			//$email=$this->input->post('email');
+		//	$mobile=$this->input->post('mobile');
+			//$present_address=$this->input->post('present_address');
+			//$reference=$this->input->post('reference');
+			//try{
+			//$this->db->trans_start();
+			//$this->db->query(" INSERT INTO `customers`( `organization_id`, `user_id`, `name`, `company_name`, `email`, `mobile`, `present_address`, `reference`) VALUES (' $info ',' $user_id ',' $name ',' $company_name ','$email','$mobile','$present_address','$reference') ");
+			//$this->db->trans_complete();
+			//}
+		//	catch (Exception $e)
+		//	{
+			//	echo 'hiiiiiiiii';
+			//}
+			//if ($this->db->trans_status() === FALSE)
+		//	{
+			//	echo 'hiii';
+				// generate an error... or use the log_message() function to log your error
+		//	}
+		
+		//	die;
 			$data=array(
+					'user_id'=>$this->input->post('user_id'),
+					'organization_id'=>$info,
 					'company_name'=>$this->input->post('company_name'),
 					'name'=>$this->input->post('name'),
 					'email'=>$this->input->post('email'),
@@ -101,10 +144,15 @@ class Crm extends CI_Controller {
 	}
 	
 	
-	public function update_customer($id=false)
+	public function update_customer($id=false,$info=false)
 	{
 		//print_r($id);
 	//	die;
+		Authority::is_logged_in();
+		if(Authority::checkAuthority('update_customer')==true)
+		{
+			redirect('crm/customequick');
+		}
 		$customer_id=$id;
 		$customer_name=$this->input->post('customer_name');
 	
@@ -112,7 +160,9 @@ class Crm extends CI_Controller {
 		{
 			
 			$data=array(
+					'user_id'=>$this->input->post('user_id'),
 					'customer_id'=>$customer_id,
+					'organization_id'=>$info,
 					'company_name'=>$this->input->post('company_name'),
 					'name'=>$this->input->post('name'),
 					'email'=>$this->input->post('email'),
@@ -128,9 +178,14 @@ class Crm extends CI_Controller {
 	
 		}
 	}
-	public function insert_followup($info=false)
+	public function insert_followup($info=false,$id=false)
 	{
-		//print_r($info);
+		//print_r($id);die;
+		Authority::is_logged_in();
+		if(Authority::checkAuthority('insert_followup')==true)
+		{
+			redirect('crm/customequick');
+		}
 		$follow_up_date=$this->input->post('follow_up_date');
 	
 		if($follow_up_date!=='')
@@ -143,7 +198,8 @@ class Crm extends CI_Controller {
 							'follow_up_time'=>$this->input->post('follow_up_time'),
 							'follow_up_type'=>$this->input->post('follow_up_type'),
 							'follow_up_by'=>$this->input->post('follow_up_by'),
-							'customer_id'=>$info
+							'customer_id'=>$info,
+							'organization_id'=>$id
 						   );
 		}
 		
@@ -158,6 +214,11 @@ class Crm extends CI_Controller {
 	function modal($userid=false)
 	{	
 		//print_r($userid);die;
+		Authority::is_logged_in();
+		if(Authority::checkAuthority('modal')==true)
+		{
+			redirect('crm/customequick');
+		}
 		$filter=array('customer_id'=>$userid);
 		$get_followup_list=$this->data['get_followup_list'] = $this->customer_model->get_followup_list('customers_follow_up',$filter);
 		//print_r($get_followup_list);die;

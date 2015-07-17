@@ -155,7 +155,16 @@ class Authority_model extends CI_Model
 		return true;
 	}	
 		
+	/* function for delete role*/
+	public function delete_role($info=false)
+	{
+		//print_r($info);die;
+		//$this->db->query("DELETE FROM `role` WHERE `role_id`='".$info."' ");
+		//$this->db->query("DELETE FROM `role_permission` WHERE `role_id`='".$info."' ");
+		//	$this->db->query("DELETE FROM `users` WHERE `role_id`='".$info."' ");
 		
+	}	
+	
 						/*		function for blocked role in user	*/
 	function  blocked_user($data,$user)
 	{

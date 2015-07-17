@@ -1,7 +1,11 @@
-<?php $a= $userid; ?>
+<?php $a= $userid;
+$userdata= $this->session->userdata('user_data');
+$id = $userdata['organization_id'];
+$su= $userdata['role_id']; ?>
 <div class="modal-content">
 <div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3><?php if($su!=='superuser'){ echo $userdata['organization_name']; } else{}?></h3></br>
 					<h4 class="modal-title">Follow Up</h4>
 				</div>
 				<?php
@@ -14,7 +18,7 @@
 								</div>
 								<?php } ?>
 				<div class="modal-body">
-				<form role="form" method="POST" action="<?=base_url();?>crm/crm/insert_followup/<?=$a?>"  >
+				<form role="form" method="POST" action="<?=base_url();?>crm/crm/insert_followup/<?=$a?>/<?=$id?>"  >
 				<style>
 	.datepicker{z-index:1151 !important;}
 	</style>
@@ -148,7 +152,7 @@
 				</div>
 				
 				<div class="modal-footer">
-					<button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+					<button type="button" onclick="window.location.href='<?php echo base_url();?>crm/crm/customequick'" class="btn btn-white" data-dismiss="modal">Close</button>
 					
 				</div>
 			</div>

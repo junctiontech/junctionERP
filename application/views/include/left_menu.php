@@ -266,6 +266,12 @@
 									<span class="title">Customers</span>
 								</a>
 							</li>
+									<li class="javascript:;">
+								<a href="<?php echo base_url(); ?>crm/crm/customequick">
+								<i class="linecons-user"></i>
+									<span class="title">Quick Lead</span>
+								</a>
+							</li>
 							<li class="javascript:;">
 								<a href="javascript:;">
 								<i class="linecons-lightbulb"></i>

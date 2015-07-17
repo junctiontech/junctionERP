@@ -6,7 +6,7 @@
 				
 					<!-- Add your copyright text here -->
 					<div class="footer-text">
-						&copy; 2015 
+						&copy; <?php echo date("Y"); ?> 
 						<strong>Junction</strong> 
 						HRMS
 					</div>
@@ -27,9 +27,9 @@
 			</div>
 			</div>
 			
-	<div class="modal fade" id="modal-7" data-backdrop="static" >
+	<div class="modal  custom-width fade" id="modal-7" data-backdrop="static" >
 	
-		<div class="modal-dialog">
+		<div class="modal-dialog" style="width: 75%">
 			<div class="modal-content">
 				
 				

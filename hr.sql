@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2015 at 01:27 PM
+-- Generation Time: Jul 17, 2015 at 07:12 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -19,6 +19,55 @@ SET time_zone = "+00:00";
 --
 -- Database: `hr`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customers`
+--
+
+CREATE TABLE IF NOT EXISTS `customers` (
+`customer_id` int(11) NOT NULL COMMENT 'primary key',
+  `organization_id` int(11) NOT NULL,
+  `user_id` varchar(30) DEFAULT NULL,
+  `name` varchar(15) NOT NULL,
+  `company_name` varchar(30) NOT NULL,
+  `email` varchar(20) NOT NULL,
+  `mobile` varchar(15) NOT NULL,
+  `present_address` varchar(250) NOT NULL,
+  `reference` varchar(20) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`customer_id`, `organization_id`, `user_id`, `name`, `company_name`, `email`, `mobile`, `present_address`, `reference`) VALUES
+(39, 7, 'sales', 'abc cba', 'software company', 'test@gmail.com', '(233) 222-3232', 'bhopal', 'bhopal');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customers_follow_up`
+--
+
+CREATE TABLE IF NOT EXISTS `customers_follow_up` (
+  `customer_id` int(11) NOT NULL,
+  `organization_id` int(11) NOT NULL,
+  `note` varchar(250) CHARACTER SET utf8 NOT NULL,
+  `follow_up_date` varchar(11) NOT NULL,
+  `next_follow_up` varchar(11) NOT NULL,
+  `follow_up_time` varchar(15) NOT NULL,
+  `follow_up_type` varchar(50) NOT NULL,
+  `follow_up_by` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customers_follow_up`
+--
+
+INSERT INTO `customers_follow_up` (`customer_id`, `organization_id`, `note`, `follow_up_date`, `next_follow_up`, `follow_up_time`, `follow_up_type`, `follow_up_by`) VALUES
+(39, 7, 'test', '11/11/1111', '22/22/2222', '7 p.m.', 'testing', 'harshlata');
 
 -- --------------------------------------------------------
 
@@ -107,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `created_by` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT 'name of create person',
   `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'create of time',
   `updated_by` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT 'name of update person',
-  `updated_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'update of time'
+  `updated_on` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'update of time'
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COMMENT='Table employee for a organizations';
 
 --
@@ -138,23 +187,29 @@ CREATE TABLE IF NOT EXISTS `function` (
 
 INSERT INTO `function` (`function_id`, `function_name`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
 ('acc_setting', 'acc_setting', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
+('add_customer', 'add customer', '', '2015-07-16 11:44:54', '', '0000-00-00 00:00:00'),
 ('add_departments', 'add departments', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('add_designation', 'add designation', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('add_emp', 'add emp', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
+('add_opportunities', 'add opportunities', '', '2015-07-16 11:45:42', '', '0000-00-00 00:00:00'),
 ('add_organization', 'add organization', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('add_role', 'add role', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('attendance_report', 'attendance_report', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('blocked_user', 'blocked user', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('change_pass', 'change pass', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
+('customequick', 'customequick', '', '2015-07-16 11:46:15', '', '0000-00-00 00:00:00'),
+('customers', 'customers', '', '2015-07-16 11:44:54', '', '0000-00-00 00:00:00'),
 ('delete_departments', 'delete departments', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('delete_designation', 'delete designation', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('delete_organization', 'delete organization', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('delete_user', 'delete user', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('emp_award', 'emp award', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('index', 'index', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
+('insert_customer', 'insert_customer', '', '2015-07-16 11:46:15', '', '0000-00-00 00:00:00'),
 ('insert_department', 'insert department', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('insert_designation', 'insert designation', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('insert_employee', 'insert employee', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
+('insert_followup', 'insert_followup', '', '2015-07-16 11:47:25', '', '0000-00-00 00:00:00'),
 ('insert_organization', 'insert organization', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('insert_role', 'insert role', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('login_user', 'login user', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
@@ -163,12 +218,15 @@ INSERT INTO `function` (`function_id`, `function_name`, `created_by`, `created_o
 ('manage_departments', 'manage departments', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('manage_designation', 'manage designation', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('manage_emp', 'manage emp', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
+('manage_opportunities', 'manage opportunities', '', '2015-07-16 11:45:42', '', '0000-00-00 00:00:00'),
 ('manage_organization', 'manage organization', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('manage_users', 'manage users', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
+('modal', 'modal', '', '2015-07-16 11:47:43', '', '0000-00-00 00:00:00'),
 ('role_assign', 'role assign', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('role_management', 'role management', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('role_permission', 'role permission', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('sign_up', 'sign_up', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
+('update_customer', 'update customer', '', '2015-07-16 11:47:25', '', '0000-00-00 00:00:00'),
 ('update_department', 'update department', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('update_designation', 'update designation', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
 ('update_employee', 'update employee', '', '2015-07-11 05:18:24', '', '0000-00-00 00:00:00'),
@@ -222,7 +280,8 @@ CREATE TABLE IF NOT EXISTS `role` (
 
 INSERT INTO `role` (`role_id`, `role_description`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
 ('admin', 'admin', NULL, '2015-07-13 06:42:17', NULL, '0000-00-00 00:00:00'),
-('user', 'user', NULL, '2015-07-13 07:43:15', NULL, '0000-00-00 00:00:00');
+('blocked', 'blocked', NULL, '2015-07-16 12:08:31', NULL, '0000-00-00 00:00:00'),
+('customer', 'customer', NULL, '2015-07-16 12:01:41', NULL, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -285,45 +344,102 @@ INSERT INTO `role_permission` (`role_id`, `function_id`, `auth_read`, `auth_exec
 ('admin', 'update_role_permissi', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
 ('admin', 'user_add', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
 ('admin', 'user_role', 1, 1, '', '2015-07-13 06:42:17', '', '0000-00-00 00:00:00'),
-('user', 'acc_setting', 0, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'add_departments', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'add_designation', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'add_emp', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'add_organization', 0, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'add_role', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'attendance_report', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'blocked_user', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'change_pass', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'delete_departments', 0, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'delete_designation', 0, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'delete_organization', 0, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'delete_user', 0, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'emp_award', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'index', 1, 1, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'insert_department', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'insert_designation', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'insert_employee', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'insert_organization', 0, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'insert_role', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'login_user', 1, 1, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'login_view', 1, 1, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'manage_attendance', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'manage_departments', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'manage_designation', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'manage_emp', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'manage_organization', 0, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'manage_users', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'role_assign', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'role_management', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'role_permission', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'sign_up', 1, 1, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'update_department', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'update_designation', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'update_employee', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'update_organization', 0, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'update_role_permissi', 0, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'user_add', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00'),
-('user', 'user_role', 1, 0, '', '2015-07-13 07:43:15', '', '0000-00-00 00:00:00');
+('blocked', 'acc_setting', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'add_customer', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'add_departments', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'add_designation', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'add_emp', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'add_opportunities', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'add_organization', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'add_role', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'attendance_report', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'blocked_user', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'change_pass', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'customequick', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'customers', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'delete_departments', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'delete_designation', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'delete_organization', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'delete_user', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'emp_award', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'index', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'insert_customer', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'insert_department', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'insert_designation', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'insert_employee', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'insert_followup', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'insert_organization', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'insert_role', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'login_user', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'login_view', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'manage_attendance', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'manage_departments', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'manage_designation', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'manage_emp', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'manage_opportunities', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'manage_organization', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'manage_users', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'modal', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'role_assign', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'role_management', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'role_permission', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'sign_up', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'update_customer', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'update_department', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'update_designation', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'update_employee', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'update_organization', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'update_role_permissi', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'user_add', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('blocked', 'user_role', 0, 0, '', '2015-07-16 12:08:31', '', '0000-00-00 00:00:00'),
+('customer', 'acc_setting', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'add_customer', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'add_departments', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'add_designation', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'add_emp', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'add_opportunities', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'add_organization', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'add_role', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'attendance_report', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'blocked_user', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'change_pass', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'customequick', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'customers', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'delete_departments', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'delete_designation', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'delete_organization', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'delete_user', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'emp_award', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'index', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'insert_customer', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'insert_department', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'insert_designation', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'insert_employee', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'insert_followup', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'insert_organization', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'insert_role', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'login_user', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'login_view', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'manage_attendance', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'manage_departments', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'manage_designation', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'manage_emp', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'manage_opportunities', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'manage_organization', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'manage_users', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'modal', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'role_assign', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'role_management', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'role_permission', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'sign_up', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'update_customer', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'update_department', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'update_designation', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'update_employee', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'update_organization', 0, 0, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'update_role_permissi', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'user_add', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00'),
+('customer', 'user_role', 1, 1, '', '2015-07-16 12:01:41', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -391,11 +507,18 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`user_id`, `organization_id`, `role_id`, `usermailid`, `password`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
-('VISHAL', 7, 'admin', 'engineervishalyadav@gmail.com', '123', '', '2015-07-13 11:19:19', '', '0000-00-00 00:00:00');
+('sales', 7, 'customer', 'sales', 'sales', '', '2015-07-16 12:01:51', '', '0000-00-00 00:00:00'),
+('VISHAL', 7, 'admin', 'engineervishalyadav@gmail.com', '123', '', '2015-07-16 12:36:23', '', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `customers`
+--
+ALTER TABLE `customers`
+ ADD PRIMARY KEY (`customer_id`,`organization_id`), ADD KEY `fk_user_id` (`user_id`) COMMENT 'fk_user_id', ADD KEY `organization_id` (`organization_id`);
 
 --
 -- Indexes for table `department`
@@ -462,6 +585,11 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `customers`
+--
+ALTER TABLE `customers`
+MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'primary key',AUTO_INCREMENT=40;
+--
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
@@ -491,6 +619,13 @@ MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'user id is priamary ke
 --
 
 --
+-- Constraints for table `customers`
+--
+ALTER TABLE `customers`
+ADD CONSTRAINT `FK_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `customers_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`);
+
+--
 -- Constraints for table `department`
 --
 ALTER TABLE `department`
@@ -507,9 +642,9 @@ ADD CONSTRAINT `designation_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `
 --
 ALTER TABLE `employee`
 ADD CONSTRAINT `FK_dept` FOREIGN KEY (`department_id`) REFERENCES `department` (`department_id`) ON DELETE CASCADE,
-ADD CONSTRAINT `FK_designation` FOREIGN KEY (`designation_id`) REFERENCES `designation` (`designation_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `FK_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`);
+ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`),
+ADD CONSTRAINT `employee_ibfk_2` FOREIGN KEY (`designation_id`) REFERENCES `designation` (`designation_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `employee_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `role_permission`
