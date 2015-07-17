@@ -72,7 +72,51 @@ $su = $userdata['role_id'];
 						});
 					});
 					</script>
+					<?php if(!empty($su) && $su=='superuser'){ ?>
+					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+						<thead>
+							<tr>
+								<th>Company</th>
+								<th>Customer Name</th>
+								<th>Phone Number</th>
+								<th>Email Address</th>
+								<th>Action</th>
+							</tr>
+						</thead>
 					
+						<tfoot>
+							<tr>
+								<th>Company</th>
+								<th>Customer Name</th>
+								<th>Phone Number</th>
+								<th>Email Address</th>
+								<th>Action</th>
+							</tr>
+						</tfoot>
+					
+						<tbody>
+						<?php foreach($su_list_customer as $customer){ ?>
+							<tr>
+								<td><?=$customer->company_name?></td>
+								<td><?=$customer->name?></td>
+								<td><?=$customer->mobile?></td>
+								<td><?=$customer->email?></td>
+								<td>
+								<a href="<?=base_url();?>crm/crm/add_customer/<?=$customer->customer_id?>" class="btn btn-secondary btn-sm" >
+Edit
+</a>
+								<a href="<?=base_url();?>crm/crm/modal/<?=$customer->customer_id?>" class="btn btn-secondary btn-sm"  data-toggle="modal" data-target="#modal-7">
+Follow Up
+</a>
+								</td>
+								
+							</tr>
+							
+							<?php } ?>
+						
+						</tbody>
+					</table>
+					<?php } if(!empty($su) && $su!=='superuser'){ ?>
 					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
@@ -116,6 +160,6 @@ Follow Up
 						
 						</tbody>
 					</table>
-					
+					<?php } ?>
 				</div>
 			</div>

@@ -43,7 +43,7 @@ $su= $userdata['role_id'];
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label" for="field-5">User Id</label>
-								<input type="text" class="form-control" id="reference" data-validate="required" data-message-required="Enter Reference" placeholder="please enter user id" name="user_id">
+								<input type="text" class="form-control" id="reference" data-validate="" data-message-required="Enter Reference" placeholder="please enter user id" name="user_id">
 							</div>
 						</div>
 					</div>

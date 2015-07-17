@@ -22,28 +22,51 @@ class Master extends CI_Controller {
 	public function add_organization($info=false)
 	{   
 		Authority::is_logged_in();
+		$userdata = $this->session->userdata('user_data');
+		$su=$userdata['user_id'];
+		if($su=='superuser')
+		{
 		$select_organization = $this->data['select_organization'] = $this->organization_model->select_organization($info);
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('add_organization',$this->data);
 		$this->parser->parse('include/footer',$this->data);
+		}
+		else
+		{
+			$this->session->set_flashdata('category_error_block', 'success message');        
+				$this->session->set_flashdata('message', $this->config->item("add_department").' You Are Not Authorised Person Please Contact Administrator');
+						redirect('home');
+		}
 	}
 	
 				/*	function for Insert new organization */
 	public function insert_organization()
 	{	
 		Authority::is_logged_in();
-		$org_name=$this->input->post('organization_name');
-		if($org_name!=='')
+		$userdata = $this->session->userdata('user_data');
+		$su=$userdata['user_id'];
+		if($su=='superuser')
 		{
-			$data=array(
-							'organization_name'=>$this->input->post('organization_name'),
-							'organization_desc'=>$this->input->post('organization_desc')
-						);
-			$this->organization_model->insert_organization('organization',$data);
-			$this->session->set_flashdata('category_success', 'success message	');        
-			$this->session->set_flashdata('message', $this->config->item("user").' Organization Add successfully');
-			redirect('master/manage_organization');
+		$org_name=$this->input->post('organization_name');
+			if($org_name!=='')
+			{
+				$data=array(
+								'organization_name'=>$this->input->post('organization_name'),
+								'organization_desc'=>$this->input->post('organization_desc'),
+								'created_by'=>$su
+							);
+				$this->organization_model->insert_organization('organization',$data);
+				$this->session->set_flashdata('category_success', 'success message	');        
+				$this->session->set_flashdata('message', $this->config->item("user").' Organization Add successfully');
+				redirect('master/manage_organization');
+			}
+		}
+		else
+		{
+			$this->session->set_flashdata('category_error_block', 'success message');        
+				$this->session->set_flashdata('message', $this->config->item("add_department").' You Are Not Authorised Person Please Contact Administrator');
+						redirect('home');
 		}
 		
 	}
@@ -52,14 +75,27 @@ class Master extends CI_Controller {
 	public function update_organization($info)
 	{	
 		Authority::is_logged_in();
+		$userdata = $this->session->userdata('user_data');
+		$su=$userdata['user_id'];
+		if($su=='superuser')
+		{
 		$data=array(
 						'organization_name'=>$this->input->post('organization_name'),
-						'organization_desc'=>$this->input->post('organization_desc')
+						'organization_desc'=>$this->input->post('organization_desc'),
+						'updated_by'=>$su,
+						'updated_on'=>date("d-m-Y h:i:s")
 					);
 		$update_organization = $this->data['update_organization'] = $this->organization_model->update_organization($info,$data);
 		$this->session->set_flashdata('category_success','success mesage');
 		$this->session->set_flashdata('message', $this->config->item("user").' Organization Edit successfully');
 		redirect('master/manage_organization');
+		}
+		else
+		{
+			$this->session->set_flashdata('category_error_block', 'success message');        
+				$this->session->set_flashdata('message', $this->config->item("add_department").' You Are Not Authorised Person Please Contact Administrator');
+						redirect('home');
+		}
 	}
 	
 	
@@ -67,10 +103,21 @@ class Master extends CI_Controller {
 	public function delete_organization($info)
 	{
 		Authority::is_logged_in();
+		$userdata = $this->session->userdata('user_data');
+		$su=$userdata['user_id'];
+		if($su=='superuser')
+		{
 		$this->organization_model->delete_organization($info);
 		$this->session->set_flashdata('category_success','success mesage');
 		$this->session->set_flashdata('message', $this->config->item("user").' Organization delete successfully');
 		redirect('master/manage_organization');
+		}
+		else
+		{
+			$this->session->set_flashdata('category_error_block', 'success message');        
+				$this->session->set_flashdata('message', $this->config->item("add_department").' You Are Not Authorised Person Please Contact Administrator');
+						redirect('home');
+		}
 	}
 	
 	
@@ -78,12 +125,24 @@ class Master extends CI_Controller {
 	public function manage_organization()
 	{   
 		Authority::is_logged_in();
-		Authority::checkAuthority('manage_organization');
+		//print_r(getdate());die;
+		//print_r(date("d-m-Y h:i:s")); die;
+		$userdata = $this->session->userdata('user_data');
+		$su=$userdata['user_id'];
+		if($su=='superuser')
+		{
 		$list_organization = $this->data['list_organization'] = $this->organization_model->list_organization();
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('manage_organization',$this->data);
 		$this->parser->parse('include/footer',$this->data);
+		}
+		else
+		{
+			$this->session->set_flashdata('category_error_block', 'success message');        
+				$this->session->set_flashdata('message', $this->config->item("add_department").' You Are Not Authorised Person Please Contact Administrator');
+						redirect('home');
+		}
 	}
 	
 	
@@ -111,8 +170,12 @@ class Master extends CI_Controller {
 	 	{
 	 		redirect('master/manage_departments');
 	 	}
+		$userdata = $this->session->userdata('user_data');
+		$role=$userdata['role_id'];
+		$user_id=$userdata['user_id'];
 		$data=array(
-						'department_name'=>$this->input->post('department_name')
+						'department_name'=>$this->input->post('department_name'),
+						'updated_by'=>$user_id
 					);
 		$update_department = $this->data['update_department'] = $this->department_model->update_department($info,$data);
 		$this->session->set_flashdata('category_success','success mesage');
@@ -152,6 +215,9 @@ class Master extends CI_Controller {
 	 	{
 	 		redirect('master/manage_departments');
 	 	}
+		$userdata = $this->session->userdata('user_data');
+		$role=$userdata['role_id'];
+		$user_id=$userdata['user_id'];
 		$dep=$this->input->post('department_name');
 		if($dep)
 		{
@@ -159,7 +225,8 @@ class Master extends CI_Controller {
 			{
 				$data=array(
 									'organization_id'=>$info,
-									'department_name'=>$dep[$i]
+									'department_name'=>$dep[$i],
+									'created_by'=>$user_id
 								);
 			
 					$this->department_model->insert_department('department',$data);
@@ -215,13 +282,17 @@ class Master extends CI_Controller {
 	 		redirect('master/manage_designation');
 	 	}
 		$designation=$this->input->post('designation_name');
+		$userdata = $this->session->userdata('user_data');
+		$role=$userdata['role_id'];
+		$user_id=$userdata['user_id'];
 		if($designation)
 		{
 				for($i=0;$i<count($designation);$i++)
 				{
 					$data=array(
 										'organization_id'=>$info,
-										'designation_name'=>$designation[$i]
+										'designation_name'=>$designation[$i],
+										'created_by'=>$user_id
 								);
 				
 						$this->designation_model->insert_designation('designation',$data);
@@ -278,8 +349,12 @@ class Master extends CI_Controller {
 	 	{
 	 		redirect('master/manage_designation');
 	 	}
+		$userdata = $this->session->userdata('user_data');
+		$role=$userdata['role_id'];
+		$user_id=$userdata['user_id'];
 		$data=array(
-						'designation_name'=>$this->input->post('designation_name')
+						'designation_name'=>$this->input->post('designation_name'),
+						'updated_by'=>$user_id
 					);
 		$update_designation = $this->data['update_designation'] = $this->designation_model->update_designation($info,$data);
 		$this->session->set_flashdata('category_success','success mesage');

@@ -482,7 +482,20 @@ $su = $userdata['role_id'];
 														</div> 
 														</div>
 											<?php } ?>
-										</div>	
+										</div>
+										<div class="row">
+											<div class="col-md-12">						
+											<div class="form-group">
+												<label class="control-label">User id</label>
+												<div class="input-group">
+													<div class="input-group-addon">
+														<i class="linecons-user"></i>
+													</div>
+													<input type="text" class="form-control" name="user_id" id="user_id"  data-validate="minlength[1]" data-message-minlength="" placeholder="" />
+												</div>
+											</div>
+											</div>	
+											</div>
 										<div class="row">
 												<!--<div class="col-md-6">						
 											<div class="form-group">

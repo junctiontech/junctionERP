@@ -65,6 +65,11 @@ public function insert_employee($info=false)
 		{
 			$des=NULL;
 		}
+		$users=$this->input->post('user_id');
+		if($users=='0')
+		{
+			$users=NULL;
+		}
 		$employee_id=$this->input->post('employee_id');
 		$first_name=$this->input->post('first_name');
 			$_FILES['image']['name'];
@@ -105,6 +110,7 @@ public function insert_employee($info=false)
 							'organization_id'=>$info,
 							'department_id'=>$dep,
 							'designation_id'=>$des,
+							'user_id'=>$user_ids,
 							//'username'=>$this->input->post('username'),
 							//'password'=>$this->input->post('password'),
 							'salary_frquency'=>$this->input->post('salary_frquency'),

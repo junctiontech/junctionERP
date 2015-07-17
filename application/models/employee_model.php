@@ -22,23 +22,9 @@ class Employee_model extends CI_Model {
 		$this->load->database();
     }
 		/* Function for insert employee */
-	public function insert_customer($table,$data,$email=false)
+	public function insert_employee($table,$data)
 	{
-		if ($this->db->field_exists($email, $table))
-		{
-		//return true;
-		}else{
-			$this->db->insert($table,$data);
-			$id = $this->db->insert_id();
-			return $id;
-		}
-		
-	}
-	
-	public function insert_follow_up($table,$data)
-	{
-		//$this->db->where('customer_id',$info);
-		$this->db->insert($table, $data);
+		$this->db->insert($table,$data);
 	}
 	
 	/*function for employee list*/
@@ -105,45 +91,8 @@ class Employee_model extends CI_Model {
 	{
 		$this->db->query("DELETE FROM `employee` WHERE `employee_id`='".$info."' ");
 	}
-	/*customer list */
-	function get_customer_list($table=false,$filter=false)
-	{
-		$query=$this->db->query("select * from customers,follow_up where
-							
-													customers.customer_id=follow_up.customer_id AND follow_up.date_of_call!=''
-													");
-		//echo $this->db->last_query();die;
-		return $query->Result();
-	}
-	/* Function For fetch select employee*/
-	public function select_customer($info)
-	{
-		//echo $info;die;
-		$qry= $this->db->query("SELECT follow_up.* , customers.*  FROM   follow_up , customers  WHERE customers.customer_id='".$info."' AND  follow_up.customer_id='".$info."' ");
-		//print_r($qry);die;
-		return $qry->result();
-	}
-	 
-	function get_followup_list($table=false,$filter=false)
-	{
-		$query = $this->db->get_where($table,$filter);
-		//print_r($query);die;
-		return $query->Result();
-	}
-	/* function for update employee*/
-	public function update_customers($table,$data,$id)
-	{
-		$this->db->where('customer_id',$id);
-		$this->db->update($table,$data);
-		return true;
-	}
-	/* function for update follow up */
-	public function update_follow_up($table,$data1,$id)
-	{
-		$this->db->where('customer_id',$id);
-		$this->db->update($table,$data1);
-		return true;
-	}
+	
+	
 	
 }
 //Model Class for Employee end

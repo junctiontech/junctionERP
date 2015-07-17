@@ -46,13 +46,23 @@ class Customer_model extends CI_Model {
 	}
 	
 	
-	/*customer list */
-	function get_customer_list($table=false,$filter=false)
+	/*customer list behalf on organization*/
+	function get_customer_list($organization=false)
+	{
+		$this->db->select('*');
+		$this->db->where('organization_id',$organization);
+		$query=$this->db->get('customers');
+		return $query->Result();
+	}
+	
+	/* customer list */
+	function su_list_customer()
 	{
 		$this->db->select('*');
 		$query=$this->db->get('customers');
 		return $query->Result();
 	}
+	
 	/* Function For fetch select employee*/
 	public function select_customer($info)
 	{

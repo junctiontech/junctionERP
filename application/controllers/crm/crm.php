@@ -68,7 +68,15 @@ class Crm extends CI_Controller {
 	{	 	
 		Authority::is_logged_in();
 		Authority::checkAuthority('customequick');
-		$this->data['customer_info'] = $this->customer_model->get_customer_list();
+		$userdata = $this->session->userdata('user_data');
+		$role=$userdata['user_id']!=='superuser';
+		$organization=$userdata['organization_id'];
+		if($role)
+		{
+			$this->data['customer_info'] = $this->customer_model->get_customer_list($organization);
+		}
+		$su_list_customer = $this->data['su_list_customer'] = $this->customer_model->su_list_customer();
+		//$this->data['customer_info'] = $this->customer_model->get_customer_list();
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('crm/customequick',$this->data);
@@ -115,8 +123,13 @@ class Crm extends CI_Controller {
 		//	}
 		
 		//	die;
+		$users=$this->input->post('user_id');
+		if($users=='')
+		{
+			$users=NULL;
+		}
 			$data=array(
-					'user_id'=>$this->input->post('user_id'),
+					'user_id'=>$users,
 					'organization_id'=>$info,
 					'company_name'=>$this->input->post('company_name'),
 					'name'=>$this->input->post('name'),
