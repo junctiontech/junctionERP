@@ -136,9 +136,10 @@ class Crm extends CI_Controller {
 					'email'=>$this->input->post('email'),
 					'mobile'=>$this->input->post('mobile'),
 					'present_address'=>$this->input->post('present_address'),
+					'product'=>$this->input->post('product'),
+					'customer_type'=>$this->input->post('customer_type'),
 					'reference'=>$this->input->post('reference')
 			);
-			
 			$id=$this->customer_model->insert_customer('customers',$data,$email);
 			if($id=='')
 			{
@@ -148,6 +149,12 @@ class Crm extends CI_Controller {
 			}
 			if($id!=='')
 			{
+				$follow_up_date=array(
+									'customer_id'=>$id,
+									'organization_id'=>$info,
+									'follow_up_date'=>$this->input->post('follow_up_date')
+								 );
+				$this->customer_model->insert_follow_up('customers_follow_up',$follow_up_date);
 			$this->session->set_flashdata('category_success', 'success message');
 			$this->session->set_flashdata('message', $this->config->item("user").' Customer Add successfully');
 			redirect('crm/crm/customequick');
@@ -173,7 +180,7 @@ class Crm extends CI_Controller {
 		{
 			
 			$data=array(
-					'user_id'=>$this->input->post('user_id'),
+					//'user_id'=>$this->input->post('user_id'),
 					'customer_id'=>$customer_id,
 					'organization_id'=>$info,
 					'company_name'=>$this->input->post('company_name'),
@@ -181,6 +188,8 @@ class Crm extends CI_Controller {
 					'email'=>$this->input->post('email'),
 					'mobile'=>$this->input->post('mobile'),
 					'present_address'=>$this->input->post('present_address'),
+					'product'=>$this->input->post('product'),
+					'customer_type'=>$this->input->post('customer_type'),
 					'reference'=>$this->input->post('reference')
 					
 			);
