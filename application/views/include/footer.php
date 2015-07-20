@@ -5,11 +5,10 @@
 				<div class="footer-inner">
 				
 					<!-- Add your copyright text here -->
-					<div class="footer-text">
+					<div class="footer-text text-black" >
 						&copy; <?php echo date("Y"); ?> 
-						<strong>Junction</strong> 
-						HRMS
-					</div>
+						<strong >Junction ERP.Copyright<a href="http://junctiontech.in/" target="_blank"> Junction Software Pvt.Ltd	</a></strong> 
+						Mobile Number- 8109069226 				</div>
 					
 					
 					<!-- Go to Top Link, just add rel="go-top" to any link to add this functionality -->

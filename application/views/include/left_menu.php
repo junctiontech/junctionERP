@@ -31,12 +31,17 @@
 			
 			<div class="navbar-mobile-clear"></div>
 			<ul class="navbar-nav">
+			<li>
+			<a href="javascript:;" data-toggle="sidebar">
+							<i class="fa-bars"></i>
+						</a>
+						</li>
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 					<li>
 						<a href="javascript:;" onclick="show_hr()">
 							<i class="linecons-graduation-cap"></i>
-							<span id="hr" class="title">Human Resource</span>
+							<span id="hr" class="title" title="Human Resource">Human Resource</span>
 						</a>
 					
 					</li>
@@ -129,42 +134,42 @@
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 					<li>
 						<a href="<?php echo base_url(); ?>home">
-							<i class="linecons-lightbulb"></i>
-							<span class="title">Dashboard</span>
+							<i class="linecons-lightbulb" title="Dashboard"></i>
+							<span class="title" >Dashboard</span>
 						</a>
 					
 					</li>
 					<li>
 						<a href="<?php echo base_url(); ?>master/manage_organization">
-							<i class="linecons-cog"></i>
-							<span class="title">Organization</span>
+							<i class="linecons-cog" title="Organization"></i>
+							<span class="title"  >Organization</span>
 						</a>
 					
 					</li>
 					<li>
 						<a href="<?php echo base_url(); ?>master/manage_departments">
-							<i class="linecons-database"></i>
-							<span class="title">Departments</span>
+							<i class="linecons-database" title="Departments" ></i>
+							<span class="title" >Departments</span>
 						</a>
 				
 					</li>
 					<li>
 						<a href="<?php echo base_url(); ?>master/manage_designation">
-							<i class="linecons-doc"></i>
-							<span class="title">Designations</span>
+							<i class="linecons-doc"  title="Designations"></i>
+							<span class="title" >Designations</span>
 						</a>
 				
 					</li>
 					<li>
 						<a href="<?php echo base_url(); ?>employee/manage_emp">
-							<i class="linecons-user"></i>
-							<span class="title">Employee</span>
+							<i class="linecons-user" title="Employee" ></i>
+							<span class="title" >Employee</span>
 						</a>
 				
 					</li>
 					<li>
 						<a href="javascript:;">
-							<i class="linecons-calendar"></i>
+							<i class="linecons-calendar"  title="Attendance"></i>
 							<span class="title">Attendance</span>
 						</a>
 						<ul>
@@ -181,8 +186,8 @@
 						
 						</ul>
 					</li>
-					<li><a href="<?=base_url()?>role/user_role"> <i class="linecons-t-shirt"></i><span class="title">User Management</span></a></li>
-					<li><a href="<?=base_url()?>role/role_management"> <i class="linecons-comment"></i><span class="title">Role Management</span></a></li>
+					<li><a href="<?=base_url()?>role/user_role"> <i class="linecons-t-shirt" title="User Management"></i><span class="title" >User Management</span></a></li>
+					<li><a href="<?=base_url()?>role/role_management"> <i class="linecons-comment" title="Role Management"></i><span class="title" >Role Management</span></a></li>
 				</ul>
 				
 				<!--  ul start for sales -->

@@ -49,12 +49,14 @@ class Master extends CI_Controller {
 		if($su=='superuser')
 		{
 		$org_name=$this->input->post('organization_name');
+		$time_now=mktime(date('h')+3,date('i')+30,date('s'));
 			if($org_name!=='')
 			{
 				$data=array(
 								'organization_name'=>$this->input->post('organization_name'),
 								'organization_desc'=>$this->input->post('organization_desc'),
-								'created_by'=>$su
+								'created_by'=>$su,
+								'created_on'=>date('d-m-Y h:i:s A',$time_now)
 							);
 				$this->organization_model->insert_organization('organization',$data);
 				$this->session->set_flashdata('category_success', 'success message	');        
@@ -77,13 +79,14 @@ class Master extends CI_Controller {
 		Authority::is_logged_in();
 		$userdata = $this->session->userdata('user_data');
 		$su=$userdata['user_id'];
+		$time_now=mktime(date('h')+3,date('i')+30,date('s'));
 		if($su=='superuser')
 		{
 		$data=array(
 						'organization_name'=>$this->input->post('organization_name'),
 						'organization_desc'=>$this->input->post('organization_desc'),
 						'updated_by'=>$su,
-						'updated_on'=>date("d-m-Y h:i:s")
+						'updated_on'=>date('d-m-Y h:i:s A',$time_now)
 					);
 		$update_organization = $this->data['update_organization'] = $this->organization_model->update_organization($info,$data);
 		$this->session->set_flashdata('category_success','success mesage');
@@ -125,8 +128,6 @@ class Master extends CI_Controller {
 	public function manage_organization()
 	{   
 		Authority::is_logged_in();
-		//print_r(getdate());die;
-		//print_r(date("d-m-Y h:i:s")); die;
 		$userdata = $this->session->userdata('user_data');
 		$su=$userdata['user_id'];
 		if($su=='superuser')
@@ -171,11 +172,13 @@ class Master extends CI_Controller {
 	 		redirect('master/manage_departments');
 	 	}
 		$userdata = $this->session->userdata('user_data');
+		$time_now = mktime(date('h')+3,date('i')+30,date('s'));
 		$role=$userdata['role_id'];
 		$user_id=$userdata['user_id'];
 		$data=array(
 						'department_name'=>$this->input->post('department_name'),
-						'updated_by'=>$user_id
+						'updated_by'=>$user_id,
+						'updated_on'=>date('d-m-Y h:i:s A',$time_now)
 					);
 		$update_department = $this->data['update_department'] = $this->department_model->update_department($info,$data);
 		$this->session->set_flashdata('category_success','success mesage');
@@ -195,6 +198,7 @@ class Master extends CI_Controller {
 			{
 				$data=array(
 								'department_id'=>0
+								
 							);
 			}
 			//print_r($data);die;
@@ -219,6 +223,7 @@ class Master extends CI_Controller {
 		$role=$userdata['role_id'];
 		$user_id=$userdata['user_id'];
 		$dep=$this->input->post('department_name');
+		$time_now=mktime(date('h')+3,date('i')+30,date('s'));
 		if($dep)
 		{
 			for($i=0;$i<count($dep);$i++)
@@ -226,7 +231,8 @@ class Master extends CI_Controller {
 				$data=array(
 									'organization_id'=>$info,
 									'department_name'=>$dep[$i],
-									'created_by'=>$user_id
+									'created_by'=>$user_id,
+									'created_on'=>date('d-m-Y h:i:s A',$time_now)
 								);
 			
 					$this->department_model->insert_department('department',$data);

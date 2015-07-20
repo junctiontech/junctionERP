@@ -1955,7 +1955,9 @@ footer.main-footer:after {
   margin-right: auto;
 }
 footer.main-footer .footer-text {
-  float: left;
+ /* float: left;*/
+   text-align: center;
+  color: #111;
 }
 footer.main-footer .go-up {
   float: right;
