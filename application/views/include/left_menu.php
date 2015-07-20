@@ -7,8 +7,8 @@
 			<!-- Navbar Brand -->
 			<div class="navbar-brand">
 				<a href="javascript:;" class="logo">
-					<img src="<?php echo base_url(); ?>assets/images/logo-white-bg@2x.png" width="150" alt="" class="hidden-xs" />
-					<img src="<?php echo base_url(); ?>assets/images/logo@2x.png" width="150" alt="" class="visible-xs" />
+					<img src="<?php echo base_url(); ?>assets/images/junction.png" width="150" alt="" class="hidden-xs" />
+					<img src="<?php echo base_url(); ?>assets/images/junction.png" width="80" alt="" class="visible-xs" />
 				</a>
 			
 			</div>
@@ -173,12 +173,12 @@
 							<span class="title">Attendance</span>
 						</a>
 						<ul>
-							<li class="active">
+							<li >
 								<a href="<?php echo base_url(); ?>attendance/manage_attendance">
 									<span class="title">Attendance Management</span>
 								</a>
 							</li>
-							<li class="active">
+							<li >
 								<a href="<?php echo base_url(); ?>attendance/attendance_report">
 									<span class="title">Attendance Report</span>
 								</a>

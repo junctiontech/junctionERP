@@ -39,7 +39,7 @@
 						<div class="panel-heading">
 							<h3 class="panel-title">Manage Organization</h3>
 							<div class="panel-options">
-									<a href="<?php echo base_url(); ?>master/add_organization"><button class="btn btn-info btn-icon btn-sm">
+									<a href="<?php echo base_url(); ?>master/add_organization"><button class="btn btn-theme btn-info btn-icon btn-sm">
 									<i class="fa-plus"></i>
 									<span>Add Organization</span>
 								</button></a>

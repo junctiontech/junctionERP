@@ -49,7 +49,7 @@ $su= $userdata['role_id'];
 						<div class="panel-heading">
 							<h3 class="panel-title">Manage Employees</h3>
 							<div class="panel-options">
-									<a href="<?php echo base_url(); ?>employee/add_emp"><button class="btn btn-info btn-icon btn-sm">
+									<a href="<?php echo base_url(); ?>employee/add_emp"><button class="btn btn-theme btn-info btn-icon btn-sm">
 									<i class="fa-plus"></i>
 									<span>Add Employees</span>
 								</button></a>

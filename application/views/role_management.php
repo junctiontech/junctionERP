@@ -38,7 +38,7 @@
 						<div class="panel-heading">
 							<h3 class="panel-title">Manage  Role</h3>
 							<div class="panel-options">
-									<a href="<?php echo base_url(); ?>role/add_role"><button class="btn btn-info btn-icon btn-sm">
+									<a href="<?php echo base_url(); ?>role/add_role"><button class="btn btn-theme btn-info btn-icon btn-sm">
 									<i class="fa-plus"></i>
 									<span>Add Role</span>
 								</button></a>
@@ -77,7 +77,7 @@
 														<a class="btn btn-small btn-primary show-tooltip" title="Permissions" href="<?php echo base_url(); ?>role/role_permission/<?=$role->role_id;?>"><i class="fa fa-foursquare"></i> Permissions</a>
 												</div>
 												 <div class="btn-group">
-														<a class="btn btn-small btn-primary show-tooltip" title="Delete" href="<?php echo base_url(); ?>role/delete_role/<?=$role->role_id;?>"><i class="fa fa-foursquare"></i> Delete</a>
+														<a class="btn btn-small btn-danger show-tooltip" title="Delete" href="<?php echo base_url(); ?>role/delete_role/<?=$role->role_id;?>"><i class="fa fa-foursquare"></i> Delete</a>
 												</div>
                                                
                                             </td>

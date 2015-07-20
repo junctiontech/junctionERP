@@ -135,7 +135,7 @@
 					
 					<div class="login-header">
 					
-							<img src="<?php echo base_url(); ?>assets/images/logo-white-bg@2x.png" alt="" width="200" />
+							<img src="<?php echo base_url(); ?>assets/images/junction.png" alt="" width="120" />
 				
 						
 						<p>Dear user, log in to access the admin area!</p>
@@ -162,7 +162,7 @@
 					</div>
 					
 					<div class="form-group">
-						<button type="submit" class="btn btn-primary  btn-block text-left">
+						<button type="submit" class="btn btn-primary btn-theme btn-block text-left">
 							<i class="fa-lock"></i>
 							Log In
 						</button>

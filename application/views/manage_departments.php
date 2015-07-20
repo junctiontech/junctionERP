@@ -50,7 +50,7 @@ $su = $userdata['role_id'];
 						<div class="panel-heading">
 							<h3 class="panel-title"><?php if($su!=='superuser'){ echo $userdata['organization_name']; } else{}?></h3>
 							<div class="panel-options">
-									<a href="<?php echo base_url(); ?>master/add_departments"><button class="btn btn-info btn-icon btn-sm">
+									<a href="<?php echo base_url(); ?>master/add_departments"><button class="btn btn-theme btn-info btn-icon btn-sm">
 									<i class="fa-plus"></i>
 									<span>Add Departments</span>
 								</button></a>

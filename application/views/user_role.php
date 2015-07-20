@@ -33,7 +33,7 @@
 						<div class="panel-heading">
 							<h3 class="panel-title"><?=$userdata['organization_name']?></h3>
 							<div class="panel-options">
-									<a href="<?php echo base_url(); ?>role/manage_users"><button class="btn btn-info btn-icon btn-sm">
+									<a href="<?php echo base_url(); ?>role/manage_users"><button class="btn btn-theme btn-info btn-icon btn-sm">
 									<i class="fa-plus"></i>
 									<span>Add Users</span>
 								</button></a>

@@ -3675,11 +3675,11 @@ button.toast-close-button {
 }
 .xe-widget.xe-counter-block.xe-counter-block-primary,
 .xe-widget.xe-progress-counter.xe-counter-block-primary {
-  background: #2c2e2f;
+  background:#3a3f51;
 }
 .xe-widget.xe-counter-block.xe-counter-block-primary .xe-upper,
 .xe-widget.xe-progress-counter.xe-counter-block-primary .xe-upper {
-  background: #2c2e2f;
+  background:#3a3f51;
 }
 .xe-widget.xe-counter-block.xe-counter-block-primary .xe-upper .xe-icon i,
 .xe-widget.xe-progress-counter.xe-counter-block-primary .xe-upper .xe-icon i {
@@ -4186,7 +4186,7 @@ button.toast-close-button {
   background: #fff;
 }
 .xe-widget.xe-progress-counter.xe-progress-counter-primary {
-  background-color: #2c2e2f;
+  background-color: #3a3f51;
 }
 .xe-widget.xe-progress-counter.xe-progress-counter-primary .xe-background {
   color: #ffffff;

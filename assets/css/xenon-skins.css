@@ -2527,11 +2527,11 @@
   box-shadow: 0px 0px 0px 10px #eeeeee, 0px -10px 0px 10px #eeeeee, 0px -20px 0px 10px #eeeeee, 0px -30px 0px 10px #eeeeee;
 }
 .page-body.skin-concrete .btn-primary {
-  background: #a40f37;
+  background: #3a3f51;
 }
 .page-body.skin-concrete .btn-primary:hover {
-  background: #8d0d2f;
-  border-color: #8d0d2f;
+ background: #535A73;
+  border-color: #3a3f51;
 }
 .page-body.skin-concrete .btn-primary:active,
 .page-body.skin-concrete .btn-primary:focus {
@@ -2590,7 +2590,7 @@
   color: #a40f37;
 }
 .page-body.skin-concrete .sidebar-menu {
-  background: #a8aba2;
+  background: #3a3f51;
 }
 .page-body.skin-concrete .sidebar-menu .logo-env {
   border-bottom: 1px solid #b8bbb3;
@@ -2602,11 +2602,11 @@
   color: #a40f37;
 }
 .page-body.skin-concrete .sidebar-menu .main-menu a {
-  color: #666666;
+  color: #fff;
   border-bottom: 1px solid #b8bbb3;
 }
 .page-body.skin-concrete .sidebar-menu .main-menu a:hover {
-  color: #a40f37;
+  color:#F57E50;
 }
 .page-body.skin-concrete .sidebar-menu .main-menu li.active > a {
   color: #a40f37;
