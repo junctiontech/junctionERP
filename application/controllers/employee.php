@@ -112,7 +112,7 @@ public function insert_employee($info=false)
 							'designation_id'=>$des,
 							'user_id'=>$user_ids,
 							//'username'=>$this->input->post('username'),
-							//'password'=>$this->input->post('password'),
+							'imei'=>$this->input->post('imei'),
 							'salary_frquency'=>$this->input->post('salary_frquency'),
 							'joining_date'=>$this->input->post('joining_date'),
 							'first_name'=>$this->input->post('first_name'),
@@ -236,6 +236,7 @@ public function insert_employee($info=false)
 							'department_id'=>$dep,
 							'designation_id'=>$des,
 							'user_id'=>$this->input->post('user_id'),
+							'imei'=>$this->input->post('imei'),
 							'salary_frquency'=>$this->input->post('salary_frquency'),
 							'joining_date'=>$this->input->post('joining_date'),
 							'first_name'=>$this->input->post('first_name'),
@@ -312,6 +313,67 @@ public function insert_employee($info=false)
 		$this->load->view('add_emp',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 	}
+	
+			/* function for get physical address and download excel seat */
+   
+	
+	public function updateaddress($info=false,$name=false)
+	{ 
+		$tracking_detail =$this->data['tracking_detail']= $this->employee_model->tracking_detail('tracking',$info);
+		function getaddress($lat,$lng)
+		{
+			$url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($lat).','.trim($lng).'&sensor=false';
+			$json = @file_get_contents($url);
+			$data=json_decode($json);
+			$status = $data->status;
+			if($status=="OK")
+				return $data->results[0]->formatted_address;
+			else
+				return false;
+		}
+		
+		$user_id= $info;
+		$action_array = $this->employee_model->tracking_detail('tracking',$user_id);
+		//  print_r($action_array[0]->imei );die;
+		if(!empty($action_array)){
+			$array=array(0=>array(0=>'',1=>'IMEI NUMBER:-',2=>$action_array[0]->imei),1=>array(0=>'Serial number',1=>'datetime',2=>'Locations'),2=>array(0=>'',1=>'',2=>'',3=>'',4=>''));
+			foreach($action_array as $key=>$a)
+			{
+					$address= getaddress($a->Latitude,$a->Longitude);
+					if($address)
+					{
+						 $address;
+				
+					}
+					else
+					{
+						echo "Not found";
+				
+					}
+				
+				$array2=array($key+1,$a->datetime,$address);
+				array_push($array,$array2);
+			}
+			$filename=$name.'.xls';
+			header('Content-Disposition: attachment;filename="'.$filename.'"');
+			header('Content-Type: application/vnd.ms-excel');
+			header("Pragma: no-cache");
+			header("Expires: 0");
+			$out = fopen("php://output", 'w');
+			foreach ($array as $data)
+			{
+				fputcsv($out, $data,"\t");
+			}
+			fclose($out);
+		}else{
+			$this->session->set_flashdata('message_type', 'success');
+			$this->session->set_flashdata('text', 'There is no record to export.');
+			redirect('employee/manage_emp');
+		}
+	}
+	
+	
+	
 	
 	public function emp_award()
 	{

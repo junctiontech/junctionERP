@@ -92,7 +92,14 @@ class Employee_model extends CI_Model {
 		$this->db->query("DELETE FROM `employee` WHERE `employee_id`='".$info."' ");
 	}
 	
-	
+	/*function for tracking list*/
+	public function tracking_detail($table=false,$imei=false)
+	{
+		$this->db->select('*');
+		$this->db->where('imei',$imei);
+		$qry=$this->db->get($table);
+		return $qry->result();
+	}
 	
 }
 //Model Class for Employee end

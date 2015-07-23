@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2015 at 08:29 AM
+-- Generation Time: Jul 23, 2015 at 07:14 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -96,14 +96,16 @@ CREATE TABLE IF NOT EXISTS `department` (
   `created_on` varchar(30) NOT NULL COMMENT 'create of time',
   `updated_by` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT 'name of update person ',
   `updated_on` varchar(30) NOT NULL COMMENT 'update of time'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COMMENT='Table department for organization`s employee';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COMMENT='Table department for organization`s employee';
 
 --
 -- Dumping data for table `department`
 --
 
 INSERT INTO `department` (`department_id`, `organization_id`, `department_name`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
-(2, 1, 'testing', 'demo', '20-07-2015 11:29:38 AM', 'demo', '20-07-2015 11:34:29 AM');
+(2, 1, 'testing', 'demo', '20-07-2015 11:29:38 AM', 'demo', '20-07-2015 11:34:29 AM'),
+(3, 2, 'civil', 'vishal', '21-07-2015 12:50:07 PM', '', ''),
+(4, 2, 'hr', 'vishal', '21-07-2015 12:50:07 PM', '', '');
 
 -- --------------------------------------------------------
 
@@ -119,7 +121,15 @@ CREATE TABLE IF NOT EXISTS `designation` (
   `created_on` varchar(30) NOT NULL COMMENT 'create of time',
   `updated_by` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT 'name of update person',
   `updated_on` varchar(30) NOT NULL COMMENT 'update of time'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Table  designations for organization`s employee';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COMMENT='Table  designations for organization`s employee';
+
+--
+-- Dumping data for table `designation`
+--
+
+INSERT INTO `designation` (`designation_id`, `organization_id`, `designation_name`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
+(1, 2, 'sr eng', 'vishal', '', '', ''),
+(2, 2, 'designer', 'vishal', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -133,6 +143,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `department_id` int(11) DEFAULT NULL COMMENT 'Department name for a employee for his organization',
   `designation_id` int(11) DEFAULT NULL COMMENT 'Designations name for employee',
   `user_id` varchar(30) DEFAULT NULL COMMENT 'user_id is for login',
+  `imei` varchar(30) NOT NULL,
   `salary_frquency` varchar(10) DEFAULT NULL COMMENT 'frequency for employee payroll',
   `joining_date` varchar(300) DEFAULT NULL COMMENT 'joining date for employee',
   `first_name` varchar(15) DEFAULT NULL COMMENT 'first name for employee',
@@ -163,7 +174,15 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `created_on` varchar(30) NOT NULL COMMENT 'create of time',
   `updated_by` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT 'name of update person',
   `updated_on` varchar(30) NOT NULL COMMENT 'update of time'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Table employee for a organizations';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COMMENT='Table employee for a organizations';
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`employee_id`, `organization_id`, `department_id`, `designation_id`, `user_id`, `imei`, `salary_frquency`, `joining_date`, `first_name`, `last_name`, `birthdate`, `gender`, `image`, `martial_status`, `nationality`, `father_name`, `passport`, `present_address`, `mobile`, `email`, `country`, `state`, `city`, `zip`, `resume`, `offerletter`, `joiningletter`, `idproof`, `bank_name`, `branch_name`, `acc_name`, `acc_no`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
+(1, 2, NULL, NULL, NULL, '356605053545410', 'weekly', '11/27/2015', 'vishal', 'yadav', '07/23/2015', 'male', 'images.jpg', 'married', 'indian', 'mr. yadav', 'ind24555bhp', 'bhopal', '8714789654', 'yadav@gmail.com', 'india', 'mp', '1', '124578', '', '', '', '', 'ubi', 'ubi', 'ubi', 'ubi', 'superuser', '', '', ''),
+(2, 2, 4, 2, NULL, '911314103846450', 'monthly', '08/14/2015', 'palak', 'mam', '07/30/2015', 'female', 'images (1).jpg', 'unmarried', 'indian', 'ssss', 'ss1254s', 'bhopal', '443455333', '', 'india', 'mp', '1', '54545445', '', '', '', '', '', '', '', '', 'vishal', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -248,14 +267,15 @@ CREATE TABLE IF NOT EXISTS `organization` (
   `created_on` varchar(30) NOT NULL COMMENT 'create of time',
   `updated_by` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT 'name of update person',
   `updated_on` varchar(30) NOT NULL COMMENT 'update of time'
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COMMENT='Table organizations for organization`s employee';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COMMENT='Table organizations for organization`s employee';
 
 --
 -- Dumping data for table `organization`
 --
 
 INSERT INTO `organization` (`organization_id`, `organization_name`, `organization_desc`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
-(1, 'demo', 'bhopal', 'superuser', '2015-07-18 16:39:22', 'superuser', '20-07-2015 11:14:03 AM');
+(1, 'demo', 'bhopal', 'superuser', '2015-07-18 16:39:22', 'superuser', '20-07-2015 11:14:03 AM'),
+(2, 'Khaira n associate', 'bhopal', 'superuser', '21-07-2015 12:37:13 PM', '', '');
 
 -- --------------------------------------------------------
 
@@ -423,16 +443,22 @@ CREATE TABLE IF NOT EXISTS `sign_up` (
 --
 
 CREATE TABLE IF NOT EXISTS `tracking` (
-  `employee_id` varchar(15) NOT NULL,
-  `organization_id` int(11) NOT NULL,
-  `imei` int(25) NOT NULL,
-  `datetime` datetime NOT NULL,
-  `location` varchar(250) NOT NULL,
-  `created_by` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT 'name of create person',
-  `created_on` varchar(30) NOT NULL COMMENT 'create of time',
-  `updated_by` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT 'name of update person ',
-  `updated_on` varchar(30) NOT NULL COMMENT 'update of time'
+  `imei` varchar(30) NOT NULL,
+  `datetime` varchar(30) NOT NULL,
+  `Latitude` varchar(70) NOT NULL,
+  `Longitude` varchar(70) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tracking`
+--
+
+INSERT INTO `tracking` (`imei`, `datetime`, `Latitude`, `Longitude`) VALUES
+('356605053545410 ', '20-Jul-2015 3:13:12 PM', '23.2599333', '77.41261499999996'),
+('356605053545410 ', '21-Jul-2015 3:13:12 PM', '23.2311156', '77.43359209999994'),
+('356605053545410', '20-Jul-2015 3:43:10 PM', '23.2770017', '77.36417260000007'),
+('911314103846450', '20-Jul-2015 3:43:10 PM', '23.2770017', '77.36417260000007'),
+('911314103846450', '20 Jul 2015 15:53:59', '23.2311156', '77.43359209999994');
 
 -- --------------------------------------------------------
 
@@ -457,7 +483,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`user_id`, `organization_id`, `role_id`, `usermailid`, `password`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
-('demo', 1, 'Administrator', 'demo', 'demo', '', '2015-07-18 16:39:50', '', '0000-00-00 00:00:00');
+('demo', 1, 'Administrator', 'demo', 'demo', '', '2015-07-18 16:39:50', '', '0000-00-00 00:00:00'),
+('vishal', 2, 'Administrator', 'v@gmail.com', '123', '', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -518,12 +545,6 @@ ALTER TABLE `sign_up`
  ADD PRIMARY KEY (`user_id`);
 
 --
--- Indexes for table `tracking`
---
-ALTER TABLE `tracking`
- ADD PRIMARY KEY (`employee_id`,`organization_id`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -542,22 +563,22 @@ MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'primary key',AUTO_
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
-MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'department id is a auto increment and primary key for department table',AUTO_INCREMENT=3;
+MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'department id is a auto increment and primary key for department table',AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `designation`
 --
 ALTER TABLE `designation`
-MODIFY `designation_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Designation id is a auto increment and primary key for designations table';
+MODIFY `designation_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Designation id is a auto increment and primary key for designations table',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Employee id is a auto increment and primary key for employee table';
+MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Employee id is a auto increment and primary key for employee table',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `organization`
 --
 ALTER TABLE `organization`
-MODIFY `organization_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'organization id is a auto increment and primary key for organization table',AUTO_INCREMENT=7;
+MODIFY `organization_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'organization id is a auto increment and primary key for organization table',AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `sign_up`
 --

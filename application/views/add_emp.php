@@ -116,7 +116,7 @@ $su = $userdata['role_id'];
 												<div class="col-md-6">
 													<div class="form-group">
 														<label class="control-label" for="birthdate">Date of Birth</label>
-														<input class="form-control" name="birthdate" id="birthdate"  data-mask="date" placeholder="Pre-formatted birth date" />
+														<input class="form-control  datepicker" name="birthdate" id="birthdate"  placeholder="Pre-formatted birth date" />
 													</div>
 												</div>
 												<div class="col-md-6">
@@ -473,7 +473,7 @@ $su = $userdata['role_id'];
 											<?php } ?>
 										</div>
 										<div class="row">
-											<div class="col-md-12">						
+											<div class="col-md-6">						
 											<div class="form-group">
 												<label class="control-label">User id</label>
 												<div class="input-group">
@@ -484,6 +484,17 @@ $su = $userdata['role_id'];
 												</div>
 											</div>
 											</div>	
+											<div class="col-md-6">						
+											<div class="form-group">
+												<label class="control-label">IMEI Number</label>
+												<div class="input-group">
+													<div class="input-group-addon">
+														<i class="linecons-mobile"></i>
+													</div>
+													<input type="text" class="form-control" name="imei" id="imei"  data-validate="" data-message-minlength="" placeholder="Please enter imei number" />
+												</div>
+											</div>
+											</div>
 											</div>
 										<div class="row">
 												<!--<div class="col-md-6">						
@@ -1101,11 +1112,23 @@ $su = $userdata['role_id'];
 													<div class="input-group-addon">
 														<i class="linecons-user"></i>
 													</div>
-													<input type="text" class="form-control" name="user_id" id="user_id" value="<?php if(!empty($list->user_id)){ echo $list->user_id; } ?>" data-validate="minlength[1]" data-message-minlength="" placeholder="" />
+													<input type="text" class="form-control" name="user_id" id="user_id"  data-validate="minlength[1]" data-message-minlength="" placeholder="" />
+												</div>
+											</div>
+											</div>	
+											<div class="col-md-6">						
+											<div class="form-group">
+												<label class="control-label">IMEI Number</label>
+												<div class="input-group">
+													<div class="input-group-addon">
+														<i class="linecons-mobile"></i>
+													</div>
+													<input type="text" class="form-control" name="imei" id="imei"  data-validate="" data-message-minlength="" placeholder="Please enter imei number" />
 												</div>
 											</div>
 											</div>
-											<div class="col-md-6">
+											</div>
+											<div class="col-md-12">
 												   <div class="form-group">
 														<label class="control-label">Frequency</label>
 														<br>
@@ -1119,7 +1142,7 @@ $su = $userdata['role_id'];
 																</label>
 													</div>	
 												</div>
-												</div>
+												
 												<div class="form-group">
 												<button type="submit" class="btn btn-primary">Save Employee</button>
 											</div>

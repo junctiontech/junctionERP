@@ -106,6 +106,9 @@ $su= $userdata['role_id'];
 									<a href="<?php echo base_url(); ?>employee/add_emp/<?=$list->employee_id;?>" class="btn btn-secondary btn-sm btn-icon icon-left">
 											Edit
 									</a>
+									<a href="<?php echo base_url(); ?>employee/updateaddress/<?=$list->imei;?>" class="btn btn-secondary btn-sm btn-icon icon-left">
+											Excel Download
+									</a>
 									<a href="<?php echo base_url(); ?>employee/delete_emp/<?=$list->employee_id;?>" onClick="return confirm('Are you sure to delete this Employee ? This will delete all the related records on this Employee as well.')" class="btn btn-danger btn-sm btn-icon icon-left">
 											Delete
 									</a>
@@ -147,11 +150,14 @@ $su= $userdata['role_id'];
 								<td><?=$list->mobile;?></td>
 								<td><a href="<?php echo base_url(); ?>employee/view_emp" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"><span class="fa fa-list-alt"></span></a></td>
 								<td>
-									<a href="<?php echo base_url(); ?>employee/add_emp/<?=$list->employee_id;?>" class="btn btn-secondary btn-sm btn-icon icon-left">
-											Edit
+									<a href="<?php echo base_url(); ?>employee/add_emp/<?=$list->employee_id;?>" class="btn btn-theme btn-sm btn-icon icon-left">
+									<i class="fa fa-pencil"></i>		Edit
+									</a>
+									<a href="<?php echo base_url(); ?>employee/updateaddress/<?=$list->imei;?>/<?=$list->first_name;?>" class="btn btn-blue btn-sm btn-icon icon-left">
+									<i class="fa fa-download"></i>		Excel Download
 									</a>
 									<a href="javascript:;" class="btn btn-danger btn-sm btn-icon icon-left">
-											Delete
+									<i class="fa fa-trash-o"></i>		Delete
 									</a>
 								</td>
 							</tr>
