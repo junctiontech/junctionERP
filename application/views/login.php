@@ -135,7 +135,7 @@
 					
 					<div class="login-header">
 					
-							<img src="<?php echo base_url(); ?>assets/images/junction.png" alt="" width="120" />
+							<img src="<?php echo base_url(); ?>assets/images/junctionerplogo.png" alt="" width="300" />
 				
 						
 						<p>Dear user, log in to access the admin area!</p>

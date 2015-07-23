@@ -7,8 +7,8 @@
 			<!-- Navbar Brand -->
 			<div class="navbar-brand">
 				<a href="javascript:;" class="logo">
-					<img src="<?php echo base_url(); ?>assets/images/junction.png" width="150" alt="" class="hidden-xs" />
-					<img src="<?php echo base_url(); ?>assets/images/junction.png" width="80" alt="" class="visible-xs" />
+					<img src="<?php echo base_url(); ?>assets/images/junctionerplogo.png" width="180" alt="" class="hidden-xs" />
+					<img src="<?php echo base_url(); ?>assets/images/junctionerplogo.png" width="120" alt="" class="visible-xs" />
 				</a>
 			
 			</div>
