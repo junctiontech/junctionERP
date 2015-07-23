@@ -138,6 +138,8 @@ class Crm extends CI_Controller {
 					'present_address'=>$this->input->post('present_address'),
 					'product'=>$this->input->post('product'),
 					'customer_type'=>$this->input->post('customer_type'),
+					'comments'=>$this->input->post('comments'),
+					'contact_t_follow_up'=>$this->input->post('contact_t_follow_up'),
 					'reference'=>$this->input->post('reference')
 			);
 			$id=$this->customer_model->insert_customer('customers',$data,$email);
@@ -180,7 +182,6 @@ class Crm extends CI_Controller {
 		{
 			
 			$data=array(
-					//'user_id'=>$this->input->post('user_id'),
 					'customer_id'=>$customer_id,
 					'organization_id'=>$info,
 					'company_name'=>$this->input->post('company_name'),
@@ -190,6 +191,8 @@ class Crm extends CI_Controller {
 					'present_address'=>$this->input->post('present_address'),
 					'product'=>$this->input->post('product'),
 					'customer_type'=>$this->input->post('customer_type'),
+					'comments'=>$this->input->post('comments'),
+					'contact_t_follow_up'=>$this->input->post('contact_t_follow_up'),
 					'reference'=>$this->input->post('reference')
 					
 			);

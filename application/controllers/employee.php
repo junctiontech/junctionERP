@@ -319,7 +319,9 @@ public function insert_employee($info=false)
 	
 	public function updateaddress($info=false,$name=false)
 	{ 
-		$tracking_detail =$this->data['tracking_detail']= $this->employee_model->tracking_detail('tracking',$info);
+		//$tracking_detail =$this->data['tracking_detail']= $this->employee_model->tracking_detail('tracking',$info);
+		//print_r($action_array);die;
+		//echo $address;
 		function getaddress($lat,$lng)
 		{
 			$url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($lat).','.trim($lng).'&sensor=false';
@@ -339,6 +341,9 @@ public function insert_employee($info=false)
 			$array=array(0=>array(0=>'',1=>'IMEI NUMBER:-',2=>$action_array[0]->imei),1=>array(0=>'Serial number',1=>'datetime',2=>'Locations'),2=>array(0=>'',1=>'',2=>'',3=>'',4=>''));
 			foreach($action_array as $key=>$a)
 			{
+				
+				//$i= count($tracking_detail);
+				
 					$address= getaddress($a->Latitude,$a->Longitude);
 					if($address)
 					{
@@ -350,8 +355,12 @@ public function insert_employee($info=false)
 						echo "Not found";
 				
 					}
+					//--$i;
+					//die;
+				
 				
 				$array2=array($key+1,$a->datetime,$address);
+				//$array3=array($address);
 				array_push($array,$array2);
 			}
 			$filename=$name.'.xls';
@@ -373,7 +382,41 @@ public function insert_employee($info=false)
 	}
 	
 	
-	
+	/* android code */
+	public function upsdateaddress($info=false,$name=false,$dat=false)
+	{	
+		//echo'3';
+		//echo $dat;die;
+			    $user_id= $info;
+              // $admin_data=$this->session->userdata('admin_data');
+		
+				$action_array = $this->employee_model->tracking_detail('tracking',$user_id);
+                    //  print_r($action_array[0]->imei );die;
+		if(!empty($action_array)){
+			$array=array(0=>array(0=>'',1=>'IMEI NUMBER:-',2=>$action_array[0]->imei),1=>array(0=>'Serial number',1=>'datetime',2=>'Latitude',3=>'Longitude'),2=>array(0=>'',1=>'',2=>'',3=>'',4=>''));
+			foreach($action_array as $key=>$a)
+			{
+				$array2=array($key+1,$a->datetime,$a->Latitude,$a->Longitude);
+				array_push($array,$array2);
+			}
+			$filename=$name.'.xls';
+			header('Content-Disposition: attachment;filename="'.$filename.'"');
+			header('Content-Type: application/vnd.ms-excel');
+			header("Pragma: no-cache");
+			header("Expires: 0");
+			$out = fopen("php://output", 'w');
+			foreach ($array as $data)
+				{
+					fputcsv($out, $data,"\t");
+				}
+			fclose($out);
+		}else{
+			$this->session->set_flashdata('message_type', 'success');        
+					$this->session->set_flashdata('text', 'There is no record to export.');
+					redirect('employee/manage_emp');
+			}
+			
+	}
 	
 	public function emp_award()
 	{

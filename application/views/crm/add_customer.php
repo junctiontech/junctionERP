@@ -150,8 +150,7 @@ $su= $userdata['role_id'];
 					<div class="col-md-6">
 						<div class="form-group">
 							<label class="control-label" for="product">Product</label>
-							<input type="text" class="form-
-							"  name="product" data-validate="" data-message-required=""  id="" placeholder="Product">
+							<input type="text" class="form-control"  name="product" data-validate="" data-message-required=""  id="" placeholder="Product">
 						</div>
 					</div>
 				</div>
@@ -169,6 +168,20 @@ $su= $userdata['role_id'];
 					</div>
 					<div class="form-group">
 						<div class="col-md-6">
+							<label class="control-label" for="field-5">Contact Time Follow Up</label>
+							<input type="text" class="form-control" id="" data-validate=""  placeholder="" name="contact_t_follow_up">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+				 <div class="col-md-6">
+				   <div class="form-group">
+					   <label class="control-label" for="field-5">Comments</label>
+							<input type="text" class="form-control" id="" data-validate="" data-message-required=""  name="comments">
+						</div>
+					</div>
+					<div class="col-md-6">
+					<div class="form-group">
 							<label class="control-label" for="field-5">Reference</label>
 							<input type="text" class="form-control" id="reference" data-validate="" data-message-required="Enter Reference" placeholder="Reference" name="reference">
 						</div>
@@ -179,7 +192,7 @@ $su= $userdata['role_id'];
 							
 							<div class="form-group">
 									<label class="control-label" for="field-5">Address</label>
-									<textarea class="form-control autogrow" cols="5" id="field-5" data-validate="" data-message-required="Enter Internal Notes" placeholder="Plese enter your address" name="present_address"></textarea>
+									<textarea class="form-control autogrow" cols="5" id="field-5" data-validate="" data-message-required="Enter Internal Notes" placeholder="Enter Customer Address" name="present_address"></textarea>
 									
 								</div>
 						
@@ -330,6 +343,20 @@ $su= $userdata['role_id'];
 						<div class="form-group">
 							<label class="control-label" for="product">Product</label>
 							<input type="text" class="form-control" value="<?=$list->product;?>"  name="product" data-validate="" data-message-required=""  id="" placeholder="Product">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+				 <div class="col-md-6">
+				   <div class="form-group">
+					  	<label class="control-label" for="field-5">Contact Time Follow Up</label>
+							<input type="text" class="form-control" id="" data-validate=""  placeholder="" name="contact_t_follow_up" value="<?=$list->contact_t_follow_up;?>" >
+						</div>
+					</div>
+					 <div class="col-md-6">
+					<div class="form-group">
+							<label class="control-label" for="field-5">Comments</label>
+							<input type="text" class="form-control" id="" data-validate="" data-message-required=""  name="comments" value="<?=$list->comments;?>">
 						</div>
 					</div>
 				</div>
