@@ -10,7 +10,7 @@
 					<img src="<?php echo base_url(); ?>assets/images/junctionerplogo.png" width="180" alt="" class="hidden-xs" />
 					<img src="<?php echo base_url(); ?>assets/images/junctionerplogo.png" width="120" alt="" class="visible-xs" />
 				</a>
-			
+		
 			</div>
 				<!-- Mobile Toggles Links -->
 			<div class="nav navbar-mobile">
@@ -79,6 +79,12 @@
 							<span id="payable" class="title">Reporting</span>
 						</a>
 				
+					</li>
+					<li>
+					<a href="javascript:;" onclick="var el = document.getElementById('element'); el.webkitRequestFullscreen();">
+							<i class="fa-arrows-alt"></i>
+						
+					</a>
 					</li>
 				</ul>
 				<ul class="nav nav-userinfo navbar-right">
@@ -433,7 +439,60 @@
 			</div>
 		
 		</div>
-<div class="main-content">
+		<style type="text/css" rel="stylesheet">.element {
+  padding: 20px;
+  height: 300px;
+  width: 100%;
+  background-color: skyblue;
+}
+
+.element p {
+  visibility: hidden;
+  text-align: center;
+  color: white;
+  font-size: 3em;
+}
+
+.element:-webkit-full-screen {
+  background-color: #e4708a;
+  width: 100vw;
+  height: 100vh;
+}
+
+.element:-webkit-full-screen p {
+  visibility: visible;
+}
+
+.element:-moz-full-screen {
+  background-color: #e4708a;
+  width: 100vw;
+  height: 100vh;
+}
+
+.element:-moz-full-screen p {
+  visibility: visible;
+}
+
+.element:-ms-fullscreen {
+  background-color: #e4708a;
+  width: 100vw;
+  height: 100vh;
+}
+
+.element:-ms-fullscreen p {
+  visibility: visible;
+}
+
+.element:fullscreen {
+  background-color: #e4708a;
+  width: 100vw;
+  height: 100vh;
+}
+
+.element:fullscreen p {
+  visibility: visible;
+}</style>
+<div class="main-content"  id="element">
  <script>
         $(document).ready(function(){
 			
