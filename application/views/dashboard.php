@@ -14,12 +14,13 @@ $userdata = $this->session->userdata('user_data');
 									</div>
 								</div>
 <?php } 
-echo "<h2>Junction Erp</h2> ";
-?> <h3>
-<?php 
-echo  "welcome   " .$userdata['role_id'] ;
+//echo "<h2>Junction Erp</h2> ";
 ?>
-</h3>
+<h2 class="capitalize bb text-theme">
+<?php 
+echo  "<i class='fa fa-user'></i> Welcome   " .$userdata['role_id'] ;
+?>
+</h2>
 <br />
 			
 			<div class="row">

@@ -1,5 +1,7 @@
 <?php $userdata = $this->session->userdata('user_data');
 ?>
+
+
 <body class="page-body  skin-concrete">
 <nav class="navbar horizontal-menu navbar-fixed-top"><!-- set fixed position by adding class "navbar-fixed-top" -->
 		
@@ -31,50 +33,50 @@
 			
 			<div class="navbar-mobile-clear"></div>
 			<ul class="navbar-nav">
-			<li>
-			<a href="javascript:;" data-toggle="sidebar">
+				<li>
+					<a href="javascript:;" data-toggle="sidebar">
 							<i class="fa-bars"></i>
 						</a>
 						</li>
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 					<li>
-						<a href="javascript:;" onclick="show_hr()">
+						<a href="<?php echo base_url(); ?>home"  >
 							<i class="linecons-graduation-cap"></i>
 							<span id="hr" class="title" title="Human Resource">Human Resource</span>
 						</a>
 					
 					</li>
 					<li>
-						<a href="javascript:;" onclick="show_sales()">
+						<a  href="<?php echo base_url(); ?>home?menu=sales" >
 							<i class="linecons-shop"></i>
 							<span id="sales" class="title">Sales</span>
 						</a>
 				
 					</li>
 					<li>
-						<a href="javascript:;" onclick="show_crm()">
+						<a  href="<?php echo base_url(); ?>home?menu=crm" >
 							<i class="linecons-comment"></i>
 							<span id="crm" class="title">CRM</span>
 						</a>
 				
 					</li>
 					<li>
-						<a href="javascript:;" onclick="show_purchasing()">
+						<a  href="<?php echo base_url(); ?>home?menu=purchasing" >
 							<i class="linecons-user"></i>
 							<span id="marketing" class="title">Purchasing</span>
 						</a>
 				
 					</li>
 					<li>
-						<a href="javascript:;" onclick="show_inventory()">
+						<a  href="<?php echo base_url(); ?>home?menu=inventory" >
 							<i class="linecons-pencil"></i>
 							<span class="title">Inventory</span>
 						</a>
 				
 					</li>
 					<li>
-						<a href="javascript:;" onclick="show_reporting()">
+						<a  href="<?php echo base_url(); ?>home?menu=report" >
 							<i class="linecons-money"></i>
 							<span id="payable" class="title">Reporting</span>
 						</a>
@@ -134,7 +136,8 @@
 			
 			<div class="sidebar-menu-inner">	
 			
-							
+				
+				<?php if(isset($_GET['menu'])!=1){  ?>		
 				<ul id="main-menu" class="main-menu hr">
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
@@ -195,9 +198,11 @@
 					<li><a href="<?=base_url()?>role/user_role"> <i class="linecons-t-shirt" title="User Management"></i><span class="title" >User Management</span></a></li>
 					<li><a href="<?=base_url()?>role/role_management"> <i class="linecons-comment" title="Role Management"></i><span class="title" >Role Management</span></a></li>
 				</ul>
+				<?php }else{?>
 				
 				<!--  ul start for sales -->
 				
+				<?php if(empty($_GET['menu']=="sales")!=1){  ?>
 				<ul id="main-menu" class="main-menu sales">
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
@@ -257,11 +262,13 @@
 						</ul>
 					</li>
 				</ul>
+				<?php }?>
 				
 				<!--  ul End for sales -->
 				
 				<!--  ul End for crm -->
-				<ul id="main-menu" class="main-menu crm">
+				<?php if(empty($_GET['menu']=="crm")!=1 || $this->uri->segment(2)=="crm"){  ?>
+				<ul  class="main-menu crm">
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
 						<li>
@@ -316,9 +323,11 @@
 						
 					
 				</ul>
+			<?php }?>
 				<!--  ul End for crm -->
 				
 				<!--  ul End for marketing -->
+				<?php if(empty($_GET['menu']=="purchasing")!=1){  ?>
 				<ul id="main-menu" class="main-menu purchasing">
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
@@ -368,11 +377,13 @@
 						</ul>
 					</li>
 				</ul>
+				<?php }?>
 				<!--  ul End for marketing -->
 				
 		
 				
 				<!--  ul End for inventory -->
+				<?php if(empty($_GET['menu']=="inventory")!=1){  ?>
 				<ul id="main-menu" class="main-menu inventory">
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
@@ -414,8 +425,10 @@
 					
 						
 				</ul>
+				<?php }?>
 				<!--  ul End for inventory -->
 						<!--  ul End for payable -->
+						<?php if(empty($_GET['menu']=="report")!=1){  ?>
 				<ul id="main-menu" class="main-menu reporting">
 					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
 					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
@@ -435,8 +448,10 @@
 					</li>
 						
 				</ul>
+				<?php  }}?>
+				</div>
 				<!--  ul End for payable -->
-			</div>
+			
 		
 		</div>
 		<style type="text/css" rel="stylesheet">.element {
@@ -491,21 +506,22 @@
 
 .element:fullscreen p {
   visibility: visible;
-}</style>
+}
+.hide{display:none;}
+
+</style>
 <div class="main-content"  id="element">
- <script>
-        $(document).ready(function(){
-			
-            if($('.hr').on(':clicked'))
-            {   
-                 show_hr()  
-            }
-            else
-           {
-                  show_sales()
-           }
-           
-        });
+
+ <script type="text/javascript">
+
+
+ 
+ $('a.links').click(function (e){
+	   e.preventDefault();
+	   var div_id = $('a.links').index($(this));
+	   $('.divs').hide().eq(div_id).show();
+	   
+	});
         
 		
     </script>

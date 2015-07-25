@@ -34,7 +34,7 @@
 										<strong><?=$this->session->flashdata('message')?></strong> 
 									</div>
 								</div>
-<?php } ?>
+  						<?php } ?>
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title">Manage Organization</h3>
@@ -59,7 +59,7 @@
 						});
 					});
 					</script>
-					<div class="" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">	
+					<div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">	
 					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
