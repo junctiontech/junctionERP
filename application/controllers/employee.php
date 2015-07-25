@@ -319,6 +319,18 @@ public function insert_employee($info=false)
 	
 	public function updateaddress($info=false,$name=false)
 	{ 
+		//echo"hiiiiiii"; die;
+		$imei=$this->input->post('imei');
+		$name=$this->input->post('name');
+		$from=$this->input->post('from');
+		$to=$this->input->post('to');
+		$sheat=$this->input->post('sheat');
+		//echo $imei;
+		//echo $name;
+		//echo $from;
+		//echo $to;
+		//echo $sheat;
+		//die;
 		//$tracking_detail =$this->data['tracking_detail']= $this->employee_model->tracking_detail('tracking',$info);
 		//print_r($action_array);die;
 		//echo $address;
@@ -335,16 +347,15 @@ public function insert_employee($info=false)
 		}
 		
 		$user_id= $info;
-		$action_array = $this->employee_model->tracking_detail('tracking',$user_id);
+		$action_array = $this->employee_model->tracking_detail('tracking',$imei,$from,$to);
+		//print_r($action_array);die;
 		//  print_r($action_array[0]->imei );die;
 		if(!empty($action_array)){
 			$array=array(0=>array(0=>'',1=>'IMEI NUMBER:-',2=>$action_array[0]->imei),1=>array(0=>'Serial number',1=>'datetime',2=>'Locations'),2=>array(0=>'',1=>'',2=>'',3=>'',4=>''));
+			
 			foreach($action_array as $key=>$a)
 			{
-				
-				//$i= count($tracking_detail);
-				
-					$address= getaddress($a->Latitude,$a->Longitude);
+				$address= getaddress($a->Latitude,$a->Longitude);
 					if($address)
 					{
 						 $address;
@@ -375,8 +386,8 @@ public function insert_employee($info=false)
 			}
 			fclose($out);
 		}else{
-			$this->session->set_flashdata('message_type', 'success');
-			$this->session->set_flashdata('text', 'There is no record to export.');
+			$this->session->set_flashdata('category_error', 'success');
+			$this->session->set_flashdata('message', 'There is no record to export.');
 			redirect('employee/manage_emp');
 		}
 	}
@@ -385,8 +396,7 @@ public function insert_employee($info=false)
 	/* android code */
 	public function upsdateaddress($info=false,$name=false,$dat=false)
 	{	
-		//echo'3';
-		//echo $dat;die;
+				
 			    $user_id= $info;
               // $admin_data=$this->session->userdata('admin_data');
 		
@@ -416,6 +426,15 @@ public function insert_employee($info=false)
 					redirect('employee/manage_emp');
 			}
 			
+	}
+	
+	public function excell_location($imei=false,$name=false)
+	{
+		$this->data['imei']=$imei;
+		$this->data['name']=$name;
+		$this->parser->parse('include/header',$this->data);
+		$this->load->view('excell_location',$this->data);
+		$this->parser->parse('include/footer',$this->data);
 	}
 	
 	public function emp_award()

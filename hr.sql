@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2015 at 07:14 AM
+-- Generation Time: Jul 25, 2015 at 03:19 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -37,20 +37,24 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `present_address` varchar(250) NOT NULL COMMENT 'customer address',
   `product` varchar(30) NOT NULL,
   `customer_type` varchar(15) NOT NULL,
+  `contact_t_follow_up` varchar(20) NOT NULL COMMENT 'customer follow up time',
+  `comments` varchar(50) NOT NULL COMMENT 'comments line',
   `reference` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT 'customer reffrence',
   `created_by` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT 'name of create person',
   `created_on` varchar(30) NOT NULL COMMENT 'create of time',
   `updated_by` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT 'name of update person ',
   `updated_on` varchar(30) NOT NULL COMMENT 'update of timeupdate of time'
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COMMENT='table for customers';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COMMENT='table for customers';
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`customer_id`, `organization_id`, `user_id`, `name`, `company_name`, `email`, `mobile`, `present_address`, `product`, `customer_type`, `reference`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
-(5, 1, NULL, 'demo', 'test', 'demo@gmail.com', '(565) 656-6346', '', 'test', 'wholesaler', 'demo', '', '2015-07-18 17:13:06', '', '0000-00-00 00:00:00'),
-(6, 1, NULL, 'test', 'test', 'a@gmail.com', '(452) 345-2353', 'test', 'test', 'wholesaler', 'test', '', '2015-07-18 17:02:11', '', '0000-00-00 00:00:00');
+INSERT INTO `customers` (`customer_id`, `organization_id`, `user_id`, `name`, `company_name`, `email`, `mobile`, `present_address`, `product`, `customer_type`, `contact_t_follow_up`, `comments`, `reference`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
+(5, 1, NULL, 'demo', 'test', 'demo@gmail.com', '(565) 656-6346', '', 'test', 'wholesaler', '', '', 'demo', '', '2015-07-18 17:13:06', '', '0000-00-00 00:00:00'),
+(6, 1, NULL, 'test', 'test', 'a@gmail.com', '(452) 345-2353', 'test', 'test', 'wholesaler', '', '', 'test', '', '2015-07-18 17:02:11', '', '0000-00-00 00:00:00'),
+(8, 2, NULL, 'test', 'test', 'test@gmail.com', '145555145454', 'bhopal', '', 'wholesaler', '10:pm', 'test demo', 'test', '', '', '', ''),
+(9, 2, NULL, 'demo', 'demo', 'demo', '44984984012212', 'test', 'demo', 'retailer', 'demo', 'demo', 'demo', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -80,7 +84,9 @@ CREATE TABLE IF NOT EXISTS `customers_follow_up` (
 INSERT INTO `customers_follow_up` (`customer_id`, `organization_id`, `note`, `follow_up_date`, `next_follow_up`, `follow_up_time`, `follow_up_type`, `follow_up_by`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
 (6, 1, '', 'Sat, 18 July 2015', '', '', '', '', '', '2015-07-18 16:57:17', '', '0000-00-00 00:00:00'),
 (6, 1, 'sdf', '11/11/1111', '22/11/1221', '3', 'sdgsd', 'fff', '', '2015-07-18 16:58:17', '', '0000-00-00 00:00:00'),
-(5, 1, 'test', '11/00/0000', '12/00/1201', '6:00 ', 'test', 'test', '', '2015-07-18 17:14:39', '', '0000-00-00 00:00:00');
+(5, 1, 'test', '11/00/0000', '12/00/1201', '6:00 ', 'test', 'test', '', '2015-07-18 17:14:39', '', '0000-00-00 00:00:00'),
+(8, 2, '', 'Thu, 23 July 2015', '', '', '', '', '', '', '', ''),
+(9, 2, '', 'Thu, 30 July 2015', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -443,22 +449,26 @@ CREATE TABLE IF NOT EXISTS `sign_up` (
 --
 
 CREATE TABLE IF NOT EXISTS `tracking` (
+`no` int(11) NOT NULL,
   `imei` varchar(30) NOT NULL,
   `datetime` varchar(30) NOT NULL,
   `Latitude` varchar(70) NOT NULL,
   `Longitude` varchar(70) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tracking`
 --
 
-INSERT INTO `tracking` (`imei`, `datetime`, `Latitude`, `Longitude`) VALUES
-('356605053545410 ', '20-Jul-2015 3:13:12 PM', '23.2599333', '77.41261499999996'),
-('356605053545410 ', '21-Jul-2015 3:13:12 PM', '23.2311156', '77.43359209999994'),
-('356605053545410', '20-Jul-2015 3:43:10 PM', '23.2770017', '77.36417260000007'),
-('911314103846450', '20-Jul-2015 3:43:10 PM', '23.2770017', '77.36417260000007'),
-('911314103846450', '20 Jul 2015 15:53:59', '23.2311156', '77.43359209999994');
+INSERT INTO `tracking` (`no`, `imei`, `datetime`, `Latitude`, `Longitude`) VALUES
+(1, '356605053545410 ', '2015-08-21', '23.2599333', '77.41261499999996'),
+(2, '356605053545410 ', '2015-08-25', '23.2311156', '77.43359209999994'),
+(3, '356605053545410', '2015-08-26', '23.2770017', '77.36417260000007'),
+(4, '911314103846450', '2015-08-18', '23.2770017', '77.36417260000007'),
+(5, '911314103846450', '2015-08-20', '23.2311156', '77.43359209999994'),
+(6, '911314103846450', '2015-08-22', '23.2770017', '77.36417260000007'),
+(7, '911314103846450', '2015-08-25', '23.2770017', '77.36417260000007'),
+(8, '911314103846450', '2015-08-30', '23.2770017', '77.36417260000007');
 
 -- --------------------------------------------------------
 
@@ -545,6 +555,12 @@ ALTER TABLE `sign_up`
  ADD PRIMARY KEY (`user_id`);
 
 --
+-- Indexes for table `tracking`
+--
+ALTER TABLE `tracking`
+ ADD PRIMARY KEY (`no`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -558,7 +574,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'primary key',AUTO_INCREMENT=7;
+MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'primary key',AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `department`
 --
@@ -584,6 +600,11 @@ MODIFY `organization_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'organization i
 --
 ALTER TABLE `sign_up`
 MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'user id is priamary key and auto increment for signup';
+--
+-- AUTO_INCREMENT for table `tracking`
+--
+ALTER TABLE `tracking`
+MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- Constraints for dumped tables
 --

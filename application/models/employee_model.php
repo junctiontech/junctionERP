@@ -93,13 +93,28 @@ class Employee_model extends CI_Model {
 	}
 	
 	/*function for tracking list*/
-	public function tracking_detail($table=false,$imei=false)
+	public function tracking_detail($table=false,$imei=false,$from=false,$to=false)
 	{
-		$this->db->select('*');
-		$this->db->where('imei',$imei);
-		$qry=$this->db->get($table);
-		return $qry->result();
+		//$from='2015-07-18';
+		//$to='2015-07-30';
+		//echo $a;
+		//echo $a;die;
+		//$start_deadline=20;
+		//$end_deadline=22;
+		//$this->db->select('*');
+		//$this->db->where('imei',$imei);
+		//$this->db->where('datetime >=', $start_deadline);
+		//$this->db->where('datetime <=', $end_deadline);
+		//$qry=$this->db->get($table);     
+		//print_r($qry);die;
+		//return $qry->result();select * from person 
+$qry=$this->db->query("select * from tracking where `imei`='".$imei."' and DATE(datetime) between '".$from."' and '".$to."' ");
+				//print_r($qry);die;
+				return $qry->result();
+		
 	}
+	
+	
 	
 }
 //Model Class for Employee end

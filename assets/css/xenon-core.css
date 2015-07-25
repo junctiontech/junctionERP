@@ -870,7 +870,7 @@ body.chat-open #chat{display:table-cell;}
 .panel .panel-heading > .panel-options .nav-tabs > li > a{padding:0;border:0;margin-left:15px;color:#979898;background:none;}
 .panel .panel-heading > .panel-options .nav-tabs > li > a:hover{background:none;}
 .panel .panel-heading > .panel-options .nav-tabs > li.active > a{color:#4b4b4b;}
-.panel .panel-body{padding:0;padding-top:20px;color:#979898;}
+.panel .panel-body{padding:0;padding-top:20px;color:#111;}
 .panel .panel-body.no-padding{padding:0;margin-top:-2px;margin-left:-30px;margin-right:-30px;margin-bottom:-20px;}
 .panel .panel-body.panel-border{border-top:1px solid #f5f5f5;padding-top:30px;}
 .panel .panel-body p{margin-bottom:0;}

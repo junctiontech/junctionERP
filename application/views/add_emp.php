@@ -515,10 +515,10 @@ $su = $userdata['role_id'];
 														<label class=" control-label">Joining Date</label>
 														
 														<div class="">
-															<input type="text" name="joining_date" class="form-control datepicker" data-start-view="1">
+															<input type="text" name="joining_date" class="form-control datepicker" data-start-view="1" onchange="">
 														</div>
 													</div>
-													</div>
+											</div>
 												
 											<div class="col-md-6">						
 													<div class="form-group">
@@ -1173,3 +1173,4 @@ $su = $userdata['role_id'];
 			<!-- Form Ends -->
 			</div>
 	</div>
+	

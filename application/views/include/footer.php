@@ -25,6 +25,16 @@
 			</footer>
 			</div>
 			</div>
+		<div class="modal  custom-width fade" id="modal-8" data-backdrop="static" >
+	
+		<div class="modal-dialog" style="width: 75%">
+			<div class="modal-content">
+						
+					
+				
+				</div>
+		</div>
+	</div>	
 			
 	<div class="modal  custom-width fade" id="modal-7" data-backdrop="static" >
 	
@@ -61,12 +71,11 @@
 	<script src="<?php echo base_url(); ?>assets/js/xenon-api.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/xenon-toggles.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/jquery-validate/jquery.validate.min.js"></script>
-
-<!-- Bottom Scripts -->
+	<script src="<?php echo base_url(); ?>assets/js/moment.min.js"></script>
 	
-
-	<!-- JavaScripts initializations and stuff -->
-	<script src="<?php echo base_url(); ?>assets/js/xenon-custom.js"></script>
+<!-- Bottom Scripts -->
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/js/daterangepicker/daterangepicker-bs3.css">
+		<script src="<?php echo base_url(); ?>assets/js/daterangepicker/daterangepicker.js"></script>	
 
 			<!-- Imported scripts on this page -->
 	<script src="<?php echo base_url(); ?>assets/js/datatables/js/jquery.dataTables.min.js"></script>
@@ -82,8 +91,9 @@
 	<!-- select 2 Scripts -->
 	
 	<!-- Imported scripts on this page -->
+	
 	<script src="<?php echo base_url(); ?>assets/js/jquery-validate/jquery.validate.min.js"></script>
-
+	
 	<script src="<?php echo base_url(); ?>assets/js/formwizard/jquery.bootstrap.wizard.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/datepicker/bootstrap-datepicker.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/selectboxit/jquery.selectBoxIt.min.js"></script>
@@ -93,6 +103,16 @@
 	 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap-fileupload/bootstrap-fileupload.css" />
    <script type="text/javascript" src="<?php echo base_url(); ?>assets/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
 	<!--file upload -->
+	<!-- JavaScripts initializations and stuff -->
+	<script src="<?php echo base_url(); ?>assets/js/xenon-custom.js"></script>
+   <script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $(".k").slideToggle();
+    });
+});
 
+
+</script>
 </body>
 </html>

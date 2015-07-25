@@ -56,6 +56,8 @@ $su= $userdata['role_id'];
 								
 								</div>	
 						</div>
+						
+						
 							<div class="panel-body">
 								
 							<script type="text/javascript">
@@ -118,6 +120,9 @@ $su= $userdata['role_id'];
 						<?php } ?>	
 					</table>
 					<?php } if(!empty($su) && $su!=='superuser'){ ?>
+					
+				
+				</div>
 					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
@@ -141,7 +146,8 @@ $su= $userdata['role_id'];
 								
 							</tr>
 						</tfoot>
-<?php foreach ($list_employee as $list){ ?>
+		
+<?php foreach ($list_employee as $key=>$list){ ?>
 						<tbody>
 							<tr>
 								<td><?=$list->employee_id;?></td>
@@ -153,14 +159,20 @@ $su= $userdata['role_id'];
 									<a href="<?php echo base_url(); ?>employee/add_emp/<?=$list->employee_id;?>" class="btn btn-theme btn-sm btn-icon icon-left">
 									<i class="fa fa-pencil"></i>		Edit
 									</a>
-									<a href="<?php echo base_url(); ?>employee/updateaddress/<?=$list->imei;?>/<?=$list->first_name;?>" class="btn btn-blue btn-sm btn-icon icon-left">
+									<a href="<?php echo base_url(); ?>employee/excell_location/<?=$list->imei;?>/<?=$list->first_name;?>" class="btn btn-secondary btn-sm"  data-toggle="modal" data-target="#modal-8">
+Download
+</a>
+										
+									<!-- <button class="btn btn-blue btn-sm btn-icon icon-left" id="button" onclick="showhide()"><i class="fa fa-download"></i> Download</button>
+									  <a href="<?php echo base_url(); ?>employee/updateaddress/<?=$list->imei;?>/<?=$list->first_name;?>" class="btn btn-blue btn-sm btn-icon icon-left">
 									<i class="fa fa-download"></i>		Excel Download
-									</a>
+									</a>-->
 									<a href="javascript:;" class="btn btn-danger btn-sm btn-icon icon-left">
 									<i class="fa fa-trash-o"></i>		Delete
 									</a>
 								</td>
 							</tr>
+							
 						</tbody>
 						<?php } ?>	
 					</table>
@@ -172,3 +184,5 @@ $su= $userdata['role_id'];
 			</div>
 		</div>
 	</div>
+
+	
