@@ -3,7 +3,7 @@ $userdata = $this->session->userdata('user_data');
  if($this->session->flashdata('category_error_block')) { ?>
 								<div class="row-fluid">
 									<div class="alert alert-danger">
-										<strong><?=$this->session->flashdata('message')?></strong> 
+										<strong class="capitalize"><?=$this->session->flashdata('message')?></strong> 
 									</div>
 								</div>
 <?php }
@@ -16,17 +16,17 @@ $userdata = $this->session->userdata('user_data');
 <?php } 
 //echo "<h2>Junction Erp</h2> ";
 ?>
-<h2 class="capitalize bb text-theme">
-<?php 
-echo  "<i class='fa fa-user'></i> Welcome   " .$userdata['role_id'] ;
-?>
-</h2>
-<br />
+
 			
 			<div class="row">
 			
 				<div class="col-md-12">
-					
+					<h2 class="capitalize  text-theme">
+						<?php 
+						echo  "<i class='fa fa-user'></i> Welcome   " .$userdata['role_id'] ;
+						?>
+						</h2>
+						<br />
 					<ul class="nav nav-tabs nav-tabs-justified">
 						<li class="active">
 							<a href="#home-3" data-toggle="tab">
