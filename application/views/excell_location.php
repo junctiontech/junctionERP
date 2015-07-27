@@ -2,7 +2,7 @@
 <div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</br>
-					<h4 class="modal-title">Excell Report</h4>
+					<h4 class="modal-title">Location Report</h4>
 				</div>
 				<div class="modal-body">
 				<form role="form" method="POST" class="" action="<?=base_url();?>employee/updateaddress" style="border:#d1d1d1 1px solid;  padding: 25px;">
