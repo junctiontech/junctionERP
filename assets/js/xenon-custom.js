@@ -397,7 +397,7 @@ var public_vars = public_vars || {};
 		    var checkout = $('#txtCheckOut').datepicker();
 		    $('#txtCheckOut').attr('disabled', 'disabled');
 		    var checkin = $('#txtCheckIn').datepicker({
-		        startDate: "+7d"
+		        startDate: ""    //if we use day "+7" so date will be start after 7 day in collender
 		    }).on('changeDate', function(event) {
 		        $('#txtCheckOut').removeAttr('disabled');
 		        var newDate = new Date(event.date)
