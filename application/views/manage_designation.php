@@ -1,4 +1,4 @@
-<?php $userdata= $this->session->userdata('user_data');
+ <?php $userdata= $this->session->userdata('user_data');
 $su = $userdata['role_id'];
 ?>
 <!-- manage Designation page added by palak on 25th june -->
@@ -70,7 +70,7 @@ $su = $userdata['role_id'];
 					});
 					</script>
 					
-					<div class="" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">					
+					<div class="table-responsive"  data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">						
 					<table id="example-3" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
