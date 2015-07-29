@@ -153,6 +153,7 @@ Locations
 <?php foreach ($list_employee as $key=>$list){ ?>
 						<tbody>
 							<tr>
+							
 								<td><?=$list->employee_id;?></td>
 								<td><?=$list->first_name;?></td>
 								<td><?=$list->department_id?> > <?=$list->designation_id;?></td>

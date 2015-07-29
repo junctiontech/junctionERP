@@ -61,20 +61,31 @@
 									</select>
 								</div>
 								</div>
-									<div class="form-group" >
-										<button type="submit" class="btn btn-success">GO</button>
+									<div class="form-group text-right" >
+										<button type="submit" class="btn btn-success ">GO</button>
 									</div>
 									
 								</form>
-								<div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">					
-					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+									
+							<script type="text/javascript">
+					jQuery(document).ready(function($)
+					{
+						$("#example-3").dataTable({
+							aLengthMenu: [
+								[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]
+							]
+						});
+					});
+					</script>
+				<div class="table-responsive"  data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">		
+					<table id="example-3" class="table table-striped table-bordered" cellspacing="0" width="100%">
 						<thead>
 							<tr>
 								<th>Employee Name</th>
 								<th>Designation</th>
 								<th>Attendance</th>
 								<th>Leave Category</th>
-								
+								<th>Action</th>
 							</tr>
 						</thead>
 					
@@ -84,6 +95,7 @@
 								<th>Designation</th>
 								<th>Attendance</th>
 								<th>Leave Category</th>
+								<th>Action</th>
 							</tr>
 						</tfoot>
 					
@@ -116,6 +128,4 @@
 					
 				</div>
 			
-			<!-- body container ends starts -->
-		</div><!-- main content div end -->
-	</div><!-- page container div end -->
+		
