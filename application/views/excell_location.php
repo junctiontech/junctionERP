@@ -5,7 +5,7 @@
 					<h4 class="modal-title">Location Report</h4>
 				</div>
 				<div class="modal-body">
-				<form role="form" method="POST" class="" action="<?=base_url();?>employee/updateaddress" style="border:#d1d1d1 1px solid;  padding: 25px;">
+				<form role="form" method="POST"  id="ajaxcontent" class="" action="<?=base_url();?>employee/track_address" style="border:#d1d1d1 1px solid;  padding: 25px;">
 				<input type="hidden" name="imei" value="<?=$imei?>" >
 				<input type="hidden" name="name" value="<?=$name?>" >
 					<div class="row">
@@ -22,6 +22,7 @@
 							</div>	
 						</div>
 					</div>
+					
 					<div class="row">
 						<div class="col-md-6">	
 							<div class="form-group">
@@ -32,8 +33,9 @@
 							</div>
 						</div>
 					</div>
+					
 					<div class="form-group">
-						<button type="submit" class="btn btn-primary">Genrate</button>
+						<button type="submit" class="btn btn-primary"  onclick="callAjax();">Genrate</button>
 						<button type="button" onclick="window.location.href='<?php echo base_url();?>employee/manage_emp'" class="btn btn-white" data-dismiss="modal">Close</button>
 					</div>
 				</form>

@@ -12,6 +12,7 @@ class Employee extends CI_Controller {
 		$this->load->model('designation_model');
 		$this->load->model('employee_model');
 		$this->load->library('authority');
+		$this->load->library('location_track');
 		$this->load->model('authority_model');
 		$this->load->library('parser');
 		$this->load->library('session');
@@ -317,61 +318,33 @@ public function insert_employee($info=false)
 			/* function for get physical address and download excel seat */
    
 	
-	public function updateaddress($info=false,$name=false)
+	public function track_address($info=false,$name=false)
 	{ 
-		//echo"hiiiiiii"; die;
 		$imei=$this->input->post('imei');
 		$name=$this->input->post('name');
 		$from=$this->input->post('from');
 		$to=$this->input->post('to');
 		$sheat=$this->input->post('sheat');
-		//echo $imei;
-		//echo $name;
-		//echo $from;
-		//echo $to;
-		//echo $sheat;
-		//die;
-		//$tracking_detail =$this->data['tracking_detail']= $this->employee_model->tracking_detail('tracking',$info);
-		//print_r($action_array);die;
-		//echo $address;
-		function getaddress($lat,$lng)
-		{
-			$url = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($lat).','.trim($lng).'&sensor=false';
-			$json = @file_get_contents($url);
-			$data=json_decode($json);
-			$status = $data->status;
-			if($status=="OK")
-				return $data->results[0]->formatted_address;
-			else
-				return false;
-		}
-		
 		$user_id= $info;
 		$action_array = $this->employee_model->tracking_detail('tracking',$imei,$from,$to);
-		//print_r($action_array);die;
-		//  print_r($action_array[0]->imei );die;
 		if(!empty($action_array)){
 			$array=array(0=>array(0=>'',1=>'IMEI NUMBER:-',2=>$action_array[0]->imei),1=>array(0=>'Serial number',1=>'datetime',2=>'Locations'),2=>array(0=>'',1=>'',2=>'',3=>'',4=>''));
 			
+			$locations=array();
+			
 			foreach($action_array as $key=>$a)
 			{
-				$address= getaddress($a->Latitude,$a->Longitude);
-					if($address)
-					{
-						 $address;
-				
-					}
-					else
-					{
-						echo "Not found";
-				
-					}
-					//--$i;
-					//die;
-				
-				
-				$array2=array($key+1,$a->datetime,$address);
-				//$array3=array($address);
+			error_reporting(0);
+			$lat=$a->Latitude;
+			$long=$a->Longitude;
+			$latlong = $lat."-".$long;
+				if(!$locations[$latlong]){
+						if($address=Location_track::track_address($lat, $long)){
+							$newlocation=array($lat."-".$long=>$address);
+							$locations= array_merge($locations, $newlocation);
+						}
+			}
+				$array2=array($key+1,$a->datetime,$locations[$latlong]);
 				array_push($array,$array2);
 			}
 			$filename=$name.'.xls';
@@ -392,41 +365,6 @@ public function insert_employee($info=false)
 		}
 	}
 	
-	
-	/* android code */
-	public function upsdateaddress($info=false,$name=false,$dat=false)
-	{	
-				
-			    $user_id= $info;
-              // $admin_data=$this->session->userdata('admin_data');
-		
-				$action_array = $this->employee_model->tracking_detail('tracking',$user_id);
-                    //  print_r($action_array[0]->imei );die;
-		if(!empty($action_array)){
-			$array=array(0=>array(0=>'',1=>'IMEI NUMBER:-',2=>$action_array[0]->imei),1=>array(0=>'Serial number',1=>'datetime',2=>'Latitude',3=>'Longitude'),2=>array(0=>'',1=>'',2=>'',3=>'',4=>''));
-			foreach($action_array as $key=>$a)
-			{
-				$array2=array($key+1,$a->datetime,$a->Latitude,$a->Longitude);
-				array_push($array,$array2);
-			}
-			$filename=$name.'.xls';
-			header('Content-Disposition: attachment;filename="'.$filename.'"');
-			header('Content-Type: application/vnd.ms-excel');
-			header("Pragma: no-cache");
-			header("Expires: 0");
-			$out = fopen("php://output", 'w');
-			foreach ($array as $data)
-				{
-					fputcsv($out, $data,"\t");
-				}
-			fclose($out);
-		}else{
-			$this->session->set_flashdata('message_type', 'success');        
-					$this->session->set_flashdata('text', 'There is no record to export.');
-					redirect('employee/manage_emp');
-			}
-			
-	}
 	
 	public function excell_location($imei=false,$name=false)
 	{

@@ -108,7 +108,7 @@ $su= $userdata['role_id'];
 									<a href="<?php echo base_url(); ?>employee/add_emp/<?=$list->employee_id;?>" class="btn btn-secondary btn-sm btn-icon icon-left">
 											Edit
 									</a>
-																<a href="<?php echo base_url(); ?>employee/excell_location/<?=$list->imei;?>/<?=$list->first_name;?>" class="btn btn-secondary btn-sm"  data-toggle="modal" data-target="#modal-8">
+									<a href="<?php echo base_url(); ?>employee/excell_location/<?=$list->imei;?>/<?=$list->first_name;?>" class="btn btn-secondary btn-sm"  data-toggle="modal" data-target="#modal-8">
 Locations
 </a>
 									<a href="<?php echo base_url(); ?>employee/delete_emp/<?=$list->employee_id;?>" onClick="return confirm('Are you sure to delete this Employee ? This will delete all the related records on this Employee as well.')" class="btn btn-danger btn-sm btn-icon icon-left">
