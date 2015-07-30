@@ -338,7 +338,7 @@ public function insert_employee($info=false)
 			$lat=$a->Latitude;
 			$long=$a->Longitude;
 			$latlong = $lat."-".$long;
-				if(!$locations[$latlong]){
+				if(!$locations[$latlong]){ 
 						if($address=Location_track::track_address($lat, $long)){
 							$newlocation=array($lat."-".$long=>$address);
 							$locations= array_merge($locations, $newlocation);
