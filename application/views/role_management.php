@@ -57,10 +57,9 @@
 						});
 					});
 					</script>
-					<div class="" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">					
-					 <br>
+					<div class="table-responsive" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">	 <br>
 								 	 <br>
-                                <table class="table table-striped table-hover fill-head">
+                                <table  id="example-1"  class="table table-striped table-hover fill-head">
                                     <thead>
                                         <tr>
                                             <th>Users</th>

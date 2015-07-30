@@ -70,41 +70,41 @@ $su = $userdata['role_id'];
 					});
 					</script>
 					
-						<div class="" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
-					<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
-						<thead>
-							<tr>
-								<th>S. no</th>
-								<th>Departments</th>
-								<th>Action</th>
-							</tr>
-						</thead>
-					
-						<tfoot>
-							<tr>
-								<th>S. no</th>
-								<th>Departments</th>
-								<th>Action</th>
-							</tr>
-						</tfoot>
-					
-						<tbody>
-						<?php $i=1; foreach($list_department as $list){ ?>
-							<tr>
-								<td><?=$i;?></td>
-								<td><?php echo $list->department_name?></td>
-								<td>
-									<a href="<?php echo base_url(); ?>master/add_departments/<?=$list->department_id; ?>" class="btn btn-secondary btn-sm btn-icon icon-left">
-											Edit
-									</a>
-									<a href="<?php echo base_url(); ?>master/delete_departments/<?=$list->department_id; ?>" onClick="return confirm('Are you sure to delete this department ? This will delete all the related records on this department as well.')" class="btn btn-danger btn-sm btn-icon icon-left">
-											Delete
-									</a>
-								</td>
-							</tr>	
-					<?php $i++; }  ?>
-						</tbody>
-					</table>
+			<div class="table-responsive"  data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">	
+						<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+							<thead>
+								<tr>
+									<th>S. no</th>
+									<th>Departments</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+						
+							<tfoot>
+								<tr>
+									<th>S. no</th>
+									<th>Departments</th>
+									<th>Action</th>
+								</tr>
+							</tfoot>
+						
+							<tbody>
+							<?php $i=1; foreach($list_department as $list){ ?>
+								<tr>
+									<td><?=$i;?></td>
+									<td><?php echo $list->department_name?></td>
+									<td>
+										<a href="<?php echo base_url(); ?>master/add_departments/<?=$list->department_id; ?>" class="btn btn-secondary btn-sm btn-icon icon-left">
+												Edit
+										</a>
+										<a href="<?php echo base_url(); ?>master/delete_departments/<?=$list->department_id; ?>" onClick="return confirm('Are you sure to delete this department ? This will delete all the related records on this department as well.')" class="btn btn-danger btn-sm btn-icon icon-left">
+												Delete
+										</a>
+									</td>
+								</tr>	
+						<?php $i++; }  ?>
+							</tbody>
+						</table>
 					</div>			
 							</div>
 					</div>

@@ -1537,7 +1537,7 @@ blockquote small{margin-top:10px;display:block;}
 .panel > .table > thead > tr > td:after,
 .panel > .table > thead > tr > th:after{display:none;}
 .dataTables_wrapper .dataTables_length,
-.dataTables_wrapper .dataTables_filter{padding-bottom:5px;}
+.dataTables_wrapper .dataTables_filter{padding-bottom:5px; padding-top:8px;}
 .dataTables_wrapper .dataTables_filter .form-control{margin-left:10px;}
 .dataTables_wrapper .dataTables_info,
 .dataTables_wrapper .dataTables_paginate{padding-top:10px;}
