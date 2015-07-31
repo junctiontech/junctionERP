@@ -18,6 +18,7 @@ class Role extends CI_Controller {
 		$this->data['base_url']=base_url();
 		$this->load->library('session');
 		$this->load->library('authority');	
+		$this->load->helper('inflector');
 	
 	 }
 	public function index()
@@ -312,10 +313,14 @@ class Role extends CI_Controller {
 				{
 					redirect('role/role_management');
 				}
+				//$data=
 				$role=array(
-								'role_id'=>$this->input->post('role'),
-								'role_description'=>$this->input->post('role_description'),
+								'role_id'=>underscore($this->input->post('role')),
+								'role_description'=>$this->input->post('role_description')
 							);
+				//echo '<pre>';
+				//print_r($role);
+				//echo '</pre>';die;
 		$data = $this->input->post();
 		$value = "";
 		  if($this->input->post('edit_costing')==1)

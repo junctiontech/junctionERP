@@ -45,10 +45,11 @@
 					});
 					</script>
 					<div class="" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">					
-					<form action="<?php echo base_url(); ?>role/insert_role" method="POST">
+					<form action="<?php echo base_url(); ?>role/insert_role" method="POST" class="validate">
+								
 								   <div class="control-group">
                                         <div class="controls">
-                                         	<input type="text" placeholder="Role Name" name="role" class="form-control" />
+                                         	<input type="text" placeholder="Role Name" name="role" class="form-control" data-validate="required" />
                                         </div>
                                     </div>
 									</br>
@@ -79,8 +80,7 @@
 												<td>
 												 <div class="controls">
 													 <label class="checkbox">
-													 <input type="hidden" name="read[]" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
-											
+													 	<input type="hidden" name="read[]" value="0"><input type="checkbox" onclick="this.previousSibling.value=1-this.previousSibling.value">
 													 </label>
 												 </div>
 												</td>

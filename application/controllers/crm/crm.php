@@ -253,6 +253,17 @@ class Crm extends CI_Controller {
 	//redirect('crm/crm/customequick');
 	}
 	
+	
+	/*function for product view*/
+	public function products($info=false)
+	{
+		Authority::is_logged_in();
+		$this->parser->parse('include/header',$this->data);
+		$this->parser->parse('include/left_menu',$this->data);
+		$this->load->view('crm/products',$this->data);
+		$this->parser->parse('include/footer',$this->data);
+	}
+	
 }
 
 /* End of file attendance.php */

@@ -51,7 +51,7 @@
 										<label class="col-sm-2 control-label" for="field-1">Organization Description</label>
 										
 										<div class="col-sm-10">
-											<textarea class="form-control" name="organization_desc" /></textarea>
+											<textarea class="form-control" name="organization_desc" placeholder="Organization Description"  /></textarea>
 										</div>
 									</div>
 									<div class="form-group-separator"></div>

@@ -51,7 +51,7 @@
 						<p>Dear user, log in to access the admin area!</p>
 					</div>
 					<div class="form-group">
-									<select class="form-control " id="" name="organization_name">
+									<select class="form-control selectboxit" id="" name="organization_name">
 										<option></option>
 										<optgroup label="Organizations">
 										<?php foreach($list_organization as $list){?>
@@ -132,4 +132,9 @@
 	<script src="<?php echo base_url(); ?>assets/js/joinable.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/xenon-api.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/xenon-toggles.js"></script>
+	<!-- select 2 Scripts -->
+	<script src="<?php echo base_url(); ?>assets/js/select2/select2.min.js"></script>
+	<script src="<?php echo base_url(); ?>assets/js/jquery-ui/jquery-ui.min.js"></script>
+	<script src="<?php echo base_url(); ?>assets/js/selectboxit/jquery.selectBoxIt.min.js"></script>
+	<!-- select 2 Scripts -->
 <!-- login container ends -->

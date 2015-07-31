@@ -97,7 +97,7 @@ $su = $userdata['role_id'];
 										<a href="<?php echo base_url(); ?>master/add_departments/<?=$list->department_id; ?>" class="btn btn-secondary btn-sm btn-icon icon-left">
 												Edit
 										</a>
-										<a href="<?php echo base_url(); ?>master/delete_departments/<?=$list->department_id; ?>" onClick="return confirm('Are you sure to delete this department ? This will delete all the related records on this department as well.')" class="btn btn-danger btn-sm btn-icon icon-left">
+										<a href="<?php echo base_url(); ?>master/delete_departments/<?=$list->department_id; ?>" onClick="return confirm('Are you sure to delete this department ? This will delete all the related records on this department as well.') " class="btn btn-danger btn-sm btn-icon icon-left">
 												Delete
 										</a>
 									</td>

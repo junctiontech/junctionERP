@@ -9,10 +9,12 @@ class Home extends CI_Controller {
 		$this->load->library('parser');
 		$this->load->library('session');
 		$this->data['base_url']=base_url();
+		$this->load->library('authority');
 	 }
 	
 	 public function index()
 	 {
+	 	Authority::is_logged_in();
 	 	$this->parser->parse('include/header',$this->data);
 	 	$this->parser->parse('include/left_menu',$this->data);
 	 	$this->load->view('dashboard',$this->data);

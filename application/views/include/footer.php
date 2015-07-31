@@ -48,6 +48,7 @@
 	</div>	
 	
 				
+				
 
 				<script type="text/javascript">
 	
@@ -73,7 +74,80 @@
 	<script src="<?php echo base_url(); ?>assets/js/xenon-toggles.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/jquery-validate/jquery.validate.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/moment.min.js"></script>
+	<script type="text/javascript">
+			
+				$(document).ready(function(){
+				    var next = 1;
+				    $(".add-more").click(function(e){
+				        e.preventDefault();
+				        var addto = "#field" + next;
+				        var addRemove = "#field" + (next);
+				        next = next + 1;
+				        var newIn = '<input autocomplete="off" class="input form-control" id="field' + next + '" name="department_name[]" type="text">';
+				        var newInput = $(newIn);
+				        var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="field">';
+				        var removeButton = $(removeBtn);
+				        $(addto).after(newInput);
+				        $(addRemove).after(removeButton);
+				        $("#field" + next).attr('data-source',$(addto).attr('data-source'));
+				        $("#count").val(next);  
+				        
+				            $('.remove-me').click(function(e){
+				                e.preventDefault();
+				                var fieldNum = this.id.charAt(this.id.length-1);
+				                var fieldID = "#field" + fieldNum;
+				                $(this).remove();
+				                $(fieldID).remove();
+				            });
+				    });
+				    	    $(".add-designation").click(function(e){
+				        e.preventDefault();
+				        var addto = "#field" + next;
+				        var addRemove = "#field" + (next);
+				        next = next + 1;
+				        var newIn = '<input autocomplete="off" class="input form-control" id="field' + next + '" name="designation_name[]" type="text">';
+				        var newInput = $(newIn);
+				        var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="field">';
+				        var removeButton = $(removeBtn);
+				        $(addto).after(newInput);
+				        $(addRemove).after(removeButton);
+				        $("#field" + next).attr('data-source',$(addto).attr('data-source'));
+				        $("#count").val(next);  
+				        
+				            $('.remove-me').click(function(e){
+				                e.preventDefault();
+				                var fieldNum = this.id.charAt(this.id.length-1);
+				                var fieldID = "#field" + fieldNum;
+				                $(this).remove();
+				                $(fieldID).remove();
+				            });
+				    });
 
+				    	    $(".add-attribute").click(function(e){
+						        e.preventDefault();
+						        var addto = "#field" + next;
+						        var addRemove = "#field" + (next);
+						        next = next + 1;
+						        var newIn = '<input autocomplete="off" class="input form-control" id="field' + next + '" name="atttibute_name[]" type="text">';
+						        var newInput = $(newIn);
+						        var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="field">';
+						        var removeButton = $(removeBtn);
+						        $(addto).after(newInput);
+						        $(addRemove).after(removeButton);
+						        $("#field" + next).attr('data-source',$(addto).attr('data-source'));
+						        $("#count").val(next);  
+						        
+						            $('.remove-me').click(function(e){
+						                e.preventDefault();
+						                var fieldNum = this.id.charAt(this.id.length-1);
+						                var fieldID = "#field" + fieldNum;
+						                $(this).remove();
+						                $(fieldID).remove();
+						            });
+						    });
+				    
+				});
+				</script>
 		<script type="text/javascript">
 			function ajaxindicatorstart(text)
 			{
@@ -166,7 +240,7 @@
 	<script src="<?php echo base_url(); ?>assets/js/jquery-ui/jquery-ui.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/selectboxit/jquery.selectBoxIt.min.js"></script>
 	<!-- select 2 Scripts -->
-	
+
 	<!-- Imported scripts on this page -->
 	
 	<script src="<?php echo base_url(); ?>assets/js/jquery-validate/jquery.validate.min.js"></script>
@@ -180,16 +254,11 @@
 	 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap-fileupload/bootstrap-fileupload.css" />
    <script type="text/javascript" src="<?php echo base_url(); ?>assets/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
 	<!--file upload -->
+	<!-- validation script for space remove and special -->
+	<script src="<?php echo base_url(); ?>assets/js/inputmask/jquery.inputmask.bundle.js"></script>
 	<!-- JavaScripts initializations and stuff -->
+	
 	<script src="<?php echo base_url(); ?>assets/js/xenon-custom.js"></script>
-   <script>
-$(document).ready(function(){
-    $("button").click(function(){
-        $(".k").slideToggle();
-    });
-});
-
-
-</script>
+  	
 </body>
 </html>

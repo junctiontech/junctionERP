@@ -22,14 +22,12 @@ $a=$per->role_id;
                         <div class="box">
                             <div class="box-title">
                                 <h3><i class="icon-table"></i>Role:-  <?=$a?></h3>
-                               
-                            </div>
+                             </div>
                             <div class="box-content">
 								<form action="<?=base_url();?>index.php/role/update_role_permission/<?=$a;?>" method="POST">
 									<table class="table table-striped table-bordered ">
 										<thead>
 											<tr>
-												
 												<th>Functions</th>
 												<th>Read</th>
 												<th>Execute</th>
