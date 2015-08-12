@@ -15,11 +15,10 @@
 							<a href="javascript:;"><i class="fa-home"></i>Home</a>
 						</li>
 							<li class="active">
-						
-										<strong>Add  Role</strong>
-								</li>
+								<strong>Add  Role</strong>
+							</li>
 							
-								</ol>
+					</ol>
 								
 				</div>
 					
@@ -49,13 +48,13 @@
 								
 								   <div class="control-group">
                                         <div class="controls">
-                                         	<input type="text" placeholder="Role Name" name="role" class="form-control" data-validate="required" />
+                                         		<input type="text" placeholder="Role Name" id="space" name="role" class="form-control" pattern="^\S+$" required />
                                         </div>
                                     </div>
 									</br>
 									<div class="control-group">
                                         <div class="controls">
-                                         	<input type="text" placeholder="Role Description" name="role_description" class="form-control" />
+                                         	<input type="text" placeholder="Role Description" name="role_description" id="role_description" required  class="form-control" />
                                         </div>
                                     </div>
 									</br>
@@ -99,7 +98,7 @@
 									</table>
 								</br>
 								   <div class="form-actions">
-                                      <button type="submit" class="btn btn-primary">Submit</button>
+                                      <button type="submit" onclick="space_alert()" class="btn btn-primary">Submit</button>
                                       <button type="button" class="btn">Cancel</button>
                                    </div>
 					</form>

@@ -248,21 +248,13 @@ class Crm extends CI_Controller {
 		$get_followup_list=$this->data['get_followup_list'] = $this->customer_model->get_followup_list('customers_follow_up',$filter);
 		//print_r($get_followup_list);die;
 		$this->data['userid']=$userid;
+		$this->load->view('crm/modal/modal',$this->data);
 		
-	$this->load->view('crm/modal/modal',$this->data);
 	//redirect('crm/crm/customequick');
 	}
 	
 	
-	/*function for product view*/
-	public function products($info=false)
-	{
-		Authority::is_logged_in();
-		$this->parser->parse('include/header',$this->data);
-		$this->parser->parse('include/left_menu',$this->data);
-		$this->load->view('crm/products',$this->data);
-		$this->parser->parse('include/footer',$this->data);
-	}
+
 	
 }
 

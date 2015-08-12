@@ -225,7 +225,7 @@
 								</a>
 							</li>
 							<li class="">
-								<a href="javascript:;">
+								<a href="<?php echo base_url();?>crm/product/manage_product">
 									<span class="title">Products</span>
 								</a>
 							</li>
@@ -285,7 +285,7 @@
 								</a>
 							</li>
 							<li class="javascript:;">
-								<a href="<?php echo base_url(); ?>crm/crm/products">
+								<a href="<?php echo base_url(); ?>crm/product/manage_product">
 								<i class="linecons-user"></i>
 									<span class="title">Products</span>
 								</a>

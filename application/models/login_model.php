@@ -69,9 +69,44 @@ class Login_model extends CI_Model
     }
     
     /*  function for insert change password  */
-	function change($filter=false,$data=false,$table=false)
+	function change($filter=false,$data=false)
 	{
 			$this->db->where($filter);
-			$this->db->update('ssr_t_users',$data);
+			$this->db->update('users',$data);
+	}
+	
+	/*  function for insert check password  */
+	function check_pwd($check=false,$table=false)
+	{
+		$qry=$this->db->get_where($table,$check);
+		return $qry->result();
+		//$this->db->update('users',$data);
+	}
+	
+	/*	function for check organization	*/
+	function check_org($val)
+	{
+		$qry=$this->db->get_where('organization',array('organization_name'=>$val));
+		return $qry->result();
+	}
+	
+	/*	function for insert organization  */
+	function insert_organization($organization_name)
+	{
+		$this->db->insert('organization',array('organization_name'=>$organization_name));
+	}
+	
+	/*	function for fetch organization id */
+	function organization_id($organization_name)
+	{
+		$this->db->select('organization_id');
+		$qry=$this->db->get_where('organization',array('organization_name'=>$organization_name));
+		return $qry->row();
+	}
+	
+	
+	function insert_users($data,$table)
+	{
+		$this->db->insert($table,$data);
 	}
 }

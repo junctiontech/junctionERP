@@ -2,24 +2,17 @@
 <!-- added by palak on 20thjune -->
 <body class="page-body  login-page login-light">
 <div class="login-container">
-	
-		<div class="row">
-		
-			<div class="col-sm-6">
-			
-				<script type="text/javascript">
+	<div class="row">
+		<div class="col-sm-6">
+			<script type="text/javascript">
 					jQuery(document).ready(function($)
 					{
 						// Reveal Login form
 						setTimeout(function(){ $(".fade-in-effect").addClass('in'); }, 1);
-						
-						
-				
-						
-						// Set Form focus
+							// Set Form focus
 						$("form#login .form-group:has(.form-control):first .form-control").focus();
 					});
-				</script>
+			</script>
 				
 				<!-- Errors container -->
 				<div class="errors-container">
@@ -29,7 +22,7 @@
 										<strong><?=$this->session->flashdata('message')?></strong> 
 									</div>
 								</div>
-<?php }?>
+<?php } ?>
 				<?php  if($this->session->flashdata('category_success')) { ?>
 								<div class="row-fluid">
 									<div class="alert alert-success">
@@ -92,42 +85,30 @@
 			</div>
 			
 		</div>
-		
 		<div class="row">
 			<div class="col-md-12">
-					<footer class="main-footer sticky footer-type-1" style="margin-right: 0px;">
-				
-				<div class="footer-inner">
-				
-					<!-- Add your copyright text here -->
-					<div class="footer-text text-black" >
-						&copy; <?php echo date("Y"); ?> 
-						<strong >Junction ERP.Copyright<a href="http://junctiontech.in/" target="_blank"> Junction Software Pvt.Ltd	</a></strong> 
-						Mobile Number- 8109069226 				</div>
-					
-					
-					<!-- Go to Top Link, just add rel="go-top" to any link to add this functionality -->
-					<div class="go-up">
-					
-						<a href="javascript:;" rel="go-top">
-							<i class="fa-angle-up"></i>
-						</a>
-						
+				<footer class="main-footer sticky footer-type-1" style="margin-right: 0px;">
+					<div class="footer-inner">
+						<!-- Add your copyright text here -->
+						<div class="footer-text text-black" >
+								&copy; <?php echo date("Y"); ?> 
+								<strong >Junction ERP.Copyright<a href="http://junctiontech.in/" target="_blank"> Junction Software Pvt.Ltd	</a></strong> 
+								Mobile Number- 8109069226 				
+						</div>
+							<!-- Go to Top Link, just add rel="go-top" to any link to add this functionality -->
+							<div class="go-up">
+								<a href="javascript:;" rel="go-top">
+									<i class="fa-angle-up"></i>
+								</a>
+						  </div>
 					</div>
-					
-				</div>
-				
-			</footer>
+				</footer>
 			</div>
-		
 		</div>
-		
-		
-		
 	</div>
-		<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/xenon-custom.js"></script>
-		<script src="<?php echo base_url(); ?>assets/js/TweenMax.min.js"></script>
+	<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+	<script src="<?php echo base_url(); ?>assets/js/xenon-custom.js"></script>
+	<script src="<?php echo base_url(); ?>assets/js/TweenMax.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/resizeable.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/joinable.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/xenon-api.js"></script>

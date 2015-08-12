@@ -11,13 +11,22 @@ class Authority_model extends CI_Model
     }
 		
 		/*   Function for start assign user list for user_role view    */
-	function verify_list()
+	function su_verify_list()
 	{
 		$this->db->select('*');
-		$this->db->where('user_id !=', 1);
 		$qry=$this->db->get('users');
 		return $qry->result();
 	}
+	
+	/*   Function for list user for organization id    */
+	function verify_list($organization)
+	{
+		$this->db->select('*');
+		$this->db->where('organization_id',$organization);
+		$qry=$this->db->get('users');
+		return $qry->result();
+	}
+	
 	
 		/*    Start function for retrieve function list for add role     */
 	function list_function()

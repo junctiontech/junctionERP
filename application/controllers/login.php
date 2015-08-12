@@ -19,7 +19,8 @@ class Login extends CI_Controller {
 	
 	//signup
 	public function index()
-	{
+	{	
+		$list_organization = $this->data['list_organization'] = $this->organization_model->list_organization();
 		$this->parser->parse('include/header',$this->data);
 		$this->load->view('signup',$this->data);//login page view
 		$this->parser->parse('include/footer',$this->data);
@@ -124,22 +125,51 @@ class Login extends CI_Controller {
 					/* Function for sign up for new user */
 	function sign_up()
 	{
-		$a = $this->input->post('usermailid');
-		$q = $this->login_model->insert_sign('ssr_t_users',$a);
-	    if($q)
-			{
-				$this->session->set_flashdata('category_error', 'Error message');  
-				$this->session->set_flashdata('message',$this->config->item("user").'Email id already exist'); 
-				$this->session->$a;
-				  redirect('login');
-			}
-		else
-		   {
-				$this->session->set_flashdata('category_success', 'success message	');        
-				$this->session->set_flashdata('message', $this->config->item("user").' Data Inserted successfully');
-				redirect('login/login_view');
-		   }
+		$organization_name=$this->input->post('organization_name');
+		if($organization_name)
+		{
+			$organization=$this->data['organization']=$this->login_model->insert_organization($organization_name);
+			$organization_id=$this->data['organization_id']=$this->login_model->organization_id($organization_name);
+			$org_id=$organization_id->organization_id;
+			$data=array(
+						'organization_id'=>$org_id,
+						'user_id'=>$this->input->post('username'),
+						'usermailid'=>$this->input->post('usermailid'),
+						'password'=>$this->input->post('password'),
+					   );
+			$organization=$this->data['organization']=$this->login_model->insert_users($data,'users');
+			$this->session->set_flashdata('category_success', 'success message	');
+			$this->session->set_flashdata('message', $this->config->item("user").' Please login with your organization');
+			redirect('login/login_view');
+		}
 		
+	}
+	
+	
+	function check_org()
+	{
+		$val= $this->input->post('val');
+		$check_org=$this->data['check_org']=$this->login_model->check_org($val);
+		if($check_org)
+		{
+			?>
+				<span class="alert alert-danger"> Organization Is Already Exist </span>
+			<?php 
+		}
+	}
+	
+	
+	function org_list()
+	{
+		$val=$this->input->post('val');
+		?>
+	
+   <?php// $c='24.5730313'; ?>
+ 
+    <body>
+    <div id="map-canvas"></div>
+  </body>
+		<?php
 	}
 	
 }

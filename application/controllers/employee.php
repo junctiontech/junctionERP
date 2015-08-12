@@ -67,7 +67,7 @@ public function insert_employee($info=false)
 			$des=NULL;
 		}
 		$users=$this->input->post('user_id');
-		if($users=='0')
+		if($users=='')
 		{
 			$users=NULL;
 		}
@@ -111,7 +111,7 @@ public function insert_employee($info=false)
 							'organization_id'=>$info,
 							'department_id'=>$dep,
 							'designation_id'=>$des,
-							'user_id'=>$user_ids,
+							'user_id'=>$users,
 							//'username'=>$this->input->post('username'),
 							'imei'=>$this->input->post('imei'),
 							'salary_frquency'=>$this->input->post('salary_frquency'),
@@ -181,6 +181,11 @@ public function insert_employee($info=false)
 		{
 			$des=NULL;
 		}
+		$users=$this->input->post('user_id');
+		if($users=='')
+		{
+			$users=NULL;
+		}
 		//print_r($info);die;
 			if($first_name!=='')
 		{
@@ -236,7 +241,7 @@ public function insert_employee($info=false)
 							'organization_id'=>$info,
 							'department_id'=>$dep,
 							'designation_id'=>$des,
-							'user_id'=>$this->input->post('user_id'),
+							'user_id'=>$users,
 							'imei'=>$this->input->post('imei'),
 							'salary_frquency'=>$this->input->post('salary_frquency'),
 							'joining_date'=>$this->input->post('joining_date'),
@@ -328,23 +333,37 @@ public function insert_employee($info=false)
 		$user_id= $info;
 		$action_array = $this->employee_model->tracking_detail('tracking',$imei,$from,$to);
 		if(!empty($action_array)){
-			$array=array(0=>array(0=>'',1=>'IMEI NUMBER:-',2=>$action_array[0]->imei),1=>array(0=>'Serial number',1=>'datetime',2=>'Locations'),2=>array(0=>'',1=>'',2=>'',3=>'',4=>''));
+			$array=array(0=>array(0=>'',1=>'IMEI NUMBER:-',2=>$action_array[0]->imei),1=>array(0=>'Serial number',1=>'date',2=>'time',3=>'Locations'),2=>array(0=>'',1=>'',2=>'',3=>'',4=>''));
 			
 			$locations=array();
-			
+			echo'ar';
 			foreach($action_array as $key=>$a)
 			{
 			error_reporting(0);
 			$lat=$a->Latitude;
 			$long=$a->Longitude;
 			$latlong = $lat."-".$long;
-				if(!$locations[$latlong]){ 
+			//echo $latlong;
+			if(!$locations[$latlong])
+			{ 
+				echo 'in fecth';
+				$local_db=$this->data['local_db']=$this->employee_model->local_db($lat,$long);
+				$newarray=array($local_db->Latitude."-".$local_db->Longitude=>$local_db->address);
+				$locations= array_merge($locations, $newarray);
+				if(!$local_db){  
 						if($address=Location_track::track_address($lat, $long)){
+							$data=array(
+									'Latitude'=>$lat,
+									'Longitude'=>$long,
+									'address'=>$address
+										);
+						$q = $this->employee_model->insert_track('physical_address',$data);//echo $address;
 							$newlocation=array($lat."-".$long=>$address);
 							$locations= array_merge($locations, $newlocation);
 						}
+				}
 			}
-				$array2=array($key+1,$a->datetime,$locations[$latlong]);
+				$array2=array($key+1,$a->date,$a->time,$locations[$latlong]);
 				array_push($array,$array2);
 			}
 			$filename=$name.'.xls';
@@ -370,9 +389,7 @@ public function insert_employee($info=false)
 	{
 		$this->data['imei']=$imei;
 		$this->data['name']=$name;
-		$this->parser->parse('include/header',$this->data);
 		$this->load->view('excell_location',$this->data);
-		$this->parser->parse('include/footer',$this->data);
 	}
 	
 	public function emp_award()
@@ -388,6 +405,20 @@ public function insert_employee($info=false)
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('view_emp',$this->data);
 		$this->parser->parse('include/footer',$this->data);
+	}
+	public function location_map($imei=false)
+	{
+		$last_location=$this->data['last_location']=$this->employee_model->last_location($imei);
+		$a=count($last_location)-1;
+		//echo $a-1;
+		//echo "<pre>";
+		//print_r($last_location[$a]);
+		//echo "</pre>"; 
+		$lat=$last_location[$a]->Latitude;
+		$lng=$last_location[$a]->Longitude;
+		$this->data['lat']=$lat;
+		$this->data['lng']=$lng;
+		$this->load->view('location_map',$this->data);
 	}
 }
 

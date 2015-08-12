@@ -1,19 +1,16 @@
+<?php //print_r( $list_organization);?>
 <!-- Signup page starts  -->
 <!-- added by palak on 22ndjune -->
 <body class="page-body login-page login-light">
 <div class="login-container">
-	
-		<div class="row">
-		
-			<div class="col-sm-6">
-			
-				<script type="text/javascript">
+	<div class="row">
+		<div class="col-sm-6">
+			<script type="text/javascript">
 					jQuery(document).ready(function($)
 					{
 						// Reveal Login form
 						setTimeout(function(){ $(".fade-in-effect").addClass('in'); }, 1);
-						
-						
+
 						// Validation and Ajax action
 						$("form#login").validate({
 							rules: {
@@ -100,7 +97,7 @@
 											$(".errors-container .alert").hide().slideDown();
 											$(form).find('#passwd').select();
 										}
-																		}
+									}
 								});
 								
 							}
@@ -114,48 +111,38 @@
 				<!-- Errors container -->
 		
 				<div class="errors-container">
-<?php  if($this->session->flashdata('category_error')) { ?>
+<?php if($this->session->flashdata('category_error')) { ?>
 								<div class="row-fluid">
-									<div class="alert alert-danger">
+									<div class="alert alert-danger" >
 										<strong><?=$this->session->flashdata('message')?></strong> 
 									</div>
 								</div>
 <?php } ?>
-									
 				</div>
 				
 				<!-- Add class "fade-in-effect" for login form effect -->
 
 				<form method="post" role="form" id="" class="login-form fade-in-effect" action="<?=base_url();?>login/sign_up">
-
-					
 					<div class="login-header">
-					
-							<img src="<?php echo base_url(); ?>assets/images/junctionerplogo.png" alt="" width="100" />
-				
-						
-						<p>Dear user, log in to access the admin area!</p>
+						<img src="<?php echo base_url(); ?>assets/images/junctionerplogo.png" alt="" width="300" />
+						<p>Dear user, Registerd your organization !</p>
 					</div>
-	
-					
+					<span id="chk_org"></span>
 					<div class="form-group">
-						<label class="control-label" for="username">User mail id</label>
+						<label class="control-label" for="password-2">Please Enter Organization Name</label>
+						<input type="text" class="form-control" name="organization_name" id="password-2" autocomplete="off"  onchange="check_organization(this.value)"/>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="username">mail id</label>
 						<input type="text" class="form-control" name="usermailid" id="username" autocomplete="off" />
 					</div>
-					
+					<div class="form-group">
+						<label class="control-label" for="">User name</label>
+						<input type="text" class="form-control" name="username" id="" autocomplete="off" />
+					</div>
 					<div class="form-group">
 						<label class="control-label" for="passwd">Password</label>
 						<input type="password" class="form-control" name="password" id="passwd" autocomplete="off" />
-					</div>
-
-					<div class="form-group">
-						<label class="control-label" for="password-2">Re-enter Password</label>
-						<input type="password" class="form-control" name="password-2" id="password-2" autocomplete="off" />
-					</div>
-					<div class="form-group">
-						<label class="control-label" for="username">User name</label>
-						<input type="text" class="form-control" name="username" id="username" autocomplete="off" />
-
 					</div>
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary  btn-block text-left">
@@ -165,18 +152,11 @@
 					</div>
 					<div class="login-footer">
 						<a href="#">Forgot your password?</a>
-						<br>Already User ? <a href="<?php echo base_url(); ?>login/login_view"> Login</a>
-					
-						
+						<br>Already User ? <a href="<?php //echo base_url(); ?>login/login_view"> Login</a>
 					</div>
-					
 				</form>
-				
-				
-				
 			</div>
-			
 		</div>
-		
 	</div>
 <!-- login container ends -->
+<script type="text/javascript" src="<?php echo base_url(); ?>js/common_function.js"></script>

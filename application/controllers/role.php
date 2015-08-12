@@ -67,16 +67,28 @@ class Role extends CI_Controller {
 					redirect('home');
 				}
 			$user_data=$user_session_data = $this->session->userdata('user_data');
-			$data = array(
-				'password' => $this->input->post('password')
-				);
-				$filter=array(
-				'user_id' => $user_data['user_id']
-				);
-				$this->login_model->change($filter,$data,'users');
-				$this->session->set_flashdata('message_type', 'success');        
-				$this->session->set_flashdata('message', $this->config->item("user").'Password updated successfully');
-				redirect('home');
+			$check=array(
+				'password'=>$this->input->post('old_password')	
+						);
+			$check=$this->data['check']=$this->login_model->check_pwd($check,'users');
+			if($check)
+				 {
+					$data = array(
+						'password' => $this->input->post('password')
+						);
+						$filter=array(
+						'user_id' => $user_data['user_id']
+						);
+						$this->login_model->change($filter,$data);
+						$this->session->set_flashdata('category_success', 'success');        
+						$this->session->set_flashdata('message', $this->config->item("user").'Password updated successfully');
+						redirect('home');
+				 }
+			else {
+					$this->session->set_flashdata('category_error', 'success');
+					$this->session->set_flashdata('message', $this->config->item("user").'Old Password Does Not Match');
+					redirect('role/acc_setting');
+				 }
 				
 	}
 	
@@ -85,9 +97,15 @@ class Role extends CI_Controller {
 	{	
 				Authority::is_logged_in();
 				Authority::checkAuthority('user_role');
-		//$users_list=$this->data['users_list']=$this->authority_model->users_list();
+		$userdata = $this->session->userdata('user_data');
+		$organization=$userdata['organization_id'];
+		$su= $userdata['role_id'];
 		$role_list=$this->data['role_list']=$this->authority_model->role_list();
-		$verify_list=$this->data['verify_list']=$this->authority_model->verify_list();
+		if($su!=='superuser')
+		{
+			$verify_list=$this->data['verify_list']=$this->authority_model->verify_list($organization);
+		}
+		$su_verify_list=$this->data['su_verify_list']=$this->authority_model->su_verify_list();
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('user_role',$this->data);

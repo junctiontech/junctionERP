@@ -101,7 +101,7 @@ $su = $userdata['role_id'];
 												<div class="col-md-6">
 													<div class="form-group">
 														<label class="control-label" for="first_name">First Name *</label>
-														<input class="form-control" name="first_name" id="first_name"  placeholder="Your first name" />
+														<input class="form-control" name="first_name" id="first_name"  placeholder="Your first name" required/>
 													</div>
 												</div>
 													<div class="col-md-6">
@@ -347,7 +347,9 @@ $su = $userdata['role_id'];
 												</div>
 												
 											</div>
-											
+											<div class="form-group">
+												<button type="submit" class="btn btn-primary">Add Employee</button>
+											</div>
 										</div>
 										<!-- tab 2 closed -->
 										<div class="tab-pane with-bg" id="fwv-3">
@@ -420,7 +422,9 @@ $su = $userdata['role_id'];
 																	 </div>
 													</div>
 											</div>
-										
+										<div class="form-group">
+												<button type="submit" class="btn btn-primary">Add Employee</button>
+											</div>
 										</div><!-- tab 3 closed -->
 										
 										<div class="tab-pane with-bg" id="fwv-4">
@@ -451,6 +455,9 @@ $su = $userdata['role_id'];
 														<input class="form-control" name="acc_no" id="acc_no"  placeholder="Account No." />
 													</div>
 												</div>
+											</div>
+											<div class="form-group">
+												<button type="submit" class="btn btn-primary">Add Employee</button>
 											</div>
 									</div>
 										
@@ -491,7 +498,7 @@ $su = $userdata['role_id'];
 													<div class="input-group-addon">
 														<i class="linecons-mobile"></i>
 													</div>
-													<input type="text" class="form-control" name="imei" id="imei"  data-validate="" data-message-minlength="" placeholder="Please enter imei number" />
+													<input type="text" class="form-control" name="imei" id="imei"  data-validate="" data-message-minlength="" placeholder="Please enter imei number" required />
 												</div>
 											</div>
 											</div>
@@ -921,7 +928,9 @@ $su = $userdata['role_id'];
 							</div>
 							
 						</div>
-						
+						<div class="form-group">
+												<button type="submit" class="btn btn-primary">Save Employee</button>
+											</div>
 					</div>
 					<!-- tab 2 closed -->
 					<div class="tab-pane with-bg" id="fwv-3">
@@ -994,7 +1003,9 @@ $su = $userdata['role_id'];
 		                                         </div>
 								</div>
 						</div>
-							
+							<div class="form-group">
+												<button type="submit" class="btn btn-primary">Save Employee</button>
+											</div>
 					
 					</div><!-- tab 3 closed -->
 					
@@ -1027,6 +1038,9 @@ $su = $userdata['role_id'];
 								</div>
 							</div>
 						</div>
+						<div class="form-group">
+												<button type="submit" class="btn btn-primary">Save Employee</button>
+											</div>
 				</div>
 					
 						<div class="tab-pane with-bg" id="fwv-5">
@@ -1112,7 +1126,7 @@ $su = $userdata['role_id'];
 													<div class="input-group-addon">
 														<i class="linecons-user"></i>
 													</div>
-													<input type="text" class="form-control" name="user_id" id="user_id"  data-validate="minlength[1]" data-message-minlength="" placeholder="" />
+													<input type="text" class="form-control" name="user_id" id="user_id" value="<?php echo $list->user_id?>"  data-validate="minlength[1]" data-message-minlength="" placeholder="" />
 												</div>
 											</div>
 											</div>	
@@ -1123,7 +1137,7 @@ $su = $userdata['role_id'];
 													<div class="input-group-addon">
 														<i class="linecons-mobile"></i>
 													</div>
-													<input type="text" class="form-control" name="imei" id="imei"  data-validate="" data-message-minlength="" placeholder="Please enter imei number" />
+													<input type="text" class="form-control" name="imei" id="imei" value="<?php echo $list->imei?>" data-validate="" data-message-minlength="" placeholder="Please enter imei number" />
 												</div>
 											</div>
 											</div>

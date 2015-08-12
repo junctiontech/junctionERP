@@ -169,7 +169,12 @@ $su= $userdata['role_id'];
 					<div class="form-group">
 						<div class="col-md-6">
 							<label class="control-label" for="field-5">Contact Time Follow Up</label>
-							<input type="text" class="form-control" id="" data-validate=""  placeholder="" name="contact_t_follow_up">
+							<div class="input-group">
+								<input type="text" class="form-control timepicker" id="" data-validate=""  placeholder="" name="contact_t_follow_up">
+								<div class="input-group-addon">
+									<a href="javascript:;"><i class="linecons-clock"></i></a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -349,10 +354,15 @@ $su= $userdata['role_id'];
 				<div class="row">
 				 <div class="col-md-6">
 				   <div class="form-group">
-					  	<label class="control-label" for="field-5">Contact Time Follow Up</label>
-							<input type="text" class="form-control" id="" data-validate=""  placeholder="" name="contact_t_follow_up" value="<?=$list->contact_t_follow_up;?>" >
+					  		<label class="control-label" for="field-5">Contact Time Follow Up</label>
+					  		<div class="input-group">
+								<input type="text" class="form-control timepicker" id="" data-validate=""  placeholder="" name="contact_t_follow_up" value="<?=$list->contact_t_follow_up;?>" >
+								<div class="input-group-addon">
+									<a href="javascript:;"><i class="linecons-clock"></i></a>
+								</div>
 						</div>
 					</div>
+				</div>
 					 <div class="col-md-6">
 					<div class="form-group">
 							<label class="control-label" for="field-5">Comments</label>

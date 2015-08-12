@@ -22,6 +22,6 @@ class Home extends CI_Controller {
 	 }
 	
 }
-
+// just like that
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */

@@ -108,13 +108,33 @@ class Employee_model extends CI_Model {
 		//$qry=$this->db->get($table);     
 		//print_r($qry);die;
 		//return $qry->result();select * from person 
-$qry=$this->db->query("select * from tracking where `imei`='".$imei."' and DATE(datetime) between '".$from."' and '".$to."' ");
+$qry=$this->db->query("select * from tracking where `imei`='".$imei."' and DATE(date) between '".$from."' and '".$to."' ");
 				//print_r($qry);die;
 				return $qry->result();
 		
 	}
 	
+	public function insert_track($table,$data)
+	{
+		$this->db->insert($table,$data);
+	}
 	
+	public function local_db($lat,$long)
+	{
+		echo 'hiiiiii';
+		$qry=$this->db->get_where('physical_address',array('Latitude'=>$lat,'Longitude'=>$long));
+		return $qry->row();
+		//print_r($qry);die;
+	}
+	
+	public function last_location($imei=false)
+	{	
+		
+		$this->db->select('*');
+		$this->db->where('imei',$imei);
+		$qry=$this->db->get('tracking');
+		return $qry->result();
+	}
 	
 }
 //Model Class for Employee end
