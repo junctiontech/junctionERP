@@ -136,6 +136,7 @@ class Login extends CI_Controller {
 						'user_id'=>$this->input->post('username'),
 						'usermailid'=>$this->input->post('usermailid'),
 						'password'=>$this->input->post('password'),
+						'role_id'=>'admin',
 					   );
 			$organization=$this->data['organization']=$this->login_model->insert_users($data,'users');
 			$this->session->set_flashdata('category_success', 'success message	');
@@ -153,24 +154,24 @@ class Login extends CI_Controller {
 		if($check_org)
 		{
 			?>
-				<span class="alert alert-danger"> Organization Is Already Exist </span>
+				<span class="alert alert-danger"> Organization Already Exist Please Enter Another Organization</span>
 			<?php 
 		}
 	}
 	
-	
-	function org_list()
+	function email_chek()
 	{
-		$val=$this->input->post('val');
-		?>
+		$val= $this->input->post('val');
+		$email_chek=$this->data['email_chek']=$this->login_model->email_chek($val);
+		if($email_chek)
+		{
+			?>
+					<span class="alert alert-danger"> Email  Already Exist Please Enter Another Email</span>
+				<?php 
+			}
+		}
 	
-   <?php// $c='24.5730313'; ?>
- 
-    <body>
-    <div id="map-canvas"></div>
-  </body>
-		<?php
-	}
+	
 	
 }
 /* End of login controller */

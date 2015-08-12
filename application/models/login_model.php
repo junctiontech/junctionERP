@@ -90,6 +90,13 @@ class Login_model extends CI_Model
 		return $qry->result();
 	}
 	
+	/*	function for check email	*/
+	function email_chek($val)
+	{
+		$qry=$this->db->get_where('users',array('usermailid'=>$val));
+		return $qry->result();
+	}
+	
 	/*	function for insert organization  */
 	function insert_organization($organization_name)
 	{

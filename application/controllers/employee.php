@@ -418,7 +418,10 @@ public function insert_employee($info=false)
 		$lng=$last_location[$a]->Longitude;
 		$this->data['lat']=$lat;
 		$this->data['lng']=$lng;
+		$this->parser->parse('include/header',$this->data);
+		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('location_map',$this->data);
+		$this->parser->parse('include/footer',$this->data);
 	}
 }
 
