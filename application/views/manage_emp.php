@@ -129,7 +129,7 @@ $su= $userdata['role_id'];
 							</tfoot>
 							<?php foreach ($list_employee as $key=>$list){ ?>
 							<tbody>
-								<tr>'
+								<tr>
 									<td><?=$list->employee_id;?></td>
 									<td><?=$list->first_name;?></td>
 									<td><?=$list->department_id?> > <?=$list->designation_id;?></td>
@@ -137,9 +137,10 @@ $su= $userdata['role_id'];
 									<td><a href="<?php echo base_url(); ?>employee/view_emp" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"><span class="fa fa-list-alt"></span></a></td>
 									<td>
 										<a href="<?php echo base_url(); ?>employee/add_emp/<?=$list->employee_id;?>" class="btn btn-theme btn-sm btn-icon icon-left"><i class="fa fa-pencil"></i>	Edit</a>
-										<a href="<?php echo base_url(); ?>employee/excell_location/<?=$list->imei;?>/<?=$list->first_name;?>" class="btn btn-secondary btn-sm"  data-toggle="modal" data-target="#modal-8"> Locations</a>
+										<?php $name= $list->first_name; $emp_name=str_replace(' ','_',$name); ?> 
+										<a href="<?php echo base_url(); ?>employee/excell_location/<?=$list->imei;?>/<?=$emp_name ?>" class="btn btn-secondary btn-sm"  data-toggle="modal" data-target="#modal-8"> Locations</a>
 										<!-- <button class="btn btn-blue btn-sm btn-icon icon-left" id="button" onclick="showhide()"><i class="fa fa-download"></i> Download</button>
-										  <a href="<?php echo base_url(); ?>employee/updateaddress/<?=$list->imei;?>/<?=$list->first_name;?>" class="btn btn-blue btn-sm btn-icon icon-left">
+										  <a href="<?php echo base_url(); ?>employee/updateaddress/<?=$list->imei;?>" class="btn btn-blue btn-sm btn-icon icon-left">
 										<i class="fa fa-download"></i>		Excel Download
 										</a>-->
 										<a href="<?php echo base_url(); ?>employee/location_map/<?=$list->imei;?>"  class="btn btn-theme btn-sm btn-icon icon-left"><i class="fa fa-pencil"></i> Last Location</a>
