@@ -124,7 +124,6 @@ $su= $userdata['role_id'];
 									<th>Mobile</th>
 									<th>View</th>
 									<th>Action</th>
-									
 								</tr>
 							</tfoot>
 							<?php foreach ($list_employee as $key=>$list){ ?>

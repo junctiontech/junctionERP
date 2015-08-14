@@ -126,6 +126,8 @@ class Login extends CI_Controller {
 	function sign_up()
 	{
 		$organization_name=$this->input->post('organization_name');
+		$email=$this->input->post('usermailid');
+		//echo $email;die;
 		if($organization_name)
 		{
 			$organization=$this->data['organization']=$this->login_model->insert_organization($organization_name);
@@ -139,13 +141,13 @@ class Login extends CI_Controller {
 						'role_id'=>'admin',
 					   );
 			$organization=$this->data['organization']=$this->login_model->insert_users($data,'users');
+			
 			$this->session->set_flashdata('category_success', 'success message	');
 			$this->session->set_flashdata('message', $this->config->item("user").' Please login with your organization');
 			redirect('login/login_view');
 		}
 		
 	}
-	
 	
 	function check_org()
 	{
