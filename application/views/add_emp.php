@@ -251,65 +251,18 @@ $su = $userdata['role_id'];
 														</div>
 													</div>
 												</div>
-														<div class="col-md-4">
-												<div class="form-group">
+												<div class="col-md-4">
+													<div class="form-group">
 														<label class="control-label">Country</label>
-																	
-														<select class="form-control" name="country" id="s2example-1">
+														<select class="form-control selectboxit" name="country" id="s2example-1" onchange="count(this.value)" />
 															<option></option>
-																					
-															<optgroup label="Asia">
-																<option>Afghanistan</option>
-																<option>Bahrain</option>
-																<option>Bangladesh</option>
-																<option>Bhutan</option>
-																<option>Brunei</option>
-																<option>Cambodia</option>
-																<option>China</option>
-																<option>East Timor</option>
-																<option value="india">India</option>
-																<option>Indonesia</option>
-																<option>Iran</option>
-																<option>Iraq</option>
-																<option>Israel</option>
-																<option>Japan</option>
-																<option>Jordan</option>
-																<option>Kazakhstan</option>
-																<option>Korea North</option>
-																<option>Korea South</option>
-																<option>Kuwait</option>
-																<option>Kyrgyzstan</option>
-																<option>Laos</option>
-																<option>Lebanon</option>
-																<option>Malaysia</option>
-																<option>Maldives</option>
-																<option>Mongolia</option>
-																<option>Myanmar (Burma)</option>
-																<option>Nepal</option>
-																<option>Oman</option>
-																<option>Pakistan</option>
-																<option>The Philippines</option>
-																<option>Qatar</option>
-																<option>Russia</option>
-																<option>Saudi Arabia</option>
-																<option>Singapore</option>
-																<option>Sri Lanka</option>
-																<option>Syria</option>
-																<option>Taiwan</option>
-																<option>Tajikistan</option>
-																<option>Thailand</option>
-																<option>Turkey</option>
-																<option>Turkmenistan</option>
-																<option>United Arab Emirates</option>
-																<option>Uzbekistan</option>
-																<option>Vietnam</option>
-																<option>Yemen</option>
+															<optgroup label="Please Select Country">
+															<?php foreach($list_country as $list) { ?>
+															<option value="<?=$list->sortname?>" ><?php echo $list->name;?> </option>
+															<?php } ?>
 															</optgroup>
 														</select>
-															
-															
 													</div>
-													
 												</div>
 											</div>
 											<div class="row">
@@ -1187,4 +1140,4 @@ $su = $userdata['role_id'];
 			<!-- Form Ends -->
 			</div>
 	</div>
-	
+<script type="text/javascript" src="<?php echo base_url(); ?>js/common_function.js"></script>

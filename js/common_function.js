@@ -25,6 +25,18 @@ function email_chek(val)
 	});
 }
 
+function email_forget(val)
+{
+	$.ajax({
+		type:'POST',
+		url:'login/email_forget',
+		data:{val:val},
+	})
+	.done(function(msg){
+		$("#chk_org").html(msg);
+	});
+}
+
 function org_list(val)
 {
 	//alert(val);
@@ -82,4 +94,10 @@ function emailid()
 		{
 			alert('Please Enter Correct Email Address');
 		}
+}
+
+function count(val)
+{
+	//alert("good eve");
+	//alert(val);	
 }

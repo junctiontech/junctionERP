@@ -72,7 +72,7 @@
 					</div>
 					
 					<div class="login-footer">
-						<a href="#">Forgot your password?</a>
+						<a href="login/forget_pwd">Forgot your password?</a>
 						<br>New User ? <a href="<?php echo base_url(); ?>login"> Sign Up</a>
 					
 						

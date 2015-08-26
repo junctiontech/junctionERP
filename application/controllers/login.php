@@ -26,6 +26,14 @@ class Login extends CI_Controller {
 		$this->parser->parse('include/footer',$this->data);
 	}
 	
+							/*Forget Password view*/
+	public function forget_pwd()
+	{
+		$this->parser->parse('include/header',$this->data);
+		$this->load->view('forget_pwd',$this->data);//login page view
+		$this->parser->parse('include/footer',$this->data);
+	}
+	
 					/*login view*/
 	public function login_view()
 	{
@@ -173,7 +181,17 @@ class Login extends CI_Controller {
 			}
 		}
 	
-	
+		function email_forget()
+		{
+			$val= $this->input->post('val');
+			$email_chek=$this->data['email_chek']=$this->login_model->email_chek($val);
+			if(!$email_chek)
+			{
+				?>
+							<span class="alert alert-danger"> Email  dvdssdfsdAlready Exist Please Enter Another Email</span>
+						<?php 
+					}
+				}
 	
 }
 /* End of login controller */

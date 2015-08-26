@@ -61,7 +61,7 @@ $su= $userdata['role_id'];
 					</script>
 					<?php if(!empty($su) && $su=='superuser'){ ?>
 					<div class="table-responsive"  data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">	
-						<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+						<table id="example-1" class="table table-striped table-hover fill-head " cellspacing="0" width="100%">
 							<thead>
 								<tr>
 									<th>Organization</th>
@@ -105,7 +105,7 @@ $su= $userdata['role_id'];
 					</div>
 					<?php } if(!empty($su) && $su!=='superuser'){ ?>
 					<div class="table-responsive"  data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">	
-						<table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+						<table id="example-1" class="table table-striped table-hover fill-head table-bordered" cellspacing="0" width="100%">
 							<thead>
 								<tr>
 									<th>Emp id </th>

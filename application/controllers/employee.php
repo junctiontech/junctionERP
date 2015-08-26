@@ -311,6 +311,7 @@ public function insert_employee($info=false)
 			$select_emp = $this->data['select_emp'] = $this->employee_model->select_emp($info);
 			//print_r($select_emp);die;
 				 }
+		$list_country=$this->data['list_country']= $this->employee_model->list_country();	
 		$list_organization = $this->data['list_organization'] = $this->organization_model->list_organization();
 		$list_department= $this->data['list_department'] = $this->department_model->list_department($organization);
 		$list_designation = $this->data['list_designation'] = $this->designation_model->list_designation($organization);

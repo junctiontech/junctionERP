@@ -128,30 +128,16 @@
 						<p>Dear user, Registerd your organization !</p>
 					</div>
 					<span id="chk_org"></span>
-					<div class="form-group">
-						<label class="control-label" for="password-2">Please Enter Organization Name</label>
-						<input type="text" class="form-control" name="organization_name" id="password-2" autocomplete="off"  onchange="check_organization(this.value)" required />
-					</div>
+				
 					<div class="form-group">
 						<label class="control-label" for="">mail id</label>
-						<input type="text" class="form-control" name="usermailid" id="email" autocomplete="off" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,}" onchange="email_chek(this.value)" />
+						<input type="text" class="form-control" name="usermailid" id="email" autocomplete="off" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,}" onchange="email_forget(this.value)" />
 					</div>
-					<div class="form-group">
-						<label class="control-label" for="">User name</label>
-						<input type="text" class="form-control" name="username" id="username" autocomplete="off" required onchange="userid(this.value)" />
-					</div>
-					<div class="form-group">
-						<label class="control-label" for="passwd">Password</label>
-						<input type="password" class="form-control" name="password" id="passwd" autocomplete="off" required />
-					</div>
-					<div class="form-group">
-						<label class="control-label" for="">Re Enter Password</label>
-						<input type="password" class="form-control" name="password" id="re-passwd" autocomplete="off" required onchange="validation(this.value)" />
-					</div>
+					
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary  btn-block text-left">
 							<i class="fa-lock"></i>
-							Sign up
+							Send
 						</button>
 					</div>
 					<div class="login-footer">

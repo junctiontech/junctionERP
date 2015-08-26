@@ -140,6 +140,13 @@ $qry=$this->db->query("select * from tracking where `imei`='".$imei."' and DATE(
 		return $qry->result();
 	}
 	
+	public function list_country()
+	{
+		$this->db->select('*');
+		$qry=$this->db->get('countries');
+		return $qry->result();
+	}
+	
 }
 //Model Class for Employee end
 ?>
