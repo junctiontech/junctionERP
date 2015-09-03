@@ -116,4 +116,23 @@ class Login_model extends CI_Model
 	{
 		$this->db->insert($table,$data);
 	}
+	function org($org_id,$emp_id)
+	{
+		$this->db->select('organization_id');
+		$this->db->where('organization_id',$org_id);
+		$qry=$this->db->get('organization');
+		if($qry)
+		{
+			$this->db->select('employee_id');
+			$this->db->where('employee_id',$emp_id);
+			$qry=$this->db->get('employee');
+			return $qry->result();
+		}
+	}
+	
+	function attendance($data)
+	{
+		$this->db->insert('attendance',$data);
+		return true;
+	}
 }

@@ -52,7 +52,6 @@ class Login extends CI_Controller {
 			$orgnization = $this->input->post('organization_name');
 				if($orgnization=='')
 				{
-					
 						if('superuser'==$email && 'initial'==$this->input->post('password'))
 						{
 						
@@ -68,8 +67,6 @@ class Login extends CI_Controller {
 												$this->session->set_userdata('user_data',$user_data);
 												$user_session_data = $this->session->userdata('user_data');
 												redirect('home');
-											
-									
 								}
 						}
 						else
@@ -83,7 +80,7 @@ class Login extends CI_Controller {
 				elseif($orgnization!=='')
 				{
 							$orgnization=array(
-									'organization_id'=>$this->input->post('organization_name')
+												'organization_id'=>$this->input->post('organization_name')
 											  );
 							$data=array(
 									'user_id'=>$this->input->post('user_id'),
@@ -98,7 +95,7 @@ class Login extends CI_Controller {
 							$this->session->set_flashdata('message',$this->config->item("user").'Your id have a blocked please contact administrator');
 							redirect('login/login_view');
 						}
-							if($row){
+							elseif($row){
 								$user_data = array(
 										'usermailid' => $row->usermailid,
 										'user_id' => $row->user_id,
@@ -178,8 +175,8 @@ class Login extends CI_Controller {
 			?>
 					<span class="alert alert-danger"> Email  Already Exist Please Enter Another Email</span>
 				<?php 
-			}
 		}
+	}
 	
 		function email_forget()
 		{
@@ -192,6 +189,29 @@ class Login extends CI_Controller {
 						<?php 
 					}
 				}
+				
+		function attendance($org_id=false,$emp_id=false)
+		{
+			if($org_id)
+			{
+				$org=$this->data['org']=$this->login_model->org($org_id,$emp_id);
+				if($org)
+				{
+					$data=array(
+							'org_id'=>$org_id,
+							'emp_id'=>$emp_id,
+							'attendance_status'=>'present'
+							   );
+					$attendence=$this->data['attendence']=$this->login_model->attendance($data);
+					redirect('http://localhost/attendence_device/index.php/home/status/1');
+				}
+				else
+				{	
+				   redirect('http://localhost/attendence_device/index.php/home/status/0');
+				}
+			}
+		}	
+			
 	
 }
 /* End of login controller */
