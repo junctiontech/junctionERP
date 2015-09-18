@@ -4,10 +4,8 @@ class Device extends CI_Controller
 	function __construct()
 	{
 		parent::construction();
-		$this->data[]="";
 	}
-	
-	function check_device($user,$pass,$function)
+	function check_device($userid,$password,$function,$key_device,$json)
 	{
 		
 	}

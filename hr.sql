@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.4.14
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 03, 2015 at 02:01 PM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Generation Time: Sep 18, 2015 at 01:13 PM
+-- Server version: 5.6.26
+-- PHP Version: 5.6.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `hr`
@@ -27,11 +27,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `attendance` (
-`attendance_id` int(11) NOT NULL,
+  `attendance_id` int(11) NOT NULL,
   `org_id` int(11) NOT NULL,
   `emp_id` int(11) NOT NULL,
   `attendance_status` varchar(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `attendance`
@@ -39,7 +39,8 @@ CREATE TABLE IF NOT EXISTS `attendance` (
 
 INSERT INTO `attendance` (`attendance_id`, `org_id`, `emp_id`, `attendance_status`) VALUES
 (1, 23, 5, 'present'),
-(6, 23, 5, 'present');
+(6, 23, 5, 'present'),
+(7, 23, 5, 'present');
 
 -- --------------------------------------------------------
 
@@ -48,7 +49,7 @@ INSERT INTO `attendance` (`attendance_id`, `org_id`, `emp_id`, `attendance_statu
 --
 
 CREATE TABLE IF NOT EXISTS `cities` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `state_id` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=47577 DEFAULT CHARSET=latin1;
@@ -18816,9 +18817,9 @@ INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (18748, 'Amerang', 1357),
 (18749, 'Ansbach', 1357),
 (18750, 'Aschaffenburg', 1357),
-(18751, 'Augsburg', 1357);
+(18751, 'Augsburg', 1357),
+(18752, 'Bad Aibling', 1357);
 INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
-(18752, 'Bad Aibling', 1357),
 (18753, 'Bad Kissingen', 1357),
 (18754, 'Bad Neustadt', 1357),
 (18755, 'Bad Reichenhall', 1357),
@@ -20745,10 +20746,10 @@ INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (20676, 'Upernavik', 1491),
 (20677, 'Upernavik Kujalleq', 1491),
 (20678, 'Ikerasak', 1492),
-(20679, 'Illorsuit', 1492);
-INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
+(20679, 'Illorsuit', 1492),
 (20680, 'Niaqornat', 1492),
-(20681, 'Nuugaatsiaq', 1492),
+(20681, 'Nuugaatsiaq', 1492);
+INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (20682, 'Qaarsut', 1492),
 (20683, 'Saattut', 1492),
 (20684, 'Ukkusissat', 1492),
@@ -22656,10 +22657,10 @@ INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (22586, 'Montebello sul Sangro', 1826),
 (22587, 'Monteferrante', 1826),
 (22588, 'Montelapiano', 1826),
-(22589, 'Montenerodomo', 1826);
-INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
+(22589, 'Montenerodomo', 1826),
 (22590, 'Monteodorisio', 1826),
-(22591, 'Mozzagrogna', 1826),
+(22591, 'Mozzagrogna', 1826);
+INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (22592, 'Orsogna', 1826),
 (22593, 'Ortona', 1826),
 (22594, 'Paglieta', 1826),
@@ -24533,10 +24534,10 @@ INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (24462, 'Sasayama', 1930),
 (24463, 'Sumoto', 1930),
 (24464, 'Taishi', 1930),
-(24465, 'Takarazuka', 1930);
-INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
+(24465, 'Takarazuka', 1930),
 (24466, 'Takasago', 1930),
-(24467, 'Tatsuno', 1930),
+(24467, 'Tatsuno', 1930);
+INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (24468, 'Toyooka', 1930),
 (24469, 'Yamasaki', 1930),
 (24470, 'Yashiro', 1930),
@@ -26547,10 +26548,10 @@ INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (26475, 'Rodenbourg', 2236),
 (26476, 'Roodt-sur-Syr', 2236),
 (26477, 'Wasserbillig', 2236),
-(26478, 'Wecker', 2236);
-INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
+(26478, 'Wecker', 2236),
 (26479, 'Wecker-Gare', 2236),
-(26480, 'Weydig', 2236),
+(26480, 'Weydig', 2236);
+INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (26481, 'Wormeldange', 2236),
 (26482, 'Wormeldange-Haut', 2236),
 (26483, 'Alzingen', 2237),
@@ -28426,10 +28427,10 @@ INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (28353, 'Temascalapa', 2442),
 (28354, 'Temascalcingo', 2442),
 (28355, 'Temoaya', 2442),
-(28356, 'Tenancingo', 2442);
-INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
+(28356, 'Tenancingo', 2442),
 (28357, 'Tenango de Arista', 2442),
-(28358, 'Tenango del Aire', 2442),
+(28358, 'Tenango del Aire', 2442);
+INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (28359, 'Tenochtitlan', 2442),
 (28360, 'Teoloyucan', 2442),
 (28361, 'Teotihuacan', 2442),
@@ -30329,11 +30330,11 @@ INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (30255, 'Wormerveer', 2594),
 (30256, 'Zaandam', 2594),
 (30257, 'Zaanstad', 2594),
-(30258, 'Zandvoort', 2594);
-INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
+(30258, 'Zandvoort', 2594),
 (30259, 'Zeevang', 2594),
 (30260, 'Zwaag', 2594),
-(30261, 'Zwanenburg', 2594),
+(30261, 'Zwanenburg', 2594);
+INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (30262, 'Almelo', 2595),
 (30263, 'Bathmen', 2595),
 (30264, 'Borne', 2595),
@@ -32313,12 +32314,12 @@ INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (32238, 'Davao', 2845),
 (32239, 'Dagupan', 2848),
 (32240, 'Laoag', 2848),
-(32241, 'Manaoag', 2848);
-INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
+(32241, 'Manaoag', 2848),
 (32242, 'Mangaldan', 2848),
 (32243, 'San Fernando', 2848),
 (32244, 'Urdaneta', 2848),
-(32245, 'Vigan', 2848),
+(32245, 'Vigan', 2848);
+INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (32246, 'Binan', 2849),
 (32247, 'Laguna', 2849),
 (32248, 'Pangil', 2849),
@@ -34271,12 +34272,12 @@ INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (34195, 'Butimanu', 2950),
 (34196, 'Candesti', 2950),
 (34197, 'Ciocanesti', 2950),
-(34198, 'Cobia', 2950);
-INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
+(34198, 'Cobia', 2950),
 (34199, 'Cojasca', 2950),
 (34200, 'Comisani', 2950),
 (34201, 'Contesti', 2950),
-(34202, 'Corbii Mari', 2950),
+(34202, 'Corbii Mari', 2950);
+INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (34203, 'Cornatelu', 2950),
 (34204, 'Cornesti', 2950),
 (34205, 'Costestii din Vale', 2950),
@@ -36238,12 +36239,12 @@ INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (36161, 'Pogar', 2986),
 (36162, 'Selco', 2986),
 (36163, 'Starodub', 2986),
-(36164, 'Surazh', 2986);
-INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
+(36164, 'Surazh', 2986),
 (36165, 'Suzjomka', 2986),
 (36166, 'Trubchjovsk', 2986),
 (36167, 'Unecha', 2986),
-(36168, 'Zhukovka', 2986),
+(36168, 'Zhukovka', 2986);
+INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (36169, 'Gusinoozjorsk', 2987),
 (36170, 'Kamensk', 2987),
 (36171, 'Kjahta', 2987),
@@ -38173,12 +38174,12 @@ INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (38095, 'Soekmekaar', 3244),
 (38096, 'Southdale', 3244),
 (38097, 'Thabazimbi', 3244),
-(38098, 'Thohoyandou', 3244);
-INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
+(38098, 'Thohoyandou', 3244),
 (38099, 'Thulamahashe', 3244),
 (38100, 'Tzaneen', 3244),
 (38101, 'Botleng', 3245),
-(38102, 'Ekangala', 3245),
+(38102, 'Ekangala', 3245);
+INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (38103, 'Embalenhle', 3245),
 (38104, 'Emjindini', 3245),
 (38105, 'Empuluzi', 3245),
@@ -40104,12 +40105,12 @@ INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (40025, 'Quballat', 3634),
 (40026, 'Tabursuq', 3634),
 (40027, 'Tastur', 3634),
-(40028, 'Zahrat Madina', 3634);
-INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
+(40028, 'Zahrat Madina', 3634),
 (40029, 'al-Ma''qulah', 3634),
 (40030, '''Awsajah', 3636),
 (40031, 'Binzart', 3636),
-(40032, 'Ghar-al-Milh', 3636),
+(40032, 'Ghar-al-Milh', 3636);
+INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (40033, 'Manzil ''Abd-ar-Rahman', 3636),
 (40034, 'Manzil Bu Ruqaybah', 3636),
 (40035, 'Manzil Jamil', 3636),
@@ -42072,13 +42073,13 @@ INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (41992, 'Westhoughton', 3842),
 (41993, 'Weston-super-Mare', 3842),
 (41994, 'Weymouth', 3842),
-(41995, 'Whitefield', 3842);
-INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
+(41995, 'Whitefield', 3842),
 (41996, 'Whitehaven', 3842),
 (41997, 'Whitley Bay', 3842),
 (41998, 'Wickford', 3842),
 (41999, 'Widnes', 3842),
-(42000, 'Wigan', 3842),
+(42000, 'Wigan', 3842);
+INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (42001, 'Wigston', 3842),
 (42002, 'Wilmslow', 3842),
 (42003, 'Wimbourne Minster', 3842),
@@ -43956,13 +43957,13 @@ INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (43875, 'Spring Hill', 3930),
 (43876, 'Stuart', 3930),
 (43877, 'Sun City Center', 3930),
-(43878, 'Sunny Isles', 3930);
-INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
+(43878, 'Sunny Isles', 3930),
 (43879, 'Sunrise', 3930),
 (43880, 'Sunset', 3930),
 (43881, 'Sweetwater', 3930),
 (43882, 'Tallahassee', 3930),
-(43883, 'Tamarac', 3930),
+(43883, 'Tamarac', 3930);
+INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (43884, 'Tamiami', 3930),
 (43885, 'Tampa', 3930),
 (43886, 'Tarpon Springs', 3930),
@@ -45857,13 +45858,13 @@ INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (45775, 'Springfield', 3959),
 (45776, 'Steubenville', 3959),
 (45777, 'Stow', 3959),
-(45778, 'Streetsboro', 3959);
-INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
+(45778, 'Streetsboro', 3959),
 (45779, 'Strongsville', 3959),
 (45780, 'Struthers', 3959),
 (45781, 'Sylvania', 3959),
 (45782, 'Tallmadge', 3959),
-(45783, 'Tiffin', 3959),
+(45783, 'Tiffin', 3959);
+INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (45784, 'Toledo', 3959),
 (45785, 'Trotwood', 3959),
 (45786, 'Troy', 3959),
@@ -47665,7 +47666,7 @@ INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `countries` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `sortname` varchar(3) NOT NULL,
   `name` varchar(150) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=utf8;
@@ -47929,7 +47930,7 @@ INSERT INTO `countries` (`id`, `sortname`, `name`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `customers` (
-`customer_id` int(11) NOT NULL COMMENT 'primary key',
+  `customer_id` int(11) NOT NULL COMMENT 'primary key',
   `organization_id` int(11) NOT NULL COMMENT 'foreign key for organization table',
   `user_id` varchar(30) DEFAULT NULL COMMENT 'foreign key for users table',
   `name` varchar(15) NOT NULL COMMENT 'customers name',
@@ -47990,7 +47991,7 @@ INSERT INTO `customers_follow_up` (`customer_id`, `organization_id`, `note`, `fo
 --
 
 CREATE TABLE IF NOT EXISTS `department` (
-`department_id` int(11) NOT NULL COMMENT 'department id is a auto increment and primary key for department table',
+  `department_id` int(11) NOT NULL COMMENT 'department id is a auto increment and primary key for department table',
   `organization_id` int(11) NOT NULL COMMENT 'organization id is a auto increment and primary key for department table',
   `department_name` varchar(250) DEFAULT NULL COMMENT 'department name for  organizations',
   `created_by` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT 'name of create person',
@@ -48017,7 +48018,7 @@ INSERT INTO `department` (`department_id`, `organization_id`, `department_name`,
 --
 
 CREATE TABLE IF NOT EXISTS `designation` (
-`designation_id` int(11) NOT NULL COMMENT 'Designation id is a auto increment and primary key for designations table',
+  `designation_id` int(11) NOT NULL COMMENT 'Designation id is a auto increment and primary key for designations table',
   `organization_id` int(11) NOT NULL COMMENT 'organization id is a auto increment and primary key for designations table',
   `designation_name` varchar(250) NOT NULL COMMENT 'designation name for  organizations',
   `created_by` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT 'name of create person',
@@ -48044,7 +48045,7 @@ INSERT INTO `designation` (`designation_id`, `organization_id`, `designation_nam
 --
 
 CREATE TABLE IF NOT EXISTS `employee` (
-`employee_id` int(11) NOT NULL COMMENT 'Employee id is a auto increment and primary key for employee table',
+  `employee_id` int(11) NOT NULL COMMENT 'Employee id is a auto increment and primary key for employee table',
   `organization_id` int(11) NOT NULL COMMENT ' Organization id is a auto increment and primary key for employee table',
   `department_id` int(11) DEFAULT NULL COMMENT 'Department name for a employee for his organization',
   `designation_id` int(11) DEFAULT NULL COMMENT 'Designations name for employee',
@@ -48169,14 +48170,14 @@ INSERT INTO `function` (`function_id`, `function_name`, `created_by`, `created_o
 --
 
 CREATE TABLE IF NOT EXISTS `organization` (
-`organization_id` int(11) NOT NULL COMMENT 'organization id is a auto increment and primary key for organization table',
+  `organization_id` int(11) NOT NULL COMMENT 'organization id is a auto increment and primary key for organization table',
   `organization_name` varchar(50) DEFAULT NULL COMMENT 'organization name for organizations',
   `organization_desc` varchar(250) DEFAULT NULL COMMENT 'organization description for organization table',
   `created_by` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT 'name of create person',
   `created_on` varchar(30) NOT NULL COMMENT 'create of time',
   `updated_by` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT 'name of update person',
   `updated_on` varchar(30) NOT NULL COMMENT 'update of time'
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1 COMMENT='Table organizations for organization`s employee';
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1 COMMENT='Table organizations for organization`s employee';
 
 --
 -- Dumping data for table `organization`
@@ -48187,7 +48188,8 @@ INSERT INTO `organization` (`organization_id`, `organization_name`, `organizatio
 (3, 'junction software pvt ltd', 'software company', 'superuser', '08-08-2015 11:16:19 AM', '', ''),
 (21, 'junctiondhh software pvt ltd', NULL, '', '', '', ''),
 (22, 'test', NULL, '', '', '', ''),
-(23, 'Khaira Civil App', 'Khaira company civil application', 'superuser', '02-09-2015 11:26:35 AM', '', '');
+(23, 'Khaira Civil App', 'Khaira company civil application', 'superuser', '02-09-2015 11:26:35 AM', '', ''),
+(24, 'junction', NULL, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -48628,7 +48630,7 @@ INSERT INTO `physical_address` (`Latitude`, `Longitude`, `address`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `products` (
-`product_id` int(11) NOT NULL COMMENT 'product id is primary key and auto increment ',
+  `product_id` int(11) NOT NULL COMMENT 'product id is primary key and auto increment ',
   `organization_id` int(11) NOT NULL COMMENT 'organization id is a foreign key in this table',
   `product_image` varchar(50) NOT NULL COMMENT 'product image',
   `product_desc` varchar(250) NOT NULL COMMENT 'product description',
@@ -48789,7 +48791,7 @@ INSERT INTO `role_permission` (`role_id`, `function_id`, `auth_read`, `auth_exec
 --
 
 CREATE TABLE IF NOT EXISTS `sign_up` (
-`user_id` int(11) NOT NULL COMMENT 'user id is priamary key and auto increment for signup',
+  `user_id` int(11) NOT NULL COMMENT 'user id is priamary key and auto increment for signup',
   `usermailid` varchar(15) DEFAULT NULL COMMENT 'user mail id for sign up',
   `password` varchar(10) DEFAULT NULL COMMENT 'password for sign up',
   `user_name` varchar(15) NOT NULL COMMENT 'user name for sign up',
@@ -48806,7 +48808,7 @@ CREATE TABLE IF NOT EXISTS `sign_up` (
 --
 
 CREATE TABLE IF NOT EXISTS `states` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `country_id` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB AUTO_INCREMENT=4121 DEFAULT CHARSET=latin1;
@@ -55974,7 +55976,7 @@ INSERT INTO `tracking` (`imei`, `date`, `time`, `Latitude`, `Longitude`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `trackings` (
-`no` int(11) NOT NULL,
+  `no` int(11) NOT NULL,
   `imei` varchar(30) NOT NULL,
   `datetime` varchar(30) NOT NULL,
   `Latitude` varchar(70) NOT NULL,
@@ -56069,6 +56071,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`user_id`, `organization_id`, `role_id`, `usermailid`, `password`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES
+('123', 24, 'admin', 'ankitsinghparihar8@gmail.com', '123', '', '', '', ''),
 ('abc', 21, NULL, 'd@g.com', 'abc', '', '', '', ''),
 ('hr', 3, 'admin', 'hr@junction.com', 'hr', '', '', '', ''),
 ('hr', 23, 'admin', 'hr@khaira.com', '123', '', '', '', ''),
@@ -56083,103 +56086,113 @@ INSERT INTO `users` (`user_id`, `organization_id`, `role_id`, `usermailid`, `pas
 -- Indexes for table `attendance`
 --
 ALTER TABLE `attendance`
- ADD PRIMARY KEY (`attendance_id`);
+  ADD PRIMARY KEY (`attendance_id`);
 
 --
 -- Indexes for table `cities`
 --
 ALTER TABLE `cities`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `countries`
 --
 ALTER TABLE `countries`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `customers`
 --
 ALTER TABLE `customers`
- ADD PRIMARY KEY (`customer_id`,`organization_id`), ADD KEY `fk_user_id` (`user_id`) COMMENT 'fk_user_id', ADD KEY `organization_id` (`organization_id`);
+  ADD PRIMARY KEY (`customer_id`,`organization_id`),
+  ADD KEY `fk_user_id` (`user_id`) COMMENT 'fk_user_id',
+  ADD KEY `organization_id` (`organization_id`);
 
 --
 -- Indexes for table `department`
 --
 ALTER TABLE `department`
- ADD PRIMARY KEY (`department_id`,`organization_id`), ADD KEY `department_ibfk_1` (`organization_id`);
+  ADD PRIMARY KEY (`department_id`,`organization_id`),
+  ADD KEY `department_ibfk_1` (`organization_id`);
 
 --
 -- Indexes for table `designation`
 --
 ALTER TABLE `designation`
- ADD PRIMARY KEY (`designation_id`,`organization_id`), ADD KEY `organization_id` (`organization_id`);
+  ADD PRIMARY KEY (`designation_id`,`organization_id`),
+  ADD KEY `organization_id` (`organization_id`);
 
 --
 -- Indexes for table `employee`
 --
 ALTER TABLE `employee`
- ADD PRIMARY KEY (`employee_id`,`organization_id`), ADD KEY `organization_id` (`organization_id`), ADD KEY `FK_dept` (`department_id`), ADD KEY `designation` (`designation_id`) COMMENT 'designation', ADD KEY `fk_user_id` (`user_id`) COMMENT 'Fk_user_id';
+  ADD PRIMARY KEY (`employee_id`,`organization_id`),
+  ADD KEY `organization_id` (`organization_id`),
+  ADD KEY `FK_dept` (`department_id`),
+  ADD KEY `designation` (`designation_id`) COMMENT 'designation',
+  ADD KEY `fk_user_id` (`user_id`) COMMENT 'Fk_user_id';
 
 --
 -- Indexes for table `function`
 --
 ALTER TABLE `function`
- ADD PRIMARY KEY (`function_id`);
+  ADD PRIMARY KEY (`function_id`);
 
 --
 -- Indexes for table `organization`
 --
 ALTER TABLE `organization`
- ADD PRIMARY KEY (`organization_id`);
+  ADD PRIMARY KEY (`organization_id`);
 
 --
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
- ADD PRIMARY KEY (`product_id`,`organization_id`);
+  ADD PRIMARY KEY (`product_id`,`organization_id`);
 
 --
 -- Indexes for table `role`
 --
 ALTER TABLE `role`
- ADD PRIMARY KEY (`role_id`);
+  ADD PRIMARY KEY (`role_id`);
 
 --
 -- Indexes for table `role_permission`
 --
 ALTER TABLE `role_permission`
- ADD PRIMARY KEY (`role_id`,`function_id`);
+  ADD PRIMARY KEY (`role_id`,`function_id`);
 
 --
 -- Indexes for table `sign_up`
 --
 ALTER TABLE `sign_up`
- ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- Indexes for table `states`
 --
 ALTER TABLE `states`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `trackings`
 --
 ALTER TABLE `trackings`
- ADD PRIMARY KEY (`no`);
+  ADD PRIMARY KEY (`no`);
 
 --
 -- Indexes for table `unit`
 --
 ALTER TABLE `unit`
- ADD PRIMARY KEY (`unit_code`);
+  ADD PRIMARY KEY (`unit_code`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
- ADD PRIMARY KEY (`user_id`,`organization_id`), ADD KEY `organization_id` (`organization_id`), ADD KEY `role` (`role_id`) COMMENT 'role';
+  ADD PRIMARY KEY (`user_id`,`organization_id`),
+  ADD KEY `organization_id` (`organization_id`),
+  ADD KEY `role` (`role_id`) COMMENT 'role';
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -56189,62 +56202,62 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-MODIFY `attendance_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `attendance_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `cities`
 --
 ALTER TABLE `cities`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=47577;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=47577;
 --
 -- AUTO_INCREMENT for table `countries`
 --
 ALTER TABLE `countries`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=247;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=247;
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'primary key',AUTO_INCREMENT=2;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'primary key',AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
-MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'department id is a auto increment and primary key for department table',AUTO_INCREMENT=6;
+  MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'department id is a auto increment and primary key for department table',AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `designation`
 --
 ALTER TABLE `designation`
-MODIFY `designation_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Designation id is a auto increment and primary key for designations table',AUTO_INCREMENT=6;
+  MODIFY `designation_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Designation id is a auto increment and primary key for designations table',AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Employee id is a auto increment and primary key for employee table',AUTO_INCREMENT=6;
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Employee id is a auto increment and primary key for employee table',AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `organization`
 --
 ALTER TABLE `organization`
-MODIFY `organization_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'organization id is a auto increment and primary key for organization table',AUTO_INCREMENT=24;
+  MODIFY `organization_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'organization id is a auto increment and primary key for organization table',AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'product id is primary key and auto increment ';
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'product id is primary key and auto increment ';
 --
 -- AUTO_INCREMENT for table `sign_up`
 --
 ALTER TABLE `sign_up`
-MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'user id is priamary key and auto increment for signup';
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'user id is priamary key and auto increment for signup';
 --
 -- AUTO_INCREMENT for table `states`
 --
 ALTER TABLE `states`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4121;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4121;
 --
 -- AUTO_INCREMENT for table `trackings`
 --
 ALTER TABLE `trackings`
-MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- Constraints for dumped tables
 --
@@ -56253,42 +56266,42 @@ MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 -- Constraints for table `customers`
 --
 ALTER TABLE `customers`
-ADD CONSTRAINT `FK_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `customers_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`);
+  ADD CONSTRAINT `FK_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `customers_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`);
 
 --
 -- Constraints for table `department`
 --
 ALTER TABLE `department`
-ADD CONSTRAINT `department_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`);
+  ADD CONSTRAINT `department_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`);
 
 --
 -- Constraints for table `designation`
 --
 ALTER TABLE `designation`
-ADD CONSTRAINT `designation_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`);
+  ADD CONSTRAINT `designation_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`);
 
 --
 -- Constraints for table `employee`
 --
 ALTER TABLE `employee`
-ADD CONSTRAINT `FK_dept` FOREIGN KEY (`department_id`) REFERENCES `department` (`department_id`) ON DELETE CASCADE,
-ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`),
-ADD CONSTRAINT `employee_ibfk_2` FOREIGN KEY (`designation_id`) REFERENCES `designation` (`designation_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `employee_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_dept` FOREIGN KEY (`department_id`) REFERENCES `department` (`department_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`),
+  ADD CONSTRAINT `employee_ibfk_2` FOREIGN KEY (`designation_id`) REFERENCES `designation` (`designation_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `employee_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `role_permission`
 --
 ALTER TABLE `role_permission`
-ADD CONSTRAINT `role_permission_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`);
+  ADD CONSTRAINT `role_permission_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`);
 
 --
 -- Constraints for table `users`
 --
 ALTER TABLE `users`
-ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`),
-ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`);
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`),
+  ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

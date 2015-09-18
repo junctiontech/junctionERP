@@ -8,18 +8,18 @@ class Login_model extends CI_Model
     var $content = '';
     var $date    = '';
 	
-    function __construct()
-    {
+      function __construct()
+      {
         // Call the Model constructor
         parent::__construct();
 		
 		//Load database connection
 		$this->load->database();
-    }
+      }
     
     /* function for login check email id ragisterd or not   */
- function login_check($table=false,$data=false)
-   {
+          function login_check($table=false,$data=false)
+        {
 		  $query = $this->db->get_where($table,$data);
 		  if($query->num_rows()>0)
 		  {
@@ -29,7 +29,7 @@ class Login_model extends CI_Model
 		  {
 				return false;
 		  }
-   }
+          }
    
    	/* function for create session for orgnization */
    function list_organization($table=false,$data=false)
@@ -116,23 +116,21 @@ class Login_model extends CI_Model
 	{
 		$this->db->insert($table,$data);
 	}
-	function org($org_id,$emp_id)
+
+           /*  function for update role for activate link */
+	function role_update($id=false)
 	{
-		$this->db->select('organization_id');
-		$this->db->where('organization_id',$org_id);
-		$qry=$this->db->get('organization');
-		if($qry)
-		{
-			$this->db->select('employee_id');
-			$this->db->where('employee_id',$emp_id);
-			$qry=$this->db->get('employee');
-			return $qry->result();
-		}
+		$this->db->where('organization_id',$id);
+                $qry=  $this->db->update('users',array('role_id'=>'Administrator'));
+		    // return $qry->result();
 	}
-	
-	function attendance($data)
-	{
-		$this->db->insert('attendance',$data);
-		return true;
-	}
+
+             /*  function for forget password  */
+        function forget_pwd_email($email)
+        {      
+               $this->db->select('user_id,password');
+               $this->db->where('usermailid',$email);
+              $qry= $this->db->get('users');
+               return $qry->result();
+        }
 }

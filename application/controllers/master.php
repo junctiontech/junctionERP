@@ -203,7 +203,6 @@ class Master extends CI_Controller {
 			}
 			//print_r($data);die;
 		$this->department_model->edit_emp($info,$data);
-			
 		$this->department_model->delete_department($info);
 		$this->session->set_flashdata('category_success','success mesage');
 		$this->session->set_flashdata('message', $this->config->item("user").' Department delete successfully');
