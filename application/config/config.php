@@ -14,7 +14,16 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/junctionERP';
+if($_SERVER['HTTP_HOST']=="localhost"){
+	$port=$_SERVER['SERVER_PORT'];
+	$config['base_url']	= "http://localhost:$port/junctionERP/";
+}
+if($_SERVER['HTTP_HOST']=="junctiondev.cloudapp.net"){
+	$config['base_url']	= 'http://junctiondev.cloudapp.net/junctionERP/';
+}
+if($_SERVER['HTTP_HOST']=="http://junctionerp.com/"){
+	$config['base_url']	= 'http://junctionerp.com/';
+}
 
 /*
 |--------------------------------------------------------------------------
