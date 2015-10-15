@@ -61,8 +61,8 @@ $username="root";
 }
 if($_SERVER['HTTP_HOST']=="junctionerp.com"){
 $dbname=$database_name;
-$password="junctionerp";
-$username="initial";
+$password="initial";
+$username="junctionerp";
 }
 	
 $active_group = 'default';
