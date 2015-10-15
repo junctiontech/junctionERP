@@ -33,11 +33,12 @@ class Role extends CI_Controller {
 			/* Function for log out */
 	function logout($info=false)
 	{
+		$url=$this->session->userdata('url');
 		$this->data['user_data']=$this->session->userdata('user_data');
 		$userdata=$this->session->userdata('user_data');
 		$unset_userdata=$this->session->unset_userdata($userdata);
 		$this->session->sess_destroy();
-		redirect('login/login_view');
+		redirect($url);
 	}
 	
 			/* Function for account settings view */

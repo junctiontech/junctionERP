@@ -160,6 +160,39 @@ class Login extends CI_Controller {
 				/* Function for login and create session */	
 	function login_user($info=false)
 	{		
+		$json= $_GET['json'];
+		$json_data=json_decode($json);//print_r($json_data);die;
+		$this->session->set_userdata('url',$json_data->url);
+		$this->session->userdata('url');
+		$this->session->set_userdata('db_name',$json_data->database_name);
+		$this->session->userdata('db_name');
+		//$username= $_GET['username'];
+		//$password= $_GET['password'];// echo $db_name; echo $username; echo $password; die;
+		if($json_data->database_name && $json_data->username && $json_data->password)
+		{
+			$data=array(
+					'Username'=>$json_data->username,
+					'Password'=>$json_data->password
+			);
+			$row=$this->login_model->login_check('user',$data);
+			if($row){
+				$user_data = array(
+						'usermailid' => $row->Username,
+						'user_id' => $row->user_id,
+						'role_id' => 'admin',
+				);
+				$this->session->set_userdata('user_data',$user_data);
+				$this->session->userdata('user_data');
+				//redirect('dashboard');
+				redirect('home');
+				/*$db_name=$this->input->post('db_name');
+				 $this->session->set_userdata('db_name',$db_name);
+				$this->session->userdata('db_name');*/
+			}
+		}
+		
+		
+		die;
 		$email = $this->input->post('user_id');
 		if($email)
 		{	
@@ -253,10 +286,9 @@ class Login extends CI_Controller {
 					/* Function for sign up for new user */
 	function sign_up()
 {
-		
                 $organization_name=$this->input->post('organization_name');
                 $email=$this->input->post('usermailid');
-                 $username=$this->input->post('username');
+                $username=$this->input->post('username');
 		if($organization_name)
 		{
 			$organization=$this->data['organization']=$this->login_model->insert_organization($organization_name);

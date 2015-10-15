@@ -14,7 +14,6 @@ $userdata = $this->session->userdata('user_data');
 									</div>
 								</div>
 <?php } 
-//echo "<h2>Junction Erp</h2> ";
 ?>
 
 			

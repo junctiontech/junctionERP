@@ -45,13 +45,33 @@
 | the active record class
 */
 
+    $CI =& get_instance();
+    $CI->load->library('session'); //if it's not autoloaded in your CI setup
+	$database_name=$CI->session->userdata('db_name');
+	
+if($_SERVER['HTTP_HOST']=="localhost"){
+$dbname=$database_name;
+$password="";
+$username="root";
+}
+if($_SERVER['HTTP_HOST']=="junctiondev.cloudapp.net"){
+$dbname=$database_name;
+$password="bitnami";
+$username="root";	
+}
+if($_SERVER['HTTP_HOST']=="junctionerp.com"){
+$dbname=$database_name;
+$password="junctionerp";
+$username="initial";
+}
+	
 $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'hr';
+$db['default']['username'] = $username;
+$db['default']['password'] = $password;
+$db['default']['database'] = $dbname;
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
