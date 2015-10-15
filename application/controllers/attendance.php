@@ -1,4 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/* junctionERP   */
+/* Version 1 */
+
 
 class Attendance extends CI_Controller {
 
