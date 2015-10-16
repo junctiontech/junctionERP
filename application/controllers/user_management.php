@@ -41,7 +41,7 @@ class User_management extends CI_Controller {
 		}
 		else 
 		{
-			redirect('http://localhost/manage_application/login/application_login');
+			redirect('http://localhost/manage_application/login/application_login?id=login');
 		}
 	}
 }
