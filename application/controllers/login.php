@@ -180,7 +180,7 @@ class Login extends CI_Controller {
 							'status'=>'200',
 							'result'=>'success'
 							);
-				return $data;die;
+				print_r($data);die;
 				$user_data = array(
 						'usermailid' => $row->Username,
 						'user_id' => $row->user_id,
