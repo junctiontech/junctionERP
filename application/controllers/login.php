@@ -179,7 +179,7 @@ class Login extends CI_Controller {
 				$data=array(
 							'status'=>'200',
 							'result'=>'success',
-							'userType'=>'user_id',
+							'userType'=>$row->role_id,
 							);
 				print_r($data);
 				$user_data = array(
@@ -202,7 +202,7 @@ class Login extends CI_Controller {
 						'status'=>'400',
 						'result'=>'Error'
 				);
-				print_r($data);die;
+				print_r($data);
 					$this->session->set_flashdata('message', 'Authentication failed');
 		//	echo $this->session->userdata('error');die;
 					?><script>alert('User id and Password does not match');</script><?php 
