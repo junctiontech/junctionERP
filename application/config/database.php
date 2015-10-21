@@ -44,7 +44,9 @@
 | The $active_record variables lets you determine whether or not to load
 | the active record class
 */
-
+$userdata=$this->session->userdata('db_name');
+$unset_userdata=$this->session->unset_userdata($userdata);
+$this->session->sess_destroy();
     $CI =& get_instance();
     $CI->load->library('session'); //if it's not autoloaded in your CI setup
 	$database_name=$CI->session->userdata('db_name');
