@@ -164,7 +164,7 @@ class Login extends CI_Controller {
 		$json_data=json_decode($json);//print_r($json_data);die;
 		//$this->session->set_userdata('url',$json_data->url);
 		//$this->session->userdata('url');
-		$this->session->set_userdata('db_name',$json_data->database_name); 
+		$this->session->set_userdata('db_name',$json_data->database_name);  
 		$this->session->userdata('db_name');
 		//$username= $_GET['username'];
 		//$password= $_GET['password'];// echo $db_name; echo $username; echo $password; die;
