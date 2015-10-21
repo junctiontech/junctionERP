@@ -47,7 +47,7 @@
     $CI =& get_instance();
     $CI->load->library('session'); //if it's not autoloaded in your CI setup
 	$database_name=$CI->session->userdata('db_name');
-	
+	echo $database_name;die;
 if($_SERVER['HTTP_HOST']=="localhost"){
 $dbname=$database_name;
 $password="";
