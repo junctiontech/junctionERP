@@ -178,9 +178,10 @@ class Login extends CI_Controller {
 			if($row){
 				$data=array(
 							'status'=>'200',
-							'result'=>'success'
+							'result'=>'success',
+							'userType'=>'user_id',
 							);
-				print_r($data);die;
+				print_r($data);
 				$user_data = array(
 						'usermailid' => $row->Username,
 						'user_id' => $row->user_id,
