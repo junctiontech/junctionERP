@@ -41,7 +41,7 @@ class User_management extends CI_Controller {
 		}
 		else 
 		{
-			redirect('http://localhost/manage_application/login/application_login?id=login');
+			redirect('http://junctionerp.com/manage/login/application_login?id=login');
 		}
 	}
 	
@@ -57,7 +57,7 @@ class User_management extends CI_Controller {
 				'Password'=>$var->password,
 		);
 		$status=$this->user_management_model->update_pwd_admin_user($data,$var->old_username);
-		redirect('http://localhost/manage_application/admin_panel/manage_admin?session='.$var->session);
+		redirect('http://junctionerp/manage/admin_panel/manage_admin?session='.$var->session);
 	}
 	
 	function delete_function()
@@ -72,7 +72,7 @@ class User_management extends CI_Controller {
 				'reg_app_id'=>$var->reg_app_id,
 		);
 		$json=json_encode($data);
-		redirect('http://localhost/manage_application/admin_panel/delete_app_org?json='.$json);
+		redirect('http://junctionerp/manage/admin_panel/delete_app_org?json='.$json);
 	}
 	
 }
