@@ -162,8 +162,8 @@ class Login extends CI_Controller {
 	{		
 		$json= $_GET['json'];
 		$json_data=json_decode($json);//print_r($json_data);die;
-		$this->session->set_userdata('url',$json_data->url);
-		$this->session->userdata('url');
+		//$this->session->set_userdata('url',$json_data->url);
+		//$this->session->userdata('url');
 		$this->session->set_userdata('db_name',$json_data->database_name);
 		$this->session->userdata('db_name');
 		//$username= $_GET['username'];
@@ -176,6 +176,11 @@ class Login extends CI_Controller {
 			);
 			$row=$this->login_model->login_check('user',$data);
 			if($row){
+				$data=array(
+							'status'=>'200',
+							'result'=>'success'
+							);
+				return $data;die;
 				$user_data = array(
 						'usermailid' => $row->Username,
 						'user_id' => $row->user_id,
@@ -192,6 +197,11 @@ class Login extends CI_Controller {
 				$this->session->userdata('db_name');*/
 			}
 			else {
+				$data=array(
+						'status'=>'400',
+						'result'=>'Error'
+				);
+				return $data;die;
 					$this->session->set_flashdata('message', 'Authentication failed');
 		//	echo $this->session->userdata('error');die;
 					?><script>alert('User id and Password does not match');</script><?php 
