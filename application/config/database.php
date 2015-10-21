@@ -48,8 +48,8 @@
     $CI =& get_instance();
     $CI->load->library('session'); //if it's not autoloaded in your CI setup
 	$database_name=$CI->session->userdata('db_name');
-	//$this->session->unset_userdata($database_name);
-	//$this->session->sess_destroy();
+	$CI->session->unset_userdata($database_name);
+	$CI->session->sess_destroy();
 	echo $database_name;die;
 if($_SERVER['HTTP_HOST']=="localhost"){
 $dbname=$database_name;
