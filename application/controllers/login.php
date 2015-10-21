@@ -180,6 +180,8 @@ class Login extends CI_Controller {
 						'usermailid' => $row->Username,
 						'user_id' => $row->user_id,
 						'role_id' => 'admin',
+						'organization_id'=>$json_data->organization_id,
+						'organization_name'=>$json_data->organization_name
 				);
 				$this->session->set_userdata('user_data',$user_data);
 				$this->session->userdata('user_data');
@@ -188,6 +190,12 @@ class Login extends CI_Controller {
 				/*$db_name=$this->input->post('db_name');
 				 $this->session->set_userdata('db_name',$db_name);
 				$this->session->userdata('db_name');*/
+			}
+			else {
+					$this->session->set_flashdata('message', 'Authentication failed');
+		//	echo $this->session->userdata('error');die;
+					?><script>alert('User id and Password does not match');</script><?php 
+				redirect($json_data->url,'refresh');
 			}
 		}
 		

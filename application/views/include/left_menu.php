@@ -95,7 +95,7 @@
 					<a href="#" data-toggle="dropdown">
 						<img src="<?php echo base_url(); ?>assets/images/user-1.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" />
 						<span>
-							<?=$userdata['user_id']?>
+							<?=$userdata['usermailid']?>
 							<i class="fa-angle-down"></i>
 						</span>
 					</a>

@@ -71,7 +71,7 @@ class Role extends CI_Controller {
 			$check=array(
 				'password'=>$this->input->post('old_password')	
 						);
-			$check=$this->data['check']=$this->login_model->check_pwd($check,'users');
+			$check=$this->data['check']=$this->login_model->check_pwd($check,'user');
 			if($check)
 				 {
 					$data = array(
@@ -143,7 +143,7 @@ class Role extends CI_Controller {
 		if($user){
 					  
 						$filter = array('user_id'=>$user);
-						$this->authority_model->delete_user($filter,'users');
+						$this->authority_model->delete_user($filter,'user');
 						$this->session->set_flashdata('message_type', 'success');        
                         $this->session->set_flashdata('message', $this->config->item("user").' Delete Successfully');
 						redirect('role/user_role');		
@@ -273,7 +273,7 @@ class Role extends CI_Controller {
 								'role_id'=>$this->input->post('role'),
 								'password'=>$this->input->post('password')
 							);
-				$qry =   $this->authority_model->user_add('users',$data,$email);
+				$qry =   $this->authority_model->user_add('user',$data,$email);
 				if($qry)
 				   {
 						$this->session->set_flashdata('category_error', 'Error message');  

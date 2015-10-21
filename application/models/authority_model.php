@@ -14,7 +14,7 @@ class Authority_model extends CI_Model
 	function su_verify_list()
 	{
 		$this->db->select('*');
-		$qry=$this->db->get('users');
+		$qry=$this->db->get('user');
 		return $qry->result();
 	}
 	
@@ -23,7 +23,7 @@ class Authority_model extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->where('organization_id',$organization);
-		$qry=$this->db->get('users');
+		$qry=$this->db->get('user');
 		return $qry->result();
 	}
 	
@@ -77,7 +77,7 @@ class Authority_model extends CI_Model
 	{
 		$this->db->select('*');
 		//$this->db->where('role_id',$info);
-		$qry=$this->db->get('users');
+		$qry=$this->db->get('user');
 		return $qry->result();
 	}
 	
@@ -85,7 +85,7 @@ class Authority_model extends CI_Model
 	function role_assign($data,$info)
 	{	
 		$this->db->where('user_id',$info);
-		 $this->db->update('users',$data);
+		 $this->db->update('user',$data);
 	}
 		
 			/*    Start function for delete user in user role    */
@@ -108,13 +108,13 @@ class Authority_model extends CI_Model
 		function user_add($table,$data,$email)
 		{	
 			$this->db->where('usermailid',$email);
-			$query = $this->db->get('users');
+			$query = $this->db->get('user');
 			if ($query->num_rows() > 0)
 				{
 				 return $query->Result();
 				}
 			else{
-				$this->db->insert("users",$data);
+				$this->db->insert("user",$data);
 				}
 		}
 
@@ -179,7 +179,7 @@ class Authority_model extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->where('user_id',$user);
-		$qry= $this->db->update('users',$data);
+		$qry= $this->db->update('user',$data);
 	}	
 }
 //~~End~~
