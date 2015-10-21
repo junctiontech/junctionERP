@@ -44,10 +44,13 @@
 | The $active_record variables lets you determine whether or not to load
 | the active record class
 */
+	
     $CI =& get_instance();
     $CI->load->library('session'); //if it's not autoloaded in your CI setup
 	$database_name=$CI->session->userdata('db_name');
-	echo $database_name;die;
+	$this->session->unset_userdata($database_name);
+	$this->session->sess_destroy();
+	//echo $database_name;die;
 if($_SERVER['HTTP_HOST']=="localhost"){
 $dbname=$database_name;
 $password="";
