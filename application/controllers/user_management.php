@@ -5,8 +5,10 @@ class User_management extends CI_Controller {
 		parent::__construct();
 		$this->data[]='';
 		$this->data['url']=base_url();
+		$this->load->helper('url');
 		$this->data['base_url']=base_url();
 		$this->load->model('user_management_model');
+		$this->load->library('session');
 	}
 	
 	function clone_db()
@@ -37,11 +39,11 @@ class User_management extends CI_Controller {
 			
 			$this->session->set_flashdata('category_success', 'success message');        
 			$this->session->set_flashdata('message', $this->config->item("user").' Organization Add for Application successfully');
-			redirect('http://junctionerp.com/manage/login/application_login?id=login');
+			redirect('http://localhost/manage_application/login/application_login?id=login');
 		}
 		else 
 		{
-			redirect('http://junctionerp.com/manage/login/application_login?id=login');
+			redirect('http://localhost/manage_application/login/application_login?id=login');
 		}
 	}
 	
@@ -57,7 +59,7 @@ class User_management extends CI_Controller {
 				'Password'=>$var->password,
 		);
 		$status=$this->user_management_model->update_pwd_admin_user($data,$var->old_username);
-		redirect('http://junctionerp.com/manage/admin_panel/manage_admin?session='.$var->session);
+		redirect('http://localhost/manage_application/admin_panel/manage_admin?session='.$var->session);
 	}
 	
 	function delete_function()
@@ -72,7 +74,7 @@ class User_management extends CI_Controller {
 				'reg_app_id'=>$var->reg_app_id,
 		);
 		$json=json_encode($data);
-		redirect('http://junctionerp.com/manage/admin_panel/delete_app_org?json='.$json);
+		redirect('http://localhost/manage_application/admin_panel/delete_app_org?json='.$json);
 	}
 	
 }
