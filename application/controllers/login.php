@@ -201,7 +201,7 @@ class Login extends CI_Controller {
 						'status'=>'400',
 						'result'=>'Error'
 				);
-				return $data;die;
+				print_r($data);die;
 					$this->session->set_flashdata('message', 'Authentication failed');
 		//	echo $this->session->userdata('error');die;
 					?><script>alert('User id and Password does not match');</script><?php 
