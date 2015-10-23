@@ -47,7 +47,7 @@ class User_management extends CI_Controller {
 			$this->session->sess_destroy();
 			//print_r($data);die;
 			$datas=json_encode($data);
-			redirect('http://junctionerp.com/manage/login/set_registration_application?json='.$data);
+			redirect('http://junctionerp.com/manage/login/set_registration_application?json='.$datas);
 		}
 		else 
 		{
