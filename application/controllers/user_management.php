@@ -42,7 +42,7 @@ class User_management extends CI_Controller {
 							'email'=>$var->email,
 							'code'=>'200',
 						);
-			redirect('http://junctionerp.com/manage/login/application_login?json='.$data);
+			redirect('http://junctionerp.com/manage/login/set_registration_application?json='.$data);
 		}
 		else 
 		{
