@@ -42,6 +42,9 @@ class User_management extends CI_Controller {
 							'email'=>$var->email,
 							'code'=>'200',
 						);
+			$database_name=$this->session->userdata('db_name');
+			$this->session->unset_userdata($database_name);
+			$this->session->sess_destroy();
 			redirect('http://junctionerp.com/manage/login/set_registration_application?json='.$data);
 		}
 		else 
