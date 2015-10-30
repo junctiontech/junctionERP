@@ -18,21 +18,22 @@ class Remoteapi {
 				}
 				if($sql)
 				{
-					$data=array(
+					/*$data=array(
 							
 							'code'=>'200',
 							'result'=>'true',
 								);
-					print_r($data);die;
+					print_r($data);die;*/
+					return true;
 				}
 				else 
 				{
-					$data=array(
+					/*$data=array(
 					
 							'code'=>'400',
 							'result'=>'false',
-					);
-					print_r($data);die;
+					);*/
+					return false;
 				}
 		}
 		else
