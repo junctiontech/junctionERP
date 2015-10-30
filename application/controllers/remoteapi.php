@@ -18,7 +18,7 @@ class Remoteapi extends CI_Controller {
 	}
 	
 	function locationUpdate(){
-		echo 'hiii';die;
+		print_r(json_decode($_POST['employeeData']));die;
 	}
 }
 /* End of login controller */
