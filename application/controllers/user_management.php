@@ -45,7 +45,6 @@ class User_management extends CI_Controller {
 			$database_name=$this->session->userdata('db_name');
 			$this->session->unset_userdata($database_name);
 			$this->session->sess_destroy();
-			//print_r($data);die;
 			$datas=json_encode($data);
 			redirect('http://junctionerp.com/manage/login/set_registration_application?json='.$datas);
 		}

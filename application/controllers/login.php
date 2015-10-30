@@ -150,8 +150,7 @@ class Login extends CI_Controller {
                				/*android code */
 	public function updateServer()
 	{
-               
-		$this->load->view('updateServer',$this->data);
+       $this->load->view('updateServer',$this->data);
 	}
 
 
@@ -162,8 +161,8 @@ class Login extends CI_Controller {
 	{		
 		$json= $_GET['json'];
 		$json_data=json_decode($json);//print_r($json_data);die;
-		//$this->session->set_userdata('url',$json_data->url);
-		//$this->session->userdata('url');
+		$this->session->set_userdata('url',$json_data->url);
+		$this->session->userdata('url');
 		$this->session->set_userdata('db_name',$json_data->database_name);  
 		$this->session->userdata('db_name');
 		//$username= $_GET['username'];
@@ -190,7 +189,7 @@ class Login extends CI_Controller {
 						'user_id' => $row->user_id,
 						'role_id' => 'admin',
 						'organization_id'=>$json_data->organization_id,
-						'organization_name'=>$json_data->organization_name
+						'organization_name'=>str_replace('_',' ',$json_data->organization_name),
 				);
 				$this->session->set_userdata('user_data',$user_data);
 				$this->session->userdata('user_data');
