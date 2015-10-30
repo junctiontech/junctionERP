@@ -16,7 +16,7 @@ class Remoteapi_model extends CI_Model
 		//Load database connection
 		$this->load->database();
       }
-    
+     
     /* function for login check email id ragisterd or not   */
     
 }
