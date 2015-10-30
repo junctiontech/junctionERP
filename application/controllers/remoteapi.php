@@ -8,7 +8,7 @@ class Remoteapi extends CI_Controller {
 		$this->data[]="";
 		$this->data['user_data']="";
 		$this->data['url'] = base_url();
-		$this->load->model('remoteapi_model');
+		//$this->load->model('remoteapi_model');
 		$this->load->helper('url');
 		$this->data['base_url']=base_url();
 		$this->load->library('session');

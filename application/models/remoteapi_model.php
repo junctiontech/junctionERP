@@ -18,5 +18,8 @@ class Remoteapi_model extends CI_Model
       }
      
     /* function for login check email id ragisterd or not   */
-    
+    function locationUpdate()
+    {
+    	
+    }
 }
