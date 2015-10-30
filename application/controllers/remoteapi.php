@@ -1,27 +1,44 @@
 <?php 
 
 /* Controller for login Functionality */
-class Remoteapi extends CI_Controller {
-	
-	function __construct() {
-		parent::__construct();
-		$this->data[]="";
-		$this->data['user_data']="";
-		$this->data['url'] = base_url();
-		$this->load->model('login_model');
-		$this->load->model('remoteapi_model');
-		$this->load->library('parser');
-		$this->load->helper('url');
-		$this->load->library('form_validation');
-		$this->data['base_url']=base_url();
-		$this->load->library('session');
-	}
+class Remoteapi {
 	
 	function locationUpdate(){
 		//print_r(json_decode($_POST['employeeData']));die;
-		$data=json_decode($_POST['employeeData']);
-		$imei=$data->employeeIMEI;echo $imei;
-		print_r($data->employeeLocationList);die;
+		$CONNECTION=mysqli_connect("localhost",'root','bitnami','hr');
+		if($CONNECTION)
+		{
+			$data=json_decode($_POST['employeeData']);
+			$imei=$data->employeeIMEI;//echo $imei;
+			//print_r($data->employeeLocationList);die;
+			foreach ($data->employeeLocationList as $list)
+				{
+					$result = "INSERT INTO tracking VALUES('".$imei."','".$list->employeeLocationDate."','".$list->employeeLocationTime."','".$list->employeeLocationLatitude."','".$list->employeeLocationLongitude."','".$list->employeeLocationProviderName."','".$list->employeeLocationBatteryLevel."')";
+					$sql=mysqli_query($CONNECTION,$result);
+				}
+				if($sql)
+				{
+					$data=array(
+							
+							'code'=>'200',
+							'result'=>'true',
+								);
+					print_r($data);die;
+				}
+				else 
+				{
+					$data=array(
+					
+							'code'=>'400',
+							'result'=>'false',
+					);
+					print_r($data);die;
+				}
+		}
+		else
+		{
+			echo 'connection error';
+		}
 	}
 }
 /* End of login controller */
