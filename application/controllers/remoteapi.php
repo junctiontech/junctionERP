@@ -24,7 +24,7 @@ class Remoteapi {
 							'result'=>'true',
 								);
 					print_r($data);die;*/
-					return true;
+					 echo 'true';
 				}
 				else 
 				{
@@ -33,7 +33,7 @@ class Remoteapi {
 							'code'=>'400',
 							'result'=>'false',
 					);*/
-					return false;
+					echo'false';
 				}
 		}
 		else
