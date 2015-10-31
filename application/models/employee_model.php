@@ -93,12 +93,12 @@ class Employee_model extends CI_Model {
 	}
 	
 	/*function for tracking list*/
-	public function tracking_detail($table=false,$imei=false,$from=false,$to=false)
+	public function tracking_detail($imei=false,$from=false,$to=false)
 	{
 		//echo $table;
-		//echo $imei;
-		//echo $from;
-		//echo $to;
+		echo $imei;
+		echo $from;
+		echo $to;
 		//$from='2015-07-18';
 		//$to='2015-07-30';
 		//echo $a;
@@ -114,7 +114,7 @@ class Employee_model extends CI_Model {
 		//return $qry->result();select * from person
 		
 $qry=$this->db->query("select * from tracking where `imei`='".$imei."' and DATE(date) between '".$from."' and '".$to."' ");
-				//print_r($qry);die;
+				print_r($qry);die;
 				return $qry->result();
 		
 	}
