@@ -328,8 +328,7 @@ public function insert_employee($info=false)
 	{ 
 		//$this->session->unset('db_name');
 		$this->session->set_userdata('db_name','appmanager');
-		echo $this->session->userdata('db_name');	
-		die;
+		$this->session->userdata('db_name');	
 		$imei=$this->input->post('imei');
 		$name=$this->input->post('name');
 		$from=$this->input->post('from');
