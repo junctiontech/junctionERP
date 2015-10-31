@@ -20,12 +20,35 @@ class Remoteapi_model extends CI_Model
     /* function for login check email id ragisterd or not   */
    function locationUpdate($data=false)
    {
-   		$this->load->database('default',TRUE);
-  	 	$imei=$data->employeeIMEI;
-   		foreach ($data->employeeLocationList as $list)
-		   	{
-		   		$query = $this->db->query("INSERT INTO tracking VALUES('".$imei."','".$list->employeeLocationDate."','".$list->employeeLocationTime."','".$list->employeeLocationLatitude."','".$list->employeeLocationLongitude."','".$list->employeeLocationProviderName."','".$list->employeeLocationBatteryLevel."')");
-		   	}
-		return $query->Result();
+   		//$this->load->database('default',TRUE);
+   		$CONNECTION=mysqli_connect("localhost",'root','bitnami','hr');
+   		if($CONNECTION)
+   		{
+	  	 	$imei=$data->employeeIMEI;
+	   		foreach ($data->employeeLocationList as $list)
+			   	{
+			   		$result = "INSERT INTO tracking VALUES('".$imei."','".$list->employeeLocationDate."','".$list->employeeLocationTime."','".$list->employeeLocationLatitude."','".$list->employeeLocationLongitude."','".$list->employeeLocationProviderName."','".$list->employeeLocationBatteryLevel."')";
+			   		$sql=mysqli_query($CONNECTION,$result);
+			   	}
+			   	if($sql)
+			   		{
+			   		/*$data=array(
+			   		 	
+			   		'code'=>'200',
+			   		'result'=>'true',
+			   		);
+			   		print_r($data);die;*/
+			   		echo 'true'; die;
+			   		}
+			   	else
+			   		{
+			   		/*$data=array(
+			   			
+			   		'code'=>'400',
+			   		'result'=>'false',
+			   		);*/
+			   		echo 'false'; die;
+			   		}
+   		}
    }
 }

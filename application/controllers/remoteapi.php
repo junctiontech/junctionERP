@@ -16,8 +16,8 @@ class Remoteapi extends CI_Controller {
 	
 	function locationUpdate(){
 		//$this->load->library('session'); //if it's not autoloaded in your CI setup
-		$this->session->set_userdata('db_name','hr');
-		$this->session->userdata('db_name');
+		//$this->session->set_userdata('db_name','hr');
+		//$this->session->userdata('db_name');
 		$data=json_decode($_POST['employeeData']);
 		if($data)
 		{
