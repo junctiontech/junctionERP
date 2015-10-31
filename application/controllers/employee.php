@@ -335,7 +335,7 @@ public function insert_employee($info=false)
 		$to=$this->input->post('to');
 		$sheat=$this->input->post('sheat');
 		$user_id= $info;
-		$action_array = $this->employee_model->tracking_detail('tracking',$imei,$from,$to);
+		$action_array = $this->employee_model->tracking_detail($imei,$from,$to);
 	//	print_r($action_array);die;
 		if(!empty($action_array)){
 			$array=array(0=>array(0=>'',1=>'IMEI NUMBER:-',2=>$action_array[0]->imei),1=>array(0=>'Serial number',1=>'date',2=>'time',3=>'Locations'),2=>array(0=>'',1=>'',2=>'',3=>'',4=>''));

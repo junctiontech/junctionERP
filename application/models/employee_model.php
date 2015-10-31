@@ -96,8 +96,8 @@ class Employee_model extends CI_Model {
 	public function tracking_detail($imei=false,$from=false,$to=false)
 	{
 		//echo $table;
-		echo $imei;
-		echo $from;
+		//echo $imei;
+		//echo $from;
 		echo $to;
 		//$from='2015-07-18';
 		//$to='2015-07-30';
