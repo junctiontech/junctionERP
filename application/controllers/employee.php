@@ -326,9 +326,9 @@ public function insert_employee($info=false)
 	
 	public function track_address($info=false,$name=false)
 	{ 
-		echo $this->session->userdata('db_name');die;
-		$this->session->unset('db_name');
 		
+		$this->session->unset('db_name');
+		echo $this->session->userdata('db_name');die;
 		$imei=$this->input->post('imei');
 		$name=$this->input->post('name');
 		$from=$this->input->post('from');
