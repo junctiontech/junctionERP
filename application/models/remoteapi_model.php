@@ -1,7 +1,7 @@
 <?php
 /* Model for login and sign up   */
 
-class Login_model extends CI_Model 
+class Remoteapi_model extends CI_Model 
 {
 	//variable initialize
     var $title   = '';
