@@ -5,13 +5,8 @@ class Remoteapi extends CI_Controller {
 
 	function __construct() {
 		parent::__construct();
-		$this->data[]="";
-		$this->data['user_data']="";
-		$this->data['url'] = base_url();
 		$this->load->model('remoteapi_model');
 		$this->load->helper('url');
-		$this->data['base_url']=base_url();
-		$this->load->library('session');
 	}
 	
 	function locationUpdate(){
@@ -19,6 +14,7 @@ class Remoteapi extends CI_Controller {
 		//$this->session->set_userdata('db_name','hr');
 		//$this->session->userdata('db_name');
 		$data=json_decode($_POST['employeeData']);
+		print_r($data);die;
 		if($data)
 		{
 			$result=$this->remoteapi_model->locationUpdate($data=false);
