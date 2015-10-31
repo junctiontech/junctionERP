@@ -1,7 +1,7 @@
 <?php
 /* Model for login and sign up   */
 
-class Remoteapi_model extends CI_Model 
+class Login_model extends CI_Model 
 {
 	//variable initialize
     var $title   = '';
@@ -16,10 +16,15 @@ class Remoteapi_model extends CI_Model
 		//Load database connection
 		$this->load->database();
       }
-     
+    
     /* function for login check email id ragisterd or not   */
-    function locationUpdate()
-    {
-    	
-    }
+   function locationUpdate($data=false)
+   {
+   		$imei=$data->employeeIMEI;
+   		foreach ($data->employeeLocationList as $list)
+		   	{
+		   		$query = $this->db->query("INSERT INTO tracking VALUES('".$imei."','".$list->employeeLocationDate."','".$list->employeeLocationTime."','".$list->employeeLocationLatitude."','".$list->employeeLocationLongitude."','".$list->employeeLocationProviderName."','".$list->employeeLocationBatteryLevel."')");
+		   		return $query->Result();
+		   	}
+   }
 }

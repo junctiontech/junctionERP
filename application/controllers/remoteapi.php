@@ -1,16 +1,51 @@
 <?php 
 
-/* Controller for login Functionality */
-class Remoteapi {
+/* Class for Rempte Api Functionality */
+class Remoteapi extends CI_Controller {
+
+	function __construct() {
+		parent::__construct();
+		$this->data[]="";
+		$this->data['user_data']="";
+		$this->data['url'] = base_url();
+		$this->load->model('remoteapi_model');
+		$this->load->helper('url');
+		$this->data['base_url']=base_url();
+	}
 	
 	function locationUpdate(){
-		//print_r(json_decode($_POST['employeeData']));die;
+		$data=json_decode($_POST['employeeData']);
+		if($data)
+		{
+			$result=$this->remoteapi_model->locationUpdate($data=false);
+			if($result)
+			{
+				/*$data=array(
+				 	
+				'code'=>'200',
+				'result'=>'true',
+				);
+				print_r($data);die;*/
+				echo 'true'; die;
+			}
+			else
+			{
+				/*$data=array(
+						
+				'code'=>'400',
+				'result'=>'false',
+				);*/
+				echo 'false'; die;
+			}
+		}
+		
+	}
+	/*
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','hr');
 		if($CONNECTION)
 		{
 			$data=json_decode($_POST['employeeData']);
 			$imei=$data->employeeIMEI;//echo $imei;
-			//print_r($data->employeeLocationList);die;
 			foreach ($data->employeeLocationList as $list)
 				{
 					$result = "INSERT INTO tracking VALUES('".$imei."','".$list->employeeLocationDate."','".$list->employeeLocationTime."','".$list->employeeLocationLatitude."','".$list->employeeLocationLongitude."','".$list->employeeLocationProviderName."','".$list->employeeLocationBatteryLevel."')";
@@ -23,7 +58,7 @@ class Remoteapi {
 							'code'=>'200',
 							'result'=>'true',
 								);
-					print_r($data);die;*/
+					print_r($data);die;
 					 echo 'true'; die;
 				}
 				else 
@@ -32,7 +67,7 @@ class Remoteapi {
 					
 							'code'=>'400',
 							'result'=>'false',
-					);*/
+					);
 					echo 'false'; die;
 				}
 		}
@@ -40,6 +75,13 @@ class Remoteapi {
 		{
 			echo 'connection error';
 		}
+	} */
+	
+	function task_update()
+	{
+		// task update body hear
 	}
+	
+	
 }
 /* End of login controller */
