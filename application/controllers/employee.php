@@ -327,6 +327,7 @@ public function insert_employee($info=false)
 	public function track_address($info=false,$name=false)
 	{ 
 		//$this->session->unset('db_name');
+		$db=$this->session->userdata('db_name');
 		$this->session->set_userdata('db_name','appmanager');
 		$this->session->userdata('db_name');	
 		$imei=$this->input->post('imei');
@@ -337,7 +338,7 @@ public function insert_employee($info=false)
 		$user_id= $info;
 		$action_array = $this->employee_model->tracking_detail($imei,$from,$to);
 		if(!empty($action_array)){
-			$array=array(0=>array(0=>'',1=>'IMEI NUMBER:-',2=>$action_array[0]->imei),1=>array(0=>'Serial number',1=>'date',2=>'time',3=>'Locations',4=>'status',5=>'bettry_leavel'),2=>array(0=>'',1=>'',2=>'',3=>'',4=>'',5=>''));
+			$array=array(0=>array(0=>'',1=>'IMEI NUMBER:-',2=>$action_array[0]->imei),1=>array(0=>'Serial number',1=>'Date',2=>'Time',3=>'Locations',4=>'Status',5=>'Battery Level'),2=>array(0=>'',1=>'',2=>'',3=>'',4=>'',5=>''));
 			
 			$locations=array();
 			foreach($action_array as $key=>$a)
@@ -368,6 +369,8 @@ public function insert_employee($info=false)
 				$array2=array($key+1,$a->date,$a->time,$locations[$latlong],$a->status,$a->bettry_leavel);
 				array_push($array,$array2);
 			}
+			$this->session->set_userdata('db_name',$db);
+			$this->session->userdata('db_name');
 			$filename=$name.'.xls';
 			header('Content-Disposition: attachment;filename="'.$filename.'"');
 			header('Content-Type: application/vnd.ms-excel');
