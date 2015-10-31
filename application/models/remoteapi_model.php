@@ -21,6 +21,7 @@ class Remoteapi_model extends CI_Model
    function locationUpdate($data=false)
    {
    		//$this->load->database('default',TRUE);
+   		print_r($data);die;
    		$CONNECTION=mysqli_connect("localhost",'root','bitnami','hr');
    		if($CONNECTION)
    		{
