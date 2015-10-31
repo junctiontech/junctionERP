@@ -114,7 +114,6 @@ class Employee_model extends CI_Model {
 		//return $qry->result();select * from person
 		$this->load->database('default',TRUE);
 $qry=$this->db->query("select * from tracking where `imei`='".$imei."' and DATE(date) between '".$from."' and '".$to."' ");
-				print_r($qry);die;
 				return $qry->result();
 		
 	}

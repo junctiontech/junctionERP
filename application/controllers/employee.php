@@ -336,9 +336,8 @@ public function insert_employee($info=false)
 		$sheat=$this->input->post('sheat');
 		$user_id= $info;
 		$action_array = $this->employee_model->tracking_detail($imei,$from,$to);
-	//	print_r($action_array);die;
 		if(!empty($action_array)){
-			$array=array(0=>array(0=>'',1=>'IMEI NUMBER:-',2=>$action_array[0]->imei),1=>array(0=>'Serial number',1=>'date',2=>'time',3=>'Locations'),2=>array(0=>'',1=>'',2=>'',3=>'',4=>''));
+			$array=array(0=>array(0=>'',1=>'IMEI NUMBER:-',2=>$action_array[0]->imei),1=>array(0=>'Serial number',1=>'date',2=>'time',3=>'Locations',4=>'status',5=>'bettry_leavel'),2=>array(0=>'',1=>'',2=>'',3=>'',4=>'',5=>''));
 			
 			$locations=array();
 			foreach($action_array as $key=>$a)
@@ -366,7 +365,7 @@ public function insert_employee($info=false)
 						}
 				}
 			}
-				$array2=array($key+1,$a->date,$a->time,$locations[$latlong]);
+				$array2=array($key+1,$a->date,$a->time,$locations[$latlong],$a->status,$a->bettry_leavel);
 				array_push($array,$array2);
 			}
 			$filename=$name.'.xls';
