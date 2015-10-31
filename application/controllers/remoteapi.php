@@ -18,28 +18,28 @@ class Remoteapi extends CI_Controller {
 		if($data)
 		{
 			$result=$this->remoteapi_model->locationUpdate($data=false);
-			if($result)
+			/*if($result)
 			{
-				/*$data=array(
+				$data=array(
 				 	
 				'code'=>'200',
 				'result'=>'true',
 				);
-				print_r($data);die;*/
+				print_r($data);die;
 				echo 'true'; die;
 			}
 			else
 			{
-				/*$data=array(
+				$data=array(
 						
 				'code'=>'400',
 				'result'=>'false',
-				);*/
-				echo 'false'; die;
+				);
+				echo 'false'; die;*/
 			}
 		}
 		
-	}
+
 	/*
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','hr');
 		if($CONNECTION)
