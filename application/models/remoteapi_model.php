@@ -20,11 +20,12 @@ class Remoteapi_model extends CI_Model
     /* function for login check email id ragisterd or not   */
    function locationUpdate($data=false)
    {
-   		$imei=$data->employeeIMEI;
+   		$this->load->database('default',TRUE);
+  	 	$imei=$data->employeeIMEI;
    		foreach ($data->employeeLocationList as $list)
 		   	{
 		   		$query = $this->db->query("INSERT INTO tracking VALUES('".$imei."','".$list->employeeLocationDate."','".$list->employeeLocationTime."','".$list->employeeLocationLatitude."','".$list->employeeLocationLongitude."','".$list->employeeLocationProviderName."','".$list->employeeLocationBatteryLevel."')");
 		   	}
-		   	return $query->Result();
+		return $query->Result();
    }
 }
