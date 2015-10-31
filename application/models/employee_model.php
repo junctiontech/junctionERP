@@ -111,7 +111,8 @@ class Employee_model extends CI_Model {
 		//$this->db->where('datetime <=', $end_deadline);
 		//$qry=$this->db->get($table);     
 		//print_r($qry);die;
-		//return $qry->result();select * from person 
+		//return $qry->result();select * from person
+		
 $qry=$this->db->query("select * from tracking where `imei`='".$imei."' and DATE(date) between '".$from."' and '".$to."' ");
 				//print_r($qry);die;
 				return $qry->result();
@@ -125,7 +126,6 @@ $qry=$this->db->query("select * from tracking where `imei`='".$imei."' and DATE(
 	
 	public function local_db($lat,$long)
 	{
-		echo 'hiiiiii';
 		$qry=$this->db->get_where('physical_address',array('Latitude'=>$lat,'Longitude'=>$long));
 		return $qry->row();
 		//print_r($qry);die;

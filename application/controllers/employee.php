@@ -326,6 +326,9 @@ public function insert_employee($info=false)
 	
 	public function track_address($info=false,$name=false)
 	{ 
+		echo $this->session->userdata('db_name');die;
+		$this->session->unset('db_name');
+		
 		$imei=$this->input->post('imei');
 		$name=$this->input->post('name');
 		$from=$this->input->post('from');
@@ -337,7 +340,6 @@ public function insert_employee($info=false)
 			$array=array(0=>array(0=>'',1=>'IMEI NUMBER:-',2=>$action_array[0]->imei),1=>array(0=>'Serial number',1=>'date',2=>'time',3=>'Locations'),2=>array(0=>'',1=>'',2=>'',3=>'',4=>''));
 			
 			$locations=array();
-			echo'ar';
 			foreach($action_array as $key=>$a)
 			{
 			error_reporting(0);
@@ -347,7 +349,6 @@ public function insert_employee($info=false)
 			//echo $latlong;
 			if(!$locations[$latlong])
 			{ 
-				echo 'in fecth';
 				$local_db=$this->data['local_db']=$this->employee_model->local_db($lat,$long);
 				$newarray=array($local_db->Latitude."-".$local_db->Longitude=>$local_db->address);
 				$locations= array_merge($locations, $newarray);
