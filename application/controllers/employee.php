@@ -326,10 +326,10 @@ public function insert_employee($info=false)
 	
 	public function track_address($info=false,$name=false)
 	{ 
-		
 		$this->session->unset('db_name');
 		$this->session->set_userdata('db_name','appmanager');
-		echo $this->session->userdata('db_name');die;
+		echo $this->session->userdata('db_name');
+		die;
 		$imei=$this->input->post('imei');
 		$name=$this->input->post('name');
 		$from=$this->input->post('from');
