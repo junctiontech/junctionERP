@@ -1,16 +1,16 @@
 <?php 
-
+echo 'hii';
 /* Class for Rempte Api Functionality */
-class Remoteapi extends CI_Controller {
+class Remoteapi {
 
-	function __construct() {
+	/*function __construct() {
 		parent::__construct();
 		$this->load->model('remoteapi_model');
 		$this->load->helper('url');
-	}
+	}*/
 	
 	function locationUpdate(){
-		//$this->load->library('session'); //if it's not autoloaded in your CI setup
+		/*$this->load->library('session'); //if it's not autoloaded in your CI setup
 		//$this->session->set_userdata('db_name','hr');
 		//$this->session->userdata('db_name');
 		$data=json_decode($_POST['employeeData']);
@@ -35,12 +35,12 @@ class Remoteapi extends CI_Controller {
 				'code'=>'400',
 				'result'=>'false',
 				);
-				echo 'false'; die;*/
+				echo 'false'; die;
 			}
-		}
+		}*/
 		
 
-	/*
+
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','hr');
 		if($CONNECTION)
 		{
@@ -58,7 +58,7 @@ class Remoteapi extends CI_Controller {
 							'code'=>'200',
 							'result'=>'true',
 								);
-					print_r($data);die;
+					print_r($data);die;*/
 					 echo 'true'; die;
 				}
 				else 
@@ -67,7 +67,7 @@ class Remoteapi extends CI_Controller {
 					
 							'code'=>'400',
 							'result'=>'false',
-					);
+					);*/
 					echo 'false'; die;
 				}
 		}
@@ -75,7 +75,7 @@ class Remoteapi extends CI_Controller {
 		{
 			echo 'connection error';
 		}
-	} */
+	} 
 	
 	function task_update()
 	{
