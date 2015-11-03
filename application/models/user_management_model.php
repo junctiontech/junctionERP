@@ -18,10 +18,12 @@ class User_management_model extends CI_Model{
     {
     	
     		$qry=$this->db->query('CREATE DATABASE '.$database_name);
+    		echo $qry;die;
     		if(!$qry)
     		{
-    			return true;
+    			return false;
     		}
+    		echo 'hiiiii';die;
 		$this->session->set_userdata('db_name',$database_name);
     	$this->session->userdata('db_name');
     	if($_SERVER['HTTP_HOST']=="localhost"){
