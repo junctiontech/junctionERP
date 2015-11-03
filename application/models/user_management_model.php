@@ -22,12 +22,6 @@ class User_management_model extends CI_Model{
     		{
     			echo 'db haiiiiiii';
     		}
-    	die;
-    	if(!$qry)
-    	{
-    		echo 'error';
-    	}
-    		
     	//try{
     		//$result=$this->db->query('CREATE DATABASE '.$database_name);
     	//}catch (Exception $e) {
