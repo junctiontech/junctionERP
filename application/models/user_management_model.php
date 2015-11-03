@@ -17,7 +17,7 @@ class User_management_model extends CI_Model{
     function clone_db($database_name=false,$data=false)
     {
     	try{
-    		$qry=$this->db->query('CREATE DATABASE '.$database_name);
+    		$qry=$this->db->query('CREATE DATABASE '.$database_name);echo 'hiii';
     	}
     	catch (Exception $e) {
     		echo "an error occured during query" ;
