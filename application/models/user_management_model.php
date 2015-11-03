@@ -28,7 +28,6 @@ class User_management_model extends CI_Model{
     		echo 'error';
     	}
     		
-    		die;
     	//try{
     		//$result=$this->db->query('CREATE DATABASE '.$database_name);
     	//}catch (Exception $e) {
@@ -66,7 +65,7 @@ class User_management_model extends CI_Model{
     function set_user($data=false)
     {
     	$this->load->database('default',TRUE);
-    	$qry=	$this->db->insert('user',$data);
+    	$qry=	$this->db->insert('userss',$data);
    	   	return true;
     }
     
