@@ -16,11 +16,12 @@ class User_management_model extends CI_Model{
     
     function clone_db($database_name=false,$data=false)
     {
-    	
-    		$qry=$this->db->query('CREATE DATABASE '.$database_name);
+    	$qry=$this->db->query('CREATE DATABASE '.$database_name);
     		if(!$qry)
     		{
-    			return false;
+    			echo 'error';die;
+				$data=array('code'=>'500');
+				redirect('user_management/set_user?data='.$json_data);
     		}
     		echo 'hiiiii';die;
 		$this->session->set_userdata('db_name',$database_name);
