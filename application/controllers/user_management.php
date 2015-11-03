@@ -40,7 +40,7 @@ class User_management extends CI_Controller {
 							'organization_id'=>$var->organization_id,
 							'organization_name'=>$var->organization_name,
 							'application_admin_email'=>$var->application_admin_email,
-							'organization_admin_email'=>$data->organization_admin_email,
+							'organization_admin_email'=>$var->organization_admin_email,
 							'code'=>'200',
 							'database_name'=>$var->db_name,
 							'username'=>$var->Username,
