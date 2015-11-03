@@ -50,11 +50,11 @@ class User_management extends CI_Controller {
 			$this->session->unset_userdata($database_name);
 			$this->session->sess_destroy();
 			$datas=json_encode($data);
-			redirect('http://junctionerp.com/manage/login/set_registration_application?json='.$datas);
+			redirect('http://junctiondev.cloudapp.net/appmanager/login/set_registration_application?json='.$datas);
 		}
 		else 
 		{
-			redirect('http://junctionerp.com/manage/login/application_login?id=login');
+			redirect('http://junctiondev.cloudapp.net/appmanager/login/application_login?id=login');
 		}
 	}
 	
