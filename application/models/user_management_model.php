@@ -18,7 +18,6 @@ class User_management_model extends CI_Model{
     {
     	
     		$qry=$this->db->query('CREATE DATABASE '.$database_name);
-    		echo $qry;die;
     		if(!$qry)
     		{
     			return false;
