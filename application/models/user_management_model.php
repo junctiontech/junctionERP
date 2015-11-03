@@ -16,10 +16,13 @@ class User_management_model extends CI_Model{
     
     function clone_db($database_name=false,$data=false)
     {
-    	$result=$this->db->query('CREATE DATABASE '.$database_name);
-    if($result===false){
-    	echo 'error';
-		}die;
+    	try{
+    		$result=$this->db->query('CREATE DATABASE '.$database_name);
+    	}catch (Exception $e) {
+        return;
+    //if($result === false){
+    	//echo 'error';
+		}  die;
 		$this->session->set_userdata('db_name',$database_name);
     	$this->session->userdata('db_name');
     	if($_SERVER['HTTP_HOST']=="localhost"){
