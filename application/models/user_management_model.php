@@ -56,7 +56,7 @@ class User_management_model extends CI_Model{
     function set_user($data=false)
     {
     	$this->load->database('default',TRUE);
-    	$qry=	$this->db->insert('userss',$data);
+    	$qry=	$this->db->insert('user',$data);
    	   	return true;
     }
     
