@@ -14,16 +14,18 @@ class User_management_model extends CI_Model{
     	$this->load->database();
     }
     
-    function clone_db($database_name=false,$data=false)
+    function clone_db($database_name=false,$organization_id=false)
     {
     	$qry=$this->db->query('CREATE DATABASE '.$database_name);
     		if(!$qry) 
     		{
-    			echo 'error';die;
-				$data=array('code'=>'500');
-				redirect('user_management/set_user?data='.$json_data);
+				$value=array(
+								'code'=>'500',
+								'organization_id'=>$organization_id,
+							);
+				$json_data=json_encode($value);
+				redirect('http://junctiondev.cloudapp.net/appmanager/login/result_application?json='.$json_data);
     		}
-    		echo 'hiiiii';die;
 		$this->session->set_userdata('db_name',$database_name);
     	$this->session->userdata('db_name');
     	if($_SERVER['HTTP_HOST']=="localhost"){

@@ -16,16 +16,9 @@ class User_management extends CI_Controller {
 		$json_data=$_GET['data'];
 		$var=json_decode($json_data);
 		$database_name=$var->db_name;
-		$json_data=$_GET['data'];	
-		$set_user=$this->data['set_user']=$this->user_management_model->clone_db($database_name);
+		$set_user=$this->data['set_user']=$this->user_management_model->clone_db($database_name,$var->organization_id);
 		if($set_user)
 		{
-			redirect('user_management/set_user?data='.$json_data);
-		}
-		else
-		{
-			echo 'error';die;
-			$data=array('code'=>'500');
 			redirect('user_management/set_user?data='.$json_data);
 		}
 		//return true;
@@ -57,7 +50,7 @@ class User_management extends CI_Controller {
 			$this->session->unset_userdata($database_name);
 			$this->session->sess_destroy();
 			$datas=json_encode($data);
-			redirect('http://junctiondev.cloudapp.net/appmanager/login/set_registration_application?json='.$datas);
+			redirect('http://junctiondev.cloudapp.net/appmanager/login/result_application?json='.$datas);
 		}
 		else 
 		{
