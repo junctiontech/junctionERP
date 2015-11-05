@@ -85,7 +85,7 @@ class User_management extends CI_Controller {
 				'reg_app_id'=>$var->reg_app_id,
 		);
 		$json=json_encode($data);
-		redirect('http://junctionerp.com/manage/admin_panel/delete_app_org?json='.$json);
+		redirect('http://junctiondev.cloudapp.net/appmanager/admin_panel/delete_app_org?json='.$json);
 	}
 	
 }
