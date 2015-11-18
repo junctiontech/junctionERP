@@ -1,7 +1,7 @@
 <?php 
 
 /* Controller for login Functionality */
-class Remoteapi {
+class Remoteapi{
 	
 	function locationUpdate(){
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','hr');
@@ -38,8 +38,7 @@ class Remoteapi {
 		{
 			echo 'connection error';
 		}
-	}
-	
+	}	
 	function task_update()
 	{
 		// task update body hear
