@@ -36,7 +36,7 @@ class Remoteapi{
 		}
 		else
 		{
-			echo 'connection error';
+			echo 'Server Error Connection Not Found';
 		}
 	}	
 	/* Function for Image Update For Androide Application */
