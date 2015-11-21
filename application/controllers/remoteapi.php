@@ -3,7 +3,8 @@
 /* Controller for login Functionality */
 class Remoteapi{
 	
-	function locationUpdate(){
+	function locationUpdate()
+	{
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','hr');
 		if($CONNECTION)
 		{
