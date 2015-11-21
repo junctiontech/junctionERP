@@ -40,7 +40,7 @@ class Remoteapi{
 		}
 	}	
 	/* Function for Image Update For Androide Application */
-	function image_project_update()
+	function project_image_update()
 	{
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','junction_erp');
 		if($CONNECTION)
