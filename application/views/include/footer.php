@@ -1,49 +1,32 @@
 <?php //print_r($this->data['select_customer']);
 ?>
 	<footer class="main-footer sticky footer-type-1">
-				
-				<div class="footer-inner">
-				
-					<!-- Add your copyright text here -->
-					<div class="footer-text text-black" >
+		<div class="footer-inner">
+			<!-- Add your copyright text here -->
+				<div class="footer-text text-black" >
 						&copy; <?php echo date("Y"); ?> 
 						<strong >Junction ERP.Copyright<a href="http://junctiontech.in/" target="_blank"> Junction Software Pvt.Ltd	</a></strong> 
-						Mobile Number- 8109069226 				</div>
-					
-					
-					<!-- Go to Top Link, just add rel="go-top" to any link to add this functionality -->
-					<div class="go-up">
-					
-						<a href="#" rel="go-top">
-							<i class="fa-angle-up"></i>
-						</a>
-						
-					</div>
-					
+						Mobile Number- 8109069226 				
 				</div>
-				
-			</footer>
+			<!-- Go to Top Link, just add rel="go-top" to any link to add this functionality -->
+				<div class="go-up">
+					<a href="#" rel="go-top">
+						<i class="fa-angle-up"></i>
+					</a>
+				</div>
+			</div>
+	</footer>
 			</div>
 			</div>
-			
-		<div class="modal  custom-width fade" id="modal-8" data-backdrop="static" >
-	
+	<div class="modal  custom-width fade" id="modal-8" data-backdrop="static" >
 		<div class="modal-dialog" style="width: 75%">
-			<div class="modal-content">
-						
-					
-				
-				</div>
+			<div class="modal-content"></div>
 		</div>
 	</div>	
-			
 	<div class="modal  custom-width fade" id="modal-7" data-backdrop="static" >
-	
 		<div class="modal-dialog" style="width: 75%">
 			<div class="modal-content">
-				
-				
-				</div>
+			</div>
 		</div>
 	</div>	
 	

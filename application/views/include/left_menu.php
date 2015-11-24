@@ -149,6 +149,13 @@
 					
 					</li>
 					<li>
+						<a href="<?php echo base_url(); ?>home">
+							<i class="linecons-lightbulb" title="Dashboard"></i>
+							<span class="title" >Registration List</span>
+						</a>
+					
+					</li>
+					<li>
 						<a href="<?php echo base_url(); ?>master/manage_organization">
 							<i class="linecons-cog" title="Organization"></i>
 							<span class="title"  >Organization</span>
