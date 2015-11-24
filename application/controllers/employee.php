@@ -430,7 +430,7 @@ public function insert_employee($info=false)
 	
 	public function application_reg_list()
 	{
-		$application_registration_list=$this->data['application_registration_list']=$this->employee_model->application_registration_list;
+		$application_registration_list=$this->data['application_registration_list']=$this->employee_model->application_registration_list();
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('application_reg',$this->data);
