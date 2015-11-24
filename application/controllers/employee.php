@@ -33,7 +33,6 @@ class Employee extends CI_Controller {
 			$list_employee = $this->data['list_employee'] = $this->employee_model->list_employee($organization);
 		}
 		$su_list_employee = $this->data['su_list_employee'] = $this->employee_model->su_list_employee();
-		
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('manage_emp',$this->data);
@@ -426,6 +425,15 @@ public function insert_employee($info=false)
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('location_map',$this->data);
+		$this->parser->parse('include/footer',$this->data);
+	}
+	
+	public function application_reg_list()
+	{
+		$application_registration_list=$this->data['application_registration_list']=$this->employee_model->application_registration_list;
+		$this->parser->parse('include/header',$this->data);
+		$this->parser->parse('include/left_menu',$this->data);
+		$this->load->view('application_reg',$this->data);
 		$this->parser->parse('include/footer',$this->data);
 	}
 }

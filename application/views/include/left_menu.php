@@ -149,7 +149,7 @@
 					
 					</li>
 					<li>
-						<a href="<?php echo base_url(); ?>home">
+						<a href="<?php echo base_url(); ?>employee/application_reg_list">
 							<i class="linecons-lightbulb" title="Dashboard"></i>
 							<span class="title" >Registration List</span>
 						</a>

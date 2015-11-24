@@ -146,6 +146,12 @@ $qry=$this->db->query("select * from tracking where `imei`='".$imei."' and DATE(
 		return $qry->result();
 	}
 	
+	public function application_registration_list()
+	{
+		$this->db->select('*');
+		$qry=$this->db->get('newregistration');
+		return $qry->result();
+	}
 }
 //Model Class for Employee end
 ?>
