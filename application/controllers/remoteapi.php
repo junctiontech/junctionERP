@@ -51,7 +51,7 @@ class Remoteapi{
 			
 				$query="insert into project_image(project_id,task_id,image) values ('".$_POST['project_id']."','".$_POST['task_id']."','".$_FILES['image_name']['name']."')";
 				$sql=mysqli_query($CONNECTION,$query);
-				if($sql)
+				if($sql) 
 				{
 					$image=move_uploaded_file($_FILES['image_name']['tmp_name'], "project_image".$_FILES['image_name']['name']);
 					echo 'Image Successfully Insert';
