@@ -46,7 +46,8 @@ class Remoteapi{
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','junction_erp');
 		if($CONNECTION)
 		{
-			$data=json_decode($json);
+			//$data=json_decode($image);
+			echo $project_id; echo $image_name; echo $task_id;die;
 			foreach($data as $value)
 			{
 				$query="insert into project_image(project_id,task_id,image) values ('".$value->project_id."','".$value->task_id."','".$value->image."')";
