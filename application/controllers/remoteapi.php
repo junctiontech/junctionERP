@@ -47,14 +47,14 @@ class Remoteapi{
 		if($CONNECTION)
 		{
 			//$data=json_decode($image);
-			echo $_POST['project_id']; echo $_FILES['image_name']['name']; echo $_POST['task_id'];die;
+			//echo $_POST['project_id']; echo $_FILES['image_name']['name']; echo $_POST['task_id'];die;
 			foreach($data as $value)
 			{
-				$query="insert into project_image(project_id,task_id,image) values ('".$value->project_id."','".$value->task_id."','".$value->image."')";
+				$query="insert into project_image(project_id,task_id,image) values ('".$_POST['project_id']."','".$_POST['task_id']."','".$_FILES['image_name']['name']."')";
 				$sql=mysqli_query($CONNECTION,$query);
 				if($sql)
 				{
-					$image=move_uploaded_file($_FILES['image']['tmp_name'], "project_image".$value->image);
+					$image=move_uploaded_file($_FILES['image_name']['tmp_name'], "project_image".$_FILES['image_name']['name']);
 					echo 'Image Successfully Insert';
 				}
 				else
