@@ -178,11 +178,11 @@ class Login extends CI_Controller {
 				if(isset($json_data->url)&&$json_data->url=='androide')
 				{
 					$data=array(
-							'status'=>'200',
+							'code'=>'200',
 							'result'=>'success',
 							'userType'=>$row->role_id,
 					);
-					print_r($data);die;
+					return json_encode($data);
 				}
 				$user_data = array(
 						'usermailid' => $row->Username,
