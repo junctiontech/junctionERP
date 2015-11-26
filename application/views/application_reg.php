@@ -30,12 +30,12 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">Manage Registration</h3>
-					<div class="panel-options">
+					<!--  <div class="panel-options">
 							<a href="<?php echo base_url(); ?>master/add_organization"><button class="btn btn-theme btn-info btn-icon btn-sm">
 							<i class="fa-plus"></i>
 							<span>Add Organization</span>
 						</button></a>
-					</div>	
+					</div>	-->
 				</div>
 				<div class="panel-body">
 					<script type="text/javascript">
