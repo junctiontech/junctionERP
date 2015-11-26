@@ -203,10 +203,10 @@ class Login extends CI_Controller {
 				if(isset($json_data->url)&&$json_data->url=='androide')
 				{
 					$data=array(
-							'status'=>'400',
-							'result'=>'Error',
+							'code'=>'400',
+							'result'=>'error',
 					);
-					print_r($data);die;
+					echo json_encode($data);die;
 				}
 					$this->session->set_flashdata('message', 'Authentication failed');
 		//	echo $this->session->userdata('error');die;
