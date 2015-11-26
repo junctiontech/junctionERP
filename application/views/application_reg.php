@@ -89,6 +89,9 @@
 										<a href="<?php echo base_url(); ?>employee/manage_emp/<?=$list->registration_id ?>" class="btn btn-secondary btn-sm btn-icon icon-left">
 												Create Employee
 										</a>
+										<a href="<?php echo base_url(); ?>employeecvxc/delete_organization/<?=$list->registration_id; ?>" onClick="return confirm('Are you sure to delete this organization ? This will delete all the related records on this organization as well.')" class="btn btn-danger btn-sm btn-icon icon-left">
+												Send Notification
+										</a>
 									</td>
 								</tr>
 							<?php $i++; } ?>
