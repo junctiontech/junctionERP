@@ -182,7 +182,7 @@ class Login extends CI_Controller {
 							'result'=>'success',
 							'userType'=>$row->role_id,
 					);
-					return json_encode($data);
+					echo json_encode($data);die;
 				}
 				$user_data = array(
 						'usermailid' => $row->Username,
