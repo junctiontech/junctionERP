@@ -66,10 +66,13 @@ class Remoteapi{
 				echo 'hii';*/
 				$img="select image from project_image";
 				$sql=mysqli_query($CONNECTION,$img);
-				print_r($sql);	die;
-				?>
-						<img src=""/>
-						<?php
+				//print_r($sql);	die;
+				foreach($sql as $list)
+				{
+					?>
+						<img src="project_image/<?php echo $list;?>"/>
+					<?php
+				}
 		}
 		else
 		{
