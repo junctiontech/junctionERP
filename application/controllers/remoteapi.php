@@ -48,12 +48,14 @@ class Remoteapi{
 		{
 			//$data=json_decode($image);
 			//echo $_POST['project_id']; echo $_FILES['image_name']['name']; echo $_POST['task_id'];die;
-			
+				
 				$query="insert into project_image(project_id,task_id,image) values ('".$_POST['project_id']."','".$_POST['task_id']."','".$_FILES['image_name']['name']."')";
 				$sql=mysqli_query($CONNECTION,$query);
 				if($sql) 
 				{
-					$image=move_uploaded_file($_FILES['image_name']['tmp_name'],"project_image/".$_FILES['image_name']['name']); 
+					$img=$_FILES['image_name']['name'];
+					$valueImage=str_replace(',','_',$img);
+					$image=move_uploaded_file($_FILES['image_name']['tmp_name'],"project_image/".$valueImage); 
 					echo 'Image Successfully Insert';
 				}
 				else
