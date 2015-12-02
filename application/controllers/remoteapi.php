@@ -58,16 +58,22 @@ class Remoteapi{
 					$image=move_uploaded_file($_FILES['image_name']['tmp_name'],"project_image/".$valueImage); 
 					echo 'Image Successfully Insert';
 				}
+				
 				else
 				{
 					echo 'Image Not Insert';
 				}
-			
+				$img="select image from project_image";
+				print_r($img);	die;
+				?>
+						<img src=""/>
+						<?php
 		}
 		else
 		{
 			echo 'Server Error Connection Not Found';
 		}
+		
 	}
 
 	/* Function for Update Task For Androide Application */
