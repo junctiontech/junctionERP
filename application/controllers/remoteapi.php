@@ -70,7 +70,7 @@ class Remoteapi{
 				while($imga=mysqli_fetch_assoc($sql))
 				{ 
 					?>
-						<img src="project_image/<?php echo $imga[image];?>"/>
+						<img src="project_image/<?php echo $imga['image'];?>"/>
 					<?php
 				}
 		}
