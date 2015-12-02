@@ -63,6 +63,7 @@ class Remoteapi{
 				{
 					echo 'Image Not Insert';
 				}
+				echo 'hii';die;
 				$img="select image from project_image";
 				print_r($img);	die;
 				?>
