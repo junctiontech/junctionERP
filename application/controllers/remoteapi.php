@@ -46,29 +46,29 @@ class Remoteapi{
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','junction_erp');
 		if($CONNECTION)
 		{
-				//$sql="select * from project_image where image='".$_FILES['image_name']['name']."'";
-				//$query=mysqli_query($CONNECTION,$query);
-				$query="insert into project_image(project_id,task_id,image) values ('".$_POST['project_id']."','".$_POST['task_id']."','".$_FILES['image_name']['name']."')";
-				$sql=mysqli_query($CONNECTION,$query);
-				if($sql) 
-				{
-					$image=move_uploaded_file($_FILES['image_name']['tmp_name'],"project_image/".$_FILES['image_name']['name']); 
-					echo 'Image Successfully Insert';
-				}
-				else
-				{
-					echo 'Image Not Insert';
-				}
-				/*echo 'hii';
-				$img="select image from project_image";
-				$sql=mysqli_query($CONNECTION,$img);
-				//$count=mysqli_fetch_rows($sql);
-				while($imga=mysqli_fetch_assoc($sql))
-				{ 
-					?> 
-						<img src="project_image/<?=$imga['image'];?>" style="max-width: 120px; max-height: 120px; line-height: 20px;" />
-					<?php
-				}*/
+			//$sql="select * from project_image where image='".$_FILES['image_name']['name']."'";
+			//$query=mysqli_query($CONNECTION,$query);
+			$query="insert into project_image(project_id,task_id,image) values ('".$_POST['project_id']."','".$_POST['task_id']."','".$_FILES['image_name']['name']."')";
+			$sql=mysqli_query($CONNECTION,$query);
+			if($sql) 
+			{
+				$image=move_uploaded_file($_FILES['image_name']['tmp_name'],"project_image/".$_FILES['image_name']['name']); 
+				echo 'Image Successfully Insert';
+			}
+			else
+			{
+				echo 'Image Not Insert';
+			}
+			/*echo 'hii';
+			$img="select image from project_image";
+			$sql=mysqli_query($CONNECTION,$img);
+			//$count=mysqli_fetch_rows($sql);
+			while($imga=mysqli_fetch_assoc($sql))
+			{ 
+				?> 
+					<img src="project_image/<?=$imga['image'];?>" style="max-width: 120px; max-height: 120px; line-height: 20px;" />
+				<?php
+			}*/
 		}
 		else
 		{
@@ -80,7 +80,7 @@ class Remoteapi{
 	/* Function for Update Task For Androide Application */
 	function project_update()
 	{
-		$data=json_decode($_POST['json']);
+		$data=json_decode($_POST['projectData']);print_r($data);die;
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami',$data->db_name);
 		if($CONNECTION)
 		{
