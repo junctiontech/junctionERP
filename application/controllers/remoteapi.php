@@ -49,7 +49,7 @@ class Remoteapi{
 			//$data=json_decode($image);
 			//echo $_POST['project_id']; echo $_FILES['image_name']['name']; echo $_POST['task_id'];die;
 				
-				/*$query="insert into project_image(project_id,task_id,image) values ('".$_POST['project_id']."','".$_POST['task_id']."','".$_FILES['image_name']['name']."')";
+				$query="insert into project_image(project_id,task_id,image) values ('".$_POST['project_id']."','".$_POST['task_id']."','".$_FILES['image_name']['name']."')";
 				$sql=mysqli_query($CONNECTION,$query);
 				if($sql) 
 				{
@@ -63,12 +63,12 @@ class Remoteapi{
 				{
 					echo 'Image Not Insert';
 				}
-				echo 'hii';*/
+				echo 'hii';
 				$img="select image from project_image";
 				$sql=mysqli_query($CONNECTION,$img);
 				//$count=mysqli_fetch_rows($sql);
 				while($imga=mysqli_fetch_assoc($sql))
-				{ //print_r($count);die;
+				{ print_r($count);die;
 					?>
 						<img src="project_image/<?php echo $imga[image];?>"/>
 					<?php
