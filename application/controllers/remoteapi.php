@@ -46,24 +46,20 @@ class Remoteapi{
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami','junction_erp');
 		if($CONNECTION)
 		{
-			//$data=json_decode($image);
-			//echo $_POST['project_id']; echo $_FILES['image_name']['name']; echo $_POST['task_id'];die;
-				
+				//$sql="select * from project_image where image='".$_FILES['image_name']['name']."'";
+				//$query=mysqli_query($CONNECTION,$query);
 				$query="insert into project_image(project_id,task_id,image) values ('".$_POST['project_id']."','".$_POST['task_id']."','".$_FILES['image_name']['name']."')";
 				$sql=mysqli_query($CONNECTION,$query);
 				if($sql) 
 				{
-					//$img=$_FILES['image_name']['name'];
-					//$valueImage=str_replace(',','_',$img);
 					$image=move_uploaded_file($_FILES['image_name']['tmp_name'],"project_image/".$_FILES['image_name']['name']); 
 					echo 'Image Successfully Insert';
 				}
-				
 				else
 				{
 					echo 'Image Not Insert';
 				}
-				echo 'hii';
+				/*echo 'hii';
 				$img="select image from project_image";
 				$sql=mysqli_query($CONNECTION,$img);
 				//$count=mysqli_fetch_rows($sql);
@@ -72,7 +68,7 @@ class Remoteapi{
 					?> 
 						<img src="project_image/<?=$imga['image'];?>" style="max-width: 120px; max-height: 120px; line-height: 20px;" />
 					<?php
-				}
+				}*/
 		}
 		else
 		{
