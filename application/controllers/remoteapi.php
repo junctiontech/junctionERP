@@ -53,7 +53,7 @@ class Remoteapi{
 				$sql=mysqli_query($CONNECTION,$query);
 				if($sql) 
 				{
-					$image=move_uploaded_file($_FILES['image']['tmp_name'], "project_image/".$_FILES['image_name']['name']); 
+					$image=move_uploaded_file($_FILES['image_name']['tmp_name'],"project_image/".$_FILES['image_name']['name']); 
 					echo 'Image Successfully Insert';
 				}
 				else
