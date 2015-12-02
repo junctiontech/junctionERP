@@ -68,7 +68,7 @@ class Remoteapi{
 				$sql=mysqli_query($CONNECTION,$img);
 				//$count=mysqli_fetch_rows($sql);
 				while($imga=mysqli_fetch_assoc($sql))
-				{ print_r($imga);die;
+				{ print_r($imga[image]);die;
 					?>
 						<img src="project_image/<?php echo $imga[image];?>"/>
 					<?php
