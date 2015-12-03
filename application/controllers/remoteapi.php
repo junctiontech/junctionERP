@@ -97,11 +97,11 @@ class Remoteapi{
 			$TaskList=$data->task_list; //echo count($TaskList[0]->expense_list);die; echo $TaskList[1]->task_id;die; //$task_id=1;print_r($TaskList[1]->expense_list);die;
 				if(count($TaskList[0]->expense_list)>0)
 				{
-					$i=0;
-					$taskid= $TaskList[$i]->task_id;
+					//$i=0;
+					$taskid= $TaskList[0]->task_id;
 					foreach ($TaskList[0]->expense_list as $value)
 					{		//echo $value->amount;
-						$insert="insert into expenser(project_id,task_id,date,amount,type,description) values ('".$ProjectId."','".$taskid."','".$task_id."','".$value->amount."','".$value->type."','".$value->description."')";
+						$insert="insert into expenser(project_id,task_id,date,amount,type,description) values ('".$ProjectId."','".$taskid."','".now()."','".$value->amount."','".$value->type."','".$value->description."')";
 						$query=mysqli_query($CONNECTION,$insert);
 					} 
 					if($query)
@@ -112,12 +112,12 @@ class Remoteapi{
 					{
 						echo ' Expense Does Not Insert Successfully ';
 					}
-					$i++;
+					
 				}
 				
 					if(count($TaskList[0]->receipt_list)>0)
-				{	$i=0;
-					$taskid=$TaskList[$i]->task_id;
+				{	
+					$taskid=$TaskList[0]->task_id;
 					foreach ($TaskList[0]->receipt_list as $value)
 					{		//echo $value->amount;
 						$insert="insert into reciepts(project_id,task_id,material,quantity,rate,unit) values ('".$ProjectId."','".$taskid."','".$value->material."','".$value->quantity."','".$value->rate."','".$value->unit."')";
