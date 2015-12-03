@@ -80,7 +80,7 @@ class Remoteapi{
 	/* Function for Update Task For Androide Application */
 	function project_update()
 	{
-		$data=json_decode($_POST['projectData']);echo $data->project_id; print_r($data->task_lsit); die;
+		$data=json_decode($_POST['projectData']);echo $data->project_id; print_r($data->task_list); die;
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami',$data->db_name);
 		if($CONNECTION)
 		{
