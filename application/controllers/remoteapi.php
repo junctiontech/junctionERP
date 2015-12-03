@@ -97,7 +97,7 @@ class Remoteapi{
 			$TaskList=$data->task_list; //echo count($TaskList[0]->expense_list);die; echo $TaskList[1]->task_id;die; //$task_id=1;print_r($TaskList[1]->expense_list);die;
 			$i=0;	if(count($TaskList[0]->expense_list)>0)
 				{
-					$taskid=$TaskList[$i]->task_id;
+					echo $TaskList[0]->task_id;die;
 					foreach ($TaskList[0]->expense_list as $value)
 					{		//echo $value->amount;
 						$insert="insert into expenser(project_id,task_id,date,amount,type,description) values ('".$ProjectId."','".$taskid."','".$task_id."','".$value->amount."','".$value->type."','".$value->description."')";
@@ -105,11 +105,11 @@ class Remoteapi{
 					} 
 					if($query)
 					{
-						echo ' Expense Insert Successfully';
+						echo ' Expense Insert Successfully ';
 					}
 					else
 					{
-						echo 'Expense Does Not Insert Successfully';
+						echo ' Expense Does Not Insert Successfully ';
 					}
 					$i++;
 				}
