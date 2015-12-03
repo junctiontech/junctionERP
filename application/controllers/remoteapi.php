@@ -94,7 +94,7 @@ class Remoteapi{
 		{
 			$data=json_decode($_POST['projectData']);
 			$ProjectId=$data->project_id;
-			$TaskList=$data->task_list;
+			$TaskList=$data->task_list;echo $TaskList->task_id;die;
 			foreach ($TaskList[0]->expense_list as $value)
 			{
 				$insert="insert into expenser(task_id,date,amount,type,description) values ('".$TaskList->task_id."','".now()."','".$value->amount."','".$value->type."','".$value->description."')";
