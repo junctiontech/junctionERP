@@ -89,7 +89,7 @@ class Remoteapi{
 		}
 		//print_r($data->task_list);
 		die;*/
-		$CONNECTION=mysqli_connect("localhost",'root','bitnami',$data->db_name);
+		$CONNECTION=mysqli_connect("localhost",'root','bitnami','junction_erp');
 		if($CONNECTION)
 		{
 			$data=json_decode($_POST['projectData']);
