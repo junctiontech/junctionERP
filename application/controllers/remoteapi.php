@@ -102,11 +102,24 @@ class Remoteapi{
 			} 
 			if($query)
 			{
-				echo 'Insert Successfully';
+				echo ' Expense Insert Successfully';
 			}
 			else
 			{
-				echo 'error';
+				echo 'Expense Does Not Insert Successfully';
+			}
+			foreach ($TaskList[0]->receipt_list as $value)
+			{		//echo $value->amount;
+				$insert="insert into reciepts(task_id,material,quantity,rate,unit) values ('".$task_id."','".$value->material."','".$value->quantity."','".$value->rate."','".$value->unit."')";
+				$query=mysqli_query($CONNECTION,$insert);
+			}
+			if($query)
+			{
+				echo ' Receipt Insert Successfully';
+			}
+			else
+			{
+				echo 'Receipt Does Not Insert Successfully';
 			}
 		}
 	}
