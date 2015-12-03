@@ -96,10 +96,10 @@ class Remoteapi{
 			$ProjectId=$data->project_id;
 			$TaskList=$data->task_list; $task_id=1;//print_r($TaskList[1]->expense_list);die;
 			foreach ($TaskList[0]->expense_list as $value)
-			{		echo $value->amount;
-				//$insert="insert into expenser(task_id,date,amount,type,description) values ('".$task_id."','".$task_id."','".$value->amount."','".$value->type."','".$value->description."')";
-				//$query=mysqli_query($CONNECTION,$insert);
-			} die;
+			{		//echo $value->amount;
+				$insert="insert into expenser(task_id,date,amount,type,description) values ('".$task_id."','".$task_id."','".$value->amount."','".$value->type."','".$value->description."')";
+				$query=mysqli_query($CONNECTION,$insert);
+			} 
 			if($query)
 			{
 				echo 'Insert Successfully';
