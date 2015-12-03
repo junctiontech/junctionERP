@@ -80,7 +80,7 @@ class Remoteapi{
 	/* Function for Update Task For Androide Application */
 	function project_update()
 	{ 
-		$data=json_decode($_POST['projectData']);
+		$data=json_decode($_POST['projectData']); 
 		$ProjectId=$data->project_id;
 		$TaskList=$data->task_list;print_r($TaskList[0]->expense_list);die;
 		foreach($TaskList as $list)
