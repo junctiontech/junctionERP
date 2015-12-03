@@ -95,9 +95,6 @@ class Remoteapi{
 			$data=json_decode($_POST['projectData']);
 			$ProjectId=$data->project_id;
 			$TaskList=$data->task_list; //echo count($TaskList[0]->expense_list);die; echo $TaskList[1]->task_id;die; //$task_id=1;print_r($TaskList[1]->expense_list);die;
-				if(count($TaskList[0]->expense_list)>0)
-				{
-					//$i=0;
 					$taskid= $TaskList[0]->task_id;
 					foreach ($TaskList[0]->expense_list as $value)
 					{		//echo $value->amount;
@@ -113,10 +110,7 @@ class Remoteapi{
 						echo ' Expense Does Not Insert Successfully ';
 					}
 					
-				}
-				
-					if(count($TaskList[0]->receipt_list)>0)
-				{	
+					
 					$taskid=$TaskList[0]->task_id;
 					foreach ($TaskList[0]->receipt_list as $value)
 					{		//echo $value->amount;
@@ -131,7 +125,7 @@ class Remoteapi{
 					{
 						echo 'Receipt Does Not Insert Successfully';
 					}
-				}
+				
 		}
 	}
 	
