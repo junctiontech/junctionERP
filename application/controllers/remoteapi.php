@@ -94,7 +94,7 @@ class Remoteapi{
 		{
 			$data=json_decode($_POST['projectData']);
 			$ProjectId=$data->project_id;
-			$TaskList=$data->task_list; echo count($TaskList[0]->expense_list);die; echo $TaskList[1]->task_id;die; //$task_id=1;print_r($TaskList[1]->expense_list);die;
+			$TaskList=$data->task_list; //echo count($TaskList[0]->expense_list);die; echo $TaskList[1]->task_id;die; //$task_id=1;print_r($TaskList[1]->expense_list);die;
 			$i=0;	if(count($TaskList[0]->expense_list)>0)
 				{
 					$taskid=$TaskList[$i]->task_id;
