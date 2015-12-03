@@ -80,22 +80,29 @@ class Remoteapi{
 	/* Function for Update Task For Androide Application */
 	function project_update()   
 	{ 
-		$data=json_decode($_POST['projectData']); 
+		/*$data=json_decode($_POST['projectData']); 
 		$ProjectId=$data->project_id;
 		$TaskList=$data->task_list;print_r($TaskList[0]->expense_list);die;
-		foreach($TaskList as $list)
+		foreach($TaskList[0]->expense_list as $value)
 		{
-			$insert="insert into expenser(task_id,date,amount,type,description) values ('".$value->task_id."','".$value->date."','".$value->amount."','".$value->type."','".$value->description."')";
+			$insert="insert into expenser(task_id,date,amount,type,description) values ('".$TaskList->task_id."','".now()."','".$value->amount."','".$value->type."','".$value->description."')";
 		}
-		print_r($data->task_list);
-		die;
+		//print_r($data->task_list);
+		die;*/
 		$CONNECTION=mysqli_connect("localhost",'root','bitnami',$data->db_name);
 		if($CONNECTION)
 		{
-			foreach ($data as $value)
+			$data=json_decode($_POST['projectData']);
+			$ProjectId=$data->project_id;
+			$TaskList=$data->task_list;
+			foreach ($TaskList[0]->expense_list as $value)
 			{
-				$insert="insert into expenser(task_id,date,amount,type,description) values ('".$value->task_id."','".$value->date."','".$value->amount."','".$value->type."','".$value->description."')";
+				$insert="insert into expenser(task_id,date,amount,type,description) values ('".$TaskList->task_id."','".now()."','".$value->amount."','".$value->type."','".$value->description."')";
 				$query=mysqli_query($CONNECTION,$insert);
+				if($query)
+				{
+					echo 'Insert Successfully';
+				}
 			}
 		}
 	}
