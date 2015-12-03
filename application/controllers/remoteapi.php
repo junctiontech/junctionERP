@@ -99,14 +99,15 @@ class Remoteapi{
 			{
 				$insert="insert into expenser(task_id,date,amount,type,description) values ('".$task_id."','".$task_id."','".$value->amount."','".$value->type."','".$value->description."')";
 				$query=mysqli_query($CONNECTION,$insert);
-				if($query)
-				{
-					echo 'Insert Successfully';
-				}
-				else 
-				{
-					echo 'error';
-				}
+				
+			}
+			if($query)
+			{
+				echo 'Insert Successfully';
+			}
+			else
+			{
+				echo 'error';
 			}
 		}
 	}
