@@ -95,7 +95,8 @@ class Remoteapi{
 			$data=json_decode($_POST['projectData']);
 			$ProjectId=$data->project_id;
 			$TaskList=$data->task_list; //echo count($TaskList[0]->expense_list);die; echo $TaskList[1]->task_id;die; //$task_id=1;print_r($TaskList[1]->expense_list);die;
-					$taskid= $TaskList[0]->task_id;
+					
+					$taskid= 1;
 					foreach ($TaskList[0]->expense_list as $value)
 					{		//echo $value->amount;
 						$insert="insert into expenser(project_id,task_id,date,amount,type,description) values ('".$ProjectId."','".$taskid."','".date('Y-m-d')."','".$value->amount."','".$value->type."','".$value->description."')";
@@ -111,7 +112,7 @@ class Remoteapi{
 					}
 					
 					
-					$taskid=$TaskList[0]->task_id;
+					$taskid=1;
 					foreach ($TaskList[0]->receipt_list as $value)
 					{		//echo $value->amount;
 						$insert="insert into reciepts(project_id,task_id,material,quantity,rate,unit) values ('".$ProjectId."','".$taskid."','".$value->material."','".$value->quantity."','".$value->rate."','".$value->unit."')";
